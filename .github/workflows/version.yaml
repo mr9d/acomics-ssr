@@ -18,5 +18,5 @@ jobs:
         uses: juliansangillo/tag-version@v1
         with:
           production-branch: main
-          test-branch: test
-          dev-branch: develop
+        #   test-branch: test
+        #   dev-branch: develop

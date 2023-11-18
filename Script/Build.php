@@ -126,7 +126,7 @@ class Build
         }
 
         foreach ($layouts as $layout) {
-            echo 'Building bundle for layout: ' . $layout . PHP_EOL;
+            echo 'Building bundles for layout: ' . $layout . PHP_EOL;
             static::buildBundles($layout);
             echo PHP_EOL;
         }
