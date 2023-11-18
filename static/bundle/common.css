@@ -1,0 +1,9 @@
+/* Layout/Common/Component/Footer/Footer.css */
+.footer { color: grey; }
+
+/* Layout/Common/Component/Header/Header.css */
+.header { font-weight: bold; }
+
+/* Layout/Common/CommonLayout.css */
+div.common { display: block; }
+

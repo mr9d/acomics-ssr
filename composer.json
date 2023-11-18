@@ -1,0 +1,22 @@
+{
+    "name": "acomics/ssr",
+    "description": "UI-components for acomics.ru server-side rendering",
+    "autoload": {
+        "psr-4": {
+            "Acomics\\Ssr\\": "/"
+        },
+        "classmap": [
+            "Script/Build.php"
+        ]
+    },
+    "scripts": {
+        "build": [
+            "@clean",
+            "Acomics\\Ssr\\Script\\Build::run"
+        ],
+        "clean": "rm -rf static/bundle"
+    },
+    "require": {
+        "php": "^8.1"
+    }
+}
