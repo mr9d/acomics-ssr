@@ -131,6 +131,6 @@ class Build
             echo PHP_EOL;
         }
 
-        echo 'Done.' . PHP_EOL;
+        echo 'Done' . PHP_EOL;
     }
 }
