@@ -1,7 +1,3 @@
-'use strict';
-(() => {
-
-/* src/Layout/Common/Component/HeaderModal/HeaderModal.js */
 // Проверка наличия вертикального скролла
 const isScrollVisible = () => {
 	return document.body.clientHeight > document.scrollingElement.clientHeight;
@@ -47,14 +43,3 @@ const makeHeaderMenu = (menuSelector, buttonSelector, visibleClass) => {
 	buttonElement.addEventListener('click', showMenu);
 	menuElement.querySelector('nav').addEventListener('click', (evt) => evt.stopPropagation());
 }
-
-/* src/Layout/Common/CommonLayout.js */
-// Инициализация общих элементов страницы
-const init = () => {
-	makeHeaderMenu('div.user-menu', 'button.toggle-user-menu', 'user-menu-visible');
-	makeHeaderMenu('div.main-menu', 'button.toggle-main-menu', 'main-menu-visible');
-};
-
-init();
-
-})();

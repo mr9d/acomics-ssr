@@ -34,14 +34,14 @@ abstract class AbstractLayout
         }
     }
 
-    public function start(): void
+    public function top(): void
     {
         echo '<!DOCTYPE html><html><head>';
         echo $this->head();
         echo '</head><body>';
     }
 
-    public function stop(): void
+    public function bottom(): void
     {
         echo '</body></html>';
     }

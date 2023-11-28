@@ -1,0 +1,138 @@
+div.common-header-background {
+	height:54px; box-shadow:0 0 3px 1px rgba(0,0,0,0.2); display: flex; z-index: 30;
+	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='128px' height='54px' viewBox='0 0 128 54'><defs><g id='Layer4_0_FILL'><path fill='%23D00026' stroke='none' d='M 128 54L 128 0 0 0 0 54 128 54 Z'/></g><g id='Layer3_0_FILL'><path fill='%23FCD4BC' stroke='none' d='M 80 0L 48 0 48 54 80 54 80 0 Z'/></g><g id='Layer2_0_FILL'><path fill='%23F092A4' stroke='none' d='M 112 54L 112 0 80 0 80 54 112 54 Z'/></g><g id='Layer1_0_FILL'><path fill='%235A002D' stroke='none' d='M 80 27L 64 54 96 54 80 27M 96 0L 112 27 128 0 96 0M 16 27L 32 54 48 27 16 27 Z'/><path fill='%234A6CBC' stroke='none' d='M 48 27L 64 0 32 0 48 27M 64 0L 80 27 96 0 64 0 Z'/><path fill='%23EFA821' stroke='none' d='M 112 27L 96 0 80 27 112 27M 16 27L 0 27 0 54 16 27M 128 27L 112 27 128 54 128 27 Z'/><path fill='%23F092A4' stroke='none' d='M 48 27L 32 54 64 54 48 27M 0 0L 16 27 32 0 0 0 Z'/></g><g id='Layer0_0_FILL'><path fill='%23D00026' stroke='none' d='M 96 54L 128 54 112 27 96 54 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer4_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer3_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer2_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer1_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>") repeat-x top;
+}
+
+div.common-header-background-clip {
+	flex-basis: 1088px; flex-grow: 0; flex-shrink: 1; height:54px; background-color: #fff; margin: 0 auto; box-sizing: border-box;
+	clip-path: polygon(calc(50% - 545px) -1.5px, calc(50% + 545px) -1.5px, calc(50% + 528px) 27px, calc(50% + 545px) 55.5px, calc(50% - 545px) 55.5px, calc(50% - 528px) 27px);
+}
+
+/* Логотип */
+a.common-logo { display: flex; align-items: center; column-gap: 10px; text-transform: uppercase; text-decoration: none; }
+a.common-logo svg { flex-shrink: 0; }
+a.common-logo p { color: #D31335; font-family: 'yanone_kaffeesatzregular', sans-serif; line-height: 1; font-size: 20px; margin: 0; }
+a.common-logo p.full { display: none; }
+a.common-logo p.short { display: none; }
+
+/* Пункты в основном меню */
+a.common-menu-item, a.common-menu-item:visited {
+	font-size: 18px; font-family: 'yanone_kaffeesatzregular', sans-serif; text-transform: uppercase;
+	display:block; padding:calc(var(--mobile-gap) - 1px) var(--mobile-gap) var(--mobile-gap); text-decoration:none; position: relative; line-height: 1; white-space: nowrap; color: var(--brand-blue);
+}
+a.common-menu-item span { position:absolute; height:1px; border-bottom:1px solid #4a6cbc; left:10px; right:10px; bottom:9px; }
+a.common-menu-item:hover span { border-color:#fff; }
+a.common-menu-item.ext { padding-left: 17px; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='9px' height='9px' viewBox='0 0 9 9'><defs><g id='FL_4_0_Layer0_0_FILL'><path fill='%234A6CBC' stroke='none' d='M 4 4Q 0.22265625 4.1236328125 0 8L 0 32Q 0.1 35.8 4 36L 28 36Q 31.6787109375 35.9728515625 32 32L 32 26Q 32 23.75 30 23.75 28.05 23.75 28 26L 28 29Q 28.0201171875 32.019921875 25 32L 7 32Q 4.1353515625 31.8646484375 4 29L 4 11Q 4.33984375 8.2431640625 7 8L 10 8Q 12.25 8 12.25 6 12.25 4 10 4L 4 4M 31.25 9.7Q 32.2 9.65 32 12L 32 14Q 32 16.25 34 16.25 36 16.25 36 14L 36 0 22 0Q 19.75 0 19.75 2 19.8 4 22 4L 24 4Q 26.4 3.9 26.25 5 26.15 5.95 24 8L 16 16Q 14.075 18.0962890625 16 20 18.0021484375 22.0556640625 20 20L 28 12Q 30.25 9.7 31.25 9.7 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.25, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23FL_4_0_Layer0_0_FILL'/></g></g></svg>") 3px center no-repeat; }
+a.common-menu-item.ext span { left: 17px; }
+a.common-menu-item.selected, a.common-menu-item.selected:hover { color:#111; }
+a.common-menu-item.selected span, a.common-menu-item.selected:hover span { border-color:#111; }
+
+/* Основная шапка */
+header.common-header {
+	width: 100%; max-width: var(--max-width); min-width: var(--min-width); height: 54px;
+	display: flex; align-items: center; justify-content: space-between;
+	position: absolute; top: 0; left: 0; right: 0; margin: 0 auto;
+	padding: 0 calc(var(--mobile-gap) - 7px); box-sizing: border-box;
+	background-image: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.4)); z-index: 40;
+}
+
+header.common-header button.toggle-main-menu {
+	padding: 7px; display: block; border: 0px; background: none;
+}
+header.common-header button.toggle-main-menu span {
+	display: block; width: 40px; height: 40px; border: 0px; border-radius: 20px; cursor: pointer;
+	background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path fill='%23d3202a' stroke='none' d='M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z' /></svg>") center/40% no-repeat;
+}
+header.common-header button.toggle-main-menu:hover span {background-color: var(--brand-grey); }
+
+/* Аватарка пользователя */
+header.common-header section.user { position: relative; display: flex; }
+header.common-header button.toggle-user-menu {
+	padding: 0 7px; display: flex; border: 0; background: none; height: 54px; align-items: center; cursor: pointer;
+}
+header.common-header button.toggle-user-menu img { border-radius: 50% 50%; }
+header.common-header button.toggle-user-menu img.hasMessages { border: 2px solid var(--brand-blue); }
+header.common-header section.user a.msgCount {
+	display: block; position: absolute; top: 6px; left: -2px;
+	background: var(--brand-blue); color: #fff; border-radius: 5px; font-size: 11px; padding: 4px 4px; text-decoration: none; line-height: 1;
+}
+
+/* Кнопка публикации */
+header.common-header a.publish-button {
+	font-family: 'yanone_kaffeesatzregular', sans-serif; line-height: 1; font-size: 18px; text-transform: uppercase; text-decoration: none;
+	border: 1px solid var(--brand-blue); flex-grow: 0; flex-shrink: 0; margin: 0 3px; user-select: none; cursor: pointer;
+	display: none; align-items: center; min-width: 40px; height: 40px; border-radius: 20px; color: var(--brand-blue);
+	background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path fill='%234a6cbc' d='M246.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 109.3V320c0 17.7 14.3 32 32 32s32-14.3 32-32V109.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128zM64 352c0-17.7-14.3-32-32-32s-32 14.3-32 32v64c0 53 43 96 96 96H352c53 0 96-43 96-96V352c0-17.7-14.3-32-32-32s-32 14.3-32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V352z'/></svg>") no-repeat;
+	background-size: 16px;
+	background-position: 18px;
+}
+header.common-header a.publish-button:visited { color: var(--brand-blue); }
+header.common-header a.publish-button:hover { border-color: #fff; background-color: var(--brand-grey); }
+header.common-header a.publish-button span { margin: 0 20px 0 42px; }
+
+/* Основное меню в шапке */
+header.common-header nav.common-menu { flex-grow: 1; }
+header.common-header nav.common-menu ul { display: none; padding: 0; }
+header.common-header nav.common-menu a.common-logo { padding: 0 10px 0 7px; }
+header.common-header nav.common-menu ul { margin: 0; align-items: center; }
+header.common-header nav.common-menu li { margin: 0; list-style: none; }
+
+/* Закрепление шапки */
+@media screen and (min-height: 300px) {
+	header.common-header { position: fixed; }
+}
+
+@media screen and (min-height: 300px) and (min-width: 520px) {
+	div.common-header-background { position: sticky; top: 0; }
+}
+
+/* Скрываем кнопку всплывающего меню, показываем короткое меню */
+@media screen and (min-width: 520px) {
+	header.common-header button.toggle-main-menu { display: none; }
+    header.common-header nav.common-menu ul { display: flex; }
+	header.common-header nav.common-menu a.common-menu-item { padding-left: 5px; padding-right: 5px; }
+	header.common-header nav.common-menu a.common-menu-item span { left: 5px; right: 5px; }
+	header.common-header nav.common-menu a.common-menu-item.ext { display: none; }
+	header.common-header a.publish-button { display: flex; background-position: center; }
+	header.common-header a.publish-button span { display: none; }
+}
+
+/* Показываем длинное меню */
+@media screen and (min-width: 700px) {
+	header.common-header nav.common-menu a.common-menu-item.ext { padding-left: 14px; display: block; }
+	header.common-header nav.common-menu a.common-menu-item.ext span { left: 14px; }
+}
+
+/* Показываем короткое название сайта */
+@media screen and (min-width: 780px) {
+	header.common-header a.common-logo p.short { display: block; }
+}
+
+/* Показываем полное название сайта */
+@media screen and (min-width: 840px) {
+	header.common-header a.common-logo p.short { display: none; }
+	header.common-header a.common-logo p.full { display: block; }
+}
+
+/* Увеличиваем расстояние между блоками */
+@media screen and (min-width: 920px) {
+	header.common-header nav.common-menu a.common-menu-item { padding-left: 10px; padding-right: 10px; }
+	header.common-header nav.common-menu a.common-menu-item span { left: 10px; right: 10px; }
+	header.common-header nav.common-menu a.common-menu-item.ext { padding-left: 17px; display: block; }
+	header.common-header nav.common-menu a.common-menu-item.ext span { left: 17px; }
+	header.common-header a.publish-button { margin-right: 13px; }
+	header.common-header nav.common-menu a.common-logo { padding-right: 15px; }
+}
+
+/* Показываем полный текст на кнопке публикации */
+@media screen and (min-width: 1000px) {
+	header.common-header a.publish-button { display: flex; background-position: 18px; }
+	header.common-header a.publish-button span { display: block; }
+}
+
+/* Убираем отступы в шапке */
+@media screen and (min-width: 1040px) {
+	header.common-header { padding: 0; }
+	header.common-header button.toggle-user-menu { padding-right: 0; }
+	header.common-header nav.common-menu a.common-logo { padding-left: 0; }
+}

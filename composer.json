@@ -4,10 +4,10 @@
 	"license": "proprietary",
     "autoload": {
         "psr-4": {
-            "Acomics\\Ssr\\": "/"
+            "Acomics\\Ssr\\": "src/"
         },
         "classmap": [
-            "Script/Build.php"
+            "src/Script/Build.php"
         ]
     },
     "scripts": {

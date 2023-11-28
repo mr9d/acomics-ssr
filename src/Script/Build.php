@@ -4,20 +4,21 @@ namespace Acomics\Ssr\Script;
 
 class Build
 {
-    private static string $LAYOUTS_DIR = 'Layout';
-    private static string $COMPONENTS_DIR = 'Component';
-    private static string $BUNDLE_DIR = 'static/bundle';
+    private const LAYOUTS_DIR = 'src/Layout';
+    private const COMPONENTS_DIR = 'Component';
+    private const BUNDLE_DIR = 'static/bundle';
+	private const HASHES_FILENAME = 'src/hashes.generated.php';
 
     private static function createBundleDirectory(): void
     {
-        if (!file_exists(self::$BUNDLE_DIR)) {
-            mkdir(static::$BUNDLE_DIR, 0777, true);
+        if (!file_exists(self::BUNDLE_DIR)) {
+            mkdir(self::BUNDLE_DIR, 0777, true);
         }
     }
 
     private static function getLayouts(): array
     {
-        $files = scandir(static::$LAYOUTS_DIR);
+        $files = scandir(self::LAYOUTS_DIR);
 
         if ($files === false) {
             return [];
@@ -25,13 +26,13 @@ class Build
 
         return array_filter(
             $files,
-            fn(string $file) => is_dir(static::$LAYOUTS_DIR . '/' . $file) && $file !== '.' && $file !== '..'
+            fn(string $file) => is_dir(self::LAYOUTS_DIR . '/' . $file) && $file !== '.' && $file !== '..'
         );
     }
 
     private static function getComponents(string $layout): array
     {
-        $files = scandir(static::$LAYOUTS_DIR . '/' . $layout . '/' . static::$COMPONENTS_DIR . '/');
+        $files = scandir(self::LAYOUTS_DIR . '/' . $layout . '/' . self::COMPONENTS_DIR . '/');
 
         if ($files === false) {
             return [];
@@ -39,32 +40,32 @@ class Build
 
         return array_filter(
             $files,
-            fn(string $file) => is_dir(static::$LAYOUTS_DIR . '/' . $layout . '/' . static::$COMPONENTS_DIR . '/' . $file) && $file !== '.' && $file !== '..'
+            fn(string $file) => is_dir(self::LAYOUTS_DIR . '/' . $layout . '/' . self::COMPONENTS_DIR . '/' . $file) && $file !== '.' && $file !== '..'
         );
     }
 
     private static function getComponentsFiles(string $layout, array $components, string $type): array
     {
         $files = array_map(
-            fn(string $component) => static::$LAYOUTS_DIR . '/' . $layout . '/' . static::$COMPONENTS_DIR . '/' . $component . '/' . $component . '.' . $type,
+            fn(string $component) => self::LAYOUTS_DIR . '/' . $layout . '/' . self::COMPONENTS_DIR . '/' . $component . '/' . $component . '.' . $type,
             $components
         );
-
-        array_push($files, static::$LAYOUTS_DIR . '/' . $layout . '/' . $layout . 'Layout.' . $type);
 
         return array_filter($files, fn(string $file) => file_exists($file));
     }
 
-    private static function makeBundlefilename(string $layout, string $type): string
+    private static function makeBundleFilename(string $layout, string $type): string
     {
-        return static::$BUNDLE_DIR . '/' . strtolower($layout) . '.' . $type;
+        return self::BUNDLE_DIR . '/' . strtolower($layout) . '.' . $type;
     }
 
     private static function buildCssBundle(string $layout, array $components): string
     {
         $files = static::getComponentsFiles($layout, $components, 'css');
 
-        $bundleFilename = static::makeBundlefilename($layout, 'css');
+        array_unshift($files, self::LAYOUTS_DIR . '/' . $layout . '/' . $layout . 'Layout.css');
+
+        $bundleFilename = static::makeBundleFilename($layout, 'css');
 
         $bundle = '';
         foreach($files as $file) {
@@ -81,7 +82,9 @@ class Build
     {
         $files = static::getComponentsFiles($layout, $components, 'js');
 
-        $bundleFilename = static::makeBundlefilename($layout, 'js');
+        array_push($files, self::LAYOUTS_DIR . '/' . $layout . '/' . $layout . 'Layout.js');
+
+        $bundleFilename = static::makeBundleFilename($layout, 'js');
 
         $bundle = '\'use strict\';' . PHP_EOL;
         $bundle .= '(() => {' . PHP_EOL . PHP_EOL;
@@ -99,7 +102,7 @@ class Build
         return $bundleFilename;
     }
 
-    private static function buildBundles(string $layout): void
+    private static function buildBundles(string $layout): array
     {
         $components = static::getComponents($layout);
         echo 'Components found: ' . implode(', ', $components) . PHP_EOL;
@@ -109,7 +112,26 @@ class Build
 
         $jsBundlefilename = static::buildJsBundle($layout, $components);
         echo 'JS bundle: ' . $jsBundlefilename . ' (' . filesize($jsBundlefilename) . ' bytes)' . PHP_EOL;
+
+		return array($cssBundlefilename, $jsBundlefilename);
     }
+
+	private static function calculateHashes(array $bundleFilenames): void
+	{
+		$content = '<?php' . PHP_EOL . PHP_EOL;
+		$content .= '// Этот файл сгенерирован автоматически. Не изменять вручную.' . PHP_EOL . PHP_EOL;
+
+		$content .= 'global $hashes;' . PHP_EOL;
+		$content .= '$hashes = array(' . PHP_EOL;
+		foreach($bundleFilenames as $bundleFilename) {
+			$hash = md5_file($bundleFilename);
+			echo $bundleFilename . ' => ' . $hash . PHP_EOL;
+			$content .= '  \'' . $bundleFilename . '\' => \'' . $hash . '\',' . PHP_EOL;
+		}
+		$content .= ');' . PHP_EOL;
+
+        file_put_contents(self::HASHES_FILENAME, $content);
+	}
 
     public static function run(): void
     {
@@ -125,11 +147,17 @@ class Build
             static::createBundleDirectory();
         }
 
+		$bundleFilenames = array();
+
         foreach ($layouts as $layout) {
             echo 'Building bundles for layout: ' . $layout . PHP_EOL;
-            static::buildBundles($layout);
+            array_push($bundleFilenames, ...static::buildBundles($layout));
             echo PHP_EOL;
         }
+
+		echo 'Calculating hashes:' . PHP_EOL;
+		static::calculateHashes($bundleFilenames);
+		echo PHP_EOL;
 
         echo 'Done' . PHP_EOL;
     }

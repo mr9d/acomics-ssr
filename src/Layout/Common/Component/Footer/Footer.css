@@ -1,0 +1,124 @@
+/* Спонсорский блок в подвале */
+footer.common-footer section.footer-sponsor {
+	padding: calc(var(--desktop-gap) * 2) var(--mobile-gap) 72px;
+	background: var(--brand-grey); position: relative; border-bottom:1px solid #ebe5dd; box-shadow: inset 0 -10px 10px -10px rgba(0,0,0,0.1);
+}
+footer.common-footer div.sponsor-aks {
+	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='167px' height='94px' viewBox='0 0 167 94'><defs><g id='Aks_0_Layer8_0_FILL'><path fill='%23C63636' stroke='none' d='M 2.35 27.45Q 3.4 30.7 9.85 28.45 16.25 26.2 21.45 25.75 26.7 25.3 30.45 26.65L 35.75 19.7Q 18.5 11.9 4.15 22.15 1.3 24.3 2.35 27.45M 11.8 44.6Q 16.0939453125 42.298828125 18.9 41.45 21.75 40.55 26.05 40.75L 29 32Q 17.504296875 26.7978515625 9.8 33.65 2.1455078125 40.5478515625 4.8 43.75 7.51171875 46.951953125 11.8 44.6M 32.45 14.85Q 37.5 16.05 40.45 18.25L 48.75 13.65Q 31.05 -0.4 13.95 4.95 10.5 6.05 11.1 9.5 11.65 12.95 15.6 13.05 26.25 13.4 32.45 14.85M 126 31L 129 38Q 135.72265625 38.3201171875 140.1 39.35 144.4830078125 40.384765625 151.75 43.7 159.0056640625 47.0048828125 160.95 44.1 162.95 41.25 159.65 38.45 143.05 24.7 126 31M 153.45 8.65Q 154.15 5.25 150 4 129.35 -2.2 108 11L 118 16Q 121.55 13.95 127.65 13 135.15 11.85 148 12 152.75 12.1 153.45 8.65M 165 26.85Q 166.4 23.7 162.6 21.55 143.7 11.25 121 19L 128 26Q 132.9681640625 24.64921875 139.8 25.1 146.686328125 25.5505859375 155.15 27.8 163.6044921875 30.0998046875 165 26.85 Z'/></g><g id='Aks_0_Layer7_0_FILL'><path fill='%23EDE0E1' stroke='none' d='M 138.2 48.75Q 138.44921875 30.981640625 122.15 17.75 105.8474609375 4.569140625 79.55 4.85 53.2482421875 5.14765625 35.6 17.8 17.958984375 30.4455078125 17.95 48.2 17.94609375 55.562890625 20.95 62L 135.3 62Q 138.101953125 55.8255859375 138.2 48.75 Z'/></g><g id='Aks_0_Layer6_0_FILL'><path fill='%23FCD4BC' stroke='none' d='M 31.05 54.05Q 25.15 60.05 25.15 68.5 25.15 77 31.05 82.95 37.1 88.95 45.55 88.95 54.05 88.95 60.05 82.95 66 77 66 68.5 66 60.05 60.05 54.05 54.05 48.05 45.55 48.05 37.1 48.05 31.05 54.05 Z'/></g><g id='Aks_0_Layer5_0_FILL'><path fill='%23EFA821' stroke='none' d='M 28.85 51.85Q 22 58.75 22 68.5 22 78.25 28.85 85.1 35.75 92 45.5 92 55.25 92 62.1 85.1 69 78.25 69 68.5 69 58.75 62.1 51.85 55.25 45 45.5 45 35.75 45 28.85 51.85M 27.1 68.5Q 27.1 60.85 32.45 55.45 37.9 50.05 45.55 50.05 53.2 50.05 58.6 55.45 64 60.85 64 68.5 64 76.15 58.6 81.55 53.2 86.95 45.55 86.95 37.9 86.95 32.45 81.55 27.1 76.15 27.1 68.5M 37 68L 37 71 41 71 41 73 37 73 37 76 41 76 41 81 45 81 45 76 52 76 52 73 45 73 45 71 48 71Q 53.9435546875 70.4544921875 54 63.15 54.04765625 55.8833984375 48 56L 41 56 41 68 37 68M 45 59L 47 59Q 50.5134765625 58.9791015625 50.5 63.3 50.4916015625 67.618359375 47 68L 45 68 45 59 Z'/></g><g id='Aks_0_Layer4_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 64.35 68.95Q 64.660546875 68.680078125 64.65 68.25 64.4373046875 60.63125 58.95 55.15 53.419921875 49.6103515625 45.65 49.45 45.25546875 49.43984375 44.95 49.7 44.6544921875 50.0125 44.65 50.4 44.6396484375 50.844140625 44.9 51.15 45.212890625 51.4451171875 45.6 51.45 52.580078125 51.589453125 57.55 56.55 62.4626953125 61.4685546875 62.65 68.3 62.6677734375 68.7390625 62.95 69 63.26953125 69.3109375 63.65 69.3 64.088671875 69.282421875 64.35 68.95 Z'/></g><g id='Aks_0_Layer3_0_FILL'><path fill='%23D2BEBF' stroke='none' d='M 26 81Q 22.496484375 73.48515625 23 62 22.6646484375 54.66796875 18 49 12.67734375 50.4654296875 8.75 54.6 4.8169921875 58.78828125 5 64 5.2443359375 69.2037109375 10.2 73.6 15.75 78.55 26 81M 106 62Q 102.4443359375 54.0443359375 94.65 51.15 86.8681640625 48.31640625 78.7 50.95 70.53046875 53.5861328125 66.75 62.15 63.015625 70.708203125 65 82 83.6630859375 61.6572265625 106 62 Z'/></g><g id='Aks_0_Layer2_0_FILL'><path fill='%23727190' stroke='none' d='M 56.45 32.75Q 56.9087890625 28.7576171875 53.15 25.3 49.39453125 21.89375 44.35 21.55 39.2943359375 21.2486328125 35.8 23.95 32.360546875 26.6546875 32.2 30.1 32.046484375 33.5984375 35.55 37.05 39.1 40.4 44.05 41.05 49 41.7 52.45 39.25 55.9966796875 36.747265625 56.45 32.75M 107.2 32.2Q 107.4341796875 26.5359375 102.85 23.75 98.262890625 21.0248046875 91.65 22.05 85.093359375 23.1267578125 80.55 26.35 76.001171875 29.61015625 76 34.35 76 39.08671875 80.55 41.95 85.1 44.8142578125 91.5 44.55 97.8998046875 44.3341796875 102.45 41.1 107.005078125 37.8603515625 107.2 32.2 Z'/><path fill='%23D2BEBF' stroke='none' d='M 59.1 14.3Q 57.0537109375 13 55 13 52.9509765625 12.99609375 50.6 14.55 48.2466796875 16.16171875 46.6 18.5 44.94765625 20.836328125 49.35 21.2 53.8140625 21.5662109375 56 21.5 58.180859375 21.4375 59.5 20.4 60.8140625 19.3537109375 61 17.5 61.1888671875 15.65 59.1 14.3M 91 18.05Q 91.9123046875 16.2568359375 87.2 14.3 82.49375 12.394921875 80 12.7 77.501171875 13.0044921875 75.4 14.4 73.349609375 15.7849609375 73.25 17.65 73.1501953125 19.51484375 75.3 20.75 77.4998046875 21.994921875 80 22 82.5048828125 22.0025390625 86.3 20.9 90.0849609375 19.8421875 91 18.05 Z'/></g><g id='Aks_0_Layer1_0_FILL'><path fill='%232D2E3A' stroke='none' d='M 53.9 31.45Q 54.04453125 29.403515625 51.75 27.45 49.4 25.45 46.1 25.1 42.8 24.75 40.5 26.25 38.15 27.7 38.15 30.2 38.15 32.7 40.5 34.7 42.8052734375 36.6962890625 46.05 36.9 49.3337890625 37.1107421875 51.55 35.3 53.816015625 33.4890625 53.9 31.45M 95.05 31.65Q 95.0013671875 29.2537109375 92.45 27.75 89.948046875 26.2927734375 86.55 26.35 83.1505859375 26.45234375 80.65 28.6 78.2 30.7 78.2 33.4 78.2 36.1 80.65 37.7 83.15 39.3521484375 86.65 38.9 90.1501953125 38.444140625 92.6 36.25 95.0990234375 34.1033203125 95.05 31.65 Z'/></g><g id='Aks_0_Layer0_0_FILL'><path fill='%23F5E1DF' stroke='none' d='M 43 29.05Q 42.9970703125 27.8044921875 41.9 27.1 40.8083984375 26.385546875 39.35 26.4 37.890625 26.4166015625 36.6 27.25 35.3044921875 28.0892578125 35.4 29.25 35.49765625 30.45703125 36.75 31.2 38.0505859375 31.9474609375 39.5 31.95 40.95 31.95 41.95 31.05 43 30.25 43 29.05M 97.9 31Q 97.9396484375 29.75 96.6 28.85 95.2533203125 28 94 28 92.751171875 27.995703125 91.5 28.95 90.2962890625 29.9626953125 90.35 31.2 90.403515625 32.437109375 91.55 33.2 92.7486328125 34.0041015625 94 34 95.246484375 34 96.55 33.1 97.86015625 32.25 97.9 31 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Aks_0_Layer8_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Aks_0_Layer7_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Aks_0_Layer6_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Aks_0_Layer5_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Aks_0_Layer4_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Aks_0_Layer3_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Aks_0_Layer2_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Aks_0_Layer1_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Aks_0_Layer0_0_FILL'/></g></g></svg>") 0 0 no-repeat;
+	width:167px; height:93px; position: absolute; left: 0; right:0; margin:0 auto; bottom: -31px;
+}
+footer.common-footer p.support-highlight { margin: 0; text-align: center; }
+footer.common-footer p.support-highlight a {
+	font-family: 'yanone_kaffeesatzregular', sans-serif; text-decoration: none;
+	display: inline-block; text-transform: uppercase; font-size: 22px;
+	background: var(--brand-red); color: #f3eee7; padding: 7px 15px; border-radius: 3px;
+}
+footer.common-footer p.subscribe-highlight {
+	font-size: 26px; font-family: 'yanone_kaffeesatzregular', sans-serif; color: var(--brand-red);
+	margin: var(--mobile-gap) 0 0; text-align: center;
+}
+footer.common-footer p.subscribe-highlight a,
+footer.common-footer p.subscribe-highlight a:hover,
+footer.common-footer p.subscribe-highlight a:visited { color: #d3202a; white-space: nowrap; }
+
+/* Увеличиваем шрифт в спонсорском блоке */
+@media screen and (min-width: 450px) {
+	footer.common-footer p.support-highlight a { font-size: 28px; }
+}
+
+/* Прибиваем Акса к правой части, располагаем текст слева */
+@media screen and (min-width: 560px) {
+	footer.common-footer section.footer-sponsor { padding: var(--desktop-gap) var(--mobile-gap); }
+	footer.common-footer div.sponsor-aks { left: inherit; right:var(--mobile-gap); margin:0; }
+	footer.common-footer p.support-highlight { text-align: left; }
+	footer.common-footer p.subscribe-highlight { text-align: left; }
+}
+
+/* Располагаем текст в строчку по центру */
+@media screen and (min-width: 640px) {
+	footer.common-footer section.footer-sponsor { display: flex; padding: var(--desktop-gap)  var(--mobile-gap) 72px; align-items: center; justify-content: center; }
+	footer.common-footer div.sponsor-aks { left: 0; right:0; margin:0 auto; }
+	footer.common-footer p.support-highlight a { font-size: 22px; }
+	footer.common-footer p.subscribe-highlight { margin: 0 0 0 var(--mobile-gap); }
+}
+
+/* Располагаем Акса финально справа */
+@media screen and (min-width: 840px) {
+	footer.common-footer section.footer-sponsor { justify-content: flex-start; padding-top: var(--desktop-gap); }
+	footer.common-footer section.footer-sponsor { display: flex; padding-bottom: var(--desktop-gap); }
+	footer.common-footer div.sponsor-aks { left: 643px; margin: 0; }
+}
+
+/* Добавляем нормальные отступы */
+@media screen and (min-width: 920px) {
+	footer.common-footer section.footer-sponsor { padding: var(--desktop-gap) 0 var(--desktop-gap) 30px; }
+	footer.common-footer div.sponsor-aks { left: 663px; }
+}
+
+/* Основной подвал */
+footer.common-footer section.footer-main { padding: var(--desktop-gap) 0; }
+footer.common-footer section.footer-main nav ul {
+	margin: 0; padding: 0; list-style: none;
+	display: flex; flex-wrap: wrap; justify-content: center;
+}
+footer.common-footer section.footer-main nav li { list-style: none; }
+footer.common-footer section.footer-main nav a { display: block; padding: var(--mobile-gap); white-space: nowrap; }
+
+footer.common-footer section.footer-main form { display: block; padding: var(--mobile-gap); }
+
+footer.common-footer section.footer-main form div.wrapper { position: relative; }
+footer.common-footer section.footer-main form input { width:100%; height:30px; padding-left:30px; box-sizing: border-box; }
+footer.common-footer section.footer-main form button { display:block; width:28px; height:28px; padding:0; margin:0; position:absolute; top:1px; left:1px; border:0px; background:rgba(255,255,255,0); box-shadow:0 0 0 #fff; }
+footer.common-footer section.footer-main form button span {
+	display:block; width:15px; height:15px; position:absolute; top:7px; left:7px;
+	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='15px' height='15px' viewBox='0 0 15 15'><defs><g id='D_0_Layer0_0_FILL'><path fill='%234A6CBC' stroke='none' d='M 35.85 6.15Q 29.7 0 21 0 12.3 0 6.15 6.15 0 12.3 0 21 0 29.7 6.15 35.85 12.3 42 21 42 26.721484375 42 31.35 39.35L 48 56Q 51.2 59.25 54.3 59.85 57.05 60.35 58.65 58.7 60.25 57.05 59.7 54.2 59.1 51.1 56 48L 39.35 31.35Q 42 26.721484375 42 21 42 12.3 35.85 6.15M 31.4 10.65Q 35.7 14.95 35.7 21 35.7 27.1 31.4 31.4 27.1 35.7 21 35.7 14.95 35.7 10.65 31.4 6.35 27.1 6.35 21 6.35 14.95 10.65 10.65 14.95 6.35 21 6.35 27.1 6.35 31.4 10.65 Z'/></g></defs><g transform='matrix( 0.250823974609375, 0, 0, 0.25, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23D_0_Layer0_0_FILL'/></g></g></svg>") 0 0 no-repeat;
+}
+
+footer.common-footer section.footer-main p {
+	margin: 0; padding: 0 var(--mobile-gap) 30px;
+	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='38px' height='30px' viewBox='0 0 38 30'><defs><g id='A_0_Layer0_0_FILL'><path fill='%23000000' stroke='none' d='M 152.05 60.05Q 152.05 35.2 135.05 17.65 118.1 0.1 94.1 0.1 70.05 0.1 53.05 17.65 42.773828125 28.28984375 38.7 41.6L 0 60 38.7 78.5Q 42.7771484375 91.833203125 53.05 102.5 70.05 120.05 94.1 120.05 118.1 120.05 135.05 102.5 152.05 84.9 152.05 60.05M 143.2 60.05Q 143.2 81.15 128.8 96.05 114.45 110.95 94.05 110.95 73.65 110.95 59.25 96.05 53.909765625 90.5244140625 50.55 84.15 47.5775390625 78.5044921875 46.15 72L 20 60 46.1 48Q 47.546875 41.6658203125 50.5 36 53.8953125 29.6220703125 59.25 24.1 73.65 9.2 94.05 9.2 114.45 9.2 128.8 24.1 143.2 38.95 143.2 60.05M 82 58L 92 80 100 80 82 40 64 80 72 80 82 58M 120 40L 112 40 100 60 112 80 120 80 108 60 120 40 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.2504119873046875, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23A_0_Layer0_0_FILL'/></g></g></svg>") bottom 1px center no-repeat;
+}
+footer.common-footer section.footer-main p span { display: block; text-align: center; margin: 11px 0; }
+
+@media screen and (min-width: 520px) {
+	footer.common-footer section.footer-main p {
+		background-position: left; padding: 0 0 0 calc(var(--mobile-gap) + 38px); margin: var(--mobile-gap) var(--mobile-gap) 0;
+	}
+	footer.common-footer section.footer-main p span { text-align: left; margin: 0; }
+}
+
+@media screen and (min-width: 700px) {
+	footer.common-footer section.footer-main {
+		display: grid;
+		grid-template-areas:
+			"nav nav"
+			"p form";
+	}
+	footer.common-footer section.footer-main nav { grid-area: nav; }
+	footer.common-footer section.footer-main p { grid-area: p; margin-right: 0; white-space: nowrap; }
+	footer.common-footer section.footer-main form { grid-area: form; }
+}
+
+@media screen and (min-width: 840px) {
+	footer.common-footer section.footer-main {
+		grid-template-areas:
+			"p form"
+			"nav form";
+		background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='38px' height='30px' viewBox='0 0 38 30'><defs><g id='A_0_Layer0_0_FILL'><path fill='%23000000' stroke='none' d='M 152.05 60.05Q 152.05 35.2 135.05 17.65 118.1 0.1 94.1 0.1 70.05 0.1 53.05 17.65 42.773828125 28.28984375 38.7 41.6L 0 60 38.7 78.5Q 42.7771484375 91.833203125 53.05 102.5 70.05 120.05 94.1 120.05 118.1 120.05 135.05 102.5 152.05 84.9 152.05 60.05M 143.2 60.05Q 143.2 81.15 128.8 96.05 114.45 110.95 94.05 110.95 73.65 110.95 59.25 96.05 53.909765625 90.5244140625 50.55 84.15 47.5775390625 78.5044921875 46.15 72L 20 60 46.1 48Q 47.546875 41.6658203125 50.5 36 53.8953125 29.6220703125 59.25 24.1 73.65 9.2 94.05 9.2 114.45 9.2 128.8 24.1 143.2 38.95 143.2 60.05M 82 58L 92 80 100 80 82 40 64 80 72 80 82 58M 120 40L 112 40 100 60 112 80 120 80 108 60 120 40 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.2504119873046875, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23A_0_Layer0_0_FILL'/></g></g></svg>") left var(--mobile-gap) center no-repeat;
+	}
+	footer.common-footer section.footer-main nav ul { justify-content: left; padding-left: calc(38px + var(--mobile-gap) - 4px); margin: 0 var(--mobile-gap); }
+	footer.common-footer section.footer-main nav a { padding: 4px; white-space: nowrap; }
+	footer.common-footer section.footer-main p { background: none; margin-top: 0; }
+	footer.common-footer section.footer-main form { align-self: center; padding: 0 var(--mobile-gap); }
+}
+
+@media screen and (min-width: 920px) {
+	footer.common-footer section.footer-main { padding: var(--desktop-gap); background-position-x: var(--desktop-gap); }
+	footer.common-footer section.footer-main nav ul { padding: 0 0 0 calc(38px + var(--mobile-gap) - 4px); margin: 0; }
+	footer.common-footer section.footer-main p { padding: 0 0 0 calc(38px + var(--mobile-gap)); margin: 0; }
+}
+
+@media screen and (min-width: 1040px) {
+	footer.common-footer section.footer-main p span { display: inline; }
+	footer.common-footer section.footer-main nav a { padding-bottom: 0; }
+}

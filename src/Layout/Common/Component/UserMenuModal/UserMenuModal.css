@@ -1,0 +1,22 @@
+/* Меню пользователя */
+div.user-menu { z-index: 21; flex-direction: row-reverse; }
+div.user-menu nav { width: calc((var(--min-width) - var(--desktop-gap))); box-sizing: border-box; background: #fff; line-height: 1;  box-shadow:0 0 3px 1px rgba(0,0,0,0.2); }
+div.user-menu p { padding: var(--desktop-gap) 0 15px; margin: 0 var(--desktop-gap); }
+div.user-menu p b { color: #111; display: inline-block; max-width: 240px; text-overflow: ellipsis; vertical-align: middle; white-space: nowrap; overflow-x: hidden; }
+div.user-menu form { padding: 5px 0 var(--desktop-gap); border-top: 1px solid #ebe5dd; margin: 0 var(--desktop-gap); }
+div.user-menu form label { display:block; margin: 10px 0 5px; }
+div.user-menu form input.text { display:block; margin: 0; height:40px; width: 100%; }
+div.user-menu form span.forget { display:block; padding: 10px 0 0 0; float:right; }
+div.user-menu form button { margin:10px 0 0 0; }
+div.user-menu ul { margin: 0; padding: 0; border-bottom: 1px solid #ebe5dd; margin-bottom: 10px; }
+div.user-menu li { margin: 0; list-style: none; display: block; }
+div.user-menu li a { display: block; padding: 10px var(--desktop-gap); border-top: 1px solid #ebe5dd; }
+div.user-menu li a:hover { background-color: var(--brand-grey); border-right: 5px solid var(--brand-orange); }
+div.user-menu li a:visited { color: var(--brand-blue); }
+
+/* Включение меню пользователя */
+body.user-menu-visible div.common-header-background { position: sticky; top: 0; }
+body.user-menu-visible header.common-header { position: fixed; }
+body.user-menu-visible div.user-menu { display: flex; }
+body.user-menu-visible div.header-fade { display: block; }
+body.user-menu-visible header.common-header a.publish-button { display: flex; }

@@ -1,0 +1,6 @@
+/* Затемнение и всплывающее меню */
+div.header-fade { display: none; position: fixed; left:0; top:0; right:0; bottom:0; background:rgba(0,0,0,0.5); z-index: 10; }
+div.header-modal {
+	display: none; position: fixed; top: 54px; right: 0; bottom: 0; left: 0; overflow-y: auto;
+	width: 100%; max-width: var(--max-width); min-width: var(--min-width); margin: 0 auto; align-items: flex-start; height: auto;
+}
