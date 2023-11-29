@@ -24,13 +24,13 @@ abstract class AbstractLayout
     {
         echo '<meta charset="utf-8">';
         echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
-        echo `<title>$this->title</title>`;
+        echo '<title>' . $this->title . '</title>';
 
         if ($this->seoKeywords !== null) {
-            echo `<meta name="keywords" content="$this->seoKeywords" />`;
+            echo '<meta name="keywords" content="' . $this->seoKeywords . '" />';
         }
         if ($this->seoDescription !== null) {
-            echo `<meta name="description" content="$this->seoDescription" />`;
+            echo '<meta name="description" content="' . $this->seoDescription . '" />';
         }
     }
 

@@ -96,7 +96,7 @@ footer.common-footer section.footer-main p span { display: block; text-align: ce
 	}
 	footer.common-footer section.footer-main nav { grid-area: nav; }
 	footer.common-footer section.footer-main p { grid-area: p; margin-right: 0; white-space: nowrap; }
-	footer.common-footer section.footer-main form { grid-area: form; }
+	footer.common-footer section.footer-main form { grid-area: form; padding-bottom: 0; }
 }
 
 @media screen and (min-width: 840px) {
