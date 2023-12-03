@@ -59,11 +59,21 @@ class Build
         return self::BUNDLE_DIR . '/' . strtolower($layout) . '.' . $type;
     }
 
-    private static function buildCssBundle(string $layout, array $components): string
+    private static function buildCssBundle(string $layout, array $components): ?string
     {
         $files = static::getComponentsFiles($layout, $components, 'css');
 
-        array_unshift($files, self::LAYOUTS_DIR . '/' . $layout . '/' . $layout . 'Layout.css');
+		$mainFile = self::LAYOUTS_DIR . '/' . $layout . '/' . $layout . 'Layout.css';
+		if (file_exists($mainFile))
+		{
+        	array_unshift($files, $mainFile);
+		}
+
+		if(count($files) === 0)
+		{
+			echo 'File array for CSS bundle is empty.' . PHP_EOL;
+			return null;
+		}
 
         $bundleFilename = static::makeBundleFilename($layout, 'css');
 
@@ -78,11 +88,21 @@ class Build
         return $bundleFilename;
     }
 
-    private static function buildJsBundle(string $layout, array $components): string
+    private static function buildJsBundle(string $layout, array $components): ?string
     {
         $files = static::getComponentsFiles($layout, $components, 'js');
 
-        array_push($files, self::LAYOUTS_DIR . '/' . $layout . '/' . $layout . 'Layout.js');
+		$mainFile = self::LAYOUTS_DIR . '/' . $layout . '/' . $layout . 'Layout.js';
+		if(file_exists($mainFile))
+		{
+        	array_push($files, $mainFile);
+		}
+
+		if(count($files) === 0)
+		{
+			echo 'File array for JS bundle is empty.' . PHP_EOL;
+			return null;
+		}
 
         $bundleFilename = static::makeBundleFilename($layout, 'js');
 
@@ -108,12 +128,18 @@ class Build
         echo 'Components found: ' . implode(', ', $components) . PHP_EOL;
 
         $cssBundlefilename = static::buildCssBundle($layout, $components);
-        echo 'CSS bundle: ' . $cssBundlefilename . ' (' . filesize($cssBundlefilename) . ' bytes)' . PHP_EOL;
+		if ($cssBundlefilename !== null)
+		{
+        	echo 'CSS bundle: ' . $cssBundlefilename . ' (' . filesize($cssBundlefilename) . ' bytes)' . PHP_EOL;
+		}
 
         $jsBundlefilename = static::buildJsBundle($layout, $components);
-        echo 'JS bundle: ' . $jsBundlefilename . ' (' . filesize($jsBundlefilename) . ' bytes)' . PHP_EOL;
+		if ($jsBundlefilename !== null)
+		{
+			echo 'JS bundle: ' . $jsBundlefilename . ' (' . filesize($jsBundlefilename) . ' bytes)' . PHP_EOL;
+		}
 
-		return array($cssBundlefilename, $jsBundlefilename);
+		return array_filter(array($cssBundlefilename, $jsBundlefilename), fn(?string $file) => $file !== null);
     }
 
 	private static function calculateHashes(array $bundleFilenames): void

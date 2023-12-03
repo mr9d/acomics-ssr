@@ -1,17 +1,21 @@
 <?php
-
 namespace Acomics\Ssr\Layout;
 
-abstract class AbstractLayout
+abstract class AbstractLayout implements LayoutInt
 {
-    protected string $title;
+    protected ?string $title = null;
     protected ?string $seoKeywords = null;
     protected ?string $seoDescription = null;
 
-    public function __construct(string $title)
+    public function title(string $title)
     {
         $this->title = $title;
     }
+
+	public function isReady(): bool
+	{
+		return $this->title !== null;
+	}
 
     public function seo(string $keywords, string $description): static
     {

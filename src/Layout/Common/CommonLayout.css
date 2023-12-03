@@ -77,4 +77,4 @@ div.page-margins {
 	display: flex; flex-direction: column; box-sizing: border-box; flex-grow: 1;
 }
 
-main.common-main { flex-grow: 1; }
+div.common-content { flex-grow: 1; }

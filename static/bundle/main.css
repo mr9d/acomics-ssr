@@ -1,0 +1,26 @@
+/* src/Layout/Main/MainLayout.css */
+main.main-container { display: flex; flex-direction: column; }
+main.main-container article.main-article { padding: var(--desktop-gap) var(--mobile-gap); }
+main.main-container aside.main-aside-first { height: 200px; overflow: hidden; }
+main.main-container aside.main-aside-second { display: none; }
+
+main.main-container aside.main-aside-second div { position: sticky; top: var(--desktop-gap); }
+
+/* Закрепление боковой панели с учетом шапки */
+@media screen and (min-height: 300px) {
+	main.main-container aside.main-aside-second div { top: calc(54px + var(--desktop-gap)); }
+}
+
+/* Скрываем верхнюю панель, показываем боковую */
+@media screen and (min-width: 780px) {
+	main.main-container { flex-direction: row; }
+	main.main-container aside.main-aside-first { display: none; }
+	main.main-container aside.main-aside-second { display: block; width: calc(160px + var(--mobile-gap)); padding: var(--desktop-gap) var(--mobile-gap) var(--desktop-gap) 0; }
+}
+
+/* Увеличиваем расстояние между блоками */
+@media screen and (min-width: 920px) {
+	main.main-container article.main-article { padding: var(--desktop-gap); }
+	main.main-container aside.main-aside-second { width: calc(160px + var(--desktop-gap)); padding-right: var(--desktop-gap); }
+}
+

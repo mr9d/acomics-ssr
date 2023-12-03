@@ -3,6 +3,7 @@
 namespace Acomics\Ssr\Layout\Common;
 
 use Acomics\Ssr\Dto\AuthDto;
+use Acomics\Ssr\Layout\AdvertisementProviderInt;
 use Acomics\Ssr\Layout\AbstractLayout;
 use Acomics\Ssr\Layout\Common\Component\Footer\Footer;
 use Acomics\Ssr\Layout\Common\Component\Header\Header;
@@ -10,13 +11,21 @@ use Acomics\Ssr\Util\UrlUtil;
 
 class CommonLayout extends AbstractLayout
 {
-	private AuthDto $auth;
+	protected ?AuthDto $auth = null;
+	protected ?AdvertisementProviderInt $advertisementProvider = null;
+	protected ?string $activePage = null;
 
-    public function __construct(string $title, AuthDto $auth)
-    {
-        parent::__construct($title);
+	public function common(AuthDto $auth, AdvertisementProviderInt $advertisementProvider, ?string $activePage = null): void
+	{
 		$this->auth = $auth;
-    }
+		$this->advertisementProvider = $advertisementProvider;
+		$this->activePage = $activePage;
+	}
+
+	public function isReady(): bool
+	{
+		return $this->auth !== null && $this->advertisementProvider !== null && parent::isReady();
+	}
 
     protected function head(): void
     {
@@ -31,16 +40,16 @@ class CommonLayout extends AbstractLayout
     {
 		parent::top();
 
-        (new Header($this->auth))->render();
+        (new Header($this->auth, $this->activePage))->render();
 
 		echo '<div class="page-background">';
 		echo '<div class="page-margins">';
-		echo '<main class="common-main">';
+		echo '<div class="common-content">';
     }
 
     public function bottom(): void
     {
-		echo '</main>'; // common-main
+		echo '</div>'; // common-content
 
 		(new Footer())->render();
 

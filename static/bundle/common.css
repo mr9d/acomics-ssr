@@ -78,7 +78,7 @@ div.page-margins {
 	display: flex; flex-direction: column; box-sizing: border-box; flex-grow: 1;
 }
 
-main.common-main { flex-grow: 1; }
+div.common-content { flex-grow: 1; }
 
 /* src/Layout/Common/Component/Footer/Footer.css */
 /* Спонсорский блок в подвале */

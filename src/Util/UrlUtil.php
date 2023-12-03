@@ -1,6 +1,7 @@
 <?php
 
 namespace Acomics\Ssr\Util;
+
 use Acomics\Ssr\Dto\AuthDto;
 
 require_once __DIR__ . '/../hashes.generated.php';
