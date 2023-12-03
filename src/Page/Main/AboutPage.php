@@ -1,6 +1,7 @@
 <?php
 namespace Acomics\Ssr\Page\Main;
 
+use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
 use Acomics\Ssr\Layout\Main\MainLayout;
 use Acomics\Ssr\Page\PageInt;
 
@@ -13,6 +14,11 @@ class AboutPage extends MainLayout implements PageInt
 
 	public function content(): void
 	{
+		(new PageHeaderWithMenu('Авторский Комикс'))
+			->item('/about', 'О проекте', true)
+			->item('/rules', 'Правила портала')
+			->item('/contact', 'Связаться с нами')
+			->render();
 ?>
 		<p>Авторский Комикс — сервис для публикации и чтения веб-комиксов.</p>
 

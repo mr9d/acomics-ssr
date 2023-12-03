@@ -3,7 +3,7 @@
 namespace Acomics\Ssr\Layout\Common\Component\UserMenuModal;
 
 use Acomics\Ssr\Dto\AuthDto;
-use Acomics\Ssr\Dto\AuthExtraLinkDto;
+use Acomics\Ssr\Dto\LinkDto;
 use Acomics\Ssr\Layout\Common\Component\HeaderModal\HeaderModal;
 use Acomics\Ssr\Util\UrlUtil;
 
@@ -69,8 +69,8 @@ class UserMenuModal extends HeaderModal
 <?php
 	}
 
-	private function renderExtraLink(AuthExtraLinkDto $extraLink): void
+	private function renderExtraLink(LinkDto $extraLink): void
 	{
-		echo '<li><a href="' . $extraLink->url . '">' . $extraLink->name . '</a></li>';
+		echo '<li><a href="' . $extraLink->url . '">' . $extraLink->caption . '</a></li>';
 	}
 }

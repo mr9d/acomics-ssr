@@ -10,9 +10,3 @@ class AuthDto
 	public int $messagesCount;
 	public array $extraUserMenuLinks;
 }
-
-class AuthExtraLinkDto
-{
-	public string $url;
-	public string $name;
-}

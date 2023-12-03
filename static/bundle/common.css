@@ -373,6 +373,47 @@ body.main-menu-visible header.common-header button.toggle-main-menu span {
 }
 body.main-menu-visible header.common-header a.publish-button { display: flex; }
 
+/* src/Layout/Common/Component/PageHeaderWithMenu/PageHeaderWithMenu.css */
+div.page-header-with-menu { margin: 0 0 var(--desktop-gap); }
+div.page-header-with-menu h1 {
+	margin: 0; padding: 0 0 9px;
+    font-family: 'yanone_kaffeesatzregular', sans-serif;
+    font-size: 28px; line-height: 28px;
+    color: var(--brand-red); font-weight: normal;
+}
+div.page-header-with-menu nav { border-left: 1px solid #ebe5dd; }
+div.page-header-with-menu ul { list-style: none; margin: 0; padding: 0; }
+div.page-header-with-menu li { list-style: none; line-height: 1; }
+div.page-header-with-menu li a {
+	display: block; padding: 10px 0 10px var(--mobile-gap); border-left: 3px solid #fff;
+	color: #111; text-decoration: none;
+}
+div.page-header-with-menu li a.active,
+div.page-header-with-menu li a:hover.active { border-color: var(--brand-orange); }
+div.page-header-with-menu li a:hover { border-color: var(--brand-red); }
+
+div.page-header-with-menu h1:only-child { border-bottom: 1px solid #ebe5dd; }
+
+/* Меню под заголовком - в строку */
+@media screen and (min-width: 520px) {
+	div.page-header-with-menu { border-bottom: 1px solid #ebe5dd; }
+	div.page-header-with-menu nav { border-left: 0; }
+	div.page-header-with-menu ul { display: flex; }
+	div.page-header-with-menu li a { border-left: 0; border-bottom: 3px solid #fff; padding: 13px 7px 10px; }
+}
+
+@media screen and (min-width: 700px) {
+	div.page-header-with-menu { display: flex; }
+	div.page-header-with-menu h1 { margin-right: var(--mobile-gap); }
+
+	div.page-header-with-menu h1:only-child { border-bottom: 0; }
+}
+
+@media screen and (min-width: 920px) {
+	div.page-header-with-menu h1 { margin-right: var(--desktop-gap); }
+	div.page-header-with-menu li a { padding: 13px 13px 10px; }
+}
+
 /* src/Layout/Common/Component/UserMenuModal/UserMenuModal.css */
 /* Меню пользователя */
 div.user-menu { z-index: 21; flex-direction: row-reverse; }

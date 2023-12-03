@@ -1,7 +1,7 @@
 main.main-container { display: flex; flex-direction: column; }
-main.main-container article.main-article { padding: var(--desktop-gap) var(--mobile-gap); }
+main.main-container article.main-article { padding: var(--desktop-gap) var(--mobile-gap); flex-grow: 1; }
 main.main-container aside.main-aside-first { height: 200px; overflow: hidden; }
-main.main-container aside.main-aside-second { display: none; }
+main.main-container aside.main-aside-second { display: none; flex-shrink: 0; flex-grow: 0; box-sizing: border-box; }
 
 main.main-container aside.main-aside-second div { position: sticky; top: var(--desktop-gap); }
 
@@ -14,11 +14,27 @@ main.main-container aside.main-aside-second div { position: sticky; top: var(--d
 @media screen and (min-width: 780px) {
 	main.main-container { flex-direction: row; }
 	main.main-container aside.main-aside-first { display: none; }
-	main.main-container aside.main-aside-second { display: block; width: calc(160px + var(--mobile-gap)); padding: var(--desktop-gap) var(--mobile-gap) var(--desktop-gap) 0; }
+	main.main-container aside.main-aside-second { display: block; flex-basis: calc(160px + var(--mobile-gap)); padding: var(--desktop-gap) var(--mobile-gap) var(--desktop-gap) 0; }
 }
 
 /* Увеличиваем расстояние между блоками */
 @media screen and (min-width: 920px) {
 	main.main-container article.main-article { padding: var(--desktop-gap); }
-	main.main-container aside.main-aside-second { width: calc(160px + var(--desktop-gap)); padding-right: var(--desktop-gap); }
+	main.main-container aside.main-aside-second { flex-basis: calc(160px + var(--desktop-gap)); padding-right: var(--desktop-gap); }
 }
+
+/* Страница с правилами */
+section.rules-section {
+	padding: 2px var(--mobile-gap) 10px;
+	margin: 20px 0;
+	border: 1px solid #ebe5dd;
+}
+
+@media screen and (min-width: 920px) {
+	section.rules-section { padding: 2px var(--desktop-gap) 10px; }
+}
+
+/* Основные текстовые элементы */
+main.main-container p { line-height: 1.4; }
+main.main-container li { line-height: 1.4; }
+main.main-container h2 { font-weight: normal; font-size: 19px; }
