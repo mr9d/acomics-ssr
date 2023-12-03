@@ -30,6 +30,7 @@ class CommonLayout extends AbstractLayout
     protected function head(): void
     {
         parent::head();
+		$this->advertisementProvider->head();
         echo '<link rel="shortcut icon" href="/favicon.ico?18-11-2023" />';
         echo '<link rel="stylesheet" href="/static/css/normalize.css?18-11-2023" type="text/css" />';
         echo '<link rel="stylesheet" href="' . UrlUtil::makeStaticUrlWithHash('static/bundle/common.css') . '" type="text/css" />';

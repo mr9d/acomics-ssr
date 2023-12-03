@@ -3,11 +3,11 @@ main.main-container article.main-article { padding: var(--desktop-gap) var(--mob
 main.main-container aside.main-aside-first { height: 200px; overflow: hidden; }
 main.main-container aside.main-aside-second { display: none; flex-shrink: 0; flex-grow: 0; box-sizing: border-box; }
 
-main.main-container aside.main-aside-second div { position: sticky; top: var(--desktop-gap); }
+main.main-container aside.main-aside-second>div { position: sticky; top: var(--desktop-gap); }
 
 /* Закрепление боковой панели с учетом шапки */
 @media screen and (min-height: 300px) {
-	main.main-container aside.main-aside-second div { top: calc(54px + var(--desktop-gap)); }
+	main.main-container aside.main-aside-second>div { top: calc(54px + var(--desktop-gap)); }
 }
 
 /* Скрываем верхнюю панель, показываем боковую */
