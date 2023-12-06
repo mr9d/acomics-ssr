@@ -1,33 +1,25 @@
 <?php
-namespace Acomics\Ssr\Layout\Main;
 
-use Acomics\Ssr\Layout\Common\CommonLayout;
-use Acomics\Ssr\Util\UrlUtil;
+namespace Acomics\Ssr\Layout\SerialReaderAside;
 
-class MainLayout extends CommonLayout
+use Acomics\Ssr\Layout\Serial\Component\ReaderMenu\ReaderMenu;
+use Acomics\Ssr\Layout\Serial\SerialLayout;
+
+class SerialReaderAsideLayout extends SerialLayout
 {
-	protected $isAdvertisementEnabled = false;
-
-	public function main(bool $isAdvertisementEnabled): void
-	{
-		$this->isAdvertisementEnabled = $isAdvertisementEnabled;
-	}
-
     protected function head(): void
     {
         parent::head();
-        echo '<link rel="stylesheet" href="' . UrlUtil::makeStaticUrlWithHash('static/bundle/main.css') . '" type="text/css" />';
     }
 
     public function top(): void
     {
 		parent::top();
+		(new ReaderMenu($this->serialLayoutData))->render();
 
 		echo '<main class="common-container">';
 
-		if ($this->isAdvertisementEnabled) {
-			$this->mobileTopAdvertisement();
-		}
+		$this->mobileTopAdvertisement();
 
 		echo '<article class="common-article">';
     }
@@ -36,9 +28,7 @@ class MainLayout extends CommonLayout
     {
 		echo '</article>'; // common-article
 
-		if ($this->isAdvertisementEnabled) {
-			$this->fullSidebarAdvertisement();
-		}
+		$this->fullSidebarAdvertisement();
 
 		echo '</main>'; // common-container
 
@@ -59,4 +49,3 @@ class MainLayout extends CommonLayout
 		echo '</aside>';
 	}
 }
-

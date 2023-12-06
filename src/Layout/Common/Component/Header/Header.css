@@ -72,9 +72,8 @@ header.common-header a.publish-button span { margin: 0 20px 0 42px; }
 
 /* Основное меню в шапке */
 header.common-header nav.common-menu { flex-grow: 1; }
-header.common-header nav.common-menu ul { display: none; padding: 0; }
+header.common-header nav.common-menu ul { display: none; padding: 0; margin: 0; align-items: center; }
 header.common-header nav.common-menu a.common-logo { padding: 0 10px 0 7px; }
-header.common-header nav.common-menu ul { margin: 0; align-items: center; }
 header.common-header nav.common-menu li { margin: 0; list-style: none; }
 
 /* Закрепление шапки */
