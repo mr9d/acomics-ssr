@@ -4,7 +4,7 @@ namespace Acomics\Ssr\Layout\Main;
 use Acomics\Ssr\Layout\Common\CommonLayout;
 use Acomics\Ssr\Util\UrlUtil;
 
-class MainLayout extends CommonLayout
+abstract class MainLayout extends CommonLayout
 {
 	protected $isAdvertisementEnabled = false;
 

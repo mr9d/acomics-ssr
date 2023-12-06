@@ -9,7 +9,7 @@ use Acomics\Ssr\Layout\Common\Component\Footer\Footer;
 use Acomics\Ssr\Layout\Common\Component\Header\Header;
 use Acomics\Ssr\Util\UrlUtil;
 
-class CommonLayout extends AbstractLayout
+abstract class CommonLayout extends AbstractLayout
 {
 	protected ?AuthDto $auth = null;
 	protected ?AdvertisementProviderInt $advertisementProvider = null;

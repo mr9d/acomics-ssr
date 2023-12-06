@@ -6,7 +6,7 @@ use Acomics\Ssr\Layout\Common\CommonLayout;
 use Acomics\Ssr\Layout\Serial\Component\SerialHeader\SerialHeader;
 use Acomics\Ssr\Util\UrlUtil;
 
-class SerialLayout extends CommonLayout
+abstract class SerialLayout extends CommonLayout
 {
 	protected ?SerialLayoutDataDto $serialLayoutData = null;
 

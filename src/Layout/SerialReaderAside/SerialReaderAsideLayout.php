@@ -5,7 +5,7 @@ namespace Acomics\Ssr\Layout\SerialReaderAside;
 use Acomics\Ssr\Layout\Serial\Component\ReaderMenu\ReaderMenu;
 use Acomics\Ssr\Layout\Serial\SerialLayout;
 
-class SerialReaderAsideLayout extends SerialLayout
+abstract class SerialReaderAsideLayout extends SerialLayout
 {
     protected function head(): void
     {
