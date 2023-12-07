@@ -6,4 +6,42 @@ div.serial { display: block; } /* tmp */
 /* src/Layout/Serial/Component/ReaderMenu/ReaderMenu.css */
 
 /* src/Layout/Serial/Component/SerialHeader/SerialHeader.css */
+/* Шапка комикса */
+header.serial-header { position: relative; background:#edebe9; }
+header.serial-header a.inner { display: flex; text-decoration: none; align-items: center; justify-content: center; color: #5a002d; }
+
+/* С картинкой */
+header.serial-header img.serial-header-image { max-width: 100%; }
+
+/* Без картинки */
+header.serial-header span.serial-header-height { display: flex; align-items: center; }
+header.serial-header span.serial-header-name {
+	font-family: 'yanone_kaffeesatzregular', sans-serif; font-size: 28px; line-height: 28px;
+	padding: var(--desktop-gap) var(--mobile-gap); display: inline-block;
+	text-overflow: ellipsis; overflow: hidden; white-space: nowrap; text-align: center;
+	width: max(280px, calc(100vw - var(--mobile-gap) * 2 - 20px));
+}
+
+/* Ссылки для авторов */
+header.serial-header nav.serial-manage { background:#edebe9aa; text-align: center; padding: 5px 10px; }
+header.serial-header nav.serial-manage:hover { background:#edebe9cc; }
+header.serial-header nav.serial-manage ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; }
+header.serial-header nav.serial-manage a { color: black; display: inline-block; padding: 5px 10px; }
+
+/* Ставим ссылки для автора в угол. Название комикса - в несколько строк */
+@media screen and (min-width: 560px) {
+	header.serial-header nav.serial-manage { position: absolute; top: 0; right: 0; }
+	header.serial-header span.serial-header-height { min-height: 100px; }
+	header.serial-header span.serial-header-name { white-space: initial; width:100%; }
+}
+
+/* Увеличиваем название комикса */
+@media screen and (min-width: 700px) {
+	header.serial-header span.serial-header-name { font-size: 34px; line-height: 34px; padding: var(--desktop-gap); }
+}
+
+/* Увеличиваем шапку */
+@media screen and (min-width: 920px) {
+	header.serial-header span.serial-header-height { min-height: 120px; }
+}
 
