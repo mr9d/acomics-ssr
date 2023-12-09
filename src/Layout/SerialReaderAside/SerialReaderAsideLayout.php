@@ -37,7 +37,7 @@ abstract class SerialReaderAsideLayout extends SerialLayout
 
 	public function mobileTopAdvertisement(): void
 	{
-		echo '<aside class="common-aside-first">';
+		echo '<aside class="common-aside-first serial-aside-first">';
 		$this->advertisementProvider->renderMobileTop();
 		echo '</aside>';
 	}
