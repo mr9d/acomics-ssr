@@ -24,6 +24,7 @@ abstract class SerialLayout extends CommonLayout
     {
         parent::head();
         echo '<link rel="stylesheet" href="' . UrlUtil::makeStaticUrlWithHash('static/bundle/serial.css') . '" type="text/css" />';
+		echo '<script defer src="' . UrlUtil::makeStaticUrlWithHash('static/bundle/serial.js') . '"></script>';
 		$this->backgroundStyles();
     }
 
@@ -44,7 +45,7 @@ abstract class SerialLayout extends CommonLayout
 		{
 			return;
 		}
-		
+
 		echo '<style>div.page-background { ';
 		echo 'background-image: url(' . $this->serialLayoutData->backgroundUrl . '); ';
 

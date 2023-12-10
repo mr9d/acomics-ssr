@@ -1,27 +1,32 @@
 button.subscribe-button {
-	display: flex; width: 40px; height: 40px; border: 0; padding: 0; margin: 0; align-items: center; color: #fff;
+	display: flex; width: 40px; height: 40px; border: 0; padding: 0; margin: 0; align-items: center; color: #fff; cursor: pointer;
 	background: var(--brand-blue) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='22px' height='22px' viewBox='0 0 22 22'><defs><g id='G1_0_Layer1_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 48 32L 48 0 32 0 32 32 0 32 0 48 32 48 32 80 48 80 48 48 80 48 80 32 48 32 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.25, 1,1) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23G1_0_Layer1_0_FILL'/></g></g></svg>") no-repeat center/16px 16px;
 }
 button.subscribe-button span.caption { display: none; font-family: 'yanone_kaffeesatzregular', sans-serif; text-transform: uppercase; font-size: 18px; }
-button.subscribe-button[data-is-subscribed="1"] {
+button.subscribe-button[data-is-subscribed="true"],
+button.subscribe-button.just-subscribed[data-is-subscribed="true"]:hover {
 	background-color: var(--brand-orange);
 	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='22px' height='22px' viewBox='0 0 22 22'><defs><g id='G1_4_Layer1_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 88 7L 83 0Q 49.7 31.4 32 60L 10 40 0 50 36 88Q 58.35 39.45 88 7 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.25, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23G1_4_Layer1_0_FILL'/></g></g></svg>");
 }
-button.subscribe-button[data-is-subscribed="1"]:hover {
+button.subscribe-button[data-is-subscribed="true"]:hover {
 	background-color: var(--brand-red);
 	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='22px' height='22px' viewBox='0 0 22 22'><defs><g id='G1_2_Layer1_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 14 0L 0 14 58 72 72 58 14 0 Z'/></g><g id='G1_2_Layer0_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 72 14L 58 0 0 58 14 72 72 14 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.25, 2,2) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23G1_2_Layer1_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23G1_2_Layer0_0_FILL'/></g></g></svg>");
 }
 
 /* Делаем кнопку подписки полноразмерной */
-@media screen and (min-width: 520px) {
+@media screen and (min-width: 560px) {
 	button.subscribe-button { width: 142px; background-position: right 18px center; content: "Подписаться"; }
 	button.subscribe-button span.caption { margin-left: var(--desktop-gap); }
 	button.subscribe-button span.caption-subscribe { display: block; }
 
-	button.subscribe-button[data-is-subscribed="1"] span.caption-subscribe { display: none; }
-	button.subscribe-button[data-is-subscribed="1"] span.caption-subscribed { display: block; }
+	button.subscribe-button[data-is-subscribed="true"] span.caption-subscribe { display: none; }
+	button.subscribe-button[data-is-subscribed="true"] span.caption-subscribed { display: block; }
 
-	button.subscribe-button[data-is-subscribed="1"]:hover span.caption-subscribe { display: none; }
-	button.subscribe-button[data-is-subscribed="1"]:hover span.caption-subscribed { display: none; }
-	button.subscribe-button[data-is-subscribed="1"]:hover span.caption-unsubscribe { display: block; }
+	button.subscribe-button[data-is-subscribed="true"]:hover span.caption-subscribe { display: none; }
+	button.subscribe-button[data-is-subscribed="true"]:hover span.caption-subscribed { display: none; }
+	button.subscribe-button[data-is-subscribed="true"]:hover span.caption-unsubscribe { display: block; }
+
+	button.subscribe-button.just-subscribed[data-is-subscribed="true"]:hover span.caption-subscribe { display: none; }
+	button.subscribe-button.just-subscribed[data-is-subscribed="true"]:hover span.caption-subscribed { display: block; }
+	button.subscribe-button.just-subscribed[data-is-subscribed="true"]:hover span.caption-unsubscribe { display: none; }
 }

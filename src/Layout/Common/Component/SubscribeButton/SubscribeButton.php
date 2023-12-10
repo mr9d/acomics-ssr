@@ -17,7 +17,7 @@ class SubscribeButton extends AbstractComponent
 	public function render(): void
 	{
 ?>
-		<button class="subscribe-button" data-is-subscribed="<?=$this->isSubscribed?>" data-serial-id="<?=$this->serialId?>'">
+		<button class="subscribe-button" data-is-subscribed="<?=$this->isSubscribed ? 'true' : 'false'?>" data-serial-id="<?=$this->serialId?>" title="<?=$this->isSubscribed ? 'Отписаться' : 'Подписаться'?>">
 			<span class="caption caption-subscribe">Подписаться</span>
 			<span class="caption caption-subscribed">В подиске</span>
 			<span class="caption caption-unsubscribe">Отписаться</span>

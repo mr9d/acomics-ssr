@@ -22,4 +22,12 @@ class SerialLayoutDataDto
 	// Меню
 	//
 	public bool $isSubscribed;
+	public bool $isCharacterMenuItemVisible;
+	public bool $isFaqMenuItemVisible;
+	public ?string $activeMenuItem;
+
+	//
+	// Информация о выпусках
+	//
+	public int $issueCount;
 }
