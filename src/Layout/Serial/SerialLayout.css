@@ -1,2 +1,2 @@
 /* Дополнительный отступ от шапки */
-.serial-aside-first { padding: var(--desktop-gap) var(--mobile-gap) 0; }
+aside.serial-aside-first { padding: var(--desktop-gap) var(--mobile-gap) 0; }

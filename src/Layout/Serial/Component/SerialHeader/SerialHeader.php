@@ -51,7 +51,7 @@ class SerialHeader extends AbstractComponent
 	public function renderHeaderImage(): void
 	{
 ?>
-		<a class="inner" href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code)?>">
+		<a class="inner" href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code)?>" title="<?=$this->serialLayoutData->name?>">
 			<img class="serial-header-image" src="<?=$this->serialLayoutData->headerUrl?>" alt="<?=$this->serialLayoutData->name?>" />
 		</a>
 <?php
@@ -60,7 +60,7 @@ class SerialHeader extends AbstractComponent
 	public function renderHeaderName(): void
 	{
 ?>
-		<a class="inner" href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code)?>">
+		<a class="inner" href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code)?>" title="<?=$this->serialLayoutData->name?>">
 			<span class="serial-header-height">
 				<span class="serial-header-name"><?=$this->serialLayoutData->name?></span>
 			</span>

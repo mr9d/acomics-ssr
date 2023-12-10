@@ -48,6 +48,8 @@ const makeHeaderMenu = (menuSelector, buttonSelector, visibleClass) => {
 	menuElement.querySelector('nav').addEventListener('click', (evt) => evt.stopPropagation());
 }
 
+/* src/Layout/Common/Component/SubscribeButton/SubscribeButton.js */
+
 /* src/Layout/Common/CommonLayout.js */
 // Инициализация общих элементов страницы
 const init = () => {

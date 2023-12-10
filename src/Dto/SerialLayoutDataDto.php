@@ -17,4 +17,9 @@ class SerialLayoutDataDto
 	public ?string $backgroundUrl;
 	public int $backgroundPosition;
 	public bool $isHeaderManageMenuVisible;
+
+	//
+	// Меню
+	//
+	public bool $isSubscribed;
 }

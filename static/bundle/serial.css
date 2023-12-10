@@ -1,10 +1,18 @@
 /* src/Layout/Serial/SerialLayout.css */
 /* Дополнительный отступ от шапки */
-.serial-aside-first { padding: var(--desktop-gap) var(--mobile-gap) 0; }
+aside.serial-aside-first { padding: var(--desktop-gap) var(--mobile-gap) 0; }
 
 /* src/Layout/Serial/Component/ManagerMenu/ManagerMenu.css */
 
 /* src/Layout/Serial/Component/ReaderMenu/ReaderMenu.css */
+nav.serial-reader-menu {
+	height: 40px; background: var(--brand-grey);
+	display: flex; justify-content: space-between;
+}
+nav.serial-reader-menu ul { list-style: none; margin: 0; padding: 0; }
+
+
+
 
 /* src/Layout/Serial/Component/SerialHeader/SerialHeader.css */
 /* Шапка комикса */

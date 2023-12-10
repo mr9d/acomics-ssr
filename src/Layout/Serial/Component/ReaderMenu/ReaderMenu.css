@@ -1,0 +1,8 @@
+nav.serial-reader-menu {
+	height: 40px; background: var(--brand-grey);
+	display: flex; justify-content: space-between;
+}
+nav.serial-reader-menu ul { list-style: none; margin: 0; padding: 0; }
+
+
+

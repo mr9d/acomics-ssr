@@ -4,8 +4,8 @@
 
 global $hashes;
 $hashes = array(
-  'static/bundle/common.css' => '3553672c7ed59f49dda1373818811026',
-  'static/bundle/common.js' => 'ed14c882e7f3b5b1779a6a5bf27442b1',
+  'static/bundle/common.css' => 'bbdcc05842e58e6df2db4fd00338b1c0',
+  'static/bundle/common.js' => '8a3a7756bee2c8c59acdb816e963c38d',
   'static/bundle/main.css' => '6169b667f690c7e327c696b3139bbcc3',
-  'static/bundle/serial.css' => '801048fd6aefd5ab9a0cffda999ce0cf',
+  'static/bundle/serial.css' => 'f637934b1c1aeb26b5d7dee055d7239f',
 );
