@@ -5,7 +5,7 @@ section.serial-reader-menu {
 
 section.serial-reader-menu button.subscribe-button { flex-shrink: 0; }
 
-section.serial-reader-menu nav { position: relative; height: fit-content; }
+section.serial-reader-menu nav { position: relative; height: fit-content; background: var(--brand-grey); }
 
 section.serial-reader-menu ul { list-style: none; margin: 0; padding: 0 40px 0 0; display: flex; flex-grow: 1; flex-wrap: wrap; }
 section.serial-reader-menu ul li { height: 40px; display: flex; align-items: center; padding: 0 calc(var(--mobile-gap) - 5px); }
@@ -22,8 +22,8 @@ section.serial-reader-menu nav button.serial-reader-menu-toggle {
 
 /* RSS */
 section.serial-reader-menu ul li.css-menu-item a {
-	padding-left: 24px;
-	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='16' width='14' viewBox='0 0 448 512'><path fill='%23EFA821' d='M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM96 136c0-13.3 10.7-24 24-24c137 0 248 111 248 248c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-110.5-89.5-200-200-200c-13.3 0-24-10.7-24-24zm0 96c0-13.3 10.7-24 24-24c83.9 0 152 68.1 152 152c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-57.4-46.6-104-104-104c-13.3 0-24-10.7-24-24zm0 120a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z'/></svg>") no-repeat left center/20px 20px;
+	padding-left: 30px;
+	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='16' width='14' viewBox='0 0 448 512'><path fill='%23EFA821' d='M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM96 136c0-13.3 10.7-24 24-24c137 0 248 111 248 248c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-110.5-89.5-200-200-200c-13.3 0-24-10.7-24-24zm0 96c0-13.3 10.7-24 24-24c83.9 0 152 68.1 152 152c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-57.4-46.6-104-104-104c-13.3 0-24-10.7-24-24zm0 120a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z'/></svg>") no-repeat left 5px center/20px 20px;
 }
 
 /* Активный элемент меню */
@@ -33,7 +33,7 @@ section.serial-reader-menu ul li.active a:visited { color: #111; }
 
 
 /* Разворачивание меню на мобильных устройствах */
-section.serial-reader-menu.expanded { height: auto; }
+section.serial-reader-menu.expanded { overflow: visible; }
 section.serial-reader-menu.expanded nav button.serial-reader-menu-toggle {
 	max-height: 40px; transform: rotate(180deg);
 }
