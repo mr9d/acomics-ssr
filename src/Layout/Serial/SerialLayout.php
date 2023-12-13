@@ -1,16 +1,16 @@
 <?php
 namespace Acomics\Ssr\Layout\Serial;
 
-use Acomics\Ssr\Dto\SerialLayoutDataDto;
+use Acomics\Ssr\Layout\Serial\SerialLayoutData;
 use Acomics\Ssr\Layout\Common\CommonLayout;
 use Acomics\Ssr\Layout\Serial\Component\SerialHeader\SerialHeader;
 use Acomics\Ssr\Util\UrlUtil;
 
 abstract class SerialLayout extends CommonLayout
 {
-	protected ?SerialLayoutDataDto $serialLayoutData = null;
+	protected ?SerialLayoutData $serialLayoutData = null;
 
-	public function serial(SerialLayoutDataDto $serialLayoutData): void
+	public function serial(SerialLayoutData $serialLayoutData): void
 	{
 		$this->serialLayoutData = $serialLayoutData;
 	}

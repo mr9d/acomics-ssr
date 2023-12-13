@@ -1,7 +1,7 @@
 <?php
-namespace Acomics\Ssr\Dto;
+namespace Acomics\Ssr\Layout\Serial;
 
-class SerialLayoutDataDto
+class SerialLayoutData
 {
 	//
 	// Идентификаторы комикса

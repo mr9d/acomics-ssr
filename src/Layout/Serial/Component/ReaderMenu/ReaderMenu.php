@@ -2,16 +2,16 @@
 
 namespace Acomics\Ssr\Layout\Serial\Component\ReaderMenu;
 
-use Acomics\Ssr\Dto\SerialLayoutDataDto;
+use Acomics\Ssr\Layout\Serial\SerialLayoutData;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Layout\Common\Component\SubscribeButton\SubscribeButton;
 use Acomics\Ssr\Util\UrlUtil;
 
 class ReaderMenu extends AbstractComponent
 {
-	private SerialLayoutDataDto $serialLayoutData;
+	private SerialLayoutData $serialLayoutData;
 
-	public function __construct(SerialLayoutDataDto $serialLayoutData)
+	public function __construct(SerialLayoutData $serialLayoutData)
 	{
 		$this->serialLayoutData = $serialLayoutData;
 	}

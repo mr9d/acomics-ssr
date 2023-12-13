@@ -12,9 +12,9 @@ class UrlUtil
 	private const SERIAL_URL_PREFIX = '~';
 	private const DEFAULT_SUBSCRIPTIONS_URL = 'profile/featured';
 
-	public static function makeProfileUrl(AuthDto $auth, ?string $subPage = null): string
+	public static function makeProfileUrl(string $username, ?string $subPage = null): string
 	{
-		return '/' . self::PROFILE_URL_PREFIX . $auth->username . ($subPage ? '/' . $subPage : '');
+		return '/' . self::PROFILE_URL_PREFIX . $username . ($subPage ? '/' . $subPage : '');
 	}
 
 	public static function makeSerialUrl(string $serialCode, ?string $subPage = null): string
@@ -30,7 +30,7 @@ class UrlUtil
 		}
 		else
 		{
-			return self::makeProfileUrl($auth, 'list2');
+			return self::makeProfileUrl($auth->username, 'list2');
 		}
 	}
 

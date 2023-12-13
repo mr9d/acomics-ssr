@@ -56,7 +56,7 @@ class UserMenuModal extends HeaderModal
 
 		<ul>
 			<li><a href="/msg/inbox">Личные сообщения<?=($this->auth->messagesCount ? ' [' . $this->auth->messagesCount . ']' : '')?></a></li>
-			<li><a href="<?=UrlUtil::makeProfileUrl($this->auth)?>">Профиль</a></li>
+			<li><a href="<?=UrlUtil::makeProfileUrl($this->auth->username)?>">Профиль</a></li>
 			<li><a href="/settings/profile">Настройки профиля</a></li>
 <?php
 			foreach($this->auth->extraUserMenuLinks as $extraLink)

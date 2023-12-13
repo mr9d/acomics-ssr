@@ -2,15 +2,15 @@
 
 namespace Acomics\Ssr\Layout\Serial\Component\SerialHeader;
 
-use Acomics\Ssr\Dto\SerialLayoutDataDto;
+use Acomics\Ssr\Layout\Serial\SerialLayoutData;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Util\UrlUtil;
 
 class SerialHeader extends AbstractComponent
 {
-	private SerialLayoutDataDto $serialLayoutData;
+	private SerialLayoutData $serialLayoutData;
 
-	public function __construct(SerialLayoutDataDto $serialLayoutData)
+	public function __construct(SerialLayoutData $serialLayoutData)
 	{
 		$this->serialLayoutData = $serialLayoutData;
 	}
