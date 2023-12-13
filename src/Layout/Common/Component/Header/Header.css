@@ -1,5 +1,5 @@
 div.common-header-background {
-	height:54px; box-shadow:0 0 3px 1px rgba(0,0,0,0.2); display: flex; z-index: 30;
+	height:54px; box-shadow:0 0 3px 1px rgba(0,0,0,0.2); display: flex; z-index: 80;
 	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='128px' height='54px' viewBox='0 0 128 54'><defs><g id='Layer4_0_FILL'><path fill='%23D00026' stroke='none' d='M 128 54L 128 0 0 0 0 54 128 54 Z'/></g><g id='Layer3_0_FILL'><path fill='%23FCD4BC' stroke='none' d='M 80 0L 48 0 48 54 80 54 80 0 Z'/></g><g id='Layer2_0_FILL'><path fill='%23F092A4' stroke='none' d='M 112 54L 112 0 80 0 80 54 112 54 Z'/></g><g id='Layer1_0_FILL'><path fill='%235A002D' stroke='none' d='M 80 27L 64 54 96 54 80 27M 96 0L 112 27 128 0 96 0M 16 27L 32 54 48 27 16 27 Z'/><path fill='%234A6CBC' stroke='none' d='M 48 27L 64 0 32 0 48 27M 64 0L 80 27 96 0 64 0 Z'/><path fill='%23EFA821' stroke='none' d='M 112 27L 96 0 80 27 112 27M 16 27L 0 27 0 54 16 27M 128 27L 112 27 128 54 128 27 Z'/><path fill='%23F092A4' stroke='none' d='M 48 27L 32 54 64 54 48 27M 0 0L 16 27 32 0 0 0 Z'/></g><g id='Layer0_0_FILL'><path fill='%23D00026' stroke='none' d='M 96 54L 128 54 112 27 96 54 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer4_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer3_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer2_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer1_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>") repeat-x top;
 }
 
@@ -33,7 +33,7 @@ header.common-header {
 	display: flex; align-items: center; justify-content: space-between;
 	position: absolute; top: 0; left: 0; right: 0; margin: 0 auto;
 	padding: 0 calc(var(--mobile-gap) - 7px); box-sizing: border-box;
-	background-image: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.4)); z-index: 40;
+	background-image: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.4)); z-index: 90;
 }
 
 header.common-header button.toggle-main-menu {

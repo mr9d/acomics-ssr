@@ -85,6 +85,7 @@ p.serial-about-badges a.badge.category-history {
 section.serial-reader-menu {
 	height: 40px; background: var(--brand-grey); overflow: hidden;
 	display: flex; justify-content: space-between;
+	position: relative; z-index: 50;
 }
 
 section.serial-reader-menu button.subscribe-button { flex-shrink: 0; }

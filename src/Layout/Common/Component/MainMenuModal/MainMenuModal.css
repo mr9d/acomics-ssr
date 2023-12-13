@@ -1,5 +1,5 @@
 /* Главное меню */
-div.main-menu { z-index: 20; flex-direction: row; }
+div.main-menu { z-index: 70; flex-direction: row; }
 div.main-menu nav { width: 100%; box-sizing: border-box; background: #fff; line-height: 1; padding: 15px 0; }
 div.main-menu ul { display: flex; flex-wrap: wrap; margin: 0; padding: 0 10px 0 15px; }
 div.main-menu li { display: block; list-style: none; }
