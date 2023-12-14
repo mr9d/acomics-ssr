@@ -5,6 +5,7 @@ namespace Acomics\Ssr\Page\Serial\Reader;
 use Acomics\Ssr\Dto\SerialCoauthorDto;
 use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
 use Acomics\Ssr\Layout\Serial\Component\AboutBadges\AboutBadges;
+use Acomics\Ssr\Layout\Serial\Component\IssuePreview\IssuePreview;
 use Acomics\Ssr\Layout\SerialReaderAside\SerialReaderAsideLayout;
 use Acomics\Ssr\Page\PageInt;
 use Acomics\Ssr\Util\UrlUtil;
@@ -57,6 +58,9 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 
 		$this->renderLicense();
 
+		$this->renderIssues();
+
+		$this->renderReadMenu();
 	}
 
 	private function renderAboutText(): void
@@ -131,6 +135,28 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 		echo '<a href="' . $this->serialAboutPageData->license->descriptionUrl . '">' . $this->serialAboutPageData->license->name . '</a>';
 
 		echo '</p>';
+	}
+
+	private function renderIssues(): void
+	{
+		echo '<section class="serial-about-issues">';
+
+		foreach($this->serialAboutPageData->issues as $issue)
+		{
+			(new IssuePreview($issue))->render();
+		}
+
+		echo '</section>'; // serial-about-issues
+	}
+
+	private function renderReadMenu(): void
+	{
+		echo '<nav class="serial-about-read-menu">';
+
+		echo '<a href="' . UrlUtil::makeSerialUrl($this->serialLayoutData->code, '1') . '">Читать комикс с начала</a>';
+		echo '<a href="' . UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'content') . '">Cодержание комикса</a>';
+
+		echo '</nav>'; // serial-about-read-menu
 	}
 }
 

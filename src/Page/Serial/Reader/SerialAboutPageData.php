@@ -2,6 +2,7 @@
 
 namespace Acomics\Ssr\Page\Serial\Reader;
 
+use Acomics\Ssr\Dto\IssuePreviewDto;
 use Acomics\Ssr\Dto\SerialAgeRatingDto;
 use Acomics\Ssr\Dto\SerialCategoryDto;
 use Acomics\Ssr\Dto\SerialCoauthorDto;
@@ -33,6 +34,8 @@ class SerialAboutPageData
 	/** @var SerialCategoryDto[] $serialCategories */
 	public array $serialCategories;
 
+	/** @var IssuePreviewDto[] $issues */
+	public array $issues;
 
 	/**
 	 * @param SerialCoauthorDto[] $coauthors
@@ -49,7 +52,8 @@ class SerialAboutPageData
 		SerialAgeRatingDto $ageRating,
 		SerialLicenseDto $license,
 		array $coauthors,
-		array $serialCategories)
+		array $serialCategories,
+		array $issues)
 	{
 		$this->isTranslation = $isTranslation;
 		$this->isCompleted = $isCompleted;
@@ -62,5 +66,6 @@ class SerialAboutPageData
 		$this->license = $license;
 		$this->coauthors = $coauthors;
 		$this->serialCategories = $serialCategories;
+		$this->issues = $issues;
 	}
 }
