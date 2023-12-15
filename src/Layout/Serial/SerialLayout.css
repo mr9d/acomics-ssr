@@ -10,11 +10,11 @@ section.serial-about-issues { display: grid; gap: var(--mobile-gap); grid-templa
 section.serial-about-issues a.issue-preview img { width:100%; }
 @media screen and (min-width: 520px) {
 	section.serial-about-issues { grid-template-columns: 1fr 1fr 1fr; }
-	section.serial-about-issues a.issue-preview:nth-child(n+7) { display: none; }
+	section.serial-about-issues a.issue-preview:nth-child(-n+2) { display: none; }
 }
 @media screen and (min-width: 840px) {
 	section.serial-about-issues { grid-template-columns: 1fr 1fr 1fr 1fr; }
-	section.serial-about-issues a.issue-preview:nth-child(n+7) { display: block; }
+	section.serial-about-issues a.issue-preview:nth-child(-n+2) { display: block; }
 }
 @media screen and (min-width: 920px) {
 	section.serial-about-issues { gap: var(--desktop-gap); }
@@ -22,7 +22,7 @@ section.serial-about-issues a.issue-preview img { width:100%; }
 nav.serial-about-read-menu {
 	margin-top: var(--desktop-gap); border: 1px solid var(--brand-grey); padding: 12px;
 	display: flex; flex-direction: column; align-items: center; justify-content: center; }
-nav.serial-about-read-menu a { display: block; padding: 8px var(--desktop-gap); line-height: 1; white-space: nowrap; }
+nav.serial-about-read-menu a { display: block; padding: 8px 10px; line-height: 1; white-space: nowrap; }
 @media screen and (min-width: 520px) {
 	nav.serial-about-read-menu { flex-direction: row; }
 }

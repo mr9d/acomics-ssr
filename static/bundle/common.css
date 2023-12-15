@@ -88,7 +88,7 @@ div.common-content { flex-grow: 1; }
 /* Основной контент с отступами и фиксированной боковой панелью + мобильная версия */
 main.common-container { display: flex; flex-direction: column; }
 main.common-container article.common-article { padding: var(--desktop-gap) var(--mobile-gap); flex-grow: 1; }
-main.common-container aside.common-aside-first { height: 200px; overflow: hidden; }
+main.common-container aside.common-aside-first { overflow: hidden; }
 main.common-container aside.common-aside-second { display: none; flex-shrink: 0; flex-grow: 0; box-sizing: border-box; }
 
 main.common-container aside.common-aside-second>div { position: sticky; top: var(--desktop-gap); }
