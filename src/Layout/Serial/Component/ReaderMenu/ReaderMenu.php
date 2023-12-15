@@ -43,7 +43,7 @@ class ReaderMenu extends AbstractComponent
 					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, $this->serialLayoutData->issueCount)?>" title="Читать комикс <?=$this->serialLayoutData->name?> с последнего выпуска">с конца</a> /
 					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'list')?>" title="Смотреть комикс <?=$this->serialLayoutData->name?> лентой">лентой</a>
 				</li>
-				<li class="<?=($this->serialLayoutData->activeMenuItem === 'about2' /* <-- TMP */ ? 'active' : '')?>">
+				<li class="<?=($this->serialLayoutData->activeMenuItem === 'about' ? 'active' : '')?>">
 					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'about')?>" title="О комиксе <?=$this->serialLayoutData->name?> читать">О комиксе</a>
 				</li>
 				<li class="<?=($this->serialLayoutData->activeMenuItem === 'content' ? 'active' : '')?>">

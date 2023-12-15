@@ -24,6 +24,8 @@ abstract class AbstractLayout implements LayoutInt
         return $this;
     }
 
+	protected function openGraph(): void {}
+
     protected function head(): void
     {
         echo '<meta charset="utf-8">';
@@ -36,6 +38,8 @@ abstract class AbstractLayout implements LayoutInt
         if ($this->seoKeywords !== null) {
             echo '<meta name="keywords" content="' . $this->seoKeywords . '" />';
         }
+
+		$this->openGraph();
     }
 
     public function top(): void
