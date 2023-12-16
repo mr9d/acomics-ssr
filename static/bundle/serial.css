@@ -7,7 +7,7 @@ section.serial-about-text { word-break: break-word; }
 section.serial-about-text img { max-width: 100%; }
 p.serial-about-authors { word-break: break-word; }
 p.serial-about-site-url { word-break: break-word; }
-section.serial-about-issues { display: grid; gap: var(--mobile-gap); grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; overflow-y: hidden; }
+section.serial-about-issues { display: grid; gap: var(--mobile-gap); grid-template-columns: 1fr 1fr; overflow-y: hidden; }
 section.serial-about-issues a.issue-preview img { width:100%; }
 @media screen and (min-width: 520px) {
 	section.serial-about-issues { grid-template-columns: 1fr 1fr 1fr; }
