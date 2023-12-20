@@ -3,17 +3,17 @@
 namespace Acomics\Ssr\Layout\Common\Component\Header;
 
 use Acomics\Ssr\Layout\AbstractComponent;
-use Acomics\Ssr\Dto\AuthDto;
+use Acomics\Ssr\Layout\Common\AuthData;
 use Acomics\Ssr\Layout\Common\Component\MainMenuModal\MainMenuModal;
 use Acomics\Ssr\Layout\Common\Component\UserMenuModal\UserMenuModal;
 use Acomics\Ssr\Util\UrlUtil;
 
 class Header extends AbstractComponent
 {
-	private AuthDto $auth;
+	private AuthData $auth;
 	private ?string $activePage;
 
-	public function __construct(AuthDto $auth, ?string $activePage = null)
+	public function __construct(AuthData $auth, ?string $activePage = null)
 	{
 		$this->auth = $auth;
 		$this->activePage = $activePage;

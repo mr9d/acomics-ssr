@@ -2,16 +2,16 @@
 
 namespace Acomics\Ssr\Layout\Common\Component\MainMenuModal;
 
-use Acomics\Ssr\Dto\AuthDto;
+use Acomics\Ssr\Layout\Common\AuthData;
 use Acomics\Ssr\Layout\Common\Component\HeaderModal\HeaderModal;
 use Acomics\Ssr\Util\UrlUtil;
 
 class MainMenuModal extends HeaderModal
 {
-	private AuthDto $auth;
+	private AuthData $auth;
 	private ?string $activePage;
 
-	public function __construct(AuthDto $auth, ?string $activePage = null)
+	public function __construct(AuthData $auth, ?string $activePage = null)
 	{
 		parent::__construct('main-menu');
 		$this->auth = $auth;

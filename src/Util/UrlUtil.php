@@ -2,7 +2,7 @@
 
 namespace Acomics\Ssr\Util;
 
-use Acomics\Ssr\Dto\AuthDto;
+use Acomics\Ssr\Layout\Common\AuthData;
 
 require_once __DIR__ . '/../hashes.generated.php';
 
@@ -22,7 +22,7 @@ class UrlUtil
 		return '/' . self::SERIAL_URL_PREFIX . $serialCode . ($subPage ? '/' . $subPage : '');
 	}
 
-	public static function makeSubscriptionsUrl(AuthDto $auth): string
+	public static function makeSubscriptionsUrl(AuthData $auth): string
 	{
 		if (!$auth->isLoggedIn)
 		{

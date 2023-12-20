@@ -2,8 +2,6 @@
 
 namespace Acomics\Ssr\Layout\Common;
 
-use Acomics\Ssr\Dto\AuthDto;
-use Acomics\Ssr\Layout\AdvertisementProviderInt;
 use Acomics\Ssr\Layout\AbstractLayout;
 use Acomics\Ssr\Layout\Common\Component\Footer\Footer;
 use Acomics\Ssr\Layout\Common\Component\Header\Header;
@@ -11,11 +9,11 @@ use Acomics\Ssr\Util\UrlUtil;
 
 abstract class CommonLayout extends AbstractLayout
 {
-	protected ?AuthDto $auth = null;
+	protected ?AuthData $auth = null;
 	protected ?AdvertisementProviderInt $advertisementProvider = null;
 	protected ?string $activePage = null;
 
-	public function common(AuthDto $auth, AdvertisementProviderInt $advertisementProvider, ?string $activePage = null): void
+	public function common(AuthData $auth, AdvertisementProviderInt $advertisementProvider, ?string $activePage = null): void
 	{
 		$this->auth = $auth;
 		$this->advertisementProvider = $advertisementProvider;
