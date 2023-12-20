@@ -8,8 +8,6 @@ use Acomics\Ssr\Util\UrlUtil;
 
 abstract class SerialLayout extends CommonLayout
 {
-	private const DEFAULT_OG_IMAGE_URL = '/design/main/pic/catalog-stub.png?18-07-2014';
-
 	protected ?SerialLayoutData $serialLayoutData = null;
 
 	public function serial(SerialLayoutData $serialLayoutData): void
@@ -37,21 +35,6 @@ abstract class SerialLayout extends CommonLayout
 		$href = UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'rss');
 
 		echo '<link rel="alternate" type="application/rss+xml" title="' . $title . '" href="' . $href . '" />';
-	}
-
-	protected function openGraph(): void
-	{
-		$ogImage = $this->serialLayoutData->ogImage ? $this->serialLayoutData->ogImage : self::DEFAULT_OG_IMAGE_URL;
-?>
-		<meta property="og:title" content="<?=$this->serialLayoutData->name?>" />
-		<meta property="og:type" content="website" />
-		<meta property="og:image" content="<?=$ogImage?>" />
-		<meta property="og:image:type" content="image/png" />
-		<meta property="og:image:width" content="160" />
-		<meta property="og:image:height" content="90" />
-		<meta property="og:url" content="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code)?>" />
-		<meta property="og:description" content="<?=($this->serialLayoutData->ogDescription)?>" />
-<?php
 	}
 
     public function top(): void

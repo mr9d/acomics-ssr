@@ -30,10 +30,5 @@ class SerialLayoutData
 	// Информация о выпусках
 	//
 	public int $issueCount;
-
-	//
-	// OpenGraph
-	//
-	public ?string $ogImage;
-	public ?string $ogDescription;
+	
 }
