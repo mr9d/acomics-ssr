@@ -11,43 +11,50 @@ abstract class CommonLayout extends AbstractLayout
 {
 	protected ?AuthData $auth = null;
 	protected ?AdvertisementProviderInt $advertisementProvider = null;
+	protected ?MetricsProviderInt $metricsProvider = null;
 	protected ?string $activePage = null;
 
-	public function common(AuthData $auth, AdvertisementProviderInt $advertisementProvider, ?string $activePage = null): void
+	public function common(AuthData $auth, AdvertisementProviderInt $advertisementProvider, MetricsProviderInt $metricsProvider, ?string $activePage = null): void
 	{
 		$this->auth = $auth;
 		$this->advertisementProvider = $advertisementProvider;
+		$this->metricsProvider = $metricsProvider;
 		$this->activePage = $activePage;
 	}
 
 	public function isReady(): bool
 	{
-		return $this->auth !== null && $this->advertisementProvider !== null && parent::isReady();
+		return $this->auth !== null && $this->advertisementProvider !== null && $this->metricsProvider !== null && parent::isReady();
 	}
 
-    protected function head(): void
-    {
-        parent::head();
-		$this->advertisementProvider->head();
-        echo '<link rel="shortcut icon" href="/favicon.ico?18-11-2023" />';
-        echo '<link rel="stylesheet" href="/static/css/normalize.css?18-11-2023" type="text/css" />';
-        echo '<link rel="stylesheet" href="' . UrlUtil::makeStaticUrlWithHash('static/bundle/common.css') . '" type="text/css" />';
-        echo '<script defer src="' . UrlUtil::makeStaticUrlWithHash('static/bundle/common.js') . '"></script>';
-    }
+	protected function head(): void
+	{
+		parent::head();
 
-    public function top(): void
-    {
+		$this->advertisementProvider->head();
+		$this->metricsProvider->head();
+
+		echo '<link rel="shortcut icon" href="/favicon.ico?18-11-2023" />';
+		echo '<link rel="stylesheet" href="/static/css/normalize.css?18-11-2023" type="text/css" />';
+		echo '<link rel="stylesheet" href="' . UrlUtil::makeStaticUrlWithHash('static/bundle/common.css') . '" type="text/css" />';
+		echo '<script defer src="' . UrlUtil::makeStaticUrlWithHash('static/bundle/common.js') . '"></script>';
+	}
+
+	public function top(): void
+	{
 		parent::top();
 
-        (new Header($this->auth, $this->activePage))->render();
+		$this->metricsProvider->body();
+
+		(new Header($this->auth, $this->activePage))->render();
 
 		echo '<div class="page-background">';
 		echo '<div class="page-margins">';
 		echo '<div class="common-content">';
-    }
+	}
 
-    public function bottom(): void
-    {
+	public function bottom(): void
+	{
 		echo '</div>'; // common-content
 
 		(new Footer())->render();
@@ -58,5 +65,5 @@ abstract class CommonLayout extends AbstractLayout
 		echo '<div class="header-fade"></div>';
 
 		parent::bottom();
-    }
+	}
 }
