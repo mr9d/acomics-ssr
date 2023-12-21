@@ -1,4 +1,37 @@
 /* src/Layout/Serial/SerialLayout.css */
+/* Страница чтения комикса */
+main.view-container article.view-article { padding: var(--desktop-gap) var(--mobile-gap); }
+aside.view-aside-first { margin-top: var(--desktop-gap); }
+main.view-container aside.view-aside-second { margin: 0 var(--mobile-gap) var(--desktop-gap); box-sizing: border-box; }
+main.view-container aside.view-aside-second div.inner { top: var(--desktop-gap); }
+main.view-container aside.view-aside-second div.inner div:first-child { display: none; }
+
+@media screen and (min-height: 300px) {
+	main.view-container aside.view-aside-second div.inner { top: calc(54px + var(--desktop-gap)); }
+}
+@media screen and (min-width: 640px) {
+	aside.view-aside-first { display: none; }
+	main.view-container { display: flex; }
+	main.view-container article.view-article {
+		flex-grow: 1; flex-shrink: 1;
+	}
+	main.view-container aside.view-aside-second {
+		margin: var(--desktop-gap) var(--mobile-gap) var(--desktop-gap) 0;
+		flex: 0 0 300px;
+	}
+	main.view-container aside.view-aside-second div.inner { position: sticky; }
+	main.view-container aside.view-aside-second div.inner div:first-child { display: block; margin-bottom: var(--desktop-gap); }
+}
+@media screen and (min-width: 920px) {
+	main.view-container article.view-article { padding: var(--desktop-gap); }
+	main.view-container aside.view-aside-second { margin: var(--desktop-gap) var(--desktop-gap) var(--desktop-gap) 0; }
+}
+
+
+
+
+
+
 /* Дополнительный отступ от шапки */
 aside.serial-aside-first { padding: var(--desktop-gap) var(--mobile-gap) 0; }
 
@@ -118,6 +151,30 @@ a.issue-preview span.issue-preview-name { display: block; word-break: break-word
 
 /* src/Layout/Serial/Component/ManagerMenu/ManagerMenu.css */
 
+/* src/Layout/Serial/Component/ReaderComments/ReaderComments.css */
+
+/* src/Layout/Serial/Component/ReaderIssue/ReaderIssue.css */
+
+/* src/Layout/Serial/Component/ReaderIssueDescription/ReaderIssueDescription.css */
+section.reader-issue-description {
+	border: 1px solid var(--brand-grey); margin: 0 0 var(--desktop-gap);
+}
+
+/* src/Layout/Serial/Component/ReaderIssueTitle/ReaderIssueTitle.css */
+h1.reader-issue-title {
+	margin: 18px var(--mobile-gap); font-size: inherit; font-weight: normal;
+	display: flex; justify-content: center;
+}
+h1.reader-issue-title span.number-with-name,
+h1.reader-issue-title span.number-without-name { word-break: break-word; display: block; text-align: center; }
+h1.reader-issue-title a { text-decoration: none; display: flex; align-items: center; padding: 0 var(--mobile-gap); }
+h1.reader-issue-title span.number-with-name span.number { color: #a3a3a3; display: inline-block; padding-left: 5px; }
+
+@media screen and (min-width: 640px) {
+	h1.reader-issue-title { font-size: 18px; }
+	h1.reader-issue-title span.number-with-name span.number { padding-left: 10px; }
+}
+
 /* src/Layout/Serial/Component/ReaderMenu/ReaderMenu.css */
 section.serial-reader-menu {
 	height: 40px; background: var(--brand-grey); overflow: hidden;
@@ -169,6 +226,13 @@ section.serial-reader-menu.expanded nav button.serial-reader-menu-toggle {
 /* Делаем нормальные отступы */
 @media screen and (min-width: 920px) {
 	section.serial-reader-menu ul { padding: 0 40px 0 calc(var(--desktop-gap) - 10px); }
+}
+
+/* src/Layout/Serial/Component/ReaderNavigator/ReaderNavigator.css */
+
+/* src/Layout/Serial/Component/ReaderSerialDescription/ReaderSerialDescription.css */
+section.reader-serial-description {
+	border: 1px solid var(--brand-grey);
 }
 
 /* src/Layout/Serial/Component/SerialHeader/SerialHeader.css */

@@ -12,16 +12,16 @@ use Acomics\Ssr\Util\UrlUtil;
 
 class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 {
-	protected ?SerialAboutPageData $serialAboutPageData = null;
+	protected ?SerialAboutPageData $pageData = null;
 
-	public function pageData(SerialAboutPageData $serialAboutPageData): void
+	public function pageData(SerialAboutPageData $pageData): void
 	{
-		$this->serialAboutPageData = $serialAboutPageData;
+		$this->pageData = $pageData;
 	}
 
 	public function isReady(): bool
 	{
-		return $this->serialAboutPageData !== null && parent::isReady();
+		return $this->pageData !== null && parent::isReady();
 	}
 
 	public function content(): void
@@ -29,32 +29,32 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 		(new PageHeaderWithMenu($this->serialLayoutData->name))->render();
 
 		(new AboutBadges(
-			catalogStatus: $this->serialAboutPageData->catalogStatus,
-			isTranslation: $this->serialAboutPageData->isTranslation,
-			isCompleted: $this->serialAboutPageData->isCompleted,
-			serialCategories: $this->serialAboutPageData->serialCategories
+			catalogStatus: $this->pageData->catalogStatus,
+			isTranslation: $this->pageData->isTranslation,
+			isCompleted: $this->pageData->isCompleted,
+			serialCategories: $this->pageData->serialCategories
 		))->render();
 
 		$this->renderAboutText();
 
-		if($this->serialAboutPageData->siteUrl)
+		if($this->pageData->siteUrl)
 		{
 			echo '<p><a href="' . UrlUtil::makeSerialUrl($this->serialLayoutData->code) . '">https://acomics.ru' . UrlUtil::makeSerialUrl($this->serialLayoutData->code) . '</a></p>';
 		}
 
-		if($this->serialAboutPageData->originalAuthorName)
+		if($this->pageData->originalAuthorName)
 		{
-			echo '<p><b>Автор оригинала:</b> ' . $this->serialAboutPageData->originalAuthorName . '</p>';
+			echo '<p><b>Автор оригинала:</b> ' . $this->pageData->originalAuthorName . '</p>';
 		}
 
 		$this->renderAuthors();
 
 		echo '<p><b>Количество выпусков:</b> ' . $this->serialLayoutData->issueCount . '</p>';
-		echo '<p><b>Количество подписчиков:</b> <a href="' . UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'subscribe') . '">' . $this->serialAboutPageData->subscribersCount . '</a></p>';
+		echo '<p><b>Количество подписчиков:</b> <a href="' . UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'subscribe') . '">' . $this->pageData->subscribersCount . '</a></p>';
 
 		$this->renderOfficialSite();
 
-		echo '<p><b>Возрастной рейтинг:</b> ' . $this->serialAboutPageData->ageRating->name . '</p>';
+		echo '<p><b>Возрастной рейтинг:</b> ' . $this->pageData->ageRating->name . '</p>';
 
 		$this->renderLicense();
 
@@ -66,7 +66,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 	private function renderAboutText(): void
 	{
 		echo '<section class="serial-about-text">';
-		echo $this->serialAboutPageData->aboutText;
+		echo $this->pageData->aboutText;
 		echo '</section>';
 	}
 
@@ -74,9 +74,9 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 	{
 		echo '<p class="serial-about-authors">';
 
-		if($this->serialAboutPageData->isTranslation)
+		if($this->pageData->isTranslation)
 		{
-			if(count($this->serialAboutPageData->coauthors) > 1)
+			if(count($this->pageData->coauthors) > 1)
 			{
 				echo '<b>Переводчики:</b> ';
 			}
@@ -87,7 +87,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 		}
 		else
 		{
-			if(count($this->serialAboutPageData->coauthors) > 1)
+			if(count($this->pageData->coauthors) > 1)
 			{
 				echo '<b>Авторы:</b> ';
 			}
@@ -99,7 +99,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 
 		$coauthorToString = fn(SerialCoauthorDto $coauthor) => '<a href="' . UrlUtil::makeProfileUrl($coauthor->username) . '">' . $coauthor->username . '</a>' . ($coauthor->role ? ' (' . $coauthor->role . ')' : '');
 
-		echo implode(', ', array_map($coauthorToString, $this->serialAboutPageData->coauthors));
+		echo implode(', ', array_map($coauthorToString, $this->pageData->coauthors));
 
 		echo '</p>';
 	}
@@ -107,16 +107,16 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 	private function renderOfficialSite(): void
 	{
 		// Не выводим адрес официального сайта, если для перевода он не заполнен
-		if ($this->serialAboutPageData->isTranslation && !$this->serialAboutPageData->siteUrl)
+		if ($this->pageData->isTranslation && !$this->pageData->siteUrl)
 		{
 			return;
 		}
 
-		$url = $this->serialAboutPageData->siteUrl ? $this->serialAboutPageData->siteUrl : 'https://acomics.ru' . UrlUtil::makeSerialUrl($this->serialLayoutData->code);
+		$url = $this->pageData->siteUrl ? $this->pageData->siteUrl : 'https://acomics.ru' . UrlUtil::makeSerialUrl($this->serialLayoutData->code);
 
 		echo '<p class="serial-about-site-url">';
 
-		echo '<b>' . ($this->serialAboutPageData->isTranslation ? 'Официальный сайт' : 'Сайт') . ':</b> ';
+		echo '<b>' . ($this->pageData->isTranslation ? 'Официальный сайт' : 'Сайт') . ':</b> ';
 		echo '<a href="' . $url . '">' . $url . '</a>';
 
 		echo '</p>';
@@ -125,14 +125,14 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 	private function renderLicense(): void
 	{
 		// Не выводим "Нет лицензии или не CC" без descriptionUrl
-		if(!$this->serialAboutPageData->license || !$this->serialAboutPageData->license->descriptionUrl)
+		if(!$this->pageData->license || !$this->pageData->license->descriptionUrl)
 		{
 			return;
 		}
 
 		echo '<p><b>Лицензия:</b> ';
 
-		echo '<a href="' . $this->serialAboutPageData->license->descriptionUrl . '">' . $this->serialAboutPageData->license->name . '</a>';
+		echo '<a href="' . $this->pageData->license->descriptionUrl . '">' . $this->pageData->license->name . '</a>';
 
 		echo '</p>';
 	}
@@ -141,7 +141,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 	{
 		echo '<section class="serial-about-issues">';
 
-		foreach($this->serialAboutPageData->issues as $issue)
+		foreach($this->pageData->issues as $issue)
 		{
 			(new IssuePreview($issue))->render();
 		}
