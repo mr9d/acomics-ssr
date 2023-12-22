@@ -154,6 +154,7 @@ a.issue-preview span.issue-preview-name { display: block; word-break: break-word
 /* src/Layout/Serial/Component/ReaderComments/ReaderComments.css */
 
 /* src/Layout/Serial/Component/ReaderIssue/ReaderIssue.css */
+main.reader-issue img.issue { display: block; width: 100%; margin: 0 auto; }
 
 /* src/Layout/Serial/Component/ReaderIssueDescription/ReaderIssueDescription.css */
 section.reader-issue-description {

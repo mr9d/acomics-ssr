@@ -33,8 +33,16 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 			issueNumber: $this->pageData->issueNumber,
 			issueName: $this->pageData->issueName)
 		)->render();
+
+		(new ReaderIssue(
+			serial: $this->serialLayoutData,
+			issueNumber: $this->pageData->issueNumber,
+			issueName: $this->pageData->issueName,
+			issueImageUrl: $this->pageData->issueImageUrl,
+			issueImageWidth: $this->pageData->issueImageWidth,
+			issueImageHeight: $this->pageData->issueImageHeight)
+		)->render();
 		
-		(new ReaderIssue())->render();
 		(new ReaderNavigator())->render();
 
 		echo '<aside class="view-aside-first">';
