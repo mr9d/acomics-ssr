@@ -25,10 +25,6 @@ class SerialLayoutData
 	public bool $isCharacterMenuItemVisible;
 	public bool $isFaqMenuItemVisible;
 	public ?string $activeMenuItem;
-
-	//
-	// Информация о выпусках
-	//
 	public int $issueCount;
-	
+
 }

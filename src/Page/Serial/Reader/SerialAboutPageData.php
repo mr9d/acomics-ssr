@@ -3,33 +3,15 @@
 namespace Acomics\Ssr\Page\Serial\Reader;
 
 use Acomics\Ssr\Dto\IssuePreviewDto;
-use Acomics\Ssr\Dto\SerialAgeRatingDto;
 use Acomics\Ssr\Dto\SerialCategoryDto;
 use Acomics\Ssr\Dto\SerialCoauthorDto;
-use Acomics\Ssr\Dto\SerialLicenseDto;
+use Acomics\Ssr\Dto\SerialDto;
 
 class SerialAboutPageData
 {
-	public bool $isTranslation;
-
-	public bool $isCompleted;
-
-	public int $catalogStatus;
-
-	public int $subscribersCount;
+	public SerialDto $serial;
 
 	public ?string $aboutText;
-
-	public ?string $siteUrl;
-
-	public ?string $originalAuthorName;
-
-	public SerialAgeRatingDto $ageRating;
-
-	public ?SerialLicenseDto $license;
-
-	/** @var SerialCoauthorDto[] $coauthors */
-	public array $coauthors;
 
 	/** @var SerialCategoryDto[] $serialCategories */
 	public array $serialCategories;
@@ -42,29 +24,13 @@ class SerialAboutPageData
 	 * @param SerialCategoryDto[] $serialCategories
 	 */
 	public function __construct(
-		bool $isTranslation,
-		bool $isCompleted,
-		int $catalogStatus,
-		int $subscribersCount,
+		SerialDto $serial,
 		?string $aboutText,
-		?string $siteUrl,
-		?string $originalAuthorName,
-		SerialAgeRatingDto $ageRating,
-		SerialLicenseDto $license,
-		array $coauthors,
 		array $serialCategories,
 		array $issues)
 	{
-		$this->isTranslation = $isTranslation;
-		$this->isCompleted = $isCompleted;
-		$this->catalogStatus = $catalogStatus;
-		$this->subscribersCount = $subscribersCount;
+		$this->serial = $serial;
 		$this->aboutText = $aboutText;
-		$this->siteUrl = $siteUrl;
-		$this->originalAuthorName = $originalAuthorName;
-		$this->ageRating = $ageRating;
-		$this->license = $license;
-		$this->coauthors = $coauthors;
 		$this->serialCategories = $serialCategories;
 		$this->issues = $issues;
 	}

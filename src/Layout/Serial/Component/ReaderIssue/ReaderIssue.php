@@ -2,37 +2,22 @@
 
 namespace Acomics\Ssr\Layout\Serial\Component\ReaderIssue;
 
+use Acomics\Ssr\Dto\IssueDto;
+use Acomics\Ssr\Dto\SerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
-use Acomics\Ssr\Layout\Serial\SerialLayoutData;
 
 class ReaderIssue extends AbstractComponent
 {
-	private SerialLayoutData $serial;
+	private SerialDto $serial;
 
-	private int $issueNumber;
-
-	private ?string $issueName;
-
-	private string $issueImageUrl;
-
-	private int $issueImageWidth;
-
-	private int $issueImageHeight;
+	private IssueDto $issue;
 
 	public function __construct(
-		SerialLayoutData $serial,
-		int $issueNumber,
-		?string $issueName,
-		string $issueImageUrl,
-		int $issueImageWidth,
-		int $issueImageHeight)
+		SerialDto $serial,
+		IssueDto $issue)
 	{
 		$this->serial = $serial;
-		$this->issueNumber = $issueNumber;
-		$this->issueName = $issueName;
-		$this->issueImageUrl = $issueImageUrl;
-		$this->issueImageWidth = $issueImageWidth;
-		$this->issueImageHeight = $issueImageHeight;
+		$this->issue = $issue;
 	}
 
 	public function render(): void
@@ -46,7 +31,7 @@ class ReaderIssue extends AbstractComponent
 
 	private function renderImage(): void
 	{
-		$imgStyle = 'height: calc(100% * ' . $this->issueImageHeight .' / ' . $this->issueImageWidth .'); max-width: ' . $this->issueImageWidth . 'px';
-		echo '<img class="issue" src="' . $this->issueImageUrl . '" width="' . $this->issueImageWidth . '" height="' . $this->issueImageHeight . '" style="' . $imgStyle . '" />';
+		$imgStyle = 'height: calc(100% * ' . $this->issue->height .' / ' . $this->issue->width .'); max-width: ' . $this->issue->width . 'px';
+		echo '<img class="issue" src="' . $this->issue->url . '" width="' . $this->issue->width . '" height="' . $this->issue->height . '" style="' . $imgStyle . '" />';
 	}
 }

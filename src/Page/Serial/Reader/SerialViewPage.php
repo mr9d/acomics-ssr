@@ -29,21 +29,19 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 	public function content(): void
 	{
 		(new ReaderIssueTitle(
-			serial: $this->serialLayoutData,
-			issueNumber: $this->pageData->issueNumber,
-			issueName: $this->pageData->issueName)
+			serial: $this->pageData->serial,
+			issue: $this->pageData->issue)
 		)->render();
 
 		(new ReaderIssue(
-			serial: $this->serialLayoutData,
-			issueNumber: $this->pageData->issueNumber,
-			issueName: $this->pageData->issueName,
-			issueImageUrl: $this->pageData->issueImageUrl,
-			issueImageWidth: $this->pageData->issueImageWidth,
-			issueImageHeight: $this->pageData->issueImageHeight)
+			serial: $this->pageData->serial,
+			issue: $this->pageData->issue)
 		)->render();
-		
-		(new ReaderNavigator())->render();
+
+		(new ReaderNavigator(
+			serial: $this->pageData->serial,
+			issue: $this->pageData->issue)
+		)->render();
 
 		echo '<aside class="view-aside-first">';
 		$this->advertisementProvider->renderMobileTop();

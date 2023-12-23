@@ -1,30 +1,32 @@
 /* src/Layout/Serial/SerialLayout.css */
 /* Страница чтения комикса */
-main.view-container article.view-article { padding: var(--desktop-gap) var(--mobile-gap); }
-aside.view-aside-first { margin-top: var(--desktop-gap); }
-main.view-container aside.view-aside-second { margin: 0 var(--mobile-gap) var(--desktop-gap); box-sizing: border-box; }
+aside.view-aside-first { margin-bottom: var(--desktop-gap); }
+main.view-container article.view-article { padding: 0 var(--mobile-gap); }
+main.view-container aside.view-aside-second { margin: var(--desktop-gap) var(--mobile-gap); box-sizing: border-box; }
 main.view-container aside.view-aside-second div.inner { top: var(--desktop-gap); }
 main.view-container aside.view-aside-second div.inner div:first-child { display: none; }
 
 @media screen and (min-height: 300px) {
 	main.view-container aside.view-aside-second div.inner { top: calc(54px + var(--desktop-gap)); }
 }
-@media screen and (min-width: 640px) {
+
+@media screen and (min-width: 700px) {
 	aside.view-aside-first { display: none; }
 	main.view-container { display: flex; }
 	main.view-container article.view-article {
 		flex-grow: 1; flex-shrink: 1;
 	}
 	main.view-container aside.view-aside-second {
-		margin: var(--desktop-gap) var(--mobile-gap) var(--desktop-gap) 0;
+		margin: 0 var(--mobile-gap) var(--desktop-gap) 0;
 		flex: 0 0 300px;
 	}
 	main.view-container aside.view-aside-second div.inner { position: sticky; }
 	main.view-container aside.view-aside-second div.inner div:first-child { display: block; margin-bottom: var(--desktop-gap); }
 }
+
 @media screen and (min-width: 920px) {
-	main.view-container article.view-article { padding: var(--desktop-gap); }
-	main.view-container aside.view-aside-second { margin: var(--desktop-gap) var(--desktop-gap) var(--desktop-gap) 0; }
+	main.view-container article.view-article { padding: 0 var(--desktop-gap); }
+	main.view-container aside.view-aside-second { margin: 0 var(--desktop-gap) var(--desktop-gap) 0; }
 }
 
 
@@ -230,6 +232,43 @@ section.serial-reader-menu.expanded nav button.serial-reader-menu-toggle {
 }
 
 /* src/Layout/Serial/Component/ReaderNavigator/ReaderNavigator.css */
+nav.reader-navigator { padding: calc(var(--desktop-gap) - 10px) 5px; }
+nav.reader-navigator ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; }
+nav.reader-navigator ul li { flex-shrink: 1; }
+nav.reader-navigator ul li a { display: block; padding: 10px 5px; }
+nav.reader-navigator ul li a span {
+	display: flex; align-items: center; justify-content: center;
+	box-sizing: border-box; height: 40px; background-color: var(--brand-orange);
+	border-radius: 4px; box-shadow: inset 0 -2px 0 rgba(0,0,0,.1); padding: 0 var(--mobile-gap);
+}
+
+nav.reader-navigator ul li.button-content,
+nav.reader-navigator ul li.button-random { display: none; flex-grow: 1; flex-basis: 100px; }
+nav.reader-navigator ul li.button-content a span,
+nav.reader-navigator ul li.button-random a span { background-color: var(--brand-grey); }
+
+nav.reader-navigator ul li.button-first,
+nav.reader-navigator ul li.button-last { flex-basis: 65px; }
+nav.reader-navigator ul li.button-previous,
+nav.reader-navigator ul li.button-next { flex-basis: 90px; }
+
+nav.reader-navigator ul li.button-goto a { text-decoration: none; color: #333; }
+nav.reader-navigator ul li.button-goto a span { padding: 0 var(--mobile-gap); background-color: var(--brand-grey); }
+
+@media screen and (min-width: 700px) {
+	nav.reader-navigator ul li.button-content { display: flex; justify-content: left; }
+	nav.reader-navigator ul li.button-random { display: flex; justify-content: right; }
+}
+
+@media screen and (min-width: 920px) {
+	nav.reader-navigator { padding: calc(var(--desktop-gap) - 10px) 10px; }
+	nav.reader-navigator ul li a { display: block; padding: 10px; }
+	nav.reader-navigator ul li a span { padding: 0 var(--desktop-gap); }
+	nav.reader-navigator ul li.button-first,
+	nav.reader-navigator ul li.button-last { flex-basis: 75px; }
+	nav.reader-navigator ul li.button-previous,
+	nav.reader-navigator ul li.button-next { flex-basis: 100px; }
+}
 
 /* src/Layout/Serial/Component/ReaderSerialDescription/ReaderSerialDescription.css */
 section.reader-serial-description {
