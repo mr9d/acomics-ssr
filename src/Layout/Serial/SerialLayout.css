@@ -13,7 +13,7 @@ main.view-container aside.view-aside-second div.inner div:first-child { display:
 	aside.view-aside-first { display: none; }
 	main.view-container { display: flex; }
 	main.view-container article.view-article {
-		flex-grow: 1; flex-shrink: 1;
+		flex-grow: 1; flex-shrink: 1; padding: 0 var(--mobile-gap) var(--desktop-gap);
 	}
 	main.view-container aside.view-aside-second {
 		margin: 0 var(--mobile-gap) var(--desktop-gap) 0;
@@ -24,7 +24,7 @@ main.view-container aside.view-aside-second div.inner div:first-child { display:
 }
 
 @media screen and (min-width: 920px) {
-	main.view-container article.view-article { padding: 0 var(--desktop-gap); }
+	main.view-container article.view-article { padding: 0 var(--desktop-gap) var(--desktop-gap); }
 	main.view-container aside.view-aside-second { margin: 0 var(--desktop-gap) var(--desktop-gap) 0; }
 }
 

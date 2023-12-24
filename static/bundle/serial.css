@@ -14,7 +14,7 @@ main.view-container aside.view-aside-second div.inner div:first-child { display:
 	aside.view-aside-first { display: none; }
 	main.view-container { display: flex; }
 	main.view-container article.view-article {
-		flex-grow: 1; flex-shrink: 1;
+		flex-grow: 1; flex-shrink: 1; padding: 0 var(--mobile-gap) var(--desktop-gap);
 	}
 	main.view-container aside.view-aside-second {
 		margin: 0 var(--mobile-gap) var(--desktop-gap) 0;
@@ -25,7 +25,7 @@ main.view-container aside.view-aside-second div.inner div:first-child { display:
 }
 
 @media screen and (min-width: 920px) {
-	main.view-container article.view-article { padding: 0 var(--desktop-gap); }
+	main.view-container article.view-article { padding: 0 var(--desktop-gap) var(--desktop-gap); }
 	main.view-container aside.view-aside-second { margin: 0 var(--desktop-gap) var(--desktop-gap) 0; }
 }
 
@@ -235,22 +235,44 @@ section.serial-reader-menu.expanded nav button.serial-reader-menu-toggle {
 nav.reader-navigator { padding: calc(var(--desktop-gap) - 10px) 5px; }
 nav.reader-navigator ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; }
 nav.reader-navigator ul li { flex-shrink: 1; }
-nav.reader-navigator ul li a { display: block; padding: 10px 5px; }
+nav.reader-navigator ul li a { display: block; padding: 10px 5px; color: var(--brand-blue); }
+nav.reader-navigator ul li a:visited { color: var(--brand-blue); }
 nav.reader-navigator ul li a span {
 	display: flex; align-items: center; justify-content: center;
-	box-sizing: border-box; height: 40px; background-color: var(--brand-orange);
+	box-sizing: border-box; height: 40px; white-space: nowrap;
 	border-radius: 4px; box-shadow: inset 0 -2px 0 rgba(0,0,0,.1); padding: 0 var(--mobile-gap);
 }
 
 nav.reader-navigator ul li.button-content,
 nav.reader-navigator ul li.button-random { display: none; flex-grow: 1; flex-basis: 100px; }
-nav.reader-navigator ul li.button-content a span,
-nav.reader-navigator ul li.button-random a span { background-color: var(--brand-grey); }
 
 nav.reader-navigator ul li.button-first,
 nav.reader-navigator ul li.button-last { flex-basis: 65px; }
 nav.reader-navigator ul li.button-previous,
 nav.reader-navigator ul li.button-next { flex-basis: 90px; }
+
+nav.reader-navigator ul li.button-content a span {
+	background: var(--brand-grey) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 16 16'><defs><g id='Layer0_0_FILL'><path fill='%234A6CBC' stroke='none' d='M 4 12L 4 10 2 10 2 12 4 12M 4 6L 2 6 2 8 4 8 4 6M 4 2L 2 2 2 4 4 4 4 2M 14 12L 14 10 6 10 6 12 14 12M 14 8L 14 6 6 6 6 8 14 8M 14 4L 14 2 6 2 6 4 14 4 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>") no-repeat 6px center;
+	padding-left: 28px;
+}
+nav.reader-navigator ul li.button-first a span {
+	background: var(--brand-orange) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 16 16'><defs><g id='Layer0_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 5.1 7.95L 8 1 4.25 1 1 7.95 4.25 15 8 15 5.1 7.95M 11.1 7.95L 14 1 10.25 1 6.95 7.95 10.25 15 14 15 11.1 7.95 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>") no-repeat center;
+}
+nav.reader-navigator ul li.button-previous a span {
+	background: var(--brand-orange) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 16 16'><defs><g id='Layer0_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 5 7.95L 8.25 15 12 15 9.1 7.95 12 1 8.25 1 5 7.95 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>") no-repeat center;
+}
+nav.reader-navigator ul li.button-next a span {
+	background: var(--brand-orange) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 16 16'><defs><g id='Layer0_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 8.75 15L 12 7.95 8.75 1 5 1 7.9 7.95 5 15 8.75 15 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>") no-repeat center;
+}
+nav.reader-navigator ul li.button-last a span {
+	background: var(--brand-orange) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 16 16'><defs><g id='Layer0_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 2 1L 4.9 7.95 2 15 5.75 15 9.05 7.95 5.75 1 2 1M 15 7.95L 11.75 1 8 1 10.9 7.95 8 15 11.75 15 15 7.95 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>") no-repeat center;
+}
+nav.reader-navigator ul li.button-random a span {
+	background: var(--brand-grey) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 16 16'><defs><g id='Layer0_0_FILL'><path fill='%234A6CBC' stroke='none' d='M 0 2L 0 5Q 2.15 5 4.05 7L 5.8 5.15Q 3.3 2 0 2M 13 8.95L 13 11.15Q 10.7 11.35 8.7 9.15L 7.1 11.2Q 9.6 14.05 13 14.15L 13 16 16 12.65 13 8.95M 13 4.9L 13 7.1 16 3.35 13 0 13 1.9Q 8.7 2 5.9 6.55 3.15 11.05 0 11.05L 0 14.05Q 4.05 14.05 6.9 9.35 9.75 4.55 13 4.9 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>") no-repeat 6px center;
+	padding-left: 28px;
+}
+
+nav.reader-navigator ul li.button-inactive a span { background-color: var(--brand-grey); }
 
 nav.reader-navigator ul li.button-goto a { text-decoration: none; color: #333; }
 nav.reader-navigator ul li.button-goto a span { padding: 0 var(--mobile-gap); background-color: var(--brand-grey); }
@@ -268,6 +290,8 @@ nav.reader-navigator ul li.button-goto a span { padding: 0 var(--mobile-gap); ba
 	nav.reader-navigator ul li.button-last { flex-basis: 75px; }
 	nav.reader-navigator ul li.button-previous,
 	nav.reader-navigator ul li.button-next { flex-basis: 100px; }
+	nav.reader-navigator ul li.button-content a span,
+	nav.reader-navigator ul li.button-random a span { padding-left: 42px; background-position: 18px center; }
 }
 
 /* src/Layout/Serial/Component/ReaderSerialDescription/ReaderSerialDescription.css */
