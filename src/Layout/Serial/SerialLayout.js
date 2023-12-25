@@ -2,6 +2,8 @@
 const init = () => {
 	makeSerialMenuToggleButton();
 	makeReaderNavigatorButtons();
+	makeKeyboardNavigation();
+	makeReaderUpButton();
 };
 
 init();

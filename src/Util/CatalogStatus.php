@@ -1,4 +1,5 @@
 <?php
+
 namespace Acomics\Ssr\Util;
 
 class CatalogStatus

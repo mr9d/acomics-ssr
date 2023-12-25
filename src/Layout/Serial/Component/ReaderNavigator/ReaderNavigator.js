@@ -1,12 +1,10 @@
+// Ссылка на страницу открытого сейчас комикса
 const getCurrentSerialUrl = () => {
 	return window.location.origin + '/' + window.location.pathname.split('/')[1];
 };
 
 const makeReaderNavigatorButtons = () => {
 	const readerNavigator = document.querySelector('nav.reader-navigator');
-	if (readerNavigator === null) {
-		return;
-	}
 	const issueCount = readerNavigator.dataset.issueCount;
 
 	// Переход по номеру выпуска
@@ -32,4 +30,11 @@ const makeReaderNavigatorButtons = () => {
 		const issueNumber = Math.floor(Math.random() * issueCount) + 1;
 		window.location.assign(getCurrentSerialUrl() + '/' + issueNumber);
 	});
+};
+
+// Навигация по кнопкам
+const makeKeyboardNavigation = () => {
+	const readerNavigator = document.querySelector('nav.reader-navigator');
+	const issueCount = readerNavigator.dataset.issueCount;
+	// todo
 };

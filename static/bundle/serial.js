@@ -13,15 +13,13 @@ const makeSerialMenuToggleButton = () => {
 };
 
 /* src/Layout/Serial/Component/ReaderNavigator/ReaderNavigator.js */
+// Ссылка на страницу открытого сейчас комикса
 const getCurrentSerialUrl = () => {
 	return window.location.origin + '/' + window.location.pathname.split('/')[1];
 };
 
 const makeReaderNavigatorButtons = () => {
 	const readerNavigator = document.querySelector('nav.reader-navigator');
-	if (readerNavigator === null) {
-		return;
-	}
 	const issueCount = readerNavigator.dataset.issueCount;
 
 	// Переход по номеру выпуска
@@ -49,11 +47,33 @@ const makeReaderNavigatorButtons = () => {
 	});
 };
 
+// Навигация по кнопкам
+const makeKeyboardNavigation = () => {
+	const readerNavigator = document.querySelector('nav.reader-navigator');
+	const issueCount = readerNavigator.dataset.issueCount;
+	// todo
+};
+
+/* src/Layout/Serial/Component/ReaderSerialDescription/ReaderSerialDescription.js */
+// Кнопка "Наверх" в описании комикса
+const makeReaderUpButton = () => {
+	const upButton = document.querySelector('section.reader-serial-description a.description-up-button');
+	if (upButton === null) {
+		return;
+	}
+	upButton.addEventListener('click', (evt) => {
+		evt.preventDefault();
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	});
+};
+
 /* src/Layout/Serial/SerialLayout.js */
 // Инициализация элементов на странице чтения комиксов
 const init = () => {
 	makeSerialMenuToggleButton();
 	makeReaderNavigatorButtons();
+	makeKeyboardNavigation();
+	makeReaderUpButton();
 };
 
 init();

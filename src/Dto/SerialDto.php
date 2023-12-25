@@ -8,6 +8,8 @@ class SerialDto
 
 	public string $code;
 
+	public ?string $aboutShort;
+
 	public int $issueCount;
 
 	public bool $isTranslation;
@@ -35,6 +37,7 @@ class SerialDto
 	public function __construct(
 		string $name,
 		string $code,
+		?string $aboutShort,
 		int $issueCount,
 		bool $isTranslation,
 		bool $isCompleted,
@@ -48,6 +51,7 @@ class SerialDto
 	{
 		$this->name = $name;
 		$this->code = $code;
+		$this->aboutShort = $aboutShort;
 		$this->issueCount = $issueCount;
 		$this->isTranslation = $isTranslation;
 		$this->isCompleted = $isCompleted;

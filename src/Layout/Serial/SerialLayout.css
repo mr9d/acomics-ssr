@@ -1,9 +1,12 @@
+/* Дополнительный отступ от шапки */
+aside.serial-aside-first { padding: var(--desktop-gap) var(--mobile-gap) 0; }
+
 /* Страница чтения комикса */
 aside.view-aside-first { margin-bottom: var(--desktop-gap); }
 main.view-container article.view-article { padding: 0 var(--mobile-gap); }
 main.view-container aside.view-aside-second { margin: var(--desktop-gap) var(--mobile-gap); box-sizing: border-box; }
 main.view-container aside.view-aside-second div.inner { top: var(--desktop-gap); }
-main.view-container aside.view-aside-second div.inner div:first-child { display: none; }
+main.view-container aside.view-aside-second div.inner>div:first-child { display: none; }
 
 @media screen and (min-height: 300px) {
 	main.view-container aside.view-aside-second div.inner { top: calc(54px + var(--desktop-gap)); }
@@ -20,21 +23,13 @@ main.view-container aside.view-aside-second div.inner div:first-child { display:
 		flex: 0 0 300px;
 	}
 	main.view-container aside.view-aside-second div.inner { position: sticky; }
-	main.view-container aside.view-aside-second div.inner div:first-child { display: block; margin-bottom: var(--desktop-gap); }
+	main.view-container aside.view-aside-second div.inner>div:first-child { display: block; margin-bottom: var(--desktop-gap); }
 }
 
 @media screen and (min-width: 920px) {
 	main.view-container article.view-article { padding: 0 var(--desktop-gap) var(--desktop-gap); }
 	main.view-container aside.view-aside-second { margin: 0 var(--desktop-gap) var(--desktop-gap) 0; }
 }
-
-
-
-
-
-
-/* Дополнительный отступ от шапки */
-aside.serial-aside-first { padding: var(--desktop-gap) var(--mobile-gap) 0; }
 
 /* Страница "О комиксе" */
 section.serial-about-text { word-break: break-word; }

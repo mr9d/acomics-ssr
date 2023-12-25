@@ -50,8 +50,14 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 		echo '<main class="view-container">';
 
 		echo '<article class="view-article">';
-		(new ReaderIssueDescription())->render();
+
+		(new ReaderIssueDescription(
+			serial: $this->pageData->serial,
+			issue: $this->pageData->issue)
+		)->render();
+
 		(new ReaderComments())->render();
+		
 		echo '</article>';
 
 		echo '<aside class="view-aside-second">';
@@ -61,7 +67,9 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 		$this->advertisementProvider->renderSerialViewSidebar();
 		echo '</div>';
 
-		(new ReaderSerialDescription())->render();
+		(new ReaderSerialDescription(
+			serial: $this->pageData->serial)
+		)->render();
 
 		echo '</div>'; // inner
 		echo '</aside>'; // view-aside-second

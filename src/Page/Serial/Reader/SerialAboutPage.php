@@ -8,6 +8,7 @@ use Acomics\Ssr\Layout\Serial\Component\AboutBadges\AboutBadges;
 use Acomics\Ssr\Layout\Serial\Component\IssuePreview\IssuePreview;
 use Acomics\Ssr\Layout\SerialReaderAside\SerialReaderAsideLayout;
 use Acomics\Ssr\Page\PageInt;
+use Acomics\Ssr\Util\AuthorUtil;
 use Acomics\Ssr\Util\UrlUtil;
 
 class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
@@ -72,36 +73,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 
 	private function renderAuthors(): void
 	{
-		echo '<p class="serial-about-authors">';
-
-		if($this->pageData->serial->isTranslation)
-		{
-			if(count($this->pageData->serial->coauthors) > 1)
-			{
-				echo '<b>Переводчики:</b> ';
-			}
-			else
-			{
-				echo '<b>Переводчик:</b> ';
-			}
-		}
-		else
-		{
-			if(count($this->pageData->serial->coauthors) > 1)
-			{
-				echo '<b>Авторы:</b> ';
-			}
-			else
-			{
-				echo '<b>Автор:</b> ';
-			}
-		}
-
-		$coauthorToString = fn(SerialCoauthorDto $coauthor) => '<a href="' . UrlUtil::makeProfileUrl($coauthor->username) . '">' . $coauthor->username . '</a>' . ($coauthor->role ? ' (' . $coauthor->role . ')' : '');
-
-		echo implode(', ', array_map($coauthorToString, $this->pageData->serial->coauthors));
-
-		echo '</p>';
+		echo '<p class="serial-about-authors">' . AuthorUtil::makeAuthorsString($this->pageData->serial) . '</p>';
 	}
 
 	private function renderOfficialSite(): void
