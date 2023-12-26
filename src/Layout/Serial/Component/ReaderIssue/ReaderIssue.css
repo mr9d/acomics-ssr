@@ -21,8 +21,10 @@ main.reader-issue a.reader-issue-previous div.arrow {
 /* Эффект наведения */
 main.reader-issue a.reader-issue-next div.arrow,
 main.reader-issue a.reader-issue-previous div.arrow { opacity: 0; transition: opacity 0.4s ease; }
-main.reader-issue a.reader-issue-next:hover div.arrow,
-main.reader-issue a.reader-issue-previous:hover div.arrow { opacity: 0.6; }
+@media (hover: hover) {
+	main.reader-issue a.reader-issue-next:hover div.arrow,
+	main.reader-issue a.reader-issue-previous:hover div.arrow { opacity: 0.6; }
+}
 
 @media screen and (min-width: 520px) {
 	main.reader-issue a.reader-issue-next div.arrow { right: var(--desktop-gap); }

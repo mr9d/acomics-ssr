@@ -26,6 +26,8 @@ class IssueDto
 
 	public UserDto $user;
 
+	public ?int $editId;
+
 	public function __construct(
 		int $number,
 		?string $name,
@@ -37,7 +39,8 @@ class IssueDto
 		int $postDate,
 		int $commentCount,
 		?string $originalUrl,
-		UserDto $user)
+		UserDto $user,
+		?int $editId)
 	{
 		$this->number = $number;
 		$this->name = $name;
@@ -50,5 +53,6 @@ class IssueDto
 		$this->commentCount = $commentCount;
 		$this->originalUrl = $originalUrl;
 		$this->user = $user;
+		$this->editId = $editId;
 	}
 }

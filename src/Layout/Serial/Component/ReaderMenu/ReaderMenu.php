@@ -33,7 +33,7 @@ class ReaderMenu extends AbstractComponent
 		<nav>
 			<button class="serial-reader-menu-toggle"></button>
 			<ul>
-				<li class="read-menu-item-short<?=($this->serialLayoutData->activeMenuItem === 'view' ? ' active' : '')?>">
+				<li class="read-menu-item-short">
 					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, '1')?>" title="Читать комикс <?=$this->serialLayoutData->name?> с первого выпуска">Начало</a> /
 					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, $this->serialLayoutData->issueCount)?>" title="Читать комикс <?=$this->serialLayoutData->name?> с последнего выпуска">конец</a> /
 					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'list')?>" title="Смотреть комикс <?=$this->serialLayoutData->name?> лентой">лента</a>

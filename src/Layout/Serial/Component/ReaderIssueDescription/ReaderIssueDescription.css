@@ -1,4 +1,42 @@
-section.reader-issue-description {
+article.reader-issue-description {
 	border: 1px solid var(--brand-grey); margin: 0 0 var(--desktop-gap);
-	padding: var(--desktop-gap) var(--mobile-gap);
+	display: grid;
+	grid-template-areas:
+		"avatar title"
+		"text text"
+		"edit edit"
+		"buttons buttons";
+	grid-template-columns: calc(40px + var(--mobile-gap) * 2) 1fr;
+}
+
+/* Аватар */
+article.reader-issue-description a.issue-description-avatar { display: block; grid-area: avatar; margin: var(--desktop-gap) var(--mobile-gap) 0; }
+article.reader-issue-description a.issue-description-avatar img { display: block; width: 40px; height: 40px; }
+
+/* Заголовок */
+article.reader-issue-description h2.issue-description-title {
+	font-size: 1em; font-weight: normal; word-break: break-word;
+	margin: 0; grid-area: title; margin: var(--desktop-gap) var(--mobile-gap) 0 0; line-height: 1.4;
+}
+article.reader-issue-description h2.issue-description-title a.username { display: inline-block; margin-right: 10px; }
+article.reader-issue-description h2.issue-description-title span.title { display: inline-block; margin-right: 10px; font-weight: bold; }
+article.reader-issue-description h2.issue-description-title span.date-time-formatted { color: #999; }
+
+/* Описание */
+article.reader-issue-description section.issue-description-text.empty { height: var(--desktop-gap); }
+article.reader-issue-description section.issue-description-text {
+	grid-area: text; word-break: break-word; margin: 0 var(--mobile-gap); width: auto; box-sizing: border-box;
+}
+article.reader-issue-description section.issue-description-text img { max-width: 100%; }
+
+/* Ссылка на редактирование */
+article.reader-issue-description section.issue-description-edit { text-align: right; grid-area: edit; padding: 0 var(--mobile-gap) var(--desktop-gap); }
+article.reader-issue-description section.issue-description-edit a {
+	display: inline-block; padding-left: 18px;
+	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 16 16'><defs><g id='Layer0_0_FILL'><path fill='%23D00026' stroke='none' d='M 14 4.85L 11 2 3.4 9.55 2 14 6.4 12.5 14 4.85M 4.1 10.25L 5.7 11.9 3.45 12.5 4.1 10.25M 4.9 9.4L 9.35 4.9 10.95 6.55 6.55 11.05 4.9 9.4 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>") no-repeat left/16px 16px;
+}
+
+/* Кнопки */
+article.reader-issue-description section.issue-description-buttons {
+	padding: var(--desktop-gap) var(--mobile-gap); border-top: 1px solid var(--brand-grey); grid-area: buttons;
 }
