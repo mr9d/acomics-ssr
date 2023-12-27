@@ -37,9 +37,9 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 
 		echo '<main class="view-container">';
 
-		echo '<article class="view-article">';
+		echo '<div class="view-article">';
 		$this->bottomLeftSection();
-		echo '</article>'; // view-article
+		echo '</div>'; // view-article
 
 		echo '<aside class="view-aside-second">';
 		$this->bottomRightSection();

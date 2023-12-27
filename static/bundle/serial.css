@@ -4,7 +4,7 @@ aside.serial-aside-first { padding: var(--desktop-gap) var(--mobile-gap) 0; }
 
 /* Страница чтения комикса */
 aside.view-aside-first { margin-bottom: var(--desktop-gap); }
-main.view-container article.view-article { padding: 0 var(--mobile-gap); }
+main.view-container div.view-article { padding: 0 var(--mobile-gap); container-type: inline-size; box-sizing: border-box; }
 main.view-container aside.view-aside-second { margin: var(--desktop-gap) var(--mobile-gap); box-sizing: border-box; }
 main.view-container aside.view-aside-second div.inner { top: var(--desktop-gap); }
 main.view-container aside.view-aside-second div.inner>div:first-child { display: none; }
@@ -16,7 +16,7 @@ main.view-container aside.view-aside-second div.inner>div:first-child { display:
 @media screen and (min-width: 700px) {
 	aside.view-aside-first { display: none; }
 	main.view-container { display: flex; }
-	main.view-container article.view-article {
+	main.view-container div.view-article {
 		flex-grow: 1; flex-shrink: 1; padding: 0 var(--mobile-gap) var(--desktop-gap);
 	}
 	main.view-container aside.view-aside-second {
@@ -28,7 +28,7 @@ main.view-container aside.view-aside-second div.inner>div:first-child { display:
 }
 
 @media screen and (min-width: 920px) {
-	main.view-container article.view-article { padding: 0 var(--desktop-gap) var(--desktop-gap); }
+	main.view-container div.view-article { padding: 0 var(--desktop-gap) var(--desktop-gap); }
 	main.view-container aside.view-aside-second { margin: 0 var(--desktop-gap) var(--desktop-gap) 0; }
 }
 
@@ -235,6 +235,29 @@ article.reader-issue-description section.issue-description-edit a {
 /* Кнопки */
 article.reader-issue-description section.issue-description-buttons {
 	padding: var(--desktop-gap) var(--mobile-gap); border-top: 1px solid var(--brand-grey); grid-area: buttons;
+}
+
+@container (width > 450px) {
+	article.reader-issue-description {
+		grid-template-areas:
+			"avatar title"
+			"avatar text"
+			"avatar edit"
+			"buttons buttons";
+	}
+	article.reader-issue-description a.issue-description-avatar { margin: var(--desktop-gap) var(--mobile-gap); }
+	article.reader-issue-description section.issue-description-text { margin: 0 var(--mobile-gap) 0 0; }
+}
+
+@media screen and (min-width: 920px) {
+	article.reader-issue-description {
+		grid-template-columns: calc(40px + var(--desktop-gap) * 2) 1fr;
+	}
+	article.reader-issue-description a.issue-description-avatar { margin: var(--desktop-gap); }
+	article.reader-issue-description h2.issue-description-title { margin: var(--desktop-gap) var(--desktop-gap) 0 0; }
+	article.reader-issue-description section.issue-description-text { margin: 0 var(--desktop-gap) 0 0; }
+	article.reader-issue-description section.issue-description-edit { padding: 0 var(--desktop-gap) var(--desktop-gap); }
+	article.reader-issue-description section.issue-description-buttons { padding: var(--desktop-gap) var(--desktop-gap); }
 }
 
 /* src/Layout/Serial/Component/ReaderIssueTitle/ReaderIssueTitle.css */

@@ -40,3 +40,26 @@ article.reader-issue-description section.issue-description-edit a {
 article.reader-issue-description section.issue-description-buttons {
 	padding: var(--desktop-gap) var(--mobile-gap); border-top: 1px solid var(--brand-grey); grid-area: buttons;
 }
+
+@container (width > 450px) {
+	article.reader-issue-description {
+		grid-template-areas:
+			"avatar title"
+			"avatar text"
+			"avatar edit"
+			"buttons buttons";
+	}
+	article.reader-issue-description a.issue-description-avatar { margin: var(--desktop-gap) var(--mobile-gap); }
+	article.reader-issue-description section.issue-description-text { margin: 0 var(--mobile-gap) 0 0; }
+}
+
+@media screen and (min-width: 920px) {
+	article.reader-issue-description {
+		grid-template-columns: calc(40px + var(--desktop-gap) * 2) 1fr;
+	}
+	article.reader-issue-description a.issue-description-avatar { margin: var(--desktop-gap); }
+	article.reader-issue-description h2.issue-description-title { margin: var(--desktop-gap) var(--desktop-gap) 0 0; }
+	article.reader-issue-description section.issue-description-text { margin: 0 var(--desktop-gap) 0 0; }
+	article.reader-issue-description section.issue-description-edit { padding: 0 var(--desktop-gap) var(--desktop-gap); }
+	article.reader-issue-description section.issue-description-buttons { padding: var(--desktop-gap) var(--desktop-gap); }
+}
