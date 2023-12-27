@@ -18,6 +18,6 @@ class ReaderCommentForm extends AbstractComponent
 	{
 		echo '<form class="reader-comment-form">';
 		echo 'serial comment form';
-		echo '</article>'; // reader-comment
+		echo '</form>'; // reader-comment
 	}
 }
