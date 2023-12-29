@@ -1,4 +1,5 @@
 <?php
+
 namespace Acomics\Ssr\Layout\Common;
 
 interface AdvertisementProviderInt {
@@ -10,5 +11,5 @@ interface AdvertisementProviderInt {
 	public function renderSerialViewSidebar(): void;
 
 	public function renderMobileTop(): void;
-	
+
 }

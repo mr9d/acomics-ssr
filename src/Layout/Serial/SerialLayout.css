@@ -8,6 +8,8 @@ main.view-container aside.view-aside-second { margin: var(--desktop-gap) var(--m
 main.view-container aside.view-aside-second div.inner { top: var(--desktop-gap); }
 main.view-container aside.view-aside-second div.inner>div:first-child { display: none; }
 
+div.view-comments-disallowed { text-align: center; color: #a3a3a3; }
+
 @media screen and (min-height: 300px) {
 	main.view-container aside.view-aside-second div.inner { top: calc(54px + var(--desktop-gap)); }
 }

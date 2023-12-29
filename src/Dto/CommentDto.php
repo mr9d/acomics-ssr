@@ -6,6 +6,7 @@ class CommentDto
 {
 	public int $id;
 	public UserDto $user;
+	public ?string $userSerialRole;
 	public ?string $ipAddress;
 	public int $postDate;
 	public string $text;
@@ -14,6 +15,7 @@ class CommentDto
 	public function __construct(
 		int $id,
 		UserDto $user,
+		?string $userSerialRole,
 		?string $ipAddress,
 		int $postDate,
 		string $text,
@@ -21,6 +23,7 @@ class CommentDto
 	{
 		$this->id = $id;
 		$this->user = $user;
+		$this->userSerialRole = $userSerialRole;
 		$this->ipAddress = $ipAddress;
 		$this->postDate = $postDate;
 		$this->text = $text;

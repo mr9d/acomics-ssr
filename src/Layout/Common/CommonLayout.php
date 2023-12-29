@@ -12,19 +12,30 @@ abstract class CommonLayout extends AbstractLayout
 	protected ?AuthData $auth = null;
 	protected ?AdvertisementProviderInt $advertisementProvider = null;
 	protected ?MetricsProviderInt $metricsProvider = null;
+	protected ?CaptchaProviderInt $captchaProvider = null;
 	protected ?string $activePage = null;
 
-	public function common(AuthData $auth, AdvertisementProviderInt $advertisementProvider, MetricsProviderInt $metricsProvider, ?string $activePage = null): void
+	public function common(
+		AuthData $auth,
+		AdvertisementProviderInt $advertisementProvider,
+		MetricsProviderInt $metricsProvider,
+		CaptchaProviderInt $captchaProvider,
+		?string $activePage = null): void
 	{
 		$this->auth = $auth;
 		$this->advertisementProvider = $advertisementProvider;
 		$this->metricsProvider = $metricsProvider;
+		$this->captchaProvider = $captchaProvider;
 		$this->activePage = $activePage;
 	}
 
 	public function isReady(): bool
 	{
-		return $this->auth !== null && $this->advertisementProvider !== null && $this->metricsProvider !== null && parent::isReady();
+		return $this->auth !== null
+			&& $this->advertisementProvider !== null
+			&& $this->metricsProvider !== null
+			&& $this->captchaProvider !== null
+			&& parent::isReady();
 	}
 
 	protected function head(): void

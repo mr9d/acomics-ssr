@@ -4,6 +4,8 @@ namespace Acomics\Ssr\Layout\Serial\Component\ReaderComment;
 
 use Acomics\Ssr\Dto\CommentDto;
 use Acomics\Ssr\Layout\AbstractComponent;
+use Acomics\Ssr\Layout\Common\Component\DateTimeFormatted\DateTimeFormatted;
+use Acomics\Ssr\Util\UrlUtil;
 
 class ReaderComment extends AbstractComponent
 {
@@ -16,8 +18,85 @@ class ReaderComment extends AbstractComponent
 
 	public function render(): void
 	{
-		echo '<article class="reader-comment">';
-		echo $this->comment->text;
+		$class = 'reader-comment' . ($this->comment->userSerialRole !== null ? ' authors' : '');
+
+		echo '<article class="' . $class . '" id="comment' . $this->comment->id . '">';
+		$this->renderAvatar();
+		$this->renderInfo();
+		$this->renderText();
 		echo '</article>'; // reader-comment
 	}
+
+	public function renderAvatar(): void
+	{
+		echo '<section class="comment-avatar">';
+
+		if (!$this->comment->user->isAnonymous)
+		{
+			echo '<a href="' . UrlUtil::makeProfileUrl($this->comment->user->name) . '">';
+		}
+
+		echo '<img src="' . $this->comment->user->avatarUrl . '" width="40" height="40">';
+
+		if (!$this->comment->user->isAnonymous)
+		{
+			echo '</a>';
+		}
+
+		echo '<div class="comment-tail"></div>';
+
+		echo '</section>'; // comment-avatar
+	}
+
+	public function renderInfo(): void
+	{
+		echo '<section class="comment-info">';
+
+		// Идентификатор
+		echo '<span class="comment-id"><a href="#comment' . $this->comment->id . '">#' . $this->comment->id . '</a></span>';
+
+		// Имя пользователя
+		echo '<span class="comment-username">';
+		if (!$this->comment->user->isAnonymous)
+		{
+			echo '<a href="' . UrlUtil::makeProfileUrl($this->comment->user->name) . '">';
+		}
+		echo $this->comment->user->name;
+		if (!$this->comment->user->isAnonymous)
+		{
+			echo '</a>';
+		}
+		echo '</span>'; // comment-username
+
+		// Роль
+		if($this->comment->userSerialRole !== null)
+		{
+			echo '<span class="comment-role">' . $this->comment->userSerialRole . '</span>';
+		}
+
+		// IP-адрес
+		if($this->comment->ipAddress)
+		{
+			echo '<span class="comment-ipaddress">(' . $this->comment->ipAddress . ')</span>';
+		}
+
+		// Дата и время
+		(new DateTimeFormatted($this->comment->postDate))->render();
+
+		echo '</section>'; // comment-info
+	}
+
+	public function renderText(): void
+	{
+		echo '<section class="comment-text">';
+		echo $this->comment->text;
+
+		if ($this->comment->isEditable)
+		{
+			echo '<div class="comment-edit"><a href="/manage/comment?id=' . $this->comment->id . '">редактировать</a></div>';
+		}
+
+		echo '</section>'; // comment-text
+	}
+
 }

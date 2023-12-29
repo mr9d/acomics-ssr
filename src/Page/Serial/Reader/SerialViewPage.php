@@ -80,7 +80,7 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 
 		if($this->pageData->commentsAllowed)
 		{
-			(new ReaderCommentForm($this->pageData->serial))->render();
+			(new ReaderCommentForm($this->pageData->issue->id, $this->auth, $this->captchaProvider))->render();
 		}
 		else
 		{

@@ -4,6 +4,8 @@ namespace Acomics\Ssr\Dto;
 
 class IssueDto
 {
+	public int $id;
+
 	public int $number;
 
 	public ?string $name;
@@ -26,9 +28,10 @@ class IssueDto
 
 	public UserDto $user;
 
-	public ?int $editId;
+	public bool $isEditable;
 
 	public function __construct(
+		int $id,
 		int $number,
 		?string $name,
 		string $url,
@@ -40,8 +43,9 @@ class IssueDto
 		int $commentCount,
 		?string $originalUrl,
 		UserDto $user,
-		?int $editId)
+		bool $isEditable)
 	{
+		$this->id = $id;
 		$this->number = $number;
 		$this->name = $name;
 		$this->url = $url;
@@ -53,6 +57,6 @@ class IssueDto
 		$this->commentCount = $commentCount;
 		$this->originalUrl = $originalUrl;
 		$this->user = $user;
-		$this->editId = $editId;
+		$this->isEditable = $isEditable;
 	}
 }

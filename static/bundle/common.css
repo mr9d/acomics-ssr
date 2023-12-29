@@ -66,7 +66,7 @@ a:visited { color: #660099; text-decoration: underline; }
 
 
 /* Самые внешние элементы разметки */
-html { height: 100%; }
+html { height: 100%; scroll-padding-top: 0; }
 
 body {
 	font-family: Arial, Geneva, Tahoma, sans-serif; font-size:14px;
@@ -95,6 +95,7 @@ main.common-container aside.common-aside-second>div { position: sticky; top: var
 
 /* Закрепление боковой панели с учетом шапки */
 @media screen and (min-height: 300px) {
+	html { scroll-padding-top: 54px; }
 	main.common-container aside.common-aside-second>div { top: calc(54px + var(--desktop-gap)); }
 }
 

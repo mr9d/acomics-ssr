@@ -1,1 +1,67 @@
-article.reader-comment { margin: 0 0 var(--desktop-gap); }
+article.reader-comment {
+	margin: 0 0 var(--desktop-gap); display: grid;
+	grid-template-areas:
+		"text text"
+		"avatar info";
+	grid-template-columns: calc(40px + var(--mobile-gap)) 1fr;
+}
+
+/* Аватарка */
+article.reader-comment section.comment-avatar { grid-area: avatar; position: relative; }
+article.reader-comment section.comment-avatar a { display: block; }
+article.reader-comment section.comment-avatar img { display: block; }
+article.reader-comment div.comment-tail {
+	position: absolute; top: calc(-4px * 0.866 - var(--mobile-gap)); left: 0; right: var(--mobile-gap); margin: 0 auto;
+	background: var(--brand-grey); box-sizing: border-box;
+	width: 8px; height: calc(8px * 0.866); transform: rotate(60deg) skew(30deg);
+}
+
+/* Информация */
+article.reader-comment section.comment-info { grid-area: info; align-self: center; line-height: 1.4; word-break: break-word; }
+article.reader-comment span.comment-username { display: inline-block; margin-right: 10px; font-size: 15px; }
+article.reader-comment span.comment-role { display: inline-block; margin-right: 10px; color: var(--brand-orange); }
+article.reader-comment span.comment-ipaddress { display: inline-block; margin-right: 10px; color: #a3a3a3; }
+article.reader-comment span.date-time-formatted { display: inline-block; margin-right: 10px; color: #a3a3a3; }
+article.reader-comment span.comment-id { display: block; float: right; margin-left: 10px; }
+article.reader-comment span.comment-id a { color: #a3a3a3; text-decoration: none; }
+
+/* Блок комментария */
+article.reader-comment section.comment-text {
+	grid-area: text; background-color: var(--brand-grey); line-height: 1.4; word-break: break-word;
+	padding: var(--mobile-gap); margin: 0 0 var(--mobile-gap);
+}
+article.reader-comment section.comment-text div.edited { color: #a3a3a3; margin-top: var(--mobile-gap); }
+article.reader-comment div.comment-edit { text-align: right; margin-top: var(--mobile-gap); }
+article.reader-comment div.comment-edit a {
+	display: inline-block; padding-left: 18px;
+	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 16 16'><defs><g id='Layer0_0_FILL'><path fill='%23D00026' stroke='none' d='M 14 4.85L 11 2 3.4 9.55 2 14 6.4 12.5 14 4.85M 4.1 10.25L 5.7 11.9 3.45 12.5 4.1 10.25M 4.9 9.4L 9.35 4.9 10.95 6.55 6.55 11.05 4.9 9.4 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>") no-repeat left/16px 16px;
+}
+
+/* Подсветка автора */
+article.reader-comment.authors section.comment-text { border: 1px solid var(--brand-orange); }
+article.reader-comment.authors div.comment-tail { border: 1px solid var(--brand-orange); border-width: 0 1px 1px 0; }
+
+@container (width > 450px) {
+	article.reader-comment {
+		grid-template-areas:
+			"avatar info"
+			"avatar text";
+	}
+	article.reader-comment section.comment-info { background-color: var(--brand-grey); padding: var(--mobile-gap) var(--mobile-gap) 0; }
+	article.reader-comment section.comment-text { margin: 0; }
+	article.reader-comment div.comment-tail {
+		left: auto; right: calc(-4px * 0.866); top: 16px; bottom: auto; margin: 0;
+		transform: rotate(150deg) skew(30deg);
+	}
+	article.reader-comment.authors div.comment-tail { right: calc(-5px * 0.866); }
+	article.reader-comment.authors section.comment-text { border-width: 0 1px 1px; }
+	article.reader-comment.authors section.comment-info { border: 1px solid var(--brand-orange); border-width: 1px 1px 0; }
+}
+
+@media screen and (min-width: 920px) {
+	article.reader-comment {
+		grid-template-columns: calc(40px + 18px) 1fr;
+	}
+	article.reader-comment section.comment-text { padding: var(--mobile-gap) 18px 18px; }
+	article.reader-comment section.comment-info { padding: 18px 18px 0; }
+}

@@ -30,7 +30,7 @@ class ReaderIssueDescription extends AbstractComponent
 		$this->renderTitle();
 		$this->renderDescription();
 
-		if ($this->issue->editId !== null)
+		if ($this->issue->isEditable !== null)
 		{
 			$this->renderEdit();
 		}
@@ -74,7 +74,7 @@ class ReaderIssueDescription extends AbstractComponent
 	private function renderEdit(): void
 	{
 		echo '<section class="issue-description-edit">';
-		echo '<a href="/manage/issue?id=' . $this->issue->editId . '">редактировать</a>';
+		echo '<a href="/manage/issue?id=' . $this->issue->id . '">редактировать</a>';
 		echo '</section>'; // issue-description-buttons
 	}
 
