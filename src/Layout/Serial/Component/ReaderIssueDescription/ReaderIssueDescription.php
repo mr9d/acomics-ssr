@@ -30,7 +30,7 @@ class ReaderIssueDescription extends AbstractComponent
 		$this->renderTitle();
 		$this->renderDescription();
 
-		if ($this->issue->isEditable !== null)
+		if ($this->issue->isEditable)
 		{
 			$this->renderEdit();
 		}
