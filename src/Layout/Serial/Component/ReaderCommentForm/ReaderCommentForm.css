@@ -20,7 +20,7 @@ form.reader-comment-form a.comment-reg-link { display: inline-block; white-space
 form.reader-comment-form textarea.comment-text {
 	grid-area: text; display: block; margin: 0; width: 100%; box-sizing: border-box; min-height: 120px;
 	border: 1px solid var(--brand-blue); border-width: 0 1px 1px; padding: var(--mobile-gap);
-	line-height: 1.4; word-break: break-word;
+	line-height: 1.4; word-break: break-word; border-radius: 0;
 }
 form.reader-comment-form section.comment-captcha {
 	grid-area: captcha; background-color: var(--brand-grey); padding: var(--mobile-gap); overflow: hidden;

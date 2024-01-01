@@ -286,7 +286,7 @@ form.reader-comment-form a.comment-reg-link { display: inline-block; white-space
 form.reader-comment-form textarea.comment-text {
 	grid-area: text; display: block; margin: 0; width: 100%; box-sizing: border-box; min-height: 120px;
 	border: 1px solid var(--brand-blue); border-width: 0 1px 1px; padding: var(--mobile-gap);
-	line-height: 1.4; word-break: break-word;
+	line-height: 1.4; word-break: break-word; border-radius: 0;
 }
 form.reader-comment-form section.comment-captcha {
 	grid-area: captcha; background-color: var(--brand-grey); padding: var(--mobile-gap); overflow: hidden;
@@ -403,7 +403,16 @@ article.reader-issue-description section.issue-description-edit a {
 /* Кнопки */
 article.reader-issue-description section.issue-description-buttons {
 	padding: var(--desktop-gap) var(--mobile-gap); border-top: 1px solid var(--brand-grey); grid-area: buttons;
+	display: flex; flex-wrap: wrap; gap: var(--mobile-gap); align-items: center;
 }
+article.reader-issue-description a.serial-top-vote {
+	display: block; font-family: 'yanone_kaffeesatzregular', sans-serif; text-transform: uppercase;
+	font-size: 18px; padding-left: 20px;
+	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 16 16'><defs><g id='K_0_Layer2_0_FILL'><path fill='%2300AA7B' stroke='none' d='M 60.3 19.05L 43.65 21.9 39.25 3.25 17.3 6.5 19.5 25.65 3.05 27.6Q -5.1 42 8.5 49.75L 21.55 48.05 25.25 60.15Q 40.7 71.45 50.35 56.8L 48.7 43.75 62.75 41.1Q 71.6 25.5 60.3 19.05 Z'/></g><g id='K_0_Layer1_0_FILL'><path fill='%23005B17' stroke='none' d='M 58.35 17.95L 42.95 20.4 38.45 1.75 17.65 5.05 20 24.15 3.05 27.6Q -4.95 39.6 8.6 46.75L 23.9 45.7 27.25 60.2Q 40.95 67.6 48.8 56.75L 47 42.1 61.85 38.05Q 72 24.65 58.35 17.95 Z'/></g><g id='K_0_Layer0_0_FILL'><path fill='%23BEDF15' stroke='none' d='M 5.1 26.65Q 1.65 28.85 2.9 34.55 2.45 31.85 10.05 33 17.65 34.1 20.9 22.65L 5.1 26.65M 22.2 7Q 31.05 13.55 38.25 0.25 27.4 -0.9 18.7 3.55L 20 15Q 19.45 8.1 22.2 7M 58.35 17.95L 42.4 18.85Q 46.2 27.3 49.95 26.3 59.9 22.45 58.35 17.95 Z'/><path fill='%2339B54A' stroke='none' d='M 59.9 35Q 66.75 25.55 58.35 17.95 59.9 22.45 49.95 26.3 46.2 27.3 42.4 18.85L 38.25 0.25Q 31.05 13.55 22.2 7 19.45 8.1 20 15L 20.9 22.65Q 17.65 34.1 10.05 33 2.45 31.85 2.9 34.55L 2.9 34.6Q 3.85 40.55 7.65 43.7L 25.75 41.15 28.95 55.3Q 38.2 63.35 45.95 52.3L 43.8 38.6 59.9 35 Z'/></g></defs><g transform='matrix( 0.240264892578125, 0, 0, 0.245361328125, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23K_0_Layer2_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23K_0_Layer1_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23K_0_Layer0_0_FILL'/></g></g></svg>") no-repeat left;
+}
+article.reader-issue-description a.serial-top-vote:visited { color: var(--brand-blue); }
+article.reader-issue-description span.issue-original-link { display: block; flex-grow: 1; text-align: right; }
+
 
 @container (width > 450px) {
 	article.reader-issue-description {
@@ -425,7 +434,7 @@ article.reader-issue-description section.issue-description-buttons {
 	article.reader-issue-description h2.issue-description-title { margin: var(--desktop-gap) calc(var(--desktop-gap) - 10px) 0 0; }
 	article.reader-issue-description section.issue-description-text { margin: 0 var(--desktop-gap) 0 0; }
 	article.reader-issue-description section.issue-description-edit { padding: 0 var(--desktop-gap) var(--desktop-gap); }
-	article.reader-issue-description section.issue-description-buttons { padding: var(--desktop-gap) var(--desktop-gap); }
+	article.reader-issue-description section.issue-description-buttons { padding: var(--desktop-gap) var(--desktop-gap); column-gap: var(--desktop-gap); }
 }
 
 /* src/Layout/Serial/Component/ReaderIssueTitle/ReaderIssueTitle.css */

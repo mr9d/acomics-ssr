@@ -4,7 +4,7 @@ namespace Acomics\Ssr\Util\Integration;
 
 interface VkWidgetProviderInt
 {
-	public function vkInit(): void;
-	
+	public function vkInit(bool $group = false, bool $like = false): void;
+
 	public function vkLike(): void;
 }
