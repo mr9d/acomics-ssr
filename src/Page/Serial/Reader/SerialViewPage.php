@@ -26,6 +26,11 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 		return $this->pageData !== null && parent::isReady();
 	}
 
+	public function top(): void
+	{
+		parent::top();
+		$this->integrationsProvider->vkInit(like: true);
+	}
 
 	public function content(): void
 	{
@@ -70,7 +75,8 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 	{
 		(new ReaderIssueDescription(
 			serial: $this->pageData->serial,
-			issue: $this->pageData->issue)
+			issue: $this->pageData->issue,
+			vkWidgetProvider: $this->integrationsProvider)
 		)->render();
 
 		foreach($this->pageData->comments as $comment)

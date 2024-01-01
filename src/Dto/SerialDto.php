@@ -24,6 +24,8 @@ class SerialDto
 
 	public ?string $originalAuthorName;
 
+	public bool $isTopEnabled;
+
 	public SerialAgeRatingDto $ageRating;
 
 	public ?SerialLicenseDto $license;
@@ -45,6 +47,7 @@ class SerialDto
 		int $subscribersCount,
 		?string $siteUrl,
 		?string $originalAuthorName,
+		bool $isTopEnabled,
 		SerialAgeRatingDto $ageRating,
 		SerialLicenseDto $license,
 		array $coauthors)
@@ -59,6 +62,7 @@ class SerialDto
 		$this->subscribersCount = $subscribersCount;
 		$this->siteUrl = $siteUrl;
 		$this->originalAuthorName = $originalAuthorName;
+		$this->isTopEnabled = $isTopEnabled;;
 		$this->ageRating = $ageRating;
 		$this->license = $license;
 		$this->coauthors = $coauthors;

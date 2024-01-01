@@ -6,6 +6,7 @@ use Acomics\Ssr\Dto\IssueDto;
 use Acomics\Ssr\Dto\SerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Layout\Common\Component\DateTimeFormatted\DateTimeFormatted;
+use Acomics\Ssr\Util\Integration\VkWidgetProviderInt;
 use Acomics\Ssr\Util\UrlUtil;
 
 class ReaderIssueDescription extends AbstractComponent
@@ -14,12 +15,16 @@ class ReaderIssueDescription extends AbstractComponent
 
 	private IssueDto $issue;
 
+	private VkWidgetProviderInt $vkWidgetProvider;
+
 	public function __construct(
 		SerialDto $serial,
-		IssueDto $issue)
+		IssueDto $issue,
+		VkWidgetProviderInt $vkWidgetProvider)
 	{
 		$this->serial = $serial;
 		$this->issue = $issue;
+		$this->vkWidgetProvider = $vkWidgetProvider;
 	}
 
 	public function render(): void
@@ -81,7 +86,19 @@ class ReaderIssueDescription extends AbstractComponent
 	private function renderButtons(): void
 	{
 		echo '<section class="issue-description-buttons">';
-		echo 456;
+
+		if ($this->serial->isTopEnabled)
+		{
+			echo '<a class="serial-top-vote" href="/top/voter?id=' . $this->serial->code . '">Проголосовать</a>';
+		}
+
+		$this->vkWidgetProvider->vkLike();
+
+		if ($this->serial->isTranslation && $this->issue->originalUrl !== null)
+		{
+			echo '<span class="issue-original-link">[<a href="' . $this->issue->originalUrl . '">Оригинал</a>]</span>';
+		}
+
 		echo '</section>'; // issue-description-buttons
 	}
 }
