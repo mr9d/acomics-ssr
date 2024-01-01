@@ -48,14 +48,14 @@ abstract class MainLayout extends CommonLayout
 	public function mobileTopAdvertisement(): void
 	{
 		echo '<aside class="common-aside-first">';
-		$this->advertisementProvider->renderMobileTop();
+		$this->integrationsProvider->advertisementMobileTop();
 		echo '</aside>';
 	}
 
 	public function fullSidebarAdvertisement(): void
 	{
 		echo '<aside class="common-aside-second">';
-		$this->advertisementProvider->renderFullSidebar();
+		$this->integrationsProvider->advertisementFullSidebar();
 		echo '</aside>';
 	}
 }

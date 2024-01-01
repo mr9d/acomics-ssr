@@ -35,6 +35,24 @@ const makeReaderNavigatorButtons = () => {
 // Навигация по кнопкам
 const makeKeyboardNavigation = () => {
 	const readerNavigator = document.querySelector('nav.reader-navigator');
-	const issueCount = readerNavigator.dataset.issueCount;
-	// todo
+
+	const keyboardNavigationListener = (evt) => {
+		if(evt.target.tagName === 'TEXTAREA' || evt.target.tagName === 'INPUT') {
+			return;
+		}
+
+		let navElement = null;
+		if (evt.keyCode === 37) {
+			navElement = readerNavigator.querySelector('.button-previous');
+		} else if (evt.keyCode === 39) {
+			navElement = document.querySelector('.button-next');
+		}
+
+		if (navElement !== null && !navElement.classList.contains('button-inactive')) {
+			const href = navElement.querySelector('a').getAttribute('href');
+			window.location.assign(href);
+		}
+	};
+
+	document.addEventListener('keydown', keyboardNavigationListener);
 };

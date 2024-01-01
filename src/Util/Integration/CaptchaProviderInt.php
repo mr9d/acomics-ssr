@@ -1,6 +1,6 @@
 <?php
 
-namespace Acomics\Ssr\Layout\Common;
+namespace Acomics\Ssr\Util\Integration;
 
 interface CaptchaProviderInt
 {

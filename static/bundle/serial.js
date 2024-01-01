@@ -1,6 +1,30 @@
 'use strict';
 (() => {
 
+/* src/Layout/Serial/Component/ReaderComment/ReaderComment.js */
+const commentClickListener = (evt) => {
+	if (evt.target.tagName !== 'BUTTON') {
+		return;
+	}
+	if (evt.target.classList.contains('comment-expand') || evt.target.classList.contains('comment-collapse')) {
+		const comment = evt.target.closest('article.reader-comment');
+		comment.classList.toggle('reader-comment-expanded');
+	}
+};
+
+// Схлопывание длинных комментариев
+const collapseLongComments = () => {
+	const comments = document.querySelectorAll('article.reader-comment');
+	comments.forEach((comment) => {
+		const height = comment.querySelector('section.comment-text').offsetHeight;
+		if (height < 350) {
+			return;
+		}
+		comment.classList.add('reader-comment-collapsable');
+		comment.addEventListener('click', commentClickListener);
+	});
+};
+
 /* src/Layout/Serial/Component/ReaderMenu/ReaderMenu.js */
 const serialMenuToggleButtonClickListener = (evt) => {
 	const serialMenu = evt.target.closest('section.serial-reader-menu');
@@ -50,8 +74,26 @@ const makeReaderNavigatorButtons = () => {
 // Навигация по кнопкам
 const makeKeyboardNavigation = () => {
 	const readerNavigator = document.querySelector('nav.reader-navigator');
-	const issueCount = readerNavigator.dataset.issueCount;
-	// todo
+
+	const keyboardNavigationListener = (evt) => {
+		if(evt.target.tagName === 'TEXTAREA' || evt.target.tagName === 'INPUT') {
+			return;
+		}
+
+		let navElement = null;
+		if (evt.keyCode === 37) {
+			navElement = readerNavigator.querySelector('.button-previous');
+		} else if (evt.keyCode === 39) {
+			navElement = document.querySelector('.button-next');
+		}
+
+		if (navElement !== null && !navElement.classList.contains('button-inactive')) {
+			const href = navElement.querySelector('a').getAttribute('href');
+			window.location.assign(href);
+		}
+	};
+
+	document.addEventListener('keydown', keyboardNavigationListener);
 };
 
 /* src/Layout/Serial/Component/ReaderSerialDescription/ReaderSerialDescription.js */
@@ -74,6 +116,7 @@ const init = () => {
 	makeReaderNavigatorButtons();
 	makeKeyboardNavigation();
 	makeReaderUpButton();
+	collapseLongComments();
 };
 
 init();

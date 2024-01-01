@@ -24,6 +24,12 @@ class ReaderComment extends AbstractComponent
 		$this->renderAvatar();
 		$this->renderInfo();
 		$this->renderText();
+
+		if ($this->comment->isEditable)
+		{
+			$this->renderEditButton();
+		}
+
 		echo '</article>'; // reader-comment
 	}
 
@@ -90,13 +96,16 @@ class ReaderComment extends AbstractComponent
 	{
 		echo '<section class="comment-text">';
 		echo $this->comment->text;
-
-		if ($this->comment->isEditable)
-		{
-			echo '<div class="comment-edit"><a href="/manage/comment?id=' . $this->comment->id . '">редактировать</a></div>';
-		}
-
+		echo '<button class="comment-expand">Читать дальше</button>';
+		echo '<button class="comment-collapse">Свернуть</button>';
 		echo '</section>'; // comment-text
+	}
+
+	public function renderEditButton(): void
+	{
+		echo '<section class="comment-edit">';
+		echo '<a href="/manage/comment?id=' . $this->comment->id . '">редактировать</a>';
+		echo '</section>'; // comment-edit
 	}
 
 }

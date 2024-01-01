@@ -32,7 +32,7 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 		$this->topSection();
 
 		echo '<aside class="view-aside-first">';
-		$this->advertisementProvider->renderMobileTop();
+		$this->integrationsProvider->advertisementMobileTop();
 		echo '</aside>'; // view-aside-first
 
 		echo '<main class="view-container">';
@@ -80,7 +80,7 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 
 		if($this->pageData->commentsAllowed)
 		{
-			(new ReaderCommentForm($this->pageData->issue->id, $this->auth, $this->captchaProvider))->render();
+			(new ReaderCommentForm($this->pageData->issue->id, $this->auth, $this->integrationsProvider))->render();
 		}
 		else
 		{
@@ -94,7 +94,7 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 	{
 		echo '<div class="inner">';
 
-		$this->advertisementProvider->renderSerialViewSidebar();
+		$this->integrationsProvider->advertisementSerialViewSidebar();
 
 		(new ReaderSerialDescription(
 			serial: $this->pageData->serial)

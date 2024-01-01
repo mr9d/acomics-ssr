@@ -38,14 +38,14 @@ abstract class SerialReaderAsideLayout extends SerialLayout
 	public function mobileTopAdvertisement(): void
 	{
 		echo '<aside class="common-aside-first serial-aside-first">';
-		$this->advertisementProvider->renderMobileTop();
+		$this->integrationsProvider->advertisementMobileTop();
 		echo '</aside>';
 	}
 
 	public function fullSidebarAdvertisement(): void
 	{
 		echo '<aside class="common-aside-second">';
-		$this->advertisementProvider->renderFullSidebar();
+		$this->integrationsProvider->advertisementFullSidebar();
 		echo '</aside>';
 	}
 }

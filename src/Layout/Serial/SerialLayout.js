@@ -4,6 +4,7 @@ const init = () => {
 	makeReaderNavigatorButtons();
 	makeKeyboardNavigation();
 	makeReaderUpButton();
+	collapseLongComments();
 };
 
 init();

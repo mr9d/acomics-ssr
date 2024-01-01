@@ -5,36 +5,29 @@ namespace Acomics\Ssr\Layout\Common;
 use Acomics\Ssr\Layout\AbstractLayout;
 use Acomics\Ssr\Layout\Common\Component\Footer\Footer;
 use Acomics\Ssr\Layout\Common\Component\Header\Header;
+use Acomics\Ssr\Util\Integration\IntegrationsProviderInt;
 use Acomics\Ssr\Util\UrlUtil;
 
 abstract class CommonLayout extends AbstractLayout
 {
 	protected ?AuthData $auth = null;
-	protected ?AdvertisementProviderInt $advertisementProvider = null;
-	protected ?MetricsProviderInt $metricsProvider = null;
-	protected ?CaptchaProviderInt $captchaProvider = null;
+	protected ?IntegrationsProviderInt $integrationsProvider = null;
 	protected ?string $activePage = null;
 
 	public function common(
 		AuthData $auth,
-		AdvertisementProviderInt $advertisementProvider,
-		MetricsProviderInt $metricsProvider,
-		CaptchaProviderInt $captchaProvider,
+		IntegrationsProviderInt $integrationsProvider,
 		?string $activePage = null): void
 	{
 		$this->auth = $auth;
-		$this->advertisementProvider = $advertisementProvider;
-		$this->metricsProvider = $metricsProvider;
-		$this->captchaProvider = $captchaProvider;
+		$this->integrationsProvider = $integrationsProvider;
 		$this->activePage = $activePage;
 	}
 
 	public function isReady(): bool
 	{
 		return $this->auth !== null
-			&& $this->advertisementProvider !== null
-			&& $this->metricsProvider !== null
-			&& $this->captchaProvider !== null
+			&& $this->integrationsProvider !== null
 			&& parent::isReady();
 	}
 
@@ -42,8 +35,8 @@ abstract class CommonLayout extends AbstractLayout
 	{
 		parent::head();
 
-		$this->advertisementProvider->head();
-		$this->metricsProvider->head();
+		$this->integrationsProvider->advertisementHead();
+		$this->integrationsProvider->metricsHead();
 
 		echo '<link rel="shortcut icon" href="/favicon.ico?18-11-2023" />';
 		echo '<link rel="stylesheet" href="/static/css/normalize.css?18-11-2023" type="text/css" />';
@@ -55,7 +48,7 @@ abstract class CommonLayout extends AbstractLayout
 	{
 		parent::top();
 
-		$this->metricsProvider->body();
+		$this->integrationsProvider->metricsBody();
 
 		(new Header($this->auth, $this->activePage))->render();
 
