@@ -210,7 +210,7 @@ article.reader-comment.reader-comment-collapsable section.comment-text button.co
 }
 article.reader-comment.reader-comment-collapsable section.comment-text button.comment-expand {
 	box-shadow: 0px -10px 10px var(--brand-grey); position: absolute; bottom: 0; left: 0; right: 0;
-	padding: 0 var(--mobile-gap) var(--mobile-gap);
+	padding: 0 var(--mobile-gap) var(--mobile-gap); width: 100%; box-sizing: border-box;
 }
 article.reader-comment.reader-comment-collapsable section.comment-text button.comment-collapse {
 	padding: 5px 0 0;
