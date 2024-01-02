@@ -57,7 +57,7 @@ class ReaderSerialDescription extends AbstractComponent
 
 		if ($this->serial->license !== null)
 		{
-			echo '<p><a href="' . $this->serial->license->descriptionUrl . '"><img src="' . $this->serial->license->iconUrl . '" title="' . $this->serial->license->name . '" /></a></p>';
+			echo '<p><a href="' . $this->serial->license->descriptionUrl . '"><img src="' . $this->serial->license->iconUrl . '" alt="' . $this->serial->license->name . '" /></a></p>';
 		}
 		else
 		{

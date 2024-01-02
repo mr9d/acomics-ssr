@@ -44,7 +44,7 @@ class ReaderCommentForm extends AbstractComponent
 	private function renderAvatar(): void
 	{
 		echo '<section class="comment-avatar">';
-		echo '<img src="' . $this->auth->avatarUrl . '" width="40" height="40">';
+		echo '<img src="' . $this->auth->avatarUrl . '" alt="Изображение вашего профиля" width="40" height="40">';
 		echo '<div class="comment-tail"></div>';
 		echo '</section>'; // comment-avatar
 	}
@@ -55,7 +55,7 @@ class ReaderCommentForm extends AbstractComponent
 
 		if ($this->auth->isLoggedIn)
 		{
-			echo '<a class="comment-username" href="' . UrlUtil::makeProfileUrl($this->auth->username) . '">' . $this->auth->username . '</a>';
+			echo '<a class="comment-username" href="' . UrlUtil::makeProfileUrl($this->auth->username) . '" aria-label="Ваш профиль">' . $this->auth->username . '</a>';
 		}
 		else
 		{

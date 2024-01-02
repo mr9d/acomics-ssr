@@ -24,14 +24,14 @@ class ReaderIssueTitle extends AbstractComponent
 
 		if($this->issue->number > 1)
 		{
-			echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->issue->number - 1) . '">&larr;</a>';
+			echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->issue->number - 1) . '" aria-label="Предыдущий выпуск">&larr;</a>';
 		}
 
 		$this->renderNumber();
 
 		if($this->issue->number < $this->serial->issueCount)
 		{
-			echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->issue->number + 1) . '"> &nbsp;&rarr;</a>';
+			echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->issue->number + 1) . '" aria-label="Следующий выпуск">&rarr;</a>';
 		}
 
 		echo '</h1>'; // reader-issue-title

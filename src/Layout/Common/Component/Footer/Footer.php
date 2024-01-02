@@ -32,7 +32,7 @@ class Footer extends AbstractComponent
 				<form method="GET" action="/search">
 					<div class="wrapper">
 						<input type="text" class="text" name="keyword" value="" placeholder="Найти комикс в каталоге" pattern=".{3,}" title="Минимальное количество символов для поиска: 3" />
-						<button type="submit" class="submit"><span></span></button>
+						<button type="submit" class="submit" aria-label="Искать комикс в каталоге"><span></span></button>
 					</div>
 				</form>
 

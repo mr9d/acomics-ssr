@@ -21,8 +21,8 @@ article.reader-comment div.comment-tail {
 article.reader-comment section.comment-info { grid-area: info; align-self: center; line-height: 1.4; word-break: break-word; z-index: 1; }
 article.reader-comment span.comment-username { display: inline-block; margin-right: 10px; font-size: 15px; }
 article.reader-comment span.comment-role { display: inline-block; margin-right: 10px; color: var(--brand-orange); }
-article.reader-comment span.comment-ipaddress { display: inline-block; margin-right: 10px; color: #a3a3a3; }
-article.reader-comment span.date-time-formatted { display: inline-block; margin-right: 10px; color: #a3a3a3; }
+article.reader-comment span.comment-ipaddress { display: inline-block; margin-right: 10px; color: #757575; }
+article.reader-comment span.date-time-formatted { display: inline-block; margin-right: 10px; color: #757575; }
 article.reader-comment span.comment-id { display: block; float: right; margin-left: 10px; }
 article.reader-comment span.comment-id a { color: #a3a3a3; text-decoration: none; }
 
@@ -31,7 +31,7 @@ article.reader-comment section.comment-text {
 	grid-area: text; background-color: var(--brand-grey); line-height: 1.4; word-break: break-word;
 	padding: var(--mobile-gap); margin: var(--mobile-gap) 0 0; z-index: 1;
 }
-article.reader-comment section.comment-text div.edited { color: #a3a3a3; margin-top: var(--mobile-gap); }
+article.reader-comment section.comment-text div.edited { color: #757575; margin-top: var(--mobile-gap); }
 article.reader-comment section.comment-text button.comment-expand { display: none; }
 article.reader-comment section.comment-text button.comment-collapse { display: none; }
 

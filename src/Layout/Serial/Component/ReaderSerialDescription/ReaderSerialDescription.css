@@ -15,7 +15,7 @@ section.reader-serial-description a.description-icon-rating {
 	display: block; width: 70px; box-sizing: border-box; text-decoration: none; text-align: center; font-weight: bold; line-height: 1;
 }
 section.reader-serial-description a.description-up-button {
-	display: block; padding: var(--mobile-gap); text-align: center; color: #ccc; text-decoration: none;
+	display: block; padding: var(--mobile-gap); text-align: center; color: #757575; text-decoration: none;
 }
 section.reader-serial-description a.description-up-button:hover { color: #111; }
 

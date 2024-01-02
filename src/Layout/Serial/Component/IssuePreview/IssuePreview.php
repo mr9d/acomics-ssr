@@ -21,7 +21,7 @@ class IssuePreview extends AbstractComponent
 		$seriaUrl = UrlUtil::makeSerialUrl($this->issue->serialCode, $this->issue->number);
 ?>
 		<a href="<?=$seriaUrl?>" class="issue-preview">
-			<img src="<?=$this->issue->thumbUrl?>" />
+			<img src="<?=$this->issue->thumbUrl?>" alt="Превью выпуска №<?=$this->issue->number?>" width="200" height="150" />
 			<p class="issue-preview-hover">
 				<span class="issue-preview-number">Выпуск №<?=$this->issue->number?></span>
 				<span class="issue-preview-date"><?php (new DateTimeFormatted($this->issue->postDate))->render(); ?></span>

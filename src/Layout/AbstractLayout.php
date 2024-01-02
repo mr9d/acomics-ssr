@@ -53,7 +53,7 @@ abstract class AbstractLayout implements LayoutInt
 
     public function top(): void
     {
-        echo '<!DOCTYPE html><html><head>';
+        echo '<!DOCTYPE html><html lang="ru"><head>';
         echo $this->head();
         echo '</head><body>';
     }

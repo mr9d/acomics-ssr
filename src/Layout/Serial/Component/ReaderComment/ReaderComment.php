@@ -39,10 +39,10 @@ class ReaderComment extends AbstractComponent
 
 		if (!$this->comment->user->isAnonymous)
 		{
-			echo '<a href="' . UrlUtil::makeProfileUrl($this->comment->user->name) . '">';
+			echo '<a href="' . UrlUtil::makeProfileUrl($this->comment->user->name) . '" aria-label="Профиль пользователя ' . $this->comment->user->name . '">';
 		}
 
-		echo '<img src="' . $this->comment->user->avatarUrl . '" width="40" height="40">';
+		echo '<img src="' . $this->comment->user->avatarUrl . '" alt="Изображение пользователя ' . $this->comment->user->name . '" width="40" height="40">';
 
 		if (!$this->comment->user->isAnonymous)
 		{

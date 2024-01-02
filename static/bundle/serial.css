@@ -40,7 +40,8 @@ section.serial-about-text img { max-width: 100%; }
 p.serial-about-authors { word-break: break-word; }
 p.serial-about-site-url { word-break: break-word; }
 section.serial-about-issues { display: grid; gap: var(--mobile-gap); grid-template-columns: 1fr 1fr; overflow-y: hidden; }
-section.serial-about-issues a.issue-preview img { width:100%; }
+section.serial-about-issues a.issue-preview img { width: 100%; height: 100% }
+
 @media screen and (min-width: 520px) {
 	section.serial-about-issues { grid-template-columns: 1fr 1fr 1fr; }
 	section.serial-about-issues a.issue-preview:nth-child(-n+2) { display: none; }
@@ -174,8 +175,8 @@ article.reader-comment div.comment-tail {
 article.reader-comment section.comment-info { grid-area: info; align-self: center; line-height: 1.4; word-break: break-word; z-index: 1; }
 article.reader-comment span.comment-username { display: inline-block; margin-right: 10px; font-size: 15px; }
 article.reader-comment span.comment-role { display: inline-block; margin-right: 10px; color: var(--brand-orange); }
-article.reader-comment span.comment-ipaddress { display: inline-block; margin-right: 10px; color: #a3a3a3; }
-article.reader-comment span.date-time-formatted { display: inline-block; margin-right: 10px; color: #a3a3a3; }
+article.reader-comment span.comment-ipaddress { display: inline-block; margin-right: 10px; color: #757575; }
+article.reader-comment span.date-time-formatted { display: inline-block; margin-right: 10px; color: #757575; }
 article.reader-comment span.comment-id { display: block; float: right; margin-left: 10px; }
 article.reader-comment span.comment-id a { color: #a3a3a3; text-decoration: none; }
 
@@ -184,7 +185,7 @@ article.reader-comment section.comment-text {
 	grid-area: text; background-color: var(--brand-grey); line-height: 1.4; word-break: break-word;
 	padding: var(--mobile-gap); margin: var(--mobile-gap) 0 0; z-index: 1;
 }
-article.reader-comment section.comment-text div.edited { color: #a3a3a3; margin-top: var(--mobile-gap); }
+article.reader-comment section.comment-text div.edited { color: #757575; margin-top: var(--mobile-gap); }
 article.reader-comment section.comment-text button.comment-expand { display: none; }
 article.reader-comment section.comment-text button.comment-collapse { display: none; }
 
@@ -586,7 +587,7 @@ section.reader-serial-description a.description-icon-rating {
 	display: block; width: 70px; box-sizing: border-box; text-decoration: none; text-align: center; font-weight: bold; line-height: 1;
 }
 section.reader-serial-description a.description-up-button {
-	display: block; padding: var(--mobile-gap); text-align: center; color: #ccc; text-decoration: none;
+	display: block; padding: var(--mobile-gap); text-align: center; color: #757575; text-decoration: none;
 }
 section.reader-serial-description a.description-up-button:hover { color: #111; }
 

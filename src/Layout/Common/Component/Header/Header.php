@@ -28,7 +28,7 @@ class Header extends AbstractComponent
 
 		<header class="common-header">
 
-			<button class="toggle-main-menu"><span></span></button>
+			<button class="toggle-main-menu" aria-label="Показать/скрыть главное меню"><span></span></button>
 
 			<nav class="common-menu">
 				<ul>
@@ -66,8 +66,8 @@ class Header extends AbstractComponent
 			<a class="publish-button" href="/manage/index"><span>Публикация</span></a>
 
 			<section class="user">
-				<button class="toggle-user-menu">
-					<img width="40" height="40" src="<?=$this->auth->avatarUrl?>" alt="Аватар пользователя" <?=($this->auth->messagesCount?'class="hasMessages"':'')?> />
+				<button class="toggle-user-menu" aria-label="Показать/скрыть меню пользователя">
+					<img width="40" height="40" src="<?=$this->auth->avatarUrl?>" alt="Изображение вашего профиля" <?=($this->auth->messagesCount?'class="hasMessages"':'')?> />
 				</button>
 				<?=($this->auth->messagesCount?'<a href="/msg/inbox" class="msgCount">' . $this->auth->messagesCount . '</a>':'')?>
 			</section>

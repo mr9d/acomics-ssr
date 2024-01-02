@@ -53,13 +53,14 @@ class ReaderIssue extends AbstractComponent
 			width="' . $this->issue->width . '"
 			height="' . $this->issue->height . '"
 			style="' . $style . '"
-			alt="' . $alt . '"' . ($this->issue->alternativeText ? ' title="' . $this->issue->alternativeText . '"' : '') . '
-			/>';
+			alt="' . $alt . '"' .
+			($this->issue->alternativeText ? ' title="' . $this->issue->alternativeText . '"' : '') .
+			'>';
 	}
 
 	private function renderNext(): void
 	{
-		echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->issue->number + 1) . '" class="reader-issue-next">';
+		echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->issue->number + 1) . '" class="reader-issue-next" aria-label="Переход к следующему выпуску">';
 		$this->renderImage();
 		echo '<div class="arrow"></div>';
 		echo '</a>';
@@ -67,7 +68,7 @@ class ReaderIssue extends AbstractComponent
 
 	private function renderPrevious(): void
 	{
-		echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->issue->number - 1) . '" class="reader-issue-previous">';
+		echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->issue->number - 1) . '" class="reader-issue-previous" aria-label="Переход к предыдущему выпуску">';
 		echo '<div class="arrow"></div>';
 		echo '</a>';
 	}

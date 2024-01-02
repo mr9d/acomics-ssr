@@ -47,14 +47,14 @@ class ReaderIssueDescription extends AbstractComponent
 
 	private function renderAvatar(): void
 	{
-		echo '<a class="issue-description-avatar" href="' . UrlUtil::makeProfileUrl($this->issue->user->name) . '"><img src="' . $this->issue->user->avatarUrl . '" width="40" height="40"></a>';
+		echo '<a class="issue-description-avatar" href="' . UrlUtil::makeProfileUrl($this->issue->user->name) . '" aria-label="Профиль пользователя ' . $this->issue->user->name . '"><img src="' . $this->issue->user->avatarUrl . '" alt="Изображение пользователя ' . $this->issue->user->name . '" width="40" height="40"></a>';
 	}
 
 	private function renderTitle(): void
 	{
 		echo '<h2 class="issue-description-title">';
 
-		echo '<a class="username" href="' . UrlUtil::makeProfileUrl($this->issue->user->name) .'">' . $this->issue->user->name . '</a>';
+		echo '<a class="username" href="' . UrlUtil::makeProfileUrl($this->issue->user->name) .'" aria-label="Профиль пользователя ' . $this->issue->user->name . '">' . $this->issue->user->name . '</a>';
 		echo '<span class="title">' . ($this->issue->name ? $this->issue->name : 'Выпуск №' . $this->issue->number) . '</span>';
 
 		(new DateTimeFormatted($this->issue->postDate))->render();
