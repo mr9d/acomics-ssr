@@ -70,6 +70,41 @@ function makeDateTimeFormatted(parentElement) {
 	}
 };
 
+/* src/Layout/Common/Component/Header/Header.js */
+// Скрытие меню при скролле
+const makeHeaderDisapearOnScroll = () => {
+	const scrollUpClass = "scroll-up";
+	const scrollDownClass = "scroll-down";
+	let lastScroll = 0;
+
+	const windowScrollLstener = () => {
+		const currentScroll = window.scrollY;
+		if (currentScroll <= 54) {
+			document.body.classList.remove(scrollUpClass);
+			return;
+		}
+		if (currentScroll > lastScroll && !document.body.classList.contains(scrollDownClass)) {
+			document.body.classList.remove(scrollUpClass);
+			document.body.classList.add(scrollDownClass);
+		} else if (
+			currentScroll < lastScroll &&
+			document.body.classList.contains(scrollDownClass)
+		) {
+			document.body.classList.remove(scrollDownClass);
+			document.body.classList.add(scrollUpClass);
+		}
+		lastScroll = currentScroll;
+	};
+
+	// Обработчик нужно добавить только после скролла по якорной ссылке (например, #title)
+	const pageLoadAndScrolledHandler = () => {
+		window.addEventListener("scroll", windowScrollLstener);
+		window.removeEventListener('load', pageLoadAndScrolledHandler);
+	};
+
+	window.addEventListener('load', pageLoadAndScrolledHandler);
+};
+
 /* src/Layout/Common/Component/HeaderModal/HeaderModal.js */
 // Проверка наличия вертикального скролла
 const isScrollVisible = () => {
@@ -117,6 +152,34 @@ const makeHeaderMenu = (menuSelector, buttonSelector, visibleClass) => {
 	menuElement.querySelector('nav').addEventListener('click', (evt) => evt.stopPropagation());
 }
 
+/* src/Layout/Common/Component/PageHint/PageHint.js */
+const makePageHint = () => {
+	const pageHint = document.querySelector('section.common-page-hint');
+	if (pageHint === null) {
+		return;
+	}
+	
+	const closeId = pageHint.dataset.closeId;
+	if (closeId === '') {
+		return;
+	}
+
+	const closePageHint = () => {
+		pageHint.classList.add('page-hint-closed');
+	}
+
+	if (localStorage.getItem('nohint-' + closeId) !== null) {
+		closePageHint();
+		return;
+	}
+
+	const closeButton = pageHint.querySelector('button.page-hint-close');
+	closeButton.addEventListener('click', () => {
+		localStorage.setItem('nohint-' + closeId, Date.now());
+		closePageHint();
+	});
+};
+
 /* src/Layout/Common/Component/SubscribeButton/SubscribeButton.js */
 const subscribeButtonClickListener = async (evt) => {
 	evt.preventDefault();
@@ -157,7 +220,9 @@ const makeSubscribeButtons = () => {
 const init = () => {
 	makeHeaderMenu('div.user-menu', 'button.toggle-user-menu', 'user-menu-visible');
 	makeHeaderMenu('div.main-menu', 'button.toggle-main-menu', 'main-menu-visible');
+	makeHeaderDisapearOnScroll();
 	makeSubscribeButtons();
+	makePageHint();
 	makeDateTimeFormatted(document);
 
 	window.common = {

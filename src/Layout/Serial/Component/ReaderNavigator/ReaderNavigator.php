@@ -31,13 +31,13 @@ class ReaderNavigator extends AbstractComponent
 			content: 'Содержание');
 		$this->renderButton(
 			class: 'button-first',
-			url: UrlUtil::makeSerialUrl($this->serial->code, 1),
+			url: UrlUtil::makeSerialUrl($this->serial->code, 1) . '#title',
 			title: 'Первый выпуск',
 			content: '',
 			active: $this->issue->number > 1);
 		$this->renderButton(
 			class: 'button-previous',
-			url: UrlUtil::makeSerialUrl($this->serial->code, max($this->issue->number - 1, 1)),
+			url: UrlUtil::makeSerialUrl($this->serial->code, max($this->issue->number - 1, 1)) . '#title',
 			title: 'Предыдущий выпуск',
 			content: '',
 			active: $this->issue->number > 1);
@@ -49,13 +49,13 @@ class ReaderNavigator extends AbstractComponent
 			active: true);
 		$this->renderButton(
 			class: 'button-next',
-			url: UrlUtil::makeSerialUrl($this->serial->code, min($this->issue->number + 1, $this->serial->issueCount)),
+			url: UrlUtil::makeSerialUrl($this->serial->code, min($this->issue->number + 1, $this->serial->issueCount)) . '#title',
 			title: 'Следующий выпуск',
 			content: '',
 			active: $this->issue->number < $this->serial->issueCount);
 		$this->renderButton(
 			class: 'button-last',
-			url: UrlUtil::makeSerialUrl($this->serial->code, $this->serial->issueCount),
+			url: UrlUtil::makeSerialUrl($this->serial->code, $this->serial->issueCount) . '#title',
 			title: 'Последний выпуск',
 			content: '',
 			active: $this->issue->number < $this->serial->issueCount);

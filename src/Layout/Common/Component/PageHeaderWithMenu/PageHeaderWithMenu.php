@@ -7,6 +7,7 @@ class PageHeaderWithMenu extends AbstractComponent
 {
 	private string $header;
 	private array $menuItems;
+	
 	public function __construct(string $header)
 	{
 		$this->header = $header;

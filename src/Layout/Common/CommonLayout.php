@@ -5,14 +5,19 @@ namespace Acomics\Ssr\Layout\Common;
 use Acomics\Ssr\Layout\AbstractLayout;
 use Acomics\Ssr\Layout\Common\Component\Footer\Footer;
 use Acomics\Ssr\Layout\Common\Component\Header\Header;
+use Acomics\Ssr\Layout\Common\Component\PageHint\PageHint;
 use Acomics\Ssr\Util\Integration\IntegrationsProviderInt;
 use Acomics\Ssr\Util\UrlUtil;
 
 abstract class CommonLayout extends AbstractLayout
 {
 	protected ?AuthData $auth = null;
+
 	protected ?IntegrationsProviderInt $integrationsProvider = null;
+
 	protected ?string $activePage = null;
+
+	private ?PageHintData $hintData = null;
 
 	public function common(
 		AuthData $auth,
@@ -22,6 +27,11 @@ abstract class CommonLayout extends AbstractLayout
 		$this->auth = $auth;
 		$this->integrationsProvider = $integrationsProvider;
 		$this->activePage = $activePage;
+	}
+
+	public function hint(PageHintData $hintData): void
+	{
+		$this->hintData = $hintData;
 	}
 
 	public function isReady(): bool
@@ -53,6 +63,12 @@ abstract class CommonLayout extends AbstractLayout
 		(new Header($this->auth, $this->activePage))->render();
 
 		echo '<div class="page-background">';
+
+		if ($this->hintData !== null)
+		{
+			(new PageHint($this->hintData))->render();
+		}
+
 		echo '<div class="page-margins">';
 		echo '<div class="common-content">';
 	}

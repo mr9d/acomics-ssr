@@ -17,7 +17,7 @@ class SerialHeader extends AbstractComponent
 
 	public function render(): void
 	{
-		echo '<header class="serial-header">';
+		echo '<header class="serial-header" data-serial-id="' . $this->serialLayoutData->id . '" data-is-author="' . $this->serialLayoutData->isHeaderManageMenuVisible . '">';
 
 		if ($this->serialLayoutData->isHeaderManageMenuVisible)
 		{

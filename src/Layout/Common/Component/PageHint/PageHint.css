@@ -1,0 +1,62 @@
+section.common-page-hint {
+	position: relative; margin: 0 auto; max-width: calc(var(--max-width) + 2 * var(--desktop-gap));
+	width: 100%;
+}
+section.common-page-hint.page-hint-closed {
+	display: none;
+}
+
+section.common-page-hint div.inner {
+	z-index: 1; position: relative; display: flex; align-items: center; justify-content: space-between;
+	background: #fff; box-shadow: 0px 7px 8px -8px rgba(0,0,0,0.2); padding: 0 var(--mobile-gap);
+}
+
+section.common-page-hint div.angles {
+	position: absolute; height: var(--desktop-gap); right: 0; left: 0; bottom: calc(- var(--desktop-gap));
+	background-image: 	url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='20px' height='20px' viewBox='0 0 20 20'><defs><linearGradient id='Gradient_1' gradientUnits='userSpaceOnUse' x1='40' y1='0' x2='40' y2='80' spreadMethod='pad'><stop  offset='0%' stop-color='%23B9B9B9'/><stop  offset='100%' stop-color='%23E8E8E8'/></linearGradient><g id='C_1_Layer1_0_FILL'><path fill='url(%23Gradient_1)' stroke='none' d='M 0 0L 80 80 80 0 0 0 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.25, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23C_1_Layer1_0_FILL'/></g></g></svg>"),
+						url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='20px' height='20px' viewBox='0 0 20 20'><defs><linearGradient id='Gradient_1' gradientUnits='userSpaceOnUse' x1='40' y1='0' x2='40' y2='80' spreadMethod='pad'><stop  offset='0%' stop-color='%23B9B9B9'/><stop  offset='100%' stop-color='%23E8E8E8'/></linearGradient><g id='C_0_Layer0_0_FILL'><path fill='url(%23Gradient_1)' stroke='none' d='M 0 80L 80 0 0 0 0 80 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.25, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23C_0_Layer0_0_FILL'/></g></g></svg>");
+	background-position: calc(50% - 509px) bottom, calc(50% + 509px) bottom;
+	background-repeat: no-repeat;
+}
+
+section.common-page-hint p {
+	margin: 0; padding: var(--desktop-gap) 0; color: #5a002d;
+	line-height: 1.4; word-break: break-word;
+}
+
+section.common-page-hint button.page-hint-close {
+	display: block; flex: 30px 0 0; height: 30px; border: 1px solid var(--brand-grey); border-radius:15px;
+	background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='11px' height='11px' viewBox='0 0 11 11'><defs><g id='F_0_Layer1_0_FILL'><path fill='%23D00026' stroke='none' d='M 44 38.4Q 44.1 35.95 42.15 33.95L 10.1 2.05Q 8 0 5.5 0 3.2 0 1.6 1.6 0 3.2 0 5.45 0 7.95 2.1 10L 34.1 41.95Q 36.2 44.05 38.6 44 40.8 43.95 42.35 42.3 43.95 40.65 44 38.4 Z'/></g><g id='F_0_Layer0_0_FILL'><path fill='%23D00026' stroke='none' d='M 44 5.5Q 44 3.2 42.4 1.6 40.8 0 38.55 0 36.05 0 34 2.1L 2.05 34.1Q -0.05 36.2 0 38.6 0.05 40.8 1.7 42.35 3.35 43.95 5.6 44 8.05 44.1 10.05 42.15L 41.95 10.1Q 44 8 44 5.5 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.25, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23F_0_Layer1_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23F_0_Layer0_0_FILL'/></g></g></svg>") no-repeat center;
+	margin-left: var(--mobile-gap);
+}
+section.common-page-hint button.page-hint-close:hover {
+	box-shadow: inset 0px 0px 4px 1px rgba(0,0,0,0.2);
+}
+
+/* Альтернативные цвета */
+section.common-page-hint.page-hint-exclamation div.inner { background: #ffc8c8; }
+section.common-page-hint.page-hint-exclamation p { color: #000; }
+section.common-page-hint.page-hint-warning div.inner { background: #ffe7c8; }
+section.common-page-hint.page-hint-warning p { color: #000; }
+
+@media screen and (min-width: 520px) {
+	section.common-page-hint p {
+		font-family: 'yanone_kaffeesatzlight', sans-serif; font-size: 20px;
+		padding: 15px 0;
+	}
+	section.common-page-hint div.inner {
+		padding: 0 var(--desktop-gap);
+	}
+}
+
+@media screen and (min-width: 920px) {
+	section.common-page-hint p {
+		font-size: 22px;
+	}
+	section.common-page-hint div.inner {
+		padding: 0 calc(var(--desktop-gap) * 2);
+	}
+	section.common-page-hint button.page-hint-close {
+		margin-left: var(--desktop-gap);
+	}
+}

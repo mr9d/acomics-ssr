@@ -81,7 +81,7 @@ div.page-margins {
 	display: flex; flex-direction: column; box-sizing: border-box; flex-grow: 1;
 }
 
-div.common-content { flex-grow: 1; }
+div.common-content { flex-grow: 1; z-index: 0; }
 
 
 /* Основной контент с отступами и фиксированной боковой панелью + мобильная версия */
@@ -92,10 +92,15 @@ main.common-container aside.common-aside-second { display: none; flex-shrink: 0;
 
 main.common-container aside.common-aside-second>div { position: sticky; top: var(--desktop-gap); }
 
-/* Закрепление боковой панели с учетом шапки */
+/* Закрепление боковой панели с учетом шапки, увеличиваем отступ для якорных ссылок */
 @media screen and (min-height: 300px) {
-	html { scroll-padding-top: calc(54px + var(--desktop-gap)); }
+	html { scroll-padding-top: 54px; }
 	main.common-container aside.common-aside-second>div { top: calc(54px + var(--desktop-gap)); }
+}
+
+/* Еще увеличиваем отступ для якорных ссылок - непрозрачное меню */
+@media screen and (min-height: 300px) and (min-width: 520px) {
+	html { scroll-padding-top: calc(54px + var(--mobile-gap)); }
 }
 
 /* Скрываем верхнюю панель, показываем боковую */

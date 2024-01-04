@@ -20,18 +20,18 @@ class ReaderIssueTitle extends AbstractComponent
 
 	public function render(): void
 	{
-		echo '<h1 class="reader-issue-title">';
+		echo '<h1 class="reader-issue-title" id="title">';
 
 		if($this->issue->number > 1)
 		{
-			echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->issue->number - 1) . '" aria-label="Предыдущий выпуск">&larr;</a>';
+			echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->issue->number - 1) . '#title" aria-label="Предыдущий выпуск">&larr;</a>';
 		}
 
 		$this->renderNumber();
 
 		if($this->issue->number < $this->serial->issueCount)
 		{
-			echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->issue->number + 1) . '" aria-label="Следующий выпуск">&rarr;</a>';
+			echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->issue->number + 1) . '#title" aria-label="Следующий выпуск">&rarr;</a>';
 		}
 
 		echo '</h1>'; // reader-issue-title
