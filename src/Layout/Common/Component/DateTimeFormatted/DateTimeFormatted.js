@@ -18,16 +18,16 @@ function makeDateTimeFormatted(parentElement) {
 		{
 			delta = parseInt(element.innerText.substring(1));
 		}
-		else if(element.getAttribute('bkup'))
+		else if(element.dataset.delta)
 		{
-			delta = parseInt(element.getAttribute('bkup'));
+			delta = parseInt(element.dataset.delta);
 		}
 		else
 		{
 			break;
 		}
 
-		element.setAttribute('bkup', delta);
+		element.dataset.delta = delta;
 
 		let text = '???';
 		if (delta < 6) { text = 'Только что'; }

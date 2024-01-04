@@ -2,6 +2,14 @@
 /* Дополнительный отступ от шапки */
 aside.serial-aside-first { padding: var(--desktop-gap) var(--mobile-gap) 0; }
 
+/* Скрытие шапки при скролле */
+header.common-header,
+div.common-header-background { transition: transform 0.4s; }
+body.scroll-down header.common-header,
+body.scroll-down div.common-header-background { transform: translate3d(0, -100%, 0); }
+body.scroll-up header.common-header,
+body.scroll-up div.common-header-background { transform: none; }
+
 /* Страница чтения комикса */
 aside.view-aside-first { margin-bottom: var(--desktop-gap); }
 main.view-container div.view-article { padding: 0 var(--mobile-gap); container-type: inline-size; box-sizing: border-box; }
@@ -13,6 +21,7 @@ div.view-comments-disallowed { text-align: center; color: #a3a3a3; }
 
 @media screen and (min-height: 300px) {
 	main.view-container aside.view-aside-second div.inner { top: calc(54px + var(--desktop-gap)); }
+	body.scroll-down main.view-container aside.view-aside-second div.inner { top: var(--desktop-gap); }
 }
 
 @media screen and (min-width: 700px) {
@@ -441,12 +450,12 @@ article.reader-issue-description span.issue-original-link { display: block; flex
 /* src/Layout/Serial/Component/ReaderIssueTitle/ReaderIssueTitle.css */
 h1.reader-issue-title {
 	padding: 8px var(--mobile-gap); margin: 0; font-size: inherit; font-weight: normal;
-	display: flex; justify-content: center;
+	display: flex; justify-content: center; align-items: center; min-height: 40px; box-sizing: border-box;
 }
 h1.reader-issue-title span.number-with-name,
-h1.reader-issue-title span.number-without-name { word-break: break-word; display: block; text-align: center; }
+h1.reader-issue-title span.number-without-name { word-break: break-word; display: inline-block; }
 h1.reader-issue-title a { text-decoration: none; display: flex; align-items: center; padding: 0 var(--mobile-gap); }
-h1.reader-issue-title span.number-with-name span.number { color: #a3a3a3; display: inline-block; padding-left: 5px; }
+h1.reader-issue-title span.number-with-name span.number { color: #a3a3a3; display: inline-block; padding-left: 5px; white-space: nowrap; }
 
 @media screen and (min-width: 640px) {
 	h1.reader-issue-title { font-size: 18px; padding: 18px var(--mobile-gap); }
@@ -583,8 +592,8 @@ section.reader-serial-description div.description-icons p { margin: 0; }
 section.reader-serial-description div.description-icons a,
 section.reader-serial-description div.description-icons img { display: block; }
 section.reader-serial-description a.description-icon-rating {
-	color: #111; border: 2px solid #111; font-family: 'Times New Roman', Times, serif; font-size: 2.2em;
-	display: block; width: 70px; box-sizing: border-box; text-decoration: none; text-align: center; font-weight: bold; line-height: 1;
+	color: #111; border: 2px solid #111; font-family: 'Times New Roman', Times, serif; font-size: 2.2em; white-space: nowrap;
+	display: block; min-width: 70px; box-sizing: border-box; text-decoration: none; text-align: center; font-weight: bold; line-height: 1;
 }
 section.reader-serial-description a.description-up-button {
 	display: block; padding: var(--mobile-gap); text-align: center; color: #757575; text-decoration: none;

@@ -76,14 +76,6 @@ header.common-header nav.common-menu ul { display: none; padding: 0; margin: 0; 
 header.common-header nav.common-menu a.common-logo { padding: 0 10px 0 7px; }
 header.common-header nav.common-menu li { margin: 0; list-style: none; }
 
-/* Скрытие при скролле */
-header.common-header,
-div.common-header-background { transition: transform 0.4s; }
-body.scroll-down header.common-header,
-body.scroll-down div.common-header-background { transform: translate3d(0, -100%, 0); }
-body.scroll-up header.common-header,
-body.scroll-up div.common-header-background { transform: none; }
-
 /* Закрепление шапки */
 @media screen and (min-height: 300px) {
 	header.common-header { position: fixed; }

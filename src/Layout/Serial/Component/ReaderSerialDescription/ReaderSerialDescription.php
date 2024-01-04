@@ -55,13 +55,9 @@ class ReaderSerialDescription extends AbstractComponent
 	{
 		echo '<div class="description-icons">';
 
-		if ($this->serial->license !== null)
+		if ($this->serial->license->descriptionUrl !== null)
 		{
 			echo '<p><a href="' . $this->serial->license->descriptionUrl . '"><img src="' . $this->serial->license->iconUrl . '" alt="' . $this->serial->license->name . '" /></a></p>';
-		}
-		else
-		{
-			echo '<p></p>';
 		}
 
 		echo '<p><a class="description-icon-rating" href="/rating">' . $this->serial->ageRating->nameShort . '</a></p>';

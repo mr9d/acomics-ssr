@@ -22,16 +22,16 @@ function makeDateTimeFormatted(parentElement) {
 		{
 			delta = parseInt(element.innerText.substring(1));
 		}
-		else if(element.getAttribute('bkup'))
+		else if(element.dataset.delta)
 		{
-			delta = parseInt(element.getAttribute('bkup'));
+			delta = parseInt(element.dataset.delta);
 		}
 		else
 		{
 			break;
 		}
 
-		element.setAttribute('bkup', delta);
+		element.dataset.delta = delta;
 
 		let text = '???';
 		if (delta < 6) { text = 'Только что'; }
@@ -68,41 +68,6 @@ function makeDateTimeFormatted(parentElement) {
 
 		element.innerText = text;
 	}
-};
-
-/* src/Layout/Common/Component/Header/Header.js */
-// Скрытие меню при скролле
-const makeHeaderDisapearOnScroll = () => {
-	const scrollUpClass = "scroll-up";
-	const scrollDownClass = "scroll-down";
-	let lastScroll = 0;
-
-	const windowScrollLstener = () => {
-		const currentScroll = window.scrollY;
-		if (currentScroll <= 54) {
-			document.body.classList.remove(scrollUpClass);
-			return;
-		}
-		if (currentScroll > lastScroll && !document.body.classList.contains(scrollDownClass)) {
-			document.body.classList.remove(scrollUpClass);
-			document.body.classList.add(scrollDownClass);
-		} else if (
-			currentScroll < lastScroll &&
-			document.body.classList.contains(scrollDownClass)
-		) {
-			document.body.classList.remove(scrollDownClass);
-			document.body.classList.add(scrollUpClass);
-		}
-		lastScroll = currentScroll;
-	};
-
-	// Обработчик нужно добавить только после скролла по якорной ссылке (например, #title)
-	const pageLoadAndScrolledHandler = () => {
-		window.addEventListener("scroll", windowScrollLstener);
-		window.removeEventListener('load', pageLoadAndScrolledHandler);
-	};
-
-	window.addEventListener('load', pageLoadAndScrolledHandler);
 };
 
 /* src/Layout/Common/Component/HeaderModal/HeaderModal.js */
@@ -220,7 +185,6 @@ const makeSubscribeButtons = () => {
 const init = () => {
 	makeHeaderMenu('div.user-menu', 'button.toggle-user-menu', 'user-menu-visible');
 	makeHeaderMenu('div.main-menu', 'button.toggle-main-menu', 'main-menu-visible');
-	makeHeaderDisapearOnScroll();
 	makeSubscribeButtons();
 	makePageHint();
 	makeDateTimeFormatted(document);

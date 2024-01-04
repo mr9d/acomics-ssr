@@ -1,6 +1,14 @@
 /* Дополнительный отступ от шапки */
 aside.serial-aside-first { padding: var(--desktop-gap) var(--mobile-gap) 0; }
 
+/* Скрытие шапки при скролле */
+header.common-header,
+div.common-header-background { transition: transform 0.4s; }
+body.scroll-down header.common-header,
+body.scroll-down div.common-header-background { transform: translate3d(0, -100%, 0); }
+body.scroll-up header.common-header,
+body.scroll-up div.common-header-background { transform: none; }
+
 /* Страница чтения комикса */
 aside.view-aside-first { margin-bottom: var(--desktop-gap); }
 main.view-container div.view-article { padding: 0 var(--mobile-gap); container-type: inline-size; box-sizing: border-box; }
@@ -12,6 +20,7 @@ div.view-comments-disallowed { text-align: center; color: #a3a3a3; }
 
 @media screen and (min-height: 300px) {
 	main.view-container aside.view-aside-second div.inner { top: calc(54px + var(--desktop-gap)); }
+	body.scroll-down main.view-container aside.view-aside-second div.inner { top: var(--desktop-gap); }
 }
 
 @media screen and (min-width: 700px) {
