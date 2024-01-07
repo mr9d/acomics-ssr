@@ -495,7 +495,8 @@ section.serial-reader-menu ul li.css-menu-item a {
 /* Активный элемент меню */
 section.serial-reader-menu ul li.active { background: #fff; }
 section.serial-reader-menu ul li.active a,
-section.serial-reader-menu ul li.active a:visited { color: #111; }
+section.serial-reader-menu ul li.active a:visited,
+section.serial-reader-menu ul li a.active { color: #111; text-decoration: none; }
 
 
 /* Разворачивание меню на мобильных устройствах */

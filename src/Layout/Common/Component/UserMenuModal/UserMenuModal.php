@@ -38,9 +38,9 @@ class UserMenuModal extends HeaderModal
 
 		<form method="POST" action="/action/authLogin">
 			<label for="username">Имя пользователя:</label>
-			<input name="username" type="text" class="text" />
+			<input name="username" id="username" type="text" class="text" autocomplete="username" />
 			<label for="password">Пароль:</label>
-			<input name="password" type="password" class="text" />
+			<input name="password" id="password" type="password" class="text" autocomplete="current-password" />
 			<input name="check" type="hidden" value="0" />
 			<input name="referer" type="hidden" value="" />
 			<span class="forget"><a href="/auth/passwordRecovery">Забыли пароль?</a></span>

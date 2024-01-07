@@ -34,22 +34,22 @@ class ReaderMenu extends AbstractComponent
 			<button class="serial-reader-menu-toggle" aria-label="Показать/скрыть меню комикса"></button>
 			<ul>
 				<li class="read-menu-item-short">
-					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, '1')?>" title="Читать комикс <?=$this->serialLayoutData->name?> с первого выпуска">Начало</a> /
-					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, $this->serialLayoutData->issueCount)?>" title="Читать комикс <?=$this->serialLayoutData->name?> с последнего выпуска">конец</a> /
+					<a <?=($this->serialLayoutData->activeMenuItem === 'view-first' ? 'class="active"' : '')?> href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, '1')?>" title="Читать комикс <?=$this->serialLayoutData->name?> с первого выпуска">Начало</a> /
+					<a <?=($this->serialLayoutData->activeMenuItem === 'view-last' ? 'class="active"' : '')?> href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, $this->serialLayoutData->issueCount)?>" title="Читать комикс <?=$this->serialLayoutData->name?> с последнего выпуска">конец</a> /
 					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'list')?>" title="Смотреть комикс <?=$this->serialLayoutData->name?> лентой">лента</a>
 				</li>
 				<li class="read-menu-item-full">
-					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, '1')?>" title="Читать комикс <?=$this->serialLayoutData->name?> с первого выпуска">Читать с начала</a> /
-					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, $this->serialLayoutData->issueCount)?>" title="Читать комикс <?=$this->serialLayoutData->name?> с последнего выпуска">с конца</a> /
+					<a <?=($this->serialLayoutData->activeMenuItem === 'view-first' ? 'class="active"' : '')?> href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, '1')?>" title="Читать комикс <?=$this->serialLayoutData->name?> с первого выпуска">Читать с начала</a> /
+					<a <?=($this->serialLayoutData->activeMenuItem === 'view-last' ? 'class="active"' : '')?> href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, $this->serialLayoutData->issueCount)?>" title="Читать комикс <?=$this->serialLayoutData->name?> с последнего выпуска">с конца</a> /
 					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'list')?>" title="Смотреть комикс <?=$this->serialLayoutData->name?> лентой">лентой</a>
 				</li>
-				<li class="<?=($this->serialLayoutData->activeMenuItem === 'about' ? 'active' : '')?>">
+				<li <?=($this->serialLayoutData->activeMenuItem === 'about' ? 'class="active"' : '')?>>
 					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'about')?>" title="О комиксе <?=$this->serialLayoutData->name?> читать">О комиксе</a>
 				</li>
-				<li class="<?=($this->serialLayoutData->activeMenuItem === 'content' ? 'active' : '')?>">
+				<li <?=($this->serialLayoutData->activeMenuItem === 'content' ? 'class="active"' : '')?>>
 					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'content')?>" title="Содержание комикса <?=$this->serialLayoutData->name?> на сайте Авторский Комикс">Содержание</a>
 				</li>
-				<li class="<?=($this->serialLayoutData->activeMenuItem === 'comment' ? 'active' : '')?>">
+				<li <?=($this->serialLayoutData->activeMenuItem === 'comment' ? 'class="active"' : '')?>>
 					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'comment')?>" title="Комментарии к комиксу <?=$this->serialLayoutData->name?>">Комментарии</a>
 				</li>
 <?php
@@ -73,7 +73,7 @@ class ReaderMenu extends AbstractComponent
 	private function renderCharacterMenuItem(): void
 	{
 ?>
-		<li class="<?=($this->serialLayoutData->activeMenuItem === 'character' ? 'active' : '')?>">
+		<li <?=($this->serialLayoutData->activeMenuItem === 'character' ? 'class="active"' : '')?>>
 			<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'character')?>" title="Персонажи комикса <?=$this->serialLayoutData->name?>">Персонажи</a>
 		</li>
 <?php
@@ -82,7 +82,7 @@ class ReaderMenu extends AbstractComponent
 	private function renderFaqMenuItem(): void
 	{
 ?>
-		<li class="<?=($this->serialLayoutData->activeMenuItem === 'faq' ? 'active' : '')?>">
+		<li <?=($this->serialLayoutData->activeMenuItem === 'faq' ? 'class="active"' : '')?>>
 			<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'faq')?>" title="FAQ комикса <?=$this->serialLayoutData->name?>">FAQ</a>
 		</li>
 <?php
