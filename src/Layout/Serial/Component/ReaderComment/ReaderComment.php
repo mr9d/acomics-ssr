@@ -5,6 +5,7 @@ namespace Acomics\Ssr\Layout\Serial\Component\ReaderComment;
 use Acomics\Ssr\Dto\CommentDto;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Layout\Common\Component\DateTimeFormatted\DateTimeFormatted;
+use Acomics\Ssr\Layout\Common\Component\LazyImage\LazyImage;
 use Acomics\Ssr\Util\UrlUtil;
 
 class ReaderComment extends AbstractComponent
@@ -37,15 +38,22 @@ class ReaderComment extends AbstractComponent
 	{
 		echo '<section class="comment-avatar">';
 
-		if (!$this->comment->user->isAnonymous)
+		if ($this->comment->user->isAnonymous)
+		{
+			echo '<img src="/static/img/avatar-stub.svg" alt="Изображение анонимного пользователя" width="40" height="40">';
+		}
+		else
 		{
 			echo '<a href="' . UrlUtil::makeProfileUrl($this->comment->user->name) . '" aria-label="Профиль пользователя ' . $this->comment->user->name . '">';
-		}
 
-		echo '<img src="' . $this->comment->user->avatarUrl . '" alt="Изображение пользователя ' . $this->comment->user->name . '" width="40" height="40">';
+			(new LazyImage(
+				src: $this->comment->user->avatarUrl ? $this->comment->user->avatarUrl : '/static/img/avatar-stub.svg',
+				stubSrc: '/static/img/avatar-stub.svg',
+				width: 40,
+				height: 40,
+				alt: 'Изображение пользователя ' . $this->comment->user->name,
+			))->render();
 
-		if (!$this->comment->user->isAnonymous)
-		{
 			echo '</a>';
 		}
 

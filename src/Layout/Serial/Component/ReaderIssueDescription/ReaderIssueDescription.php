@@ -47,7 +47,10 @@ class ReaderIssueDescription extends AbstractComponent
 
 	private function renderAvatar(): void
 	{
-		echo '<a class="issue-description-avatar" href="' . UrlUtil::makeProfileUrl($this->issue->user->name) . '" aria-label="Профиль пользователя ' . $this->issue->user->name . '"><img src="' . $this->issue->user->avatarUrl . '" alt="Изображение пользователя ' . $this->issue->user->name . '" width="40" height="40"></a>';
+		$avatarUrl = $this->issue->user->avatarUrl === null ? '/static/img/avatar-stub.svg' : $this->issue->user->avatarUrl;
+		echo '<a class="issue-description-avatar" href="' . UrlUtil::makeProfileUrl($this->issue->user->name) . '" aria-label="Профиль пользователя ' . $this->issue->user->name . '">';
+		echo '<img src="' . $avatarUrl . '" alt="Изображение пользователя ' . $this->issue->user->name . '" width="40" height="40">';
+		echo '</a>';
 	}
 
 	private function renderTitle(): void

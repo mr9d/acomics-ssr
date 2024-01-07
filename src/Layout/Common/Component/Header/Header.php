@@ -21,6 +21,7 @@ class Header extends AbstractComponent
 
     public function render(): void
     {
+		$avatarUrl = $this->auth->isLoggedIn ? $this->auth->avatarUrl : '/static/img/avatar-stub.svg';
 ?>
         <div class="common-header-background">
 			<div class="common-header-background-clip"></div>
@@ -67,7 +68,7 @@ class Header extends AbstractComponent
 
 			<section class="user">
 				<button class="toggle-user-menu" aria-label="Показать/скрыть меню пользователя">
-					<img width="40" height="40" src="<?=$this->auth->avatarUrl?>" alt="Изображение вашего профиля" <?=($this->auth->messagesCount?'class="hasMessages"':'')?> />
+					<img width="40" height="40" src="<?=$avatarUrl?>" alt="Изображение вашего профиля" <?=($this->auth->messagesCount?'class="hasMessages"':'')?> />
 				</button>
 				<?=($this->auth->messagesCount?'<a href="/msg/inbox" class="msgCount">' . $this->auth->messagesCount . '</a>':'')?>
 			</section>

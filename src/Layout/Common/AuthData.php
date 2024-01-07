@@ -10,7 +10,7 @@ class AuthData
 
 	public ?string $username;
 
-	public string $avatarUrl;
+	public ?string $avatarUrl;
 
 	public int $messagesCount;
 
@@ -18,7 +18,7 @@ class AuthData
 	public array $extraUserMenuLinks;
 
 	/** @param LinkDto[] $extraUserMenuLinks */
-	public function __construct(bool $isLoggedIn, ?string $username, string $avatarUrl, int $messagesCount, array $extraUserMenuLinks)
+	public function __construct(bool $isLoggedIn, ?string $username, ?string $avatarUrl, int $messagesCount, array $extraUserMenuLinks)
 	{
 		$this->isLoggedIn = $isLoggedIn;
 		$this->username = $username;

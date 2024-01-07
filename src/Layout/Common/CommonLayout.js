@@ -5,9 +5,11 @@ const init = () => {
 	makeSubscribeButtons();
 	makePageHint();
 	makeDateTimeFormatted(document);
+	makeLazyImages();
 
 	window.common = {
-		makeDateTimeFormatted
+		makeDateTimeFormatted,
+		makeLazyImages,
 	}
 };
 
