@@ -21,7 +21,7 @@ class Header extends AbstractComponent
 
     public function render(): void
     {
-		$avatarUrl = $this->auth->isLoggedIn ? $this->auth->avatarUrl : '/static/img/avatar-stub.svg';
+		$avatarUrl = ($this->auth->isLoggedIn && $this->auth->avatarUrl !== null) ? $this->auth->avatarUrl : '/static/img/avatar-stub.svg';
 ?>
         <div class="common-header-background">
 			<div class="common-header-background-clip"></div>
