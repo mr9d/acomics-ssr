@@ -79,6 +79,8 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 			vkWidgetProvider: $this->integrationsProvider)
 		)->render();
 
+		echo '<div id="comments"></div>';
+
 		foreach($this->pageData->comments as $comment)
 		{
 			(new ReaderComment($comment))->render();
@@ -103,7 +105,8 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 		$this->integrationsProvider->advertisementSerialViewSidebar();
 
 		(new ReaderSerialDescription(
-			serial: $this->pageData->serial)
+			serial: $this->pageData->serial,
+			coauthors: $this->pageData->coauthors)
 		)->render();
 
 		echo '</div>'; // inner

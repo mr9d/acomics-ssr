@@ -12,4 +12,6 @@ interface AdvertisementProviderInt {
 
 	public function advertisementMobileTop(): void;
 
+	public function advertisementInfiniteScroll(string $uid): void;
+
 }

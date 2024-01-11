@@ -43,7 +43,7 @@ class ReaderCommentForm extends AbstractComponent
 
 	private function renderAvatar(): void
 	{
-		$avatarUrl = $this->auth->isLoggedIn ? $this->auth->avatarUrl : '/static/img/avatar-stub.svg';
+		$avatarUrl = ($this->auth->isLoggedIn && $this->auth->avatarUrl !== null) ? $this->auth->avatarUrl : '/static/img/avatar-stub.svg';
 
 		echo '<section class="comment-avatar">';
 		echo '<img src="' . $avatarUrl . '" alt="Изображение вашего профиля" width="40" height="40">';

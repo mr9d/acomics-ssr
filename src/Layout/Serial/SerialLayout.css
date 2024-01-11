@@ -9,6 +9,7 @@ body.scroll-down div.common-header-background { transform: translate3d(0, -100%,
 body.scroll-up header.common-header,
 body.scroll-up div.common-header-background { transform: none; }
 
+
 /* Страница чтения комикса */
 aside.view-aside-first { margin-bottom: var(--desktop-gap); }
 main.view-container div.view-article { padding: 0 var(--mobile-gap); container-type: inline-size; box-sizing: border-box; }
@@ -41,6 +42,29 @@ div.view-comments-disallowed { text-align: center; color: #a3a3a3; }
 	main.view-container div.view-article { padding: 0 var(--desktop-gap) var(--desktop-gap); }
 	main.view-container aside.view-aside-second { margin: 0 var(--desktop-gap) var(--desktop-gap) 0; }
 }
+
+
+/* Страница чтения комикса лентой */
+aside.list-aside { margin: var(--desktop-gap) var(--mobile-gap) 0; }
+main.list-container { container-type: inline-size; box-sizing: border-box; margin-bottom: var(--desktop-gap); }
+main.list-container img.issue { object-fit: cover; } /* for lazy loader */
+main.list-container article.reader-issue-description { margin: 0; }
+main.list-container nav.reader-navigator { padding-bottom: 0; }
+main.list-container p.list-comments-link { display: flex; margin: 5px var(--mobile-gap); align-items:center; justify-content: flex-end; }
+main.list-container p.list-comments-link a {
+	display: block; padding: 5px 0 5px 22px;
+	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 16 16'><defs><g id='Layer1_0_FILL'><path fill='%234A6CBC' stroke='none' d='M 10.55 12L 13 12Q 16 12 16 9L 16 3Q 16 0 13 0L 3 0Q 0 0 0 3L 0 9Q 0 12 3 12L 5.5 12 8.05 16 10.55 12M 10.75 5.75Q 11.05 5.5 11.5 5.5 11.9 5.5 12.2 5.75 12.5 6.05 12.5 6.5 12.5 6.9 12.2 7.2 11.9 7.5 11.5 7.5 11.05 7.5 10.75 7.2 10.5 6.9 10.5 6.5 10.5 6.05 10.75 5.75M 3.75 5.75Q 4.05 5.5 4.5 5.5 4.9 5.5 5.2 5.75 5.5 6.05 5.5 6.5 5.5 6.9 5.2 7.2 4.9 7.5 4.5 7.5 4.05 7.5 3.75 7.2 3.5 6.9 3.5 6.5 3.5 6.05 3.75 5.75M 8 5.5Q 8.4 5.5 8.7 5.75 9 6.05 9 6.5 9 6.9 8.7 7.2 8.4 7.5 8 7.5 7.55 7.5 7.25 7.2 7 6.9 7 6.5 7 6.05 7.25 5.75 7.55 5.5 8 5.5 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer1_0_FILL'/></g></svg>") no-repeat left 70%;
+}
+
+@media screen and (min-width: 640px) {
+	main.list-container article.reader-issue-description { margin: var(--mobile-gap) var(--mobile-gap) 0; }
+}
+@media screen and (min-width: 920px) {
+	aside.list-aside { margin: var(--desktop-gap) var(--desktop-gap) 0; }
+	main.list-container article.reader-issue-description { margin: var(--desktop-gap) var(--desktop-gap) 0; }
+	main.list-container p.list-comments-link { margin: 5px var(--desktop-gap); }
+}
+
 
 /* Страница "О комиксе" */
 section.serial-about-text { word-break: break-word; }

@@ -77,6 +77,7 @@ const init = () => {
 	saveAuthorCommentsRead();
 	removeTitleHashFromUrl();
 	makeHeaderDisapearOnScroll();
+	makeReaderListLoadMore();
 };
 
 init();

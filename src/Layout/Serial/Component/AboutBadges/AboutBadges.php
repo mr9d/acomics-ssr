@@ -10,16 +10,16 @@ class AboutBadges extends AbstractComponent {
 	private int $catalogStatus;
 	private bool $isTranslation;
 	private bool $isCompleted;
-	/** @var SerialCategoryDto[] $serialCategories */
-	private array $serialCategories;
+	/** @var SerialCategoryDto[] $categories */
+	private array $categories;
 
-	/** @param SerialCategoryDto[] $serialCategories */
-	public function __construct(int $catalogStatus, bool $isTranslation, bool $isCompleted, array $serialCategories)
+	/** @param SerialCategoryDto[] $categories */
+	public function __construct(int $catalogStatus, bool $isTranslation, bool $isCompleted, array $categories)
 	{
 		$this->catalogStatus = $catalogStatus;
 		$this->isTranslation = $isTranslation;
 		$this->isCompleted = $isCompleted;
-		$this->serialCategories = $serialCategories;
+		$this->categories = $categories;
 	}
 
 	public function render(): void
@@ -59,7 +59,7 @@ class AboutBadges extends AbstractComponent {
 
 	private function renderCategoryBadges(): void
 	{
-		foreach ($this->serialCategories as $category) {
+		foreach ($this->categories as $category) {
 			echo '<a class="badge category category-' . $category->code . '" href="/comics/' . $category->code . '">' . $category->name . '</a>';
 		}
 	}

@@ -11,16 +11,65 @@ class ReaderNavigator extends AbstractComponent
 {
 	private SerialDto $serial;
 	private IssueDto $issue;
+	private bool $listType;
 
-	private int $issueNumber;
-
-	public function __construct(SerialDto $serial, IssueDto $issue)
+	public function __construct(SerialDto $serial, IssueDto $issue, bool $listType = false)
 	{
 		$this->serial = $serial;
 		$this->issue = $issue;
+		$this->listType = $listType;
 	}
 
 	public function render(): void
+	{
+		if ($this->listType)
+		{
+			$this->renderListType();
+		}
+		else
+		{
+			$this->renderViewType();
+		}
+	}
+
+	public function renderListType(): void
+	{
+		echo '<nav class="reader-navigator" data-issue-count="' . $this->serial->issueCount . '" data-list-type="' . ($this->listType ? 1 : 0) . '"><ul>';
+
+		$this->renderButton(
+			class: 'button-list-big-jump',
+			url: UrlUtil::makeSerialUrl($this->serial->code, 'list') . '?skip=' . max($this->issue->number - 26, 0),
+			title: 'Назад на 25 выпусков',
+			content: '-25',
+			active: $this->issue->number > 25);
+		$this->renderButton(
+			class: 'button-list-small-jump',
+			url: UrlUtil::makeSerialUrl($this->serial->code, 'list') . '?skip=' . max($this->issue->number - 6, 0),
+			title: 'Назад на 5 выпусков',
+			content: '-5',
+			active: $this->issue->number > 1);
+		$this->renderButton(
+			class: 'button-goto',
+			url: '#',
+			title: 'Переход к выпуску',
+			content: $this->issue->number . '/' . $this->serial->issueCount,
+			active: true);
+		$this->renderButton(
+			class: 'button-list-small-jump',
+			url: UrlUtil::makeSerialUrl($this->serial->code, 'list') . '?skip=' . min($this->issue->number + 4, $this->serial->issueCount - 1),
+			title: 'Вперед на 5 выпусков',
+			content: '+5',
+			active: $this->issue->number < $this->serial->issueCount - 4);
+		$this->renderButton(
+			class: 'button-list-big-jump',
+			url: UrlUtil::makeSerialUrl($this->serial->code, 'list') . '?skip=' . min($this->issue->number + 24, $this->serial->issueCount - 1),
+			title: 'Вперед на 25 выпусков',
+			content: '+25',
+			active: $this->issue->number < $this->serial->issueCount - 24);
+		echo '</ul></nav>';
+	}
+
+	public function renderViewType(): void
 	{
 		echo '<nav class="reader-navigator" data-issue-count="' . $this->serial->issueCount . '"><ul>';
 

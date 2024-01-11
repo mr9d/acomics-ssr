@@ -5,25 +5,42 @@ namespace Acomics\Ssr\Layout\Serial\Component\ReaderIssue;
 use Acomics\Ssr\Dto\IssueDto;
 use Acomics\Ssr\Dto\SerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
+use Acomics\Ssr\Layout\Common\Component\LazyImage\LazyImage;
 use Acomics\Ssr\Util\UrlUtil;
 
 class ReaderIssue extends AbstractComponent
 {
 	private SerialDto $serial;
-
 	private IssueDto $issue;
+	private bool $withNavigation;
+	private bool $isLazy;
 
 	public function __construct(
 		SerialDto $serial,
-		IssueDto $issue)
+		IssueDto $issue,
+		bool $withNavigation = true,
+		bool $isLazy = false)
 	{
 		$this->serial = $serial;
 		$this->issue = $issue;
+		$this->withNavigation = $withNavigation;
+		$this->isLazy = $isLazy;
 	}
-
 	public function render(): void
 	{
-		echo '<main class="reader-issue">';
+		if ($this->withNavigation)
+		{
+			$this->renderWithNavigation();
+		}
+		else
+		{
+			$this->renderWithoutNavigation();
+		}
+	}
+
+	public function renderWithNavigation(): void
+	{
+		echo '<section class="reader-issue">';
 
 		if ($this->issue->number < $this->serial->issueCount)
 		{
@@ -39,23 +56,37 @@ class ReaderIssue extends AbstractComponent
 			$this->renderPrevious();
 		}
 
-		echo '</main>'; // reader-issue
+		echo '</section>'; // reader-issue
+	}
+
+	private function renderWithoutNavigation(): void
+	{
+		echo '<section class="reader-issue">';
+
+		echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->issue->number) . '#title" class="reader-issue-view" aria-label="Переход на страницу выпуска">';
+		$this->renderImage();
+		echo '</a>';
+
+		echo '</section>'; // reader-issue
 	}
 
 	private function renderImage(): void
 	{
-		$style = 'height: calc(100% * ' . $this->issue->height .' / ' . $this->issue->width .'); max-width: ' . $this->issue->width . 'px';
+		$style = 'aspect-ratio: calc(' . $this->issue->width .' / ' . $this->issue->height .'); max-width: ' . $this->issue->width . 'px';
 		$alt = $this->issue->name ? $this->issue->name : 'Комикс ' . $this->serial->name . ': выпуск №' . $this->issue->number;
 
-		echo '<img
-			class="issue"
-			src="' . $this->issue->url . '"
-			width="' . $this->issue->width . '"
-			height="' . $this->issue->height . '"
-			style="' . $style . '"
-			alt="' . $alt . '"' .
-			($this->issue->alternativeText ? ' title="' . $this->issue->alternativeText . '"' : '') .
-			'>';
+		(new LazyImage(
+			src: $this->issue->url,
+			stubSrc: $this->isLazy ? '/static/img/tail-spin.svg' : $this->issue->url,
+			width: $this->issue->width,
+			height: $this->issue->height,
+			alt: $alt,
+			class: 'issue',
+			otherAttributes: array(
+				'alternativeText' => $this->issue->alternativeText,
+				'style' => $style,
+			),
+		))->render();
 	}
 
 	private function renderNext(): void

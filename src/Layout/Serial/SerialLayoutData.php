@@ -25,6 +25,7 @@ class SerialLayoutData
 	public bool $isCharacterMenuItemVisible;
 	public bool $isFaqMenuItemVisible;
 	public ?string $activeMenuItem;
+	public ?int $activeIssueNumber;
 	public int $issueCount;
 
 }

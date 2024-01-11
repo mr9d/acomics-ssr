@@ -3,17 +3,20 @@
 namespace Acomics\Ssr\Util;
 
 use Acomics\Ssr\Dto\SerialCoauthorDto;
-use Acomics\Ssr\Dto\SerialDto;
 
 class AuthorUtil
 {
-	public static function makeAuthorsString(SerialDto $serial): string
+
+	/**
+	 * @param SerialCoauthorDto[] $coauthors
+	 */
+	public static function makeAuthorsString(array $coauthors, bool $isTranslation): string
 	{
 		$result = '';
 
-		if($serial->isTranslation)
+		if($isTranslation)
 		{
-			if(count($serial->coauthors) > 1)
+			if(count($coauthors) > 1)
 			{
 				$result .= '<b>Переводчики:</b> ';
 			}
@@ -24,7 +27,7 @@ class AuthorUtil
 		}
 		else
 		{
-			if(count($serial->coauthors) > 1)
+			if(count($coauthors) > 1)
 			{
 				$result .= '<b>Авторы:</b> ';
 			}
@@ -36,7 +39,7 @@ class AuthorUtil
 
 		$coauthorToString = fn(SerialCoauthorDto $coauthor) => '<a href="' . UrlUtil::makeProfileUrl($coauthor->username) . '">' . $coauthor->username . '</a>' . ($coauthor->role ? ' (' . $coauthor->role . ')' : '');
 
-		$result .= implode(', ', array_map($coauthorToString, $serial->coauthors));
+		$result .= implode(', ', array_map($coauthorToString, $coauthors));
 
 		return $result;
 	}

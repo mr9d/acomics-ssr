@@ -3,8 +3,8 @@ const formatIntCaption = (integer, str1, str2, str3) => {
 	const mod = integer % 10;
 	const mod100 = integer % 100;
 	if (mod100 > 10 && mod100 < 20) { return "" + integer + " " + str3; } // 5 столов
-	if (mod == 0 || mod > 4) { return "" + integer + " " + str3; } // 5 столов
-	else if (mod == 1) { return "" + integer + " " + str1; } // 1 стол
+	if (mod === 0 || mod > 4) { return "" + integer + " " + str3; } // 5 столов
+	else if (mod === 1) { return "" + integer + " " + str1; } // 1 стол
 	else { return "" + integer + " " + str2; } // 2 стола
 }
 

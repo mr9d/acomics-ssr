@@ -13,25 +13,31 @@ class SerialAboutPageData
 
 	public ?string $aboutText;
 
-	/** @var SerialCategoryDto[] $serialCategories */
-	public array $serialCategories;
+	/** @var SerialCoauthorDto[] $coauthors */
+	public array $coauthors;
+
+	/** @var SerialCategoryDto[] $categories */
+	public array $categories;
 
 	/** @var IssuePreviewDto[] $issues */
 	public array $issues;
 
 	/**
 	 * @param SerialCoauthorDto[] $coauthors
-	 * @param SerialCategoryDto[] $serialCategories
+	 * @param SerialCategoryDto[] $categories
+	 * @param IssuePreviewDto[] $issues
 	 */
 	public function __construct(
 		SerialDto $serial,
 		?string $aboutText,
-		array $serialCategories,
+		array $coauthors,
+		array $categories,
 		array $issues)
 	{
 		$this->serial = $serial;
 		$this->aboutText = $aboutText;
-		$this->serialCategories = $serialCategories;
+		$this->coauthors = $coauthors;
+		$this->categories = $categories;
 		$this->issues = $issues;
 	}
 }

@@ -7,8 +7,8 @@ const formatIntCaption = (integer, str1, str2, str3) => {
 	const mod = integer % 10;
 	const mod100 = integer % 100;
 	if (mod100 > 10 && mod100 < 20) { return "" + integer + " " + str3; } // 5 столов
-	if (mod == 0 || mod > 4) { return "" + integer + " " + str3; } // 5 столов
-	else if (mod == 1) { return "" + integer + " " + str1; } // 1 стол
+	if (mod === 0 || mod > 4) { return "" + integer + " " + str3; } // 5 столов
+	else if (mod === 1) { return "" + integer + " " + str1; } // 1 стол
 	else { return "" + integer + " " + str2; } // 2 стола
 }
 
@@ -119,20 +119,6 @@ const makeHeaderMenu = (menuSelector, buttonSelector, visibleClass) => {
 
 /* src/Layout/Common/Component/LazyImage/LazyImage.js */
 const LAZY_IMAGE_CLASS = 'lazy-image';
-const LAZY_PRERENDER_HEIGHT = 150;
-
-const throttle = (mainFunction, delay = 300) => {
-	let timerFlag = null;
-
-	return (...args) => {
-		if (timerFlag === null) {
-			mainFunction(...args);
-			timerFlag = setTimeout(() => {
-				timerFlag = null;
-			}, delay);
-		}
-	};
-}
 
 const makeLazyImages = (parentElement = document) => {
 	let firstLazyImage = parentElement.querySelector('img.' + LAZY_IMAGE_CLASS);
@@ -146,22 +132,12 @@ const makeLazyImages = (parentElement = document) => {
 		img.classList.remove(LAZY_IMAGE_CLASS);
 	};
 
-	const checkImage = (img) => {
-		const imgViewportOffset = img.getBoundingClientRect().top;
-		if (imgViewportOffset < window.innerHeight + LAZY_PRERENDER_HEIGHT) {
-			loadImage(img);
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	const windowScrollLstener = throttle(() => {
-		const visible = checkImage(firstLazyImage);
+	const windowScrollLstener = window.acomicsCommon.throttle(() => {
+		const visible = window.acomicsCommon.checkElementViewportPositionAndLoad(firstLazyImage, loadImage);
 		if (visible) {
 			const otherLazyImages = parentElement.querySelectorAll('img.' + LAZY_IMAGE_CLASS);
 			for (const image of otherLazyImages) {
-				const visible = checkImage(image);
+				const visible = window.acomicsCommon.checkElementViewportPositionAndLoad(image, loadImage);
 				if (!visible) {
 					firstLazyImage = image;
 					return;
@@ -172,6 +148,9 @@ const makeLazyImages = (parentElement = document) => {
 	});
 
 	window.addEventListener('scroll', windowScrollLstener);
+
+	// Нужно также выполнить после скролла по якорной ссылке
+	window.addEventListener('load', windowScrollLstener);
 };
 
 
@@ -239,19 +218,57 @@ const makeSubscribeButtons = () => {
 }
 
 /* src/Layout/Common/CommonLayout.js */
+const LAZY_PRERENDER_HEIGHT = 150;
+
+function debounce(mainFunction, timeout = 300) {
+	let timer;
+	return (...args) => {
+		clearTimeout(timer);
+		timer = setTimeout(() => { mainFunction.apply(this, args); }, timeout);
+	};
+}
+
+const throttle = (mainFunction, delay = 300) => {
+	let timerFlag = null;
+
+	return (...args) => {
+		if (timerFlag === null) {
+			mainFunction(...args);
+			timerFlag = setTimeout(() => {
+				timerFlag = null;
+			}, delay);
+		}
+	};
+};
+
+// Проверка, находится ли элемент в зоне видимости для ленивой дозагрузки
+const checkElementViewportPositionAndLoad = (element, loadFunction) => {
+	const elementViewportOffset = element.getBoundingClientRect().top;
+	if (elementViewportOffset < window.innerHeight + LAZY_PRERENDER_HEIGHT) {
+		loadFunction(element);
+		return true;
+	} else {
+		return false;
+	}
+};
+
+
 // Инициализация общих элементов страницы
 const init = () => {
+	window.acomicsCommon = {
+		debounce,
+		throttle,
+		checkElementViewportPositionAndLoad,
+		makeDateTimeFormatted,
+		makeLazyImages,
+	}
+
 	makeHeaderMenu('div.user-menu', 'button.toggle-user-menu', 'user-menu-visible');
 	makeHeaderMenu('div.main-menu', 'button.toggle-main-menu', 'main-menu-visible');
 	makeSubscribeButtons();
 	makePageHint();
 	makeDateTimeFormatted(document);
 	makeLazyImages();
-
-	window.common = {
-		makeDateTimeFormatted,
-		makeLazyImages,
-	}
 };
 
 init();

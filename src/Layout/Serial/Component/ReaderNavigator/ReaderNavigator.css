@@ -38,6 +38,13 @@ nav.reader-navigator ul li.button-random a span {
 	padding-left: 28px;
 }
 
+nav.reader-navigator ul li.button-list-big-jump a,
+nav.reader-navigator ul li.button-list-small-jump a { text-decoration: none; }
+nav.reader-navigator ul li.button-list-big-jump a span,
+nav.reader-navigator ul li.button-list-small-jump a span {
+	background: var(--brand-orange); color: #fff; font-weight: bold;
+}
+
 nav.reader-navigator ul li.button-inactive a span { background-color: var(--brand-grey); }
 
 nav.reader-navigator ul li.button-goto a { text-decoration: none; color: #333; }

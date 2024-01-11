@@ -11,14 +11,28 @@ class ReaderIssueTitle extends AbstractComponent
 {
 	private SerialDto $serial;
 	private IssueDto $issue;
+	private bool $withNavigation;
 
-	public function __construct(SerialDto $serial, IssueDto $issue)
+	public function __construct(SerialDto $serial, IssueDto $issue, bool $withNavigation = true)
 	{
 		$this->serial = $serial;
 		$this->issue = $issue;
+		$this->withNavigation = $withNavigation;
 	}
 
 	public function render(): void
+	{
+		if ($this->withNavigation)
+		{
+			$this->renderWithNavigation();
+		}
+		else
+		{
+			$this->renderWithoutNavigation();
+		}
+	}
+
+	public function renderWithNavigation(): void
 	{
 		echo '<h1 class="reader-issue-title" id="title">';
 
@@ -35,6 +49,15 @@ class ReaderIssueTitle extends AbstractComponent
 		}
 
 		echo '</h1>'; // reader-issue-title
+	}
+
+	public function renderWithoutNavigation(): void
+	{
+		echo '<h2 class="reader-issue-title">';
+
+		$this->renderNumber();
+
+		echo '</h2>'; // reader-issue-title
 	}
 
 	private function renderNumber(): void

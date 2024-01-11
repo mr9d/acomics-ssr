@@ -33,7 +33,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 			catalogStatus: $this->pageData->serial->catalogStatus,
 			isTranslation: $this->pageData->serial->isTranslation,
 			isCompleted: $this->pageData->serial->isCompleted,
-			serialCategories: $this->pageData->serialCategories
+			categories: $this->pageData->categories
 		))->render();
 
 		$this->renderAboutText();
@@ -73,7 +73,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 
 	private function renderAuthors(): void
 	{
-		echo '<p class="serial-about-authors">' . AuthorUtil::makeAuthorsString($this->pageData->serial) . '</p>';
+		echo '<p class="serial-about-authors">' . AuthorUtil::makeAuthorsString($this->pageData->coauthors, $this->pageData->serial->isTranslation) . '</p>';
 	}
 
 	private function renderOfficialSite(): void

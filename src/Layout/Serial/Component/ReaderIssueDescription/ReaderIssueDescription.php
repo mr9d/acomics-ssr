@@ -15,12 +15,12 @@ class ReaderIssueDescription extends AbstractComponent
 
 	private IssueDto $issue;
 
-	private VkWidgetProviderInt $vkWidgetProvider;
+	private ?VkWidgetProviderInt $vkWidgetProvider;
 
 	public function __construct(
 		SerialDto $serial,
 		IssueDto $issue,
-		VkWidgetProviderInt $vkWidgetProvider)
+		?VkWidgetProviderInt $vkWidgetProvider)
 	{
 		$this->serial = $serial;
 		$this->issue = $issue;
@@ -95,7 +95,10 @@ class ReaderIssueDescription extends AbstractComponent
 			echo '<a class="serial-top-vote" href="/top/voter?id=' . $this->serial->code . '">Проголосовать</a>';
 		}
 
-		$this->vkWidgetProvider->vkLike();
+		if ($this->vkWidgetProvider !== null)
+		{
+			$this->vkWidgetProvider->vkLike();
+		}
 
 		if ($this->serial->isTranslation && $this->issue->originalUrl !== null)
 		{

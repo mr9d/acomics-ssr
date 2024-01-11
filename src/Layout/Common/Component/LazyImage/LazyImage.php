@@ -85,7 +85,10 @@ class LazyImage extends AbstractComponent
 		$result = '';
 		foreach ($this->otherAttributes as $name => $value)
 		{
-			$result .= $name . '="' . $value . '" ';
+			if ($value !== null)
+			{
+				$result .= $name . '="' . $value . '" ';
+			}
 		}
 		return $result;
 	}

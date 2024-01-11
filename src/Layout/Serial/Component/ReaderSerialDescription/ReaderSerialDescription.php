@@ -2,6 +2,7 @@
 
 namespace Acomics\Ssr\Layout\Serial\Component\ReaderSerialDescription;
 
+use Acomics\Ssr\Dto\SerialCoauthorDto;
 use Acomics\Ssr\Dto\SerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Util\AuthorUtil;
@@ -11,9 +12,16 @@ class ReaderSerialDescription extends AbstractComponent
 {
 	private SerialDto $serial;
 
-	public function __construct(SerialDto $serial)
+	/** @var SerialCoauthorDto[] $coauthors */
+	private array $coauthors;
+
+	/**
+	 * @param SerialCoauthorDto[] $coauthors
+	 */
+	public function __construct(SerialDto $serial, array $coauthors)
 	{
 		$this->serial = $serial;
+		$this->coauthors = $coauthors;
 	}
 
 	public function render(): void
@@ -46,7 +54,7 @@ class ReaderSerialDescription extends AbstractComponent
 		$url = $this->serial->siteUrl ? $this->serial->siteUrl : 'https://acomics.ru' . UrlUtil::makeSerialUrl($this->serial->code);
 		echo '<p><b>' . ($this->serial->isTranslation ? 'Официальный сайт' : 'Сайт') . ':</b> <a href="' . $url . '">' . $url . '</a></p>';
 
-		echo '<p>' . AuthorUtil::makeAuthorsString($this->serial) . '</p>';
+		echo '<p>' . AuthorUtil::makeAuthorsString($this->coauthors, $this->serial->isTranslation) . '</p>';
 
 		echo '</div>';
 	}

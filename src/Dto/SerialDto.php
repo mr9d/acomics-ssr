@@ -30,12 +30,6 @@ class SerialDto
 
 	public ?SerialLicenseDto $license;
 
-	/** @var SerialCoauthorDto[] $coauthors */
-	public array $coauthors;
-
-	/**
-	 * @param SerialCoauthorDto[] $coauthors
-	 */
 	public function __construct(
 		string $name,
 		string $code,
@@ -49,8 +43,7 @@ class SerialDto
 		?string $originalAuthorName,
 		bool $isTopEnabled,
 		SerialAgeRatingDto $ageRating,
-		SerialLicenseDto $license,
-		array $coauthors)
+		SerialLicenseDto $license)
 	{
 		$this->name = $name;
 		$this->code = $code;
@@ -65,6 +58,5 @@ class SerialDto
 		$this->isTopEnabled = $isTopEnabled;;
 		$this->ageRating = $ageRating;
 		$this->license = $license;
-		$this->coauthors = $coauthors;
 	}
 }

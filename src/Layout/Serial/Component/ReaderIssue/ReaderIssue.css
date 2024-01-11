@@ -1,37 +1,40 @@
-main.reader-issue { position: relative; }
-main.reader-issue img.issue { display: block; width: 100%; margin: 0 auto; }
+section.reader-issue { position: relative; }
+section.reader-issue img.issue { display: block; width: 100%; height: auto; margin: 0 auto; }
+
+/* Поле для перехода на выпуск */
+section.reader-issue a.reader-issue-view { display: block; }
 
 /* Поле для перелистывания вперед */
-main.reader-issue a.reader-issue-next { display: block; }
-main.reader-issue a.reader-issue-next div.arrow {
+section.reader-issue a.reader-issue-next { display: block; }
+section.reader-issue a.reader-issue-next div.arrow {
 	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='25px' height='50px' viewBox='0 0 25 50'><defs><g id='Layer0_0_FILL'><path fill='%23BCB7B1' stroke='none' d='M 0 0L 10.35 25.05 0 50 13.4 50 25 25.05 13.4 0 0 0 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>") no-repeat center;
 	width: 25px; position: absolute; right: var(--mobile-gap); top: 0; bottom: 0;
 }
 
 /* Поле для перелистывания назад */
-main.reader-issue a.reader-issue-previous {
+section.reader-issue a.reader-issue-previous {
 	display: block; position: absolute;
     width: 25%; height: 100%; left: 0; top: 0; bottom: 0;
 }
-main.reader-issue a.reader-issue-previous div.arrow {
+section.reader-issue a.reader-issue-previous div.arrow {
 	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='25px' height='50px' viewBox='0 0 25 50'><defs><g id='Layer0_0_FILL'><path fill='%23BCB7B1' stroke='none' d='M 14.65 25.05L 25 0 11.6 0 0 25.05 11.6 50 25 50 14.65 25.05 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>") no-repeat center;
 	width: 25px; position: absolute; left: var(--mobile-gap); top: 0; bottom: 0;
 }
 
 /* Эффект наведения */
-main.reader-issue a.reader-issue-next div.arrow,
-main.reader-issue a.reader-issue-previous div.arrow { opacity: 0; transition: opacity 0.4s ease; }
+section.reader-issue a.reader-issue-next div.arrow,
+section.reader-issue a.reader-issue-previous div.arrow { opacity: 0; transition: opacity 0.4s ease; }
 @media (hover: hover) {
-	main.reader-issue a.reader-issue-next:hover div.arrow,
-	main.reader-issue a.reader-issue-previous:hover div.arrow { opacity: 0.6; }
+	section.reader-issue a.reader-issue-next:hover div.arrow,
+	section.reader-issue a.reader-issue-previous:hover div.arrow { opacity: 0.6; }
 }
 
 @media screen and (min-width: 520px) {
-	main.reader-issue a.reader-issue-next div.arrow { right: var(--desktop-gap); }
-	main.reader-issue a.reader-issue-previous div.arrow { left: var(--desktop-gap); }
+	section.reader-issue a.reader-issue-next div.arrow { right: var(--desktop-gap); }
+	section.reader-issue a.reader-issue-previous div.arrow { left: var(--desktop-gap); }
 }
 
 @media screen and (min-width: 700px) {
-	main.reader-issue a.reader-issue-next div.arrow { right: 60px; }
-	main.reader-issue a.reader-issue-previous div.arrow { left: 60px; }
+	section.reader-issue a.reader-issue-next div.arrow { right: 60px; }
+	section.reader-issue a.reader-issue-previous div.arrow { left: 60px; }
 }
