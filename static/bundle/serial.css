@@ -495,13 +495,6 @@ a.reader-list-load-more {
 	border: 1px solid var(--brand-grey); margin: var(--desktop-gap) var(--mobile-gap) 0; padding: var(--desktop-gap) var(--mobile-gap);
 }
 
-/* src/Layout/Serial/Component/ReaderListNavigator/ReaderListNavigator.css */
-nav.reader-list-navigator { background: var(--brand-grey); margin: var(--desktop-gap) var(--mobile-gap) 0; padding: var(--desktop-gap) var(--mobile-gap); }
-
-@media screen and (min-width: 920px) {
-	nav.reader-list-navigator { margin: var(--desktop-gap) var(--desktop-gap) 0; padding: var(--desktop-gap) var(--desktop-gap); }
-}
-
 /* src/Layout/Serial/Component/ReaderMenu/ReaderMenu.css */
 section.serial-reader-menu {
 	height: 40px; background: var(--brand-grey); overflow: hidden;

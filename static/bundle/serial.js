@@ -48,7 +48,19 @@ const makeReaderListLoadMore = () => {
 
 			const container = htmlDoc.querySelector('main.list-container');
 			container.querySelector('nav.reader-navigator').remove();
-			loadMoreLink.after(...container.children);
+
+			for (let element of [...container.children]) {
+				loadMoreLink.parentNode.appendChild(element);
+
+				// Инициализация рекламы
+				if (element.classList.contains('list-aside')) {
+					const script = element.querySelector('script');
+					const newScript = document.createElement("script");
+					newScript.innerText = script.innerText;
+					script.remove();
+					document.body.appendChild(newScript);
+				}
+			}
 
 			window.acomicsCommon.makeDateTimeFormatted(loadMoreLink.parentNode),
 			window.acomicsCommon.makeLazyImages(),
@@ -77,8 +89,6 @@ const makeReaderListLoadMore = () => {
 
 	window.addEventListener('scroll', windowScrollLstener);
 };
-
-/* src/Layout/Serial/Component/ReaderListNavigator/ReaderListNavigator.js */
 
 /* src/Layout/Serial/Component/ReaderMenu/ReaderMenu.js */
 const serialMenuToggleButtonClickListener = (evt) => {
