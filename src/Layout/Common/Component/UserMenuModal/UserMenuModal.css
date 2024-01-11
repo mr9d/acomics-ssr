@@ -2,7 +2,9 @@
 div.user-menu { z-index: 71; flex-direction: row-reverse; }
 div.user-menu nav { width: calc((var(--min-width) - var(--desktop-gap))); box-sizing: border-box; background: #fff; line-height: 1;  box-shadow:0 0 3px 1px rgba(0,0,0,0.2); }
 div.user-menu p { padding: var(--desktop-gap) 0 15px; margin: 0 var(--desktop-gap); }
-div.user-menu p b { color: #111; display: inline-block; max-width: 240px; text-overflow: ellipsis; vertical-align: middle; white-space: nowrap; overflow-x: hidden; }
+div.user-menu p.user-intro { display: flex; flex-wrap: wrap; column-gap: 8px; line-height: 1.4; }
+div.user-menu p.user-intro span { display: block; white-space: nowrap; }
+div.user-menu p.user-intro b { color: #111; display: block; max-width: 240px; text-overflow: ellipsis; white-space: nowrap; overflow-x: hidden; }
 div.user-menu form { padding: 5px 0 var(--desktop-gap); border-top: 1px solid #ebe5dd; margin: 0 var(--desktop-gap); }
 div.user-menu form label { display:block; margin: 10px 0 5px; }
 div.user-menu form input.text { display:block; margin: 0; height:40px; width: 100%; }

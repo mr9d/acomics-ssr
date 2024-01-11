@@ -52,7 +52,7 @@ class UserMenuModal extends HeaderModal
 	private function renderLoggedInContent(): void
 	{
 ?>
-		<p>Ваш логин: <b><?=$this->auth->username?></b></p>
+		<p class="user-intro"><span>Ваш логин:</span><b><?=$this->auth->username?></b></p>
 
 		<ul>
 			<li><a href="/msg/inbox">Личные сообщения<?=($this->auth->messagesCount ? ' [' . $this->auth->messagesCount . ']' : '')?></a></li>

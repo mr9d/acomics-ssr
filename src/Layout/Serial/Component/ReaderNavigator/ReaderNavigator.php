@@ -37,6 +37,12 @@ class ReaderNavigator extends AbstractComponent
 		echo '<nav class="reader-navigator" data-issue-count="' . $this->serial->issueCount . '" data-list-type="' . ($this->listType ? 1 : 0) . '"><ul>';
 
 		$this->renderButton(
+			class: 'button-first',
+			url: UrlUtil::makeSerialUrl($this->serial->code, 'list') . '?skip=0',
+			title: 'Первый выпуск',
+			content: '',
+			active: $this->issue->number > 1);
+		$this->renderButton(
 			class: 'button-list-big-jump',
 			url: UrlUtil::makeSerialUrl($this->serial->code, 'list') . '?skip=' . max($this->issue->number - 26, 0),
 			title: 'Назад на 25 выпусков',
@@ -66,6 +72,14 @@ class ReaderNavigator extends AbstractComponent
 			title: 'Вперед на 25 выпусков',
 			content: '+25',
 			active: $this->issue->number < $this->serial->issueCount - 24);
+		$this->renderButton(
+			class: 'button-last',
+			url: UrlUtil::makeSerialUrl($this->serial->code, 'list') . '?skip=' . ($this->serial->issueCount - 1),
+			title: 'Последний выпуск',
+			content: '',
+			active: $this->issue->number < $this->serial->issueCount);
+
+
 		echo '</ul></nav>';
 	}
 
