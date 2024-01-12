@@ -10,7 +10,7 @@ class UrlUtil
 {
 	private const PROFILE_URL_PREFIX = '-';
 	private const SERIAL_URL_PREFIX = '~';
-	private const DEFAULT_SUBSCRIPTIONS_URL = 'profile/featured';
+	private const DEFAULT_SUBSCRIPTIONS_URL = '/profile/featured';
 
 	public static function makeProfileUrl(string $username, ?string $subPage = null): string
 	{
