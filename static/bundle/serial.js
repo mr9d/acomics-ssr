@@ -1,6 +1,8 @@
 'use strict';
 (() => {
 
+/* src/Layout/Serial/Component/ContentTree/ContentTree.js */
+
 /* src/Layout/Serial/Component/ReaderComment/ReaderComment.js */
 const commentClickListener = (evt) => {
 	if (evt.target.tagName !== 'BUTTON') {

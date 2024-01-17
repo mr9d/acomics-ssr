@@ -2,7 +2,6 @@
 
 namespace Acomics\Ssr\Page\Serial\Reader;
 
-use Acomics\Ssr\Dto\SerialCoauthorDto;
 use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
 use Acomics\Ssr\Layout\Serial\Component\AboutBadges\AboutBadges;
 use Acomics\Ssr\Layout\Serial\Component\IssuePreview\IssuePreview;

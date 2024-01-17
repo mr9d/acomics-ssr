@@ -2,11 +2,10 @@
 
 namespace Acomics\Ssr\Page\Serial\Reader;
 
-use Acomics\Ssr\Dto\SerialChapterStructDto;
 use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
+use Acomics\Ssr\Layout\Serial\Component\ContentTree\ContentTree;
 use Acomics\Ssr\Layout\SerialReaderAside\SerialReaderAsideLayout;
 use Acomics\Ssr\Page\PageInt;
-use Acomics\Ssr\Util\UrlUtil;
 
 class SerialContentPage extends SerialReaderAsideLayout implements PageInt
 {
@@ -28,7 +27,10 @@ class SerialContentPage extends SerialReaderAsideLayout implements PageInt
 
         if ($this->pageData->chaptersTabActive)
         {
-            $this->chapterStruct($this->pageData->chaptersTree);
+            (new ContentTree(
+                rootStruct: $this->pageData->chaptersTree,
+                serialCode: $this->serialLayoutData->code,
+            ))->render();
         }
         else
         {
@@ -47,33 +49,6 @@ class SerialContentPage extends SerialReaderAsideLayout implements PageInt
         }
 
         $header->render();
-    }
-
-    private function chapterStruct(SerialChapterStructDto $chapterStruct): void
-    {
-        if($chapterStruct->headerLevel !== 0)
-        {
-            echo '<p>' . $chapterStruct->name . ' (Уровень: ' . $chapterStruct->headerLevel . ')</p>';
-        }
-        echo '<section>';
-
-        if($chapterStruct->chapters !== null)
-        {
-            foreach($chapterStruct->chapters as $chapter)
-            {
-                echo '<p><a href="' . UrlUtil::makeSerialUrl($this->serialLayoutData->code, $chapter->issueNumber) . '">' . $chapter->name . '</a></p>';
-            }
-        }
-
-        if($chapterStruct->childStructs !== null)
-        {
-            foreach($chapterStruct->childStructs as $struct)
-            {
-                $this->chapterStruct($struct);
-            }
-        }
-
-        echo '</section>';
     }
 
     private function previews(): void

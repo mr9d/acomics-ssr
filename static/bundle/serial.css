@@ -165,6 +165,26 @@ p.serial-about-badges a.badge.category-history {
 	p.serial-about-badges a.badge.category { padding-left: 34px; background-position: 10px center; }
 }
 
+/* src/Layout/Serial/Component/ContentTree/ContentTree.css */
+section.serial-content-tree { line-height: 1.4; word-break: break-word; }
+section.serial-content-tree img { max-width: 100%; }
+
+/* LAYOUT_LIST_WITH_IMAGE */
+section.serial-content-tree ul { padding-left: var(--desktop-gap); }
+section.serial-content-tree ul li img { display: block; margin-bottom: var(--mobile-gap); }
+
+@media screen and (min-width: 520px) {
+	section.serial-content-tree ul li img { float: right; margin-bottom: 0; max-width: 50%; }
+}
+
+/* LAYOUT_CENTER_OR_IMAGE */
+section.serial-content-tree p.serial-chapters-centered { display: flex; flex-direction: column; align-items: center; gap: var(--mobile-gap); }
+section.serial-content-tree p.serial-chapters-centered img { display: block; }
+
+/* LAYOUT_INLINE_OR_IMAGE */
+section.serial-content-tree p.serial-chapters-inline { display: flex; flex-direction: row; flex-wrap: wrap; }
+section.serial-content-tree p.serial-chapters-inline img { display: block; }
+
 /* src/Layout/Serial/Component/IssuePreview/IssuePreview.css */
 a.issue-preview, a.issue-preview:visited { display: block; position: relative; color: #fff; }
 a.issue-preview img { display: block; object-fit:cover; }
