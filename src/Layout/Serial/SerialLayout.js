@@ -78,6 +78,7 @@ const init = () => {
 	removeTitleHashFromUrl();
 	makeHeaderDisapearOnScroll();
 	makeReaderListLoadMore();
+    preventFormDoubleSubmission();
 };
 
 init();

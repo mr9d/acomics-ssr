@@ -27,6 +27,19 @@ const collapseLongComments = () => {
 	});
 };
 
+/* src/Layout/Serial/Component/ReaderCommentForm/ReaderCommentForm.js */
+const preventFormDoubleSubmission = () => {
+    const form = document.querySelector('form.reader-comment-form');
+
+    if (form === null) {
+        return;
+    }
+
+    form.addEventListener('submit', () => {
+        form.querySelector('button.submit').addEventListener('click', (evt) => evt.preventDefault());
+    });
+}
+
 /* src/Layout/Serial/Component/ReaderListLoadMore/ReaderListLoadMore.js */
 const makeReaderListLoadMore = () => {
 	let loadMoreLink = document.querySelector('a.reader-list-load-more');
@@ -274,6 +287,7 @@ const init = () => {
 	removeTitleHashFromUrl();
 	makeHeaderDisapearOnScroll();
 	makeReaderListLoadMore();
+    preventFormDoubleSubmission();
 };
 
 init();

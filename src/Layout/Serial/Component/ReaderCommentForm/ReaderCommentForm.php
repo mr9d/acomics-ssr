@@ -29,7 +29,7 @@ class ReaderCommentForm extends AbstractComponent
 		$this->renderAvatar();
 		$this->renderInfo();
 
-		echo '<textarea name="postText" type="text" class="comment-text" placeholder="Текст комментария" maxlength="10000"></textarea>';
+		echo '<textarea name="postText" type="text" class="comment-text" placeholder="Текст комментария" minlength="4" maxlength="10000" required></textarea>';
 
 		if (!$this->auth->isLoggedIn)
 		{
