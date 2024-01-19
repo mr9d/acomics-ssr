@@ -92,3 +92,9 @@ nav.serial-about-read-menu a { display: block; padding: 8px 10px; line-height: 1
 @media screen and (min-width: 520px) {
 	nav.serial-about-read-menu { flex-direction: row; }
 }
+
+/* Страница содержания */
+section.serial-content-issues {
+    display: flex; flex-wrap: wrap;
+    margin: var(--desktop-gap) 0;
+}

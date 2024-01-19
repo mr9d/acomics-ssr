@@ -524,6 +524,29 @@ section.common-page-hint.page-hint-warning p { color: #000; }
 	}
 }
 
+/* src/Layout/Common/Component/Paginator/Paginator.css */
+nav.common-paginator { margin: 0; }
+nav.common-paginator ul {
+    list-style: none; display: flex; padding: 0; margin: 0;
+    flex-wrap: wrap; align-items: center; justify-content: center;
+}
+nav.common-paginator ul li { list-style: none; display: block; }
+nav.common-paginator ul li a { display: block; padding: 0 1px; color: #fff; text-decoration: none; }
+nav.common-paginator ul li span {
+	display: flex; align-items: center; justify-content: center;
+	box-sizing: border-box; height: 40px; white-space: nowrap; background-color: var(--brand-orange);
+	border-radius: 4px; box-shadow: inset 0 -2px 0 rgba(0,0,0,.1); padding: 0 var(--mobile-gap);
+}
+nav.common-paginator ul li.spacer span,
+nav.common-paginator ul li.current span { background-color: var(--brand-grey); margin: 0 1px; }
+
+@media screen and (min-width: 520px) {
+	nav.common-paginator ul li a { padding: 0 5px; min-width: 40px; }
+    nav.common-paginator ul li.spacer span,
+    nav.common-paginator ul li.current span { margin: 0 5px; min-width: 40px; }
+}
+
+
 /* src/Layout/Common/Component/SubscribeButton/SubscribeButton.css */
 button.subscribe-button {
 	display: flex; width: 40px; height: 40px; border: 0; padding: 0; margin: 0; align-items: center; color: #fff; cursor: pointer;

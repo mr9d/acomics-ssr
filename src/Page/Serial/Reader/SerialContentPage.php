@@ -3,7 +3,9 @@
 namespace Acomics\Ssr\Page\Serial\Reader;
 
 use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
+use Acomics\Ssr\Layout\Common\Component\Paginator\Paginator;
 use Acomics\Ssr\Layout\Serial\Component\ContentTree\ContentTree;
+use Acomics\Ssr\Layout\Serial\Component\IssuePreview\IssuePreview;
 use Acomics\Ssr\Layout\SerialReaderAside\SerialReaderAsideLayout;
 use Acomics\Ssr\Page\PageInt;
 
@@ -45,7 +47,7 @@ class SerialContentPage extends SerialReaderAsideLayout implements PageInt
         if ($this->pageData->chaptersExists)
         {
             $header->item('?', 'По главам', $this->pageData->chaptersTabActive);
-            $header->item('?skip=0', 'По страницам', !$this->pageData->chaptersTabActive);
+            $header->item('?skip=0', 'По выпускам', !$this->pageData->chaptersTabActive);
         }
 
         $header->render();
@@ -53,6 +55,19 @@ class SerialContentPage extends SerialReaderAsideLayout implements PageInt
 
     private function previews(): void
     {
-        echo '<p>Превьюшки</p>';
+        $paginator = new Paginator($this->pageData->issuesPaginator, 'содержания');
+        
+        $paginator->render();
+
+        echo '<section class="serial-content-issues">';
+
+        foreach($this->pageData->issues as $issue)
+        {
+            (new IssuePreview($issue))->render();
+        }
+
+        echo '</section>';
+
+        $paginator->render();
     }
 }

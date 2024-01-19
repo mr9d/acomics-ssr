@@ -6,7 +6,7 @@ section.serial-content-tree ul { padding-left: var(--desktop-gap); }
 section.serial-content-tree ul li img { display: block; margin-bottom: var(--mobile-gap); }
 
 @media screen and (min-width: 520px) {
-	section.serial-content-tree ul li img { float: right; margin-bottom: 0; max-width: 50%; }
+	section.serial-content-tree ul li img { float: right; margin-bottom: 0; max-width: 60%; }
 }
 
 /* LAYOUT_CENTER_OR_IMAGE */

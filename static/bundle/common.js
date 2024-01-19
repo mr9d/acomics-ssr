@@ -182,6 +182,8 @@ const makePageHint = () => {
 	});
 };
 
+/* src/Layout/Common/Component/Paginator/Paginator.js */
+
 /* src/Layout/Common/Component/SubscribeButton/SubscribeButton.js */
 const subscribeButtonClickListener = async (evt) => {
 	evt.preventDefault();

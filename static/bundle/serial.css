@@ -94,6 +94,12 @@ nav.serial-about-read-menu a { display: block; padding: 8px 10px; line-height: 1
 	nav.serial-about-read-menu { flex-direction: row; }
 }
 
+/* Страница содержания */
+section.serial-content-issues {
+    display: flex; flex-wrap: wrap;
+    margin: var(--desktop-gap) 0;
+}
+
 /* src/Layout/Serial/Component/AboutBadges/AboutBadges.css */
 p.serial-about-badges { display: flex; flex-wrap: wrap; gap: var(--mobile-gap); }
 p.serial-about-badges a.badge,
@@ -174,7 +180,7 @@ section.serial-content-tree ul { padding-left: var(--desktop-gap); }
 section.serial-content-tree ul li img { display: block; margin-bottom: var(--mobile-gap); }
 
 @media screen and (min-width: 520px) {
-	section.serial-content-tree ul li img { float: right; margin-bottom: 0; max-width: 50%; }
+	section.serial-content-tree ul li img { float: right; margin-bottom: 0; max-width: 60%; }
 }
 
 /* LAYOUT_CENTER_OR_IMAGE */

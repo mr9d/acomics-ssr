@@ -84,9 +84,9 @@ class ContentTree extends AbstractComponent
                 $this->renderLayoutPostfix($basicLayout);
                 $this->renderLayoutPrefix($chapterLayout);
             }
+
             $this->renderChapter($chapter, $chapterLayout);
             $basicLayout = $chapterLayout;
-
         }
 
         $this->renderLayoutPostfix($basicLayout);
