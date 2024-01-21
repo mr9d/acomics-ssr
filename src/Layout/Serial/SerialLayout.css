@@ -112,3 +112,7 @@ section.serial-content-issues a.issue-preview img { object-fit: cover; } /* for 
 @media screen and (min-width: 920px) {
 	section.serial-content-issues { gap: var(--desktop-gap); }
 }
+
+
+/* Страница со списком комментариев комикса */
+section.serial-comments-list{ container-type: inline-size; box-sizing: border-box; margin-top: var(--desktop-gap); }

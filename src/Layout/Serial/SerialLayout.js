@@ -1,5 +1,9 @@
 // Сохранение прочитанных комментариев (для страницы "Публикация")
 const saveAuthorCommentsRead = () => {
+	const comments = document.querySelectorAll('article.reader-comment');
+	if (comments.length === 0) {
+		return;
+	}
 	const serialHeader = document.querySelector('header.serial-header');
 	const isAuthor = serialHeader.dataset.isAuthor === '1';
 	if (!isAuthor) {
@@ -7,10 +11,6 @@ const saveAuthorCommentsRead = () => {
 	}
 	const serialId = serialHeader.dataset.serialId;
 	const commentsReadData = JSON.parse(localStorage.getItem('commentsRead') || '{}');
-	const comments = document.querySelectorAll('article.reader-comment');
-	if (comments.length === 0) {
-		return;
-	}
 	const delta = comments[comments.length - 1].querySelector('span.date-time-formatted').dataset.delta;
 	const commentTime = Math.round(Date.now() / 1000) - delta;
 	if((commentsReadData['c' + serialId] || 0) < commentTime) {
@@ -72,13 +72,10 @@ const initReaderPage = () => {
     makeReaderNavigatorButtons();
 	makeKeyboardNavigation();
 	makeReaderUpButton();
-	collapseLongComments();
-	saveAuthorCommentsRead();
 	removeTitleHashFromUrl();
 	makeHeaderDisapearOnScroll();
 	makeReaderListLoadMore();
     preventFormDoubleSubmission();
-
 };
 
 // Инициализация страницы содержания
@@ -89,6 +86,8 @@ const initContentPage = () => {
 // Инициализация элементов на странице чтения комиксов
 const init = () => {
 	makeSerialMenuToggleButton();
+	collapseLongComments();
+	saveAuthorCommentsRead();
 
 	window.acomicsSerial = {
 		initReaderPage,

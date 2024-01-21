@@ -12,6 +12,11 @@ class CommentDto
 	public string $text;
 	public bool $isEditable;
 
+    public string $serialCode;
+    public string $serialName;
+    public string $issueNumber;
+    public ?string $issueName;
+
 	public function __construct(
 		int $id,
 		UserDto $user,
@@ -19,7 +24,11 @@ class CommentDto
 		?string $ipAddress,
 		int $postDate,
 		string $text,
-		bool $isEditable)
+		bool $isEditable,
+        string $serialCode,
+        string $serialName,
+        string $issueNumber,
+        ?string $issueName)
 	{
 		$this->id = $id;
 		$this->user = $user;
@@ -28,5 +37,9 @@ class CommentDto
 		$this->postDate = $postDate;
 		$this->text = $text;
 		$this->isEditable = $isEditable;
+        $this->serialCode = $serialCode;
+        $this->serialName = $serialName;
+        $this->issueNumber = $issueNumber;
+        $this->issueName = $issueName;
 	}
 }

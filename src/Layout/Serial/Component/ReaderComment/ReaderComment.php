@@ -10,16 +10,24 @@ use Acomics\Ssr\Util\UrlUtil;
 
 class ReaderComment extends AbstractComponent
 {
-	private CommentDto $comment;
+    public const LINK_TYPE_NONE = 'none';
+    public const LINK_TYPE_ISSUE = 'issue';
+    public const LINK_TYPE_SERIAL_ISSUE = 'serialIssue';
 
-	public function __construct(CommentDto $comment)
+	private CommentDto $comment;
+    private string $linkType;
+
+	public function __construct(CommentDto $comment, $linkType = self::LINK_TYPE_NONE)
 	{
 		$this->comment = $comment;
+        $this->linkType = $linkType;
 	}
 
 	public function render(): void
 	{
 		$class = 'reader-comment' . ($this->comment->userSerialRole !== null ? ' authors' : '');
+
+        $this->renderLinks();
 
 		echo '<article class="' . $class . '" id="comment' . $this->comment->id . '">';
 		$this->renderAvatar();
@@ -34,7 +42,27 @@ class ReaderComment extends AbstractComponent
 		echo '</article>'; // reader-comment
 	}
 
-	public function renderAvatar(): void
+    private function renderLinks(): void
+    {
+        if($this->linkType === self::LINK_TYPE_NONE)
+        {
+            return;
+        }
+
+        echo '<nav class="reader-comment-links">';
+        echo '&darr; ';
+
+        if($this->linkType !== self::LINK_TYPE_ISSUE)
+        {
+            echo '<a href="' . UrlUtil::makeSerialUrl($this->comment->serialCode, $this->comment->issueNumber) . '">' . $this->comment->serialName . '</a> &ndash; ';
+        }
+
+        echo '<a href="' . UrlUtil::makeSerialUrl($this->comment->serialCode, $this->comment->issueNumber) . '">Выпуск №' . $this->comment->issueNumber . ($this->comment->issueName ? ': '.$this->comment->issueName : '') . '</a>';
+
+        echo '</nav>'; // reader-comment-links
+    }
+
+	private function renderAvatar(): void
 	{
 		echo '<section class="comment-avatar">';
 
@@ -62,7 +90,7 @@ class ReaderComment extends AbstractComponent
 		echo '</section>'; // comment-avatar
 	}
 
-	public function renderInfo(): void
+	private function renderInfo(): void
 	{
 		echo '<section class="comment-info">';
 
@@ -100,7 +128,7 @@ class ReaderComment extends AbstractComponent
 		echo '</section>'; // comment-info
 	}
 
-	public function renderText(): void
+	private function renderText(): void
 	{
 		echo '<section class="comment-text">';
 		echo $this->comment->text;
@@ -109,7 +137,7 @@ class ReaderComment extends AbstractComponent
 		echo '</section>'; // comment-text
 	}
 
-	public function renderEditButton(): void
+	private function renderEditButton(): void
 	{
 		echo '<section class="comment-edit">';
 		echo '<a href="/manage/comment?id=' . $this->comment->id . '">редактировать</a>';

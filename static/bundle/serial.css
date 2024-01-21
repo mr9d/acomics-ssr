@@ -114,6 +114,10 @@ section.serial-content-issues a.issue-preview img { object-fit: cover; } /* for 
 	section.serial-content-issues { gap: var(--desktop-gap); }
 }
 
+
+/* Страница со списком комментариев комикса */
+section.serial-comments-list{ container-type: inline-size; box-sizing: border-box; margin-top: var(--desktop-gap); }
+
 /* src/Layout/Serial/Component/AboutBadges/AboutBadges.css */
 p.serial-about-badges { display: flex; flex-wrap: wrap; gap: var(--mobile-gap); }
 p.serial-about-badges a.badge,
@@ -245,6 +249,9 @@ article.reader-comment {
 		"edit edit";
 	grid-template-columns: calc(40px + var(--mobile-gap)) 1fr;
 }
+
+/* Строка со сылками */
+nav.reader-comment-links { line-height: 1.4; word-break: break-word; margin-bottom: var(--mobile-gap); }
 
 /* Аватарка */
 article.reader-comment section.comment-avatar { grid-area: avatar; position: relative; }

@@ -52,14 +52,12 @@ class LazyImage extends AbstractComponent
 
 	private function renderNormal()
 	{
-        $style = 'aspect-ratio: calc(' . $this->width .' / ' . $this->height .'); max-width: ' . $this->width . 'px';
-
 		echo '<img ' .
 			'src="' . $this->src . '" ' .
 			'width="' . $this->width . '" ' .
 			'height="' . $this->height . '" ' .
 			'alt="' . $this->alt . '" ' .
-			'style="' . $style . '" ' .
+			'style="' . $this->style() . '" ' .
 			($this->class !== null ? 'class="' . $this->class . '" ' : '') .
 			$this->otherAttributesString() .
 			'>';
@@ -67,19 +65,22 @@ class LazyImage extends AbstractComponent
 
 	private function renderLazy()
 	{
-        $style = 'aspect-ratio: calc(' . $this->width .' / ' . $this->height .'); max-width: ' . $this->width . 'px';
-
 		echo '<img ' .
 			'src="' . $this->stubSrc . '" ' .
 			'data-real-src="' . $this->src . '"' .
 			'width="' . $this->width . '" ' .
 			'height="' . $this->height . '" ' .
 			'alt="' . $this->alt . '" ' .
-			'style="' . $style . '" ' .
+			'style="' . $this->style() . '" ' .
 			'class="' . ($this->class ? $this->class . ' ' : '') . 'lazy-image"' .
 			$this->otherAttributesString() .
 			'>';
 	}
+
+    private function style(): string
+    {
+        return 'aspect-ratio: calc(' . $this->width .' / ' . $this->height .'); max-width: ' . $this->width . 'px';
+    }
 
 	private function otherAttributesString(): string
 	{
