@@ -52,12 +52,14 @@ class LazyImage extends AbstractComponent
 
 	private function renderNormal()
 	{
+        $style = 'aspect-ratio: calc(' . $this->width .' / ' . $this->height .'); max-width: ' . $this->width . 'px';
 
 		echo '<img ' .
 			'src="' . $this->src . '" ' .
 			'width="' . $this->width . '" ' .
 			'height="' . $this->height . '" ' .
 			'alt="' . $this->alt . '" ' .
+			'style="' . $style . '" ' .
 			($this->class !== null ? 'class="' . $this->class . '" ' : '') .
 			$this->otherAttributesString() .
 			'>';
