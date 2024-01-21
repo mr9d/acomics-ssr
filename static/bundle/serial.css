@@ -188,6 +188,9 @@ p.serial-about-badges a.badge.category-history {
 /* src/Layout/Serial/Component/ContentTree/ContentTree.css */
 section.serial-content-tree { line-height: 1.4; word-break: break-word; }
 section.serial-content-tree img { max-width: 100%; }
+section.serial-content-tree h2,
+section.serial-content-tree h3 { clear: right; }
+section.serial-content-tree a { font-weight: bold; }
 
 /* LAYOUT_LIST_WITH_IMAGE */
 section.serial-content-tree ul { padding-left: var(--desktop-gap); }
