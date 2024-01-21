@@ -67,10 +67,9 @@ const makeHeaderDisapearOnScroll = () => {
 	window.addEventListener('load', pageLoadAndScrolledHandler);
 };
 
-// Инициализация элементов на странице чтения комиксов
-const init = () => {
-	makeSerialMenuToggleButton();
-	makeReaderNavigatorButtons();
+// Инициализация читалки
+const initReaderPage = () => {
+    makeReaderNavigatorButtons();
 	makeKeyboardNavigation();
 	makeReaderUpButton();
 	collapseLongComments();
@@ -79,6 +78,22 @@ const init = () => {
 	makeHeaderDisapearOnScroll();
 	makeReaderListLoadMore();
     preventFormDoubleSubmission();
+
+};
+
+// Инициализация страницы содержания
+const initContentPage = () => {
+    makeContentCollapsableHeaders();
+};
+
+// Инициализация элементов на странице чтения комиксов
+const init = () => {
+	makeSerialMenuToggleButton();
+
+	window.acomicsSerial = {
+		initReaderPage,
+		initContentPage,
+	}
 };
 
 init();

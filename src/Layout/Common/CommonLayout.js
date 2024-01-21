@@ -49,6 +49,7 @@ const init = () => {
 	makePageHint();
 	makeDateTimeFormatted(document);
 	makeLazyImages();
+    makePaginator();
 };
 
 init();

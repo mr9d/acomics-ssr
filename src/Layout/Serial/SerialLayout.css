@@ -72,7 +72,8 @@ section.serial-about-text img { max-width: 100%; }
 p.serial-about-authors { word-break: break-word; }
 p.serial-about-site-url { word-break: break-word; }
 section.serial-about-issues { display: grid; gap: var(--mobile-gap); grid-template-columns: 1fr 1fr; overflow-y: hidden; }
-section.serial-about-issues a.issue-preview img { width: 100%; height: 100% }
+section.serial-about-issues a.issue-preview img { width: 100%; height: 100%; }
+section.serial-about-issues a.issue-preview img { object-fit: cover; } /* for lazy loader */
 
 @media screen and (min-width: 520px) {
 	section.serial-about-issues { grid-template-columns: 1fr 1fr 1fr; }
@@ -93,8 +94,21 @@ nav.serial-about-read-menu a { display: block; padding: 8px 10px; line-height: 1
 	nav.serial-about-read-menu { flex-direction: row; }
 }
 
+
 /* Страница содержания */
 section.serial-content-issues {
-    display: flex; flex-wrap: wrap;
+    display: grid; gap: var(--mobile-gap); grid-template-columns: 1fr 1fr; overflow-y: hidden;
     margin: var(--desktop-gap) 0;
+}
+section.serial-content-issues a.issue-preview img { width: 100%; height: auto; }
+section.serial-content-issues a.issue-preview img { object-fit: cover; } /* for lazy loader */
+
+@media screen and (min-width: 520px) {
+	section.serial-content-issues { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media screen and (min-width: 840px) {
+	section.serial-content-issues { grid-template-columns: 1fr 1fr 1fr 1fr; }
+}
+@media screen and (min-width: 920px) {
+	section.serial-content-issues { gap: var(--desktop-gap); }
 }

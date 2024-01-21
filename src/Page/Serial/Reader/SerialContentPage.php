@@ -23,6 +23,12 @@ class SerialContentPage extends SerialReaderAsideLayout implements PageInt
 		return $this->pageData !== null && parent::isReady();
 	}
 
+    protected function head(): void
+    {
+        parent::head();
+        echo '<script type="module">window.acomicsSerial.initContentPage();</script>';
+    }
+
 	public function content(): void
 	{
         $this->header();
@@ -56,7 +62,7 @@ class SerialContentPage extends SerialReaderAsideLayout implements PageInt
     private function previews(): void
     {
         $paginator = new Paginator($this->pageData->issuesPaginator, 'содержания');
-        
+
         $paginator->render();
 
         echo '<section class="serial-content-issues">';

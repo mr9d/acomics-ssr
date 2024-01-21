@@ -72,7 +72,6 @@ class ReaderIssue extends AbstractComponent
 
 	private function renderImage(): void
 	{
-		$style = 'aspect-ratio: calc(' . $this->issue->width .' / ' . $this->issue->height .'); max-width: ' . $this->issue->width . 'px';
 		$alt = $this->issue->name ? $this->issue->name : 'Комикс ' . $this->serial->name . ': выпуск №' . $this->issue->number;
 
 		(new LazyImage(
@@ -83,8 +82,7 @@ class ReaderIssue extends AbstractComponent
 			alt: $alt,
 			class: 'issue',
 			otherAttributes: array(
-				'title' => $this->issue->alternativeText,
-				'style' => $style,
+				'title' => $this->issue->alternativeText
 			),
 		))->render();
 	}

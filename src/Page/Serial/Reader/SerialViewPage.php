@@ -32,6 +32,12 @@ class SerialViewPage extends SerialReaderLayout implements PageInt
 		$this->integrationsProvider->vkInit(like: true);
 	}
 
+    protected function head(): void
+    {
+        parent::head();
+        echo '<script type="module">window.acomicsSerial.initReaderPage();</script>';
+    }
+
 	public function content(): void
 	{
 		$this->topSection();

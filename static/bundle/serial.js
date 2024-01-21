@@ -2,6 +2,15 @@
 (() => {
 
 /* src/Layout/Serial/Component/ContentTree/ContentTree.js */
+const collapsableHeadersClickListener = (evt) => {
+    const header = evt.target
+    header.classList.toggle('collapsed');
+};
+
+const makeContentCollapsableHeaders = () => {
+    const headers = document.querySelectorAll('section.serial-content-tree h3.collapsable');
+    headers.forEach(header => header.addEventListener('click', collapsableHeadersClickListener));
+};
 
 /* src/Layout/Serial/Component/ReaderComment/ReaderComment.js */
 const commentClickListener = (evt) => {
@@ -138,7 +147,7 @@ const makeReaderNavigatorButtons = () => {
 	{
 		gotoButton.addEventListener('click', (evt) => {
 			evt.preventDefault();
-			const userUnput = prompt("К какому выпуску вы хотите перейти? (1.." + issueCount + ")","");
+			const userUnput = prompt('К какому выпуску вы хотите перейти? (1..' + issueCount + ')', '');
 			if (userUnput === '' || userUnput == null) {
 				return;
 			}
@@ -276,10 +285,9 @@ const makeHeaderDisapearOnScroll = () => {
 	window.addEventListener('load', pageLoadAndScrolledHandler);
 };
 
-// Инициализация элементов на странице чтения комиксов
-const init = () => {
-	makeSerialMenuToggleButton();
-	makeReaderNavigatorButtons();
+// Инициализация читалки
+const initReaderPage = () => {
+    makeReaderNavigatorButtons();
 	makeKeyboardNavigation();
 	makeReaderUpButton();
 	collapseLongComments();
@@ -288,6 +296,22 @@ const init = () => {
 	makeHeaderDisapearOnScroll();
 	makeReaderListLoadMore();
     preventFormDoubleSubmission();
+
+};
+
+// Инициализация страницы содержания
+const initContentPage = () => {
+    makeContentCollapsableHeaders();
+};
+
+// Инициализация элементов на странице чтения комиксов
+const init = () => {
+	makeSerialMenuToggleButton();
+
+	window.acomicsSerial = {
+		initReaderPage,
+		initContentPage,
+	}
 };
 
 init();

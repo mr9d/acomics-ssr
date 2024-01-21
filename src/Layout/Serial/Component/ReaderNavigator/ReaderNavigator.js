@@ -19,7 +19,7 @@ const makeReaderNavigatorButtons = () => {
 	{
 		gotoButton.addEventListener('click', (evt) => {
 			evt.preventDefault();
-			const userUnput = prompt("К какому выпуску вы хотите перейти? (1.." + issueCount + ")","");
+			const userUnput = prompt('К какому выпуску вы хотите перейти? (1..' + issueCount + ')', '');
 			if (userUnput === '' || userUnput == null) {
 				return;
 			}

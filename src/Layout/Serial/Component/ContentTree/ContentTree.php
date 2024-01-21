@@ -33,7 +33,7 @@ class ContentTree extends AbstractComponent
         $basicLayout = $this->renderChapters($struct->chapters, $basicLayout);
         $basicLayout = $this->renderStructs($struct->childStructs, $basicLayout);
 
-        echo '</section>';
+        echo '</section>'; // serial-content-tree
 
         return $basicLayout;
     }
@@ -51,7 +51,7 @@ class ContentTree extends AbstractComponent
                 break;
             }
             case SerialChapterStructDto::LEVEL_SUBTITLE_COLLAPSE: {
-                echo '<h3>' . $struct->name . '</h3>';
+                echo '<h3 class="collapsable collapsed">' . $struct->name . '</h3>';
                 break;
             }
             case SerialChapterStructDto::LEVEL_ROOT:

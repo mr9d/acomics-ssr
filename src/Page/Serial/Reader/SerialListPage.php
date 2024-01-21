@@ -26,6 +26,12 @@ class SerialListPage extends SerialReaderLayout implements PageInt
 		return $this->pageData !== null && parent::isReady();
 	}
 
+    protected function head(): void
+    {
+        parent::head();
+        echo '<script type="module">window.acomicsSerial.initReaderPage();</script>';
+    }
+
 	public function content(): void
 	{
 		echo '<main class="list-container">';
