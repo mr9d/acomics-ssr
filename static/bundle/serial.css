@@ -118,6 +118,20 @@ section.serial-content-issues a.issue-preview img { object-fit: cover; } /* for 
 /* Страница со списком комментариев комикса */
 section.serial-comments-list{ container-type: inline-size; box-sizing: border-box; margin-top: var(--desktop-gap); }
 
+
+/* Страница с возрастным ограничением */
+section.serial-age-restriction { max-width: 600px; margin: 0 auto var(--desktop-gap); line-height: 1.4; }
+section.serial-age-restriction img.illustration { display: block; width: 100%; height: auto; }
+section.serial-age-restriction p { text-align: center; margin: 0 var(--desktop-gap) var(--desktop-gap); }
+section.serial-age-restriction p img { display: block; margin: var(--mobile-gap) auto; }
+section.serial-age-restriction p b { display: block; }
+section.serial-age-restriction form { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--mobile-gap); padding-bottom: var(--desktop-gap); }
+section.serial-age-restriction form button {
+    padding: 11px 19px; background: var(--brand-blue); color: #fff;
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,.1); border: none;
+	text-transform: uppercase; font-size: 13px; font-weight: bold; border-radius: 4px;
+}
+
 /* src/Layout/Serial/Component/AboutBadges/AboutBadges.css */
 p.serial-about-badges { display: flex; flex-wrap: wrap; gap: var(--mobile-gap); }
 p.serial-about-badges a.badge,
@@ -199,11 +213,13 @@ section.serial-character {
 		"about";
 }
 section.serial-character h2 { grid-area: title; margin-top: 0; }
-section.serial-character a.image { grid-area: image; display: block; }
-section.serial-character a.image img { display: block; margin: 0 auto; }
+section.serial-character div.image { grid-area: image; box-sizing: border-box; }
+section.serial-character div.image a { display: block; border: 1px solid var(--brand-grey); }
+section.serial-character div.image img { display: block; margin: 0 auto; }
 section.serial-character div.about { grid-area: about; padding: 1em 0; }
 section.serial-character div.about > :first-child { margin-top: 0; }
 section.serial-character div.about > :last-child { margin-bottom: 0; }
+section.serial-character div.about img { max-width: 100%; }
 
 @media screen and (width > 450px) {
     section.serial-character {
@@ -212,7 +228,8 @@ section.serial-character div.about > :last-child { margin-bottom: 0; }
             "image about";
         grid-template-columns: calc(100px + var(--mobile-gap)) 1fr;
     }
-    section.serial-character a.image img { margin: 0; }
+    section.serial-character div.image { padding-right: var(--mobile-gap); }
+    section.serial-character div.image a { margin: 0; border: 0; }
     section.serial-character h2 { margin-bottom: 0; }
 }
 
@@ -220,6 +237,7 @@ section.serial-character div.about > :last-child { margin-bottom: 0; }
     section.serial-character {
         grid-template-columns: calc(100px + var(--desktop-gap)) 1fr;
     }
+    section.serial-character div.image { padding-right: var(--desktop-gap); }
 }
 
 /* src/Layout/Serial/Component/ContentTree/ContentTree.css */
@@ -275,6 +293,7 @@ a.issue-preview span.issue-preview-name { display: block; word-break: break-word
 
 /* src/Layout/Serial/Component/Question/Question.css */
 section.serial-faq { line-height: 1.4; word-break: break-word; margin: var(--desktop-gap) 0 0; }
+section.serial-faq img { max-width: 100%; }
 
 /* src/Layout/Serial/Component/ReaderComment/ReaderComment.css */
 article.reader-comment {

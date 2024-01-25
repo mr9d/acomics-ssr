@@ -35,7 +35,8 @@ class Character implements ComponentInt
             return;
         }
 
-        echo '<a href="' . $this->character->imageUrl . '" class="image">';
+        echo '<div class="image">';
+        echo '<a href="' . $this->character->imageUrl . '">';
 
         (new LazyImage(
             src: $this->character->thumbUrl,
@@ -45,7 +46,8 @@ class Character implements ComponentInt
             alt: $this->character->name
         ))->render();
 
-        echo '</a>'; // image
+        echo '</a>';
+        echo '</div>'; // image
     }
 
     private function renderAbout(): void
