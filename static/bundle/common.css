@@ -59,6 +59,13 @@
 }
 
 
+/* Задержка появления подложки под рекламой */
+@keyframes backgrounddelay {
+    from { background-position: center -100%; background-size: 100%; }
+    to { background-position: center; background-size: cover; }
+}
+
+
 /* Общий цвет ссылок */
 a { color: var(--brand-blue); text-decoration: underline; }
 a:hover { color: var(--brand-blue); text-decoration: none; }
