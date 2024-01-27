@@ -130,3 +130,7 @@ section.serial-age-restriction form button {
     box-shadow: inset 0 -2px 0 rgba(0,0,0,.1); border: none;
 	text-transform: uppercase; font-size: 13px; font-weight: bold; border-radius: 4px;
 }
+
+
+/* Страница с баннерами комикса */
+section.serial-banners-list img { width: 100%; height: auto; }

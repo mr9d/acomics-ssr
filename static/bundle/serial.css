@@ -132,6 +132,10 @@ section.serial-age-restriction form button {
 	text-transform: uppercase; font-size: 13px; font-weight: bold; border-radius: 4px;
 }
 
+
+/* Страница с баннерами комикса */
+section.serial-banners-list img { width: 100%; height: auto; }
+
 /* src/Layout/Serial/Component/AboutBadges/AboutBadges.css */
 p.serial-about-badges { display: flex; flex-wrap: wrap; gap: var(--mobile-gap); }
 p.serial-about-badges a.badge,
