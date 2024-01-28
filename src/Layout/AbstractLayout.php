@@ -35,7 +35,7 @@ abstract class AbstractLayout implements LayoutInt
 
         if ($this->seo !== null) {
 			echo '<meta name="description" content="' . $this->seo->description . '" />';
-            echo '<meta name="keywords" content="' . join(', ', $this->seo->keywords) . '" />';
+            echo '<meta name="keywords" content="' . implode(', ', $this->seo->keywords) . '" />';
         }
 
 		if ($this->openGraph !== null) {
