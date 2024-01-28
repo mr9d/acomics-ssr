@@ -25,8 +25,8 @@ class SerialAgeRestrictionPage extends SerialReaderLayout implements PageInt
         echo '<section class="serial-age-restriction">';
 
         (new LazyImage(
-            src: '/design/images/darks-censored.png',
-            stubSrc: '/design/images/darks-censored.png',
+            src: '/design/images/darks-censored-2.png',
+            stubSrc: '/design/images/darks-censored-2.png',
             width: 600,
             height: 400,
             alt: 'Даркс предупреждает о возрастном ограничении комикса',
