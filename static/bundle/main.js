@@ -1,6 +1,6 @@
 'use strict';
 (() => {
 
-/* src/Layout/Main/Component/CatalogFilters/CatalogFilters.js */
+/* src/Layout/Main/Component/CatalogFiltersForm/CatalogFiltersForm.js */
 
 })();

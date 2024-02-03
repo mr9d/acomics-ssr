@@ -68,10 +68,9 @@ footer.common-footer section.footer-main form { display: block; padding: var(--m
 
 footer.common-footer section.footer-main form div.wrapper { position: relative; }
 footer.common-footer section.footer-main form input { width:100%; height:30px; padding-left:30px; box-sizing: border-box; }
-footer.common-footer section.footer-main form button { display:block; width:28px; height:28px; padding:0; margin:0; position:absolute; top:1px; left:1px; border:0px; background:rgba(255,255,255,0); box-shadow:0 0 0 #fff; }
-footer.common-footer section.footer-main form button span {
-	display:block; width:15px; height:15px; position:absolute; top:7px; left:7px;
-	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='15px' height='15px' viewBox='0 0 15 15'><defs><g id='D_0_Layer0_0_FILL'><path fill='%234A6CBC' stroke='none' d='M 35.85 6.15Q 29.7 0 21 0 12.3 0 6.15 6.15 0 12.3 0 21 0 29.7 6.15 35.85 12.3 42 21 42 26.721484375 42 31.35 39.35L 48 56Q 51.2 59.25 54.3 59.85 57.05 60.35 58.65 58.7 60.25 57.05 59.7 54.2 59.1 51.1 56 48L 39.35 31.35Q 42 26.721484375 42 21 42 12.3 35.85 6.15M 31.4 10.65Q 35.7 14.95 35.7 21 35.7 27.1 31.4 31.4 27.1 35.7 21 35.7 14.95 35.7 10.65 31.4 6.35 27.1 6.35 21 6.35 14.95 10.65 10.65 14.95 6.35 21 6.35 27.1 6.35 31.4 10.65 Z'/></g></defs><g transform='matrix( 0.250823974609375, 0, 0, 0.25, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23D_0_Layer0_0_FILL'/></g></g></svg>") 0 0 no-repeat;
+footer.common-footer section.footer-main form button {
+    display:block; width:28px; height:28px; padding:0; margin:0; position:absolute; top:1px; left:1px; border:0px; box-shadow:0 0 0 #fff;
+    background: var(--icon-search-url) no-repeat center / 15px 15px;
 }
 
 footer.common-footer section.footer-main p {

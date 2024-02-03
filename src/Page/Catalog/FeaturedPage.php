@@ -3,7 +3,7 @@
 namespace Acomics\Ssr\Page\Catalog;
 
 use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
-use Acomics\Ssr\Layout\Main\Component\CatalogFilters\CatalogFilters;
+use Acomics\Ssr\Layout\Main\Component\CatalogFiltersForm\CatalogFiltersForm;
 use Acomics\Ssr\Layout\Main\Component\CatalogSearchForm\CatalogSearchForm;
 use Acomics\Ssr\Layout\Main\MainLayout;
 use Acomics\Ssr\Page\PageInt;
@@ -32,6 +32,6 @@ class FeaturedPage extends MainLayout implements PageInt
 
         (new CatalogSearchForm())->render();
 
-        (new CatalogFilters())->render();
+        (new CatalogFiltersForm())->render();
     }
 }

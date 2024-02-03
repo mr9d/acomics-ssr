@@ -28,22 +28,8 @@ div.page-header-with-menu li a:hover { border-bottom: 3px solid var(--brand-red)
 
 div.page-header-with-menu h1:only-child { border-bottom: 1px solid #ebe5dd; }
 
-/* Меню под заголовком - в строку */
-/* @media screen and (min-width: 520px) {
-	div.page-header-with-menu { border-bottom: 1px solid #ebe5dd; }
-	div.page-header-with-menu nav { border-left: 0; }
-	div.page-header-with-menu ul { display: flex; }
-	div.page-header-with-menu li a { border-left: 0; border-bottom: 3px solid #fff; padding: 13px 7px 10px; }
-}
-
-@media screen and (min-width: 700px) {
-	div.page-header-with-menu { display: flex; }
-	div.page-header-with-menu h1 { margin-right: var(--mobile-gap); }
-
-	div.page-header-with-menu h1:only-child { border-bottom: 0; }
-} */
-
 @media screen and (min-width: 920px) {
-	div.page-header-with-menu h1 { padding-right: var(--desktop-gap); }
-	div.page-header-with-menu li a { padding: 13px 13px 10px; }
+	div.page-header-with-menu h1 { padding-right: calc(var(--desktop-gap) - 4px); }
+	div.page-header-with-menu li { margin-left: 4px; }
+    div.page-header-with-menu li a { padding: 13px 13px 10px; }
 }
