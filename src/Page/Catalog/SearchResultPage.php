@@ -29,6 +29,6 @@ class SearchResultPage extends MainLayout implements PageInt
             ->item('/featured', 'Рекомендуемые', false)
             ->render();
 
-        (new CatalogSearchForm())->render();
+        (new CatalogSearchForm($this->pageData->query))->render();
     }
 }

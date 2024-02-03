@@ -32,7 +32,7 @@ class CatalogPage extends MainLayout implements PageInt
 
         (new CatalogSearchForm())->render();
 
-        (new CatalogFiltersForm())->render();
+        (new CatalogFiltersForm($this->pageData->filters))->render();
 
     }
 }
