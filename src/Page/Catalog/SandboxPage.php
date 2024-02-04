@@ -32,6 +32,10 @@ class SandboxPage extends MainLayout implements PageInt
 
         (new CatalogSearchForm())->render();
 
-        (new CatalogFiltersForm($this->pageData->filters))->render();
+        (new CatalogFiltersForm(
+            serialCategoryProvider: $this->pageData->serialCategoryProvider,
+            serialAgeRatingProvider: $this->pageData->serialAgeRatingProvider,
+            filters: $this->pageData->filters
+        ))->render();
     }
 }

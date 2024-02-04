@@ -2,7 +2,8 @@
 
 namespace Acomics\Ssr\Util\Integration;
 
-interface AdvertisementProviderInt {
+interface AdvertisementProviderInt
+{
 
 	public function advertisementHead(): void;
 

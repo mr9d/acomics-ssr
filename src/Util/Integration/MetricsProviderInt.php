@@ -2,7 +2,8 @@
 
 namespace Acomics\Ssr\Util\Integration;
 
-interface MetricsProviderInt {
+interface MetricsProviderInt
+{
 
 	public function metricsHead(): void;
 

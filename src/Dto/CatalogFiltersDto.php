@@ -67,7 +67,6 @@ class CatalogFiltersDto
     /**
      * @param int[] $searchCategories
      * @param int[] $searchRatings
-     * @param int[] $searchFeatured
      */
     public function __construct(
         array $searchCategories,
