@@ -1,0 +1,19 @@
+/* Мобильная версия */
+section.form-mobile p::first-letter { text-transform: uppercase; }
+section.form-mobile button.show-filters-button {
+    border: none; background: none; font: inherit; white-space: nowrap; display: inline; padding: 0;
+    text-decoration: underline dashed; text-underline-offset: 3px;
+}
+
+/* Десктопная версия */
+section.form-desktop {
+    background-color: var(--brand-grey); padding: var(--desktop-gap) var(--mobile-gap);
+    display: none;
+}
+
+/* Скрываем мобильное меню, показываем десктопное */
+@media screen and (min-width: 700px) {
+	section.form-mobile { display: none; }
+	section.form-desktop { display: block; }
+}
+

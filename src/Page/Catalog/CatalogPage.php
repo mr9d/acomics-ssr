@@ -22,6 +22,12 @@ class CatalogPage extends MainLayout implements PageInt
 		return $this->pageData !== null && parent::isReady();
 	}
 
+    protected function head(): void
+    {
+        parent::head();
+        echo '<script type="module">window.acomicsMain.makeCatalogFilters();</script>';
+    }
+
     public function content(): void
     {
         (new PageHeaderWithMenu('Комиксы'))
@@ -38,5 +44,6 @@ class CatalogPage extends MainLayout implements PageInt
             filters: $this->pageData->filters
         ))->render();
 
+        echo '<p>Содержимое каталога</p>';
     }
 }

@@ -23,7 +23,11 @@ class CatalogFiltersForm extends AbstractComponent
         $this->serialCategoryProvider = $serialCategoryProvider;
         $this->serialAgeRatingProvider = $serialAgeRatingProvider;
         $this->filters = $filters;
-        $this->descriptionBuilder = new DescriptionBuilder($filters);
+        $this->descriptionBuilder = new DescriptionBuilder(
+            serialCategoryProvider: $serialCategoryProvider,
+            serialAgeRatingProvider: $serialAgeRatingProvider,
+            filters: $filters,
+        );
     }
 
     public function render(): void
@@ -38,7 +42,10 @@ class CatalogFiltersForm extends AbstractComponent
     {
         echo '<section class="form-mobile">';
 
-        echo '<p>' . $this->descriptionBuilder->buildHtml() . '</p>';
+        echo '<p>';
+        echo $this->descriptionBuilder->buildHtml() . ' ';
+        echo '<button class="show-filters-button">Показать фильтры</button>';
+        echo '</p>';
 
         echo '</section>'; // form-mobile
     }
@@ -47,7 +54,7 @@ class CatalogFiltersForm extends AbstractComponent
     {
         echo '<section class="form-desktop">';
 
-
+        echo 'Десктопная форма';
 
         echo '</section>'; // form-desktop
     }

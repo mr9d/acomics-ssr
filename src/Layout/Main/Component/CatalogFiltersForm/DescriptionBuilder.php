@@ -3,25 +3,37 @@
 namespace Acomics\Ssr\Layout\Main\Component\CatalogFiltersForm;
 
 use Acomics\Ssr\Dto\CatalogFiltersDto;
+use Acomics\Ssr\Util\Ref\SerialAgeRatingProviderInt;
+use Acomics\Ssr\Util\Ref\SerialCategoryProviderInt;
 use Acomics\Ssr\Util\StringUtil;
 
 class DescriptionBuilder
 {
+    private SerialCategoryProviderInt $serialCategoryProvider;
+
+    private SerialAgeRatingProviderInt $serialAgeRatingProvider;
+
     private CatalogFiltersDto $filters;
 
-    public function __construct(CatalogFiltersDto $filters)
+    public function __construct(
+        SerialCategoryProviderInt $serialCategoryProvider,
+        SerialAgeRatingProviderInt $serialAgeRatingProvider,
+        CatalogFiltersDto $filters)
     {
+        $this->serialAgeRatingProvider = $serialAgeRatingProvider;
+        $this->serialCategoryProvider = $serialCategoryProvider;
         $this->filters = $filters;
     }
 
     public function buildHtml(): string
     {
         return $this->updatable() .
-            ' ' . $this->type() .
-            ' ' . $this->subscribe() .
-            ' ' . $this->ratings() .
-            ' ' . $this->sort() .
-            ' ' . $this->issueCount();
+            $this->type() .
+            $this->subscribe() .
+            $this->ratings() .
+            $this->categories() .
+            $this->sort() .
+            $this->issueCount() . '.';
     }
 
     private function updatable(): string
@@ -29,12 +41,12 @@ class DescriptionBuilder
         switch($this->filters->searchUpdatable)
         {
             case 'yes':
-                return 'Обновляемые';
+                return 'обновляемые ';
             case 'no':
-                return 'Завершенные';
+                return 'завершенные ';
             case '0':
             default:
-                return 'Все';
+                return '';
         }
     }
 
@@ -48,7 +60,7 @@ class DescriptionBuilder
                 return 'переводные комиксы';
             case '0':
             default:
-                return 'переводные и авторские комиксы';
+                return 'комиксы';
         }
     }
 
@@ -57,9 +69,9 @@ class DescriptionBuilder
         switch($this->filters->searchSubscribe)
         {
             case 'yes':
-                return 'из ваших подписок';
+                return ', на которые вы подписаны, ';
             case 'no':
-                return 'не из ваших подписок';
+                return ', на которые вы не подписаны, ';
             case '0':
             default:
                 return '';
@@ -70,14 +82,93 @@ class DescriptionBuilder
     {
         if(count($this->filters->searchRatings) === 0)
         {
+            // В идеале, это условие никогда не должно выполняться.
             return '';
         }
 
-        // for($i = 0; $i < count($this->filters->searchRatings); $i++)
-        // {
+        if(count($this->filters->searchRatings) === 1)
+        {
+            $ageRating = $this->serialAgeRatingProvider->getById($this->filters->searchRatings[0]);
 
-        // }
-        return ''; //wip
+            if($ageRating === null)
+            {
+                return '';
+            }
+
+            return ' с возрастным рейтингом ' . $ageRating->nameShort;
+        }
+
+        $result = ' с возрастным рейтингом ';
+
+        for($i = 0; $i < count($this->filters->searchRatings); $i++)
+        {
+            $ageRating = $this->serialAgeRatingProvider->getById($this->filters->searchRatings[$i]);
+
+            if($ageRating === null)
+            {
+                continue;
+            }
+
+            if($i === 0)
+            {
+                $result .= $ageRating->nameShort;
+            }
+            else if($i === count($this->filters->searchRatings) - 1)
+            {
+                $result .= ' или ' . $ageRating->nameShort;
+            }
+            else
+            {
+                $result .= ', ' . $ageRating->nameShort;
+            }
+        }
+        return $result;
+    }
+
+    private function categories(): string
+    {
+        if(count($this->filters->searchCategories) === 0)
+        {
+            return '';
+        }
+
+        if(count($this->filters->searchCategories) === 1)
+        {
+            $serialCategory = $this->serialCategoryProvider->getById($this->filters->searchCategories[0]);
+
+            if($serialCategory === null)
+            {
+                return '';
+            }
+
+            return ' по теме &laquo;' . $serialCategory->name . '&raquo;';
+        }
+
+        $result = ' по темам ';
+
+        for($i = 0; $i < count($this->filters->searchCategories); $i++)
+        {
+            $serialCategory = $this->serialCategoryProvider->getById($this->filters->searchCategories[$i]);
+
+            if($serialCategory === null)
+            {
+                continue;
+            }
+
+            if($i === 0)
+            {
+                $result .= '&laquo;' . $serialCategory->name . '&raquo;';
+            }
+            else if($i === count($this->filters->searchCategories) - 1)
+            {
+                $result .= ' и &laquo;' . $serialCategory->name . '&raquo;';
+            }
+            else
+            {
+                $result .= ', &laquo;' . $serialCategory->name . '&raquo;';
+            }
+        }
+        return $result;
     }
 
     private function sort(): string
@@ -85,14 +176,14 @@ class DescriptionBuilder
         switch($this->filters->searchSort)
         {
             case 'subscr_count':
-                return 'по числу подписчиков (сначала самые читаемые)';
+                return ', отсортированные по числу подписчиков (сначала самые читаемые)';
             case 'issue_count':
-                return 'по числу выпусков (сначала самые большие)';
+                return ', отсортированные по числу выпусков (сначала самые большие)';
             case 'serial_name':
-                return 'по имени комикса (по алфавиту)';
+                return ', отсортированные по имени комикса (по алфавиту)';
             case 'last_update':
             default:
-                return 'по дате обновления (сначала самые свежие)';
+                return ', отсортированные по дате обновления (сначала самые свежие)';
         }
     }
 
@@ -100,7 +191,7 @@ class DescriptionBuilder
     {
         if($this->filters->searchIssueCount > 0)
         {
-            return '(минимум ' . StringUtil::formatIntCaption($this->filters->searchIssueCount, 'выпуск', 'выпуска', 'выпусков') . ')';
+            return ' c минимум ' . StringUtil::formatIntCaption($this->filters->searchIssueCount, 'выпуском', 'выпусками', 'выпусками');
         }
         return '';
     }

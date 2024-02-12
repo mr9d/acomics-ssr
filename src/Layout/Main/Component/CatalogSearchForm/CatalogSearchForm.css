@@ -3,7 +3,7 @@ form.catalog-search-form {
 }
 form.catalog-search-form input {
     flex-grow: 1; border: 1px solid #aaa; border-right: 0; box-sizing: border-box;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); padding-left: 38px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); text-indent: 36px;
     background: var(--icon-search-url) no-repeat 13px center / 15px 15px;
 }
 form.catalog-search-form button {

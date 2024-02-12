@@ -17,6 +17,7 @@ abstract class MainLayout extends CommonLayout
     {
         parent::head();
         echo '<link rel="stylesheet" href="' . UrlUtil::makeStaticUrlWithHash('static/bundle/main.css') . '" type="text/css" />';
+        echo '<script defer src="' . UrlUtil::makeStaticUrlWithHash('static/bundle/main.js') . '"></script>';
     }
 
     public function top(): void

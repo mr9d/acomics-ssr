@@ -30,5 +30,7 @@ class SearchResultPage extends MainLayout implements PageInt
             ->render();
 
         (new CatalogSearchForm($this->pageData->query))->render();
+
+        echo '<p>Результат поиска</p>';
     }
 }
