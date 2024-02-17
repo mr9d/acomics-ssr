@@ -11,9 +11,59 @@ section.form-desktop {
     display: none;
 }
 
+/* Выбор категорий */
+section.form-desktop fieldset.categories {
+    border: 0; padding: 0; margin: 0 0 20px; display: flex; gap: var(--mobile-gap); flex-wrap: wrap;
+}
+section.form-desktop fieldset.categories label {
+    display: block; position: relative; padding: 8px 10px; background: var(--brand-orange); color: #fff; box-shadow: inset 0 -2px 0 rgba(0,0,0,.1);
+	text-decoration: none; text-transform: uppercase; font-size: 12px; font-weight: bold; border-radius: 4px; user-select: none;
+}
+section.form-desktop fieldset.categories label input {
+    display: none; position: absolute; right: 0px; appearance: none;
+    width: 30px; height: auto; top: 0; bottom: 0; margin: auto;
+    background: var(--icon-plus-url) no-repeat center/13px 13px;
+}
+
+section.form-desktop fieldset.categories label input:checked { background-image: var(--icon-cross-url); }
+section.form-desktop fieldset.categories label:has(> input:checked) { background-color: var(--brand-red); }
+
+/* Показываем иконки категорий */
+@media screen and (min-width: 520px) {
+	section.form-desktop fieldset.categories label {
+        background-repeat: no-repeat;
+        background-position: 6px center;
+        background-size: 18px 18px;
+        padding: 8px 28px;
+    }
+    section.form-desktop fieldset.categories label.category-animal { background-image: var(--icon-category-animal-url); }
+    section.form-desktop fieldset.categories label.category-drama { background-image: var(--icon-category-drama-url); }
+    section.form-desktop fieldset.categories label.category-fantasy { background-image: var(--icon-category-fantasy-url); }
+    section.form-desktop fieldset.categories label.category-gaming { background-image: var(--icon-category-gaming-url); }
+    section.form-desktop fieldset.categories label.category-humor { background-image: var(--icon-category-humor-url); }
+    section.form-desktop fieldset.categories label.category-journal { background-image: var(--icon-category-journal-url); }
+    section.form-desktop fieldset.categories label.category-paranormal { background-image: var(--icon-category-paranormal-url); }
+    section.form-desktop fieldset.categories label.category-postapocalypse { background-image: var(--icon-category-postapocalypse-url); }
+    section.form-desktop fieldset.categories label.category-romance { background-image: var(--icon-category-romance-url); }
+    section.form-desktop fieldset.categories label.category-superheroes { background-image: var(--icon-category-superheroes-url); }
+    section.form-desktop fieldset.categories label.category-scifi { background-image: var(--icon-category-scifi-url); }
+    section.form-desktop fieldset.categories label.category-life { background-image: var(--icon-category-life-url); }
+    section.form-desktop fieldset.categories label.category-steampunk { background-image: var(--icon-category-steampunk-url); }
+    section.form-desktop fieldset.categories label.category-detective { background-image: var(--icon-category-detective-url); }
+    section.form-desktop fieldset.categories label.category-history { background-image: var(--icon-category-history-url); }
+    section.form-desktop fieldset.categories label input { display: block; }
+}
+
 /* Скрываем мобильное меню, показываем десктопное */
 @media screen and (min-width: 700px) {
 	section.form-mobile { display: none; }
 	section.form-desktop { display: block; }
+}
+
+/* Делаем десктопные отступы */
+@media screen and (min-width: 920px) {
+    section.form-desktop { padding: var(--desktop-gap); }
+    section.form-desktop fieldset.categories label { padding: 9px 38px 9px 34px; background-position: 8px center; }
+    section.form-desktop fieldset.categories label input { border-left: 1px solid #fff; }
 }
 

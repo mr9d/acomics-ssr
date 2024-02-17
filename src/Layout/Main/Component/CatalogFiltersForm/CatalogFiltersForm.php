@@ -54,8 +54,26 @@ class CatalogFiltersForm extends AbstractComponent
     {
         echo '<section class="form-desktop">';
 
+        echo $this->renderCategories();
+
         echo 'Десктопная форма';
 
         echo '</section>'; // form-desktop
+    }
+
+    private function renderCategories(): void
+    {
+        echo '<fieldset class="categories">';
+
+        foreach($this->serialCategoryProvider->getAll() as $serialCategory)
+        {
+            $checked = in_array($serialCategory->id, $this->filters->searchCategories);
+            echo '<label class="category-' . $serialCategory->code . '">';
+            echo '<input type="checkbox" name="category[]" value="' . $serialCategory->id . '" ' . ($checked ? 'checked' : '') . '>';
+            echo $serialCategory->name;
+            echo '</label>';
+        }
+
+        echo '</fieldset>'; // categories
     }
 }
