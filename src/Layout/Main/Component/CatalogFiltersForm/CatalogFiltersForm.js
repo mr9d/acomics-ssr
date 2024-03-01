@@ -16,4 +16,12 @@ const makeCatalogFilters = () => {
 
     const showFiltersButton = mobileSection.querySelector('button.show-filters-button');
     showFiltersButton.addEventListener('click', showDesktopFilters);
+
+    const toggleForm = (evt) => {
+        evt.preventDefault();
+        desktopSection.classList.toggle('full');
+    };
+
+    const toggleFormButton = desktopSection.querySelector('button.full-form-toggle');
+    toggleFormButton.addEventListener('click', toggleForm);
 };
