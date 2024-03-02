@@ -3,14 +3,14 @@
 namespace Acomics\Ssr\Layout\Serial\Component\ReaderSerialDescription;
 
 use Acomics\Ssr\Dto\SerialCoauthorDto;
-use Acomics\Ssr\Dto\SerialDto;
+use Acomics\Ssr\Dto\ReaderSerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Util\AuthorUtil;
 use Acomics\Ssr\Util\UrlUtil;
 
 class ReaderSerialDescription extends AbstractComponent
 {
-	private SerialDto $serial;
+	private ReaderSerialDto $serial;
 
 	/** @var SerialCoauthorDto[] $coauthors */
 	private array $coauthors;
@@ -18,7 +18,7 @@ class ReaderSerialDescription extends AbstractComponent
 	/**
 	 * @param SerialCoauthorDto[] $coauthors
 	 */
-	public function __construct(SerialDto $serial, array $coauthors)
+	public function __construct(ReaderSerialDto $serial, array $coauthors)
 	{
 		$this->serial = $serial;
 		$this->coauthors = $coauthors;

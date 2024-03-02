@@ -4,14 +4,14 @@ namespace Acomics\Ssr\Page\Serial\Reader;
 
 use Acomics\Ssr\Dto\CommentDto;
 use Acomics\Ssr\Dto\SerialCoauthorDto;
-use Acomics\Ssr\Dto\IssueDto;
-use Acomics\Ssr\Dto\SerialDto;
+use Acomics\Ssr\Dto\ReaderIssueDto;
+use Acomics\Ssr\Dto\ReaderSerialDto;
 
 class SerialViewPageData
 {
-	public SerialDto $serial;
+	public ReaderSerialDto $serial;
 
-	public IssueDto $issue;
+	public ReaderIssueDto $issue;
 
 	/** @var SerialCoauthorDto[] $coauthors */
 	public array $coauthors;
@@ -27,8 +27,8 @@ class SerialViewPageData
 	 * @param SerialCoauthorDto[] $coauthors
 	 */
 	public function __construct(
-		SerialDto $serial,
-		IssueDto $issue,
+		ReaderSerialDto $serial,
+		ReaderIssueDto $issue,
 		array $coauthors,
 		array $comments,
 		bool $commentsAllowed,

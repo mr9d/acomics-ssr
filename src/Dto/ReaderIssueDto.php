@@ -2,7 +2,7 @@
 
 namespace Acomics\Ssr\Dto;
 
-class IssueDto
+class ReaderIssueDto
 {
 	public int $id;
 

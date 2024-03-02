@@ -2,7 +2,7 @@
 
 namespace Acomics\Ssr\Dto;
 
-class SerialDto
+class ReaderSerialDto
 {
 	public string $name;
 

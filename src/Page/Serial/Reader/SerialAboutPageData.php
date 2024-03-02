@@ -5,11 +5,11 @@ namespace Acomics\Ssr\Page\Serial\Reader;
 use Acomics\Ssr\Dto\IssuePreviewDto;
 use Acomics\Ssr\Dto\SerialCategoryDto;
 use Acomics\Ssr\Dto\SerialCoauthorDto;
-use Acomics\Ssr\Dto\SerialDto;
+use Acomics\Ssr\Dto\ReaderSerialDto;
 
 class SerialAboutPageData
 {
-	public SerialDto $serial;
+	public ReaderSerialDto $serial;
 
 	public ?string $aboutText;
 
@@ -28,7 +28,7 @@ class SerialAboutPageData
 	 * @param IssuePreviewDto[] $issues
 	 */
 	public function __construct(
-		SerialDto $serial,
+		ReaderSerialDto $serial,
 		?string $aboutText,
 		array $coauthors,
 		array $categories,

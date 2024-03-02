@@ -2,18 +2,18 @@
 
 namespace Acomics\Ssr\Layout\Serial\Component\ReaderIssueTitle;
 
-use Acomics\Ssr\Dto\IssueDto;
-use Acomics\Ssr\Dto\SerialDto;
+use Acomics\Ssr\Dto\ReaderIssueDto;
+use Acomics\Ssr\Dto\ReaderSerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Util\UrlUtil;
 
 class ReaderIssueTitle extends AbstractComponent
 {
-	private SerialDto $serial;
-	private IssueDto $issue;
+	private ReaderSerialDto $serial;
+	private ReaderIssueDto $issue;
 	private bool $withNavigation;
 
-	public function __construct(SerialDto $serial, IssueDto $issue, bool $withNavigation = true)
+	public function __construct(ReaderSerialDto $serial, ReaderIssueDto $issue, bool $withNavigation = true)
 	{
 		$this->serial = $serial;
 		$this->issue = $issue;

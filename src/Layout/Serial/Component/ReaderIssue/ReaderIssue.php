@@ -2,22 +2,22 @@
 
 namespace Acomics\Ssr\Layout\Serial\Component\ReaderIssue;
 
-use Acomics\Ssr\Dto\IssueDto;
-use Acomics\Ssr\Dto\SerialDto;
+use Acomics\Ssr\Dto\ReaderIssueDto;
+use Acomics\Ssr\Dto\ReaderSerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Layout\Common\Component\LazyImage\LazyImage;
 use Acomics\Ssr\Util\UrlUtil;
 
 class ReaderIssue extends AbstractComponent
 {
-	private SerialDto $serial;
-	private IssueDto $issue;
+	private ReaderSerialDto $serial;
+	private ReaderIssueDto $issue;
 	private bool $withNavigation;
 	private bool $isLazy;
 
 	public function __construct(
-		SerialDto $serial,
-		IssueDto $issue,
+		ReaderSerialDto $serial,
+		ReaderIssueDto $issue,
 		bool $withNavigation = true,
 		bool $isLazy = false)
 	{

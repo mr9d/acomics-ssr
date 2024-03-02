@@ -2,8 +2,8 @@
 
 namespace Acomics\Ssr\Layout\Serial\Component\ReaderIssueDescription;
 
-use Acomics\Ssr\Dto\IssueDto;
-use Acomics\Ssr\Dto\SerialDto;
+use Acomics\Ssr\Dto\ReaderIssueDto;
+use Acomics\Ssr\Dto\ReaderSerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Layout\Common\Component\DateTimeFormatted\DateTimeFormatted;
 use Acomics\Ssr\Util\Integration\VkWidgetProviderInt;
@@ -11,15 +11,15 @@ use Acomics\Ssr\Util\UrlUtil;
 
 class ReaderIssueDescription extends AbstractComponent
 {
-	private SerialDto $serial;
+	private ReaderSerialDto $serial;
 
-	private IssueDto $issue;
+	private ReaderIssueDto $issue;
 
 	private ?VkWidgetProviderInt $vkWidgetProvider;
 
 	public function __construct(
-		SerialDto $serial,
-		IssueDto $issue,
+		ReaderSerialDto $serial,
+		ReaderIssueDto $issue,
 		?VkWidgetProviderInt $vkWidgetProvider)
 	{
 		$this->serial = $serial;
