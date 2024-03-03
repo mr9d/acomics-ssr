@@ -573,6 +573,8 @@ nav.common-paginator ul li.current span {
 }
 
 
+/* src/Layout/Common/Component/SerialCard/SerialCard.css */
+
 /* src/Layout/Common/Component/SubscribeButton/SubscribeButton.css */
 button.subscribe-button {
 	display: flex; width: 40px; height: 40px; border: 0; padding: 0; margin: 0; align-items: center; color: #fff; cursor: pointer;
