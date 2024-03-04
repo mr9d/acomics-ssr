@@ -18,6 +18,10 @@ class SerialChapterStructDto
 	/** @var ?SerialChapterStructDto[] $childStructs */
 	public ?array $childStructs;
 
+    /**
+     * @param ?SerialChapterDto[] $chapters
+     * @param ?SerialChapterStructDto[] $childStructs
+     */
 	public function __construct(int $headerLevel, string $name, ?array $chapters, ?array $childStructs)
 	{
 		$this->headerLevel = $headerLevel;

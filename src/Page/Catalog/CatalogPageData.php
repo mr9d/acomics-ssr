@@ -15,17 +15,20 @@ class CatalogPageData
 
     public CatalogFiltersDto $filters;
 
-	/** @param CatalogSerialDto[] */
+	/** @var CatalogSerialDto[] */
     public array $serials;
 
+    /** @param CatalogSerialDto[] $serials */
     public function __construct(
         SerialCategoryProviderInt $serialCategoryProvider,
         SerialAgeRatingProviderInt $serialAgeRatingProvider,
-        CatalogFiltersDto $filters
+        CatalogFiltersDto $filters,
+        array $serials
     )
     {
         $this->serialCategoryProvider = $serialCategoryProvider;
         $this->serialAgeRatingProvider = $serialAgeRatingProvider;
         $this->filters = $filters;
+        $this->serials = $serials;
     }
 }

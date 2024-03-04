@@ -7,10 +7,10 @@ use Acomics\Ssr\Layout\AbstractComponent;
 
 class CatalogSerialsHeader extends AbstractComponent
 {
-    private CatalogFiltersDto $filters;
+    private ?CatalogFiltersDto $filters;
 
     public function __construct(
-        CatalogFiltersDto $filters
+        ?CatalogFiltersDto $filters
     )
     {
         $this->filters = $filters;

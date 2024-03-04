@@ -3,6 +3,7 @@
 namespace Acomics\Ssr\Page\Catalog;
 
 use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
+use Acomics\Ssr\Layout\Common\Component\SerialCard\SerialCard;
 use Acomics\Ssr\Layout\Main\Component\CatalogFiltersForm\CatalogFiltersForm;
 use Acomics\Ssr\Layout\Main\Component\CatalogSearchForm\CatalogSearchForm;
 use Acomics\Ssr\Layout\Main\Component\CatalogSerialsHeader\CatalogSerialsHeader;
@@ -45,10 +46,27 @@ class CatalogPage extends MainLayout implements PageInt
             filters: $this->pageData->filters
         ))->render();
 
-        (new CatalogSerialsHeader(
-            filters: $this->pageData->filters
-        ))->render();
+        $this->serials();
+    }
 
-        echo '<p>Содержимое каталога</p>';
+    public function serials(): void
+    {
+        if (count($this->pageData->serials) === 0)
+        {
+            echo '<p>Нет подходящих комиксов</p>'; //tbd
+        }
+        else
+        {
+            (new CatalogSerialsHeader(
+                filters: $this->pageData->filters
+            ))->render();
+
+            foreach($this->pageData->serials as $serial)
+            {
+                (new SerialCard(
+                    serial: $serial
+                ))->render();
+            }
+        }
     }
 }
