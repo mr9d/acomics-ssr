@@ -27,7 +27,7 @@ class SerialFaqPage extends SerialReaderAsideLayout implements PageInt
 
         if(count($this->pageData->questions) === 0)
         {
-            echo '<p>Автор не добавил ни одного перснажа.</p>';
+            echo '<p>Автор не добавил ни одного персонажа.</p>';
         }
         else
         {
