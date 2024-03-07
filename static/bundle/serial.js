@@ -49,6 +49,32 @@ const preventFormDoubleSubmission = () => {
     });
 }
 
+/* src/Layout/Serial/Component/ReaderCommentForm/ReaderCommentForm.js */
+const saveLastComment = () => {
+    const form = document.querySelector('form.reader-comment-form');
+
+    if (form === null) {
+        return;
+    }
+
+    const lastComment = JSON.parse(localStorage.getItem('lastComment') || '{}');
+    const text = form.querySelector('.comment-text');
+
+    if (lastComment['pathname'] === window.location.pathname) {
+        text.value = lastComment['text'];
+    }
+
+    text.addEventListener('change', (event) => {
+        lastComment['pathname'] = window.location.pathname;
+        lastComment['text'] = text.value;
+        localStorage.setItem('lastComment', JSON.stringify(lastComment));
+    });
+
+    form.addEventListener('submit', () => {
+        localStorage.removeItem('lastComment');//we don't need check pathname second time
+    });
+}
+
 /* src/Layout/Serial/Component/ReaderListLoadMore/ReaderListLoadMore.js */
 const makeReaderListLoadMore = () => {
 	let loadMoreLink = document.querySelector('a.reader-list-load-more');
@@ -294,6 +320,7 @@ const initReaderPage = () => {
 	makeHeaderDisapearOnScroll();
 	makeReaderListLoadMore();
     preventFormDoubleSubmission();
+    saveLastComment();
 };
 
 // Инициализация страницы содержания
