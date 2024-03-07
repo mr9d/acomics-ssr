@@ -98,7 +98,7 @@ class Build
 
 		$mainFile = self::LAYOUTS_DIR . '/' . $layout . '/' . $layout . 'Layout.js';
 		if (file_exists($mainFile)) {
-			array_push($files, $mainFile);
+			$files[] = $mainFile;
 		}
 
 		if (count($files) === 0) {
