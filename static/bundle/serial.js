@@ -124,6 +124,20 @@ const makeReaderListLoadMore = () => {
 		}
 		isLoading = false;
 	};
+
+	const windowScrollLstener = window.acomicsCommon.throttle(() => {
+		if (loadMoreLink === null || loadCount === 0)
+		{
+			window.removeEventListener('scroll', windowScrollLstener);
+			return;
+		}
+		if (!isLoading)
+		{
+			window.acomicsCommon.checkElementViewportPositionAndLoad(loadMoreLink, loadMoreIssues);
+		}
+	});
+
+	window.addEventListener('scroll', windowScrollLstener);
 };
 
 /* src/Layout/Serial/Component/ReaderMenu/ReaderMenu.js */
