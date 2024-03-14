@@ -159,7 +159,7 @@ const makePageHint = () => {
 	if (pageHint === null) {
 		return;
 	}
-
+	
 	const closeId = pageHint.dataset.closeId;
 	if (closeId === '') {
 		return;
