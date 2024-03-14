@@ -132,25 +132,24 @@ const makeLazyImages = (parentElement = document) => {
 		img.classList.remove(LAZY_IMAGE_CLASS);
 	};
 
-	const windowScrollLstener = window.acomicsCommon.throttle(() => {
-		const visible = window.acomicsCommon.checkElementViewportPositionAndLoad(firstLazyImage, loadImage);
-		if (visible) {
-			const otherLazyImages = parentElement.querySelectorAll('img.' + LAZY_IMAGE_CLASS);
-			for (const image of otherLazyImages) {
-				const visible = window.acomicsCommon.checkElementViewportPositionAndLoad(image, loadImage);
-				if (!visible) {
-					firstLazyImage = image;
-					return;
-				}
+	const callback = (entries, observer) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				loadImage(entry.target);
+				observer.unobserve(entry.target);// Отписываемся тут, а не в loadImage чтобы не трогать старый код
 			}
-			window.removeEventListener('scroll', windowScrollLstener);
-		}
+		});
+	};
+	const options = {
+		root: null,// Следим за всей видимой частью документа
+		rootMargin: LAZY_PRERENDER_HEIGHT + "px",// Константа для расширения видимой области, взята из старого кода
+		threshold: 0.001,//Грузим картинку если край попал в видимую область
+	};
+	const observer = new IntersectionObserver(callback, options);
+	const lazyImagesList = document.querySelectorAll('img.' + LAZY_IMAGE_CLASS);
+	lazyImagesList.forEach((el) => {
+		observer.observe(el);// IntersectionObserver корректно работает с дублированием, второй раз элемент не будет обработан
 	});
-
-	window.addEventListener('scroll', windowScrollLstener);
-
-	// Нужно также выполнить после скролла по якорной ссылке
-	window.addEventListener('load', windowScrollLstener);
 };
 
 
@@ -160,7 +159,7 @@ const makePageHint = () => {
 	if (pageHint === null) {
 		return;
 	}
-	
+
 	const closeId = pageHint.dataset.closeId;
 	if (closeId === '') {
 		return;
@@ -271,24 +270,12 @@ const throttle = (mainFunction, delay = 300) => {
 	};
 };
 
-// Проверка, находится ли элемент в зоне видимости для ленивой дозагрузки
-const checkElementViewportPositionAndLoad = (element, loadFunction) => {
-	const elementViewportOffset = element.getBoundingClientRect().top;
-	if (elementViewportOffset < window.innerHeight + LAZY_PRERENDER_HEIGHT) {
-		loadFunction(element);
-		return true;
-	} else {
-		return false;
-	}
-};
-
 
 // Инициализация общих элементов страницы
 const init = () => {
 	window.acomicsCommon = {
 		debounce,
 		throttle,
-		checkElementViewportPositionAndLoad,
 		makeDateTimeFormatted,
 		makeLazyImages,
 	}
