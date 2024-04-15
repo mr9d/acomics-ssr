@@ -290,7 +290,7 @@ article.reader-comment {
 }
 
 /* Строка со сылками */
-nav.reader-comment-links { line-height: 1.4; word-break: break-word; margin-bottom: var(--mobile-gap); }
+article.reader-comment nav.reader-comment-links { line-height: 1.4; word-break: break-word; margin-bottom: var(--mobile-gap); }
 
 /* Аватарка */
 article.reader-comment section.comment-avatar { grid-area: avatar; position: relative; }
