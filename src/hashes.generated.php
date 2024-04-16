@@ -4,7 +4,7 @@
 
 global $hashes;
 $hashes = array(
-  'static/bundle/common.css' => 'ff20678bd30720f8a40a8296dde9629d',
+  'static/bundle/common.css' => '9ca64c92530e348ca46ab2fb9e1b9485',
   'static/bundle/common.js' => '68bb7811c171574dcd878b946c69b0db',
   'static/bundle/main.css' => '702e4134acab5f117b794880b179f9e2',
   'static/bundle/main.js' => 'f60dbcf5e30488edd030ac97b26dca9a',

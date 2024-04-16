@@ -34,7 +34,7 @@ class SerialCard extends AbstractComponent
         echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code) . '" class="cover" title="Читать комикс ' . $this->serial->name . ' онлайн">';
 
         (new LazyImage(
-            src: $this->serial->bannerUrl ? $this->serial->bannerUrl : '/design/main/pic/catalog-stub.png?18-07-2014',
+            src: $this->serial->bannerUrl ? $this->serial->bannerUrl : '/static/img/catalog-stub.svg',
             stubSrc: '/static/img/tail-spin.svg',
             width: 160,
             height: 90,
@@ -53,7 +53,7 @@ class SerialCard extends AbstractComponent
         echo '</a>';
 
         $this->featuredIcon();
-        $this->translateIcon();
+        $this->translationIcon();
         $this->topVoteIcon();
 
         echo '</h2>';
@@ -66,17 +66,17 @@ class SerialCard extends AbstractComponent
             return;
         }
 
-        echo ''; //todo
+        echo '<span class="icon-featured"></span>';
     }
 
-    private function translateIcon(): void
+    private function translationIcon(): void
     {
         if (!$this->serial->isTranslate)
         {
             return;
         }
 
-        echo ''; //todo
+        echo '<span class="icon-translation"></span>';
     }
 
     private function topVoteIcon(): void
@@ -86,6 +86,7 @@ class SerialCard extends AbstractComponent
             return;
         }
 
-        echo ''; //todo
+        echo '<a class="icon-top-vote" href="/top/voter?id=' . $this->serial->code . '">';
+        echo '</a>';
     }
 }

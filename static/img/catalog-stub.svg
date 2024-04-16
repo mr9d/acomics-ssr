@@ -1,0 +1,44 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="160px" height="90px" viewBox="0 0 160 90">
+<defs>
+<image id="catalog_stub_png" x="0" y="0" width="160" height="90" xlink:href="./изображения/catalog_stub_png.png"/>
+
+<g id="Logo_1_Layer0_0_FILL">
+<path fill="#F5F3F0" stroke="none" d="
+M 160 90
+L 160 0 0 0 0 90 160 90 Z"/>
+</g>
+
+<g id="Logo_1_Layer0_1_FILL">
+<path fill="#EBE5DD" stroke="none" d="
+M 104.2 23.85
+Q 95.55 15.10 83.25 15.1 70.94 15.10 62.2 23.85 57.06 29.13125 54.9 35.75
+L 34.9 44.95 54.9 54.3
+Q 57.06 60.96 62.2 66.2 70.94 74.95 83.25 74.95 95.55 74.94 104.2 66.2 112.84 57.35 112.85 45.05 112.84 32.59 104.2 23.85
+M 83.25 20.05
+Q 93.44 20.05 100.65 27.4 107.90 34.70 107.9 45.05 107.90 55.34 100.65 62.6 93.44 69.95 83.25 69.95 72.95 69.95 65.7 62.6 63.05 59.95 61.35 56.8 59.89 54.06 59.15 50.85
+L 59.1 50.7 46.25 44.95 59.1 39.15 59.15 39.05
+Q 59.84 36.03 61.35 33.2 63.05 30.05 65.7 27.4 72.95 20.05 83.25 20.05
+M 75.65 48.45
+L 77.4 48.45 80.05 54.7 80.1 54.85 85.1 54.85 76.55 34.75 67.55 54.85 72.7 54.85 75.65 48.45
+M 91.45 44.95
+L 95.85 35.15 90.4 35.15 85.95 44.95 90.4 54.85 95.85 54.85 91.45 44.95 Z"/>
+</g>
+</defs>
+
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#catalog_stub_png"/>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Logo_1_Layer0_0_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Logo_1_Layer0_1_FILL"/>
+</g>
+</g>
+</svg>
