@@ -2,6 +2,7 @@ article.serial-card {}
 
 article.serial-card a.cover {}
 
+/* Заголовок */
 article.serial-card h2.title {
     font-size: 21px; line-height: 22px;
     font-family: 'yanone_kaffeesatzregular', sans-serif;
@@ -21,3 +22,13 @@ article.serial-card h2.title a.icon-top-vote {
     display: inline-block; width: 12px; height: 16px; vertical-align: middle; margin-left: 4px;
     background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='11px' height='11px' viewBox='0 0 11 11'><defs><g id='K_0_Layer2_0_FILL'><path fill='%2300AA7B' stroke='none' d='M 60.3 19.05L 43.65 21.9 39.25 3.25 17.3 6.5 19.5 25.65 3.05 27.6Q -5.1 42 8.5 49.75L 21.55 48.05 25.25 60.15Q 40.7 71.45 50.35 56.8L 48.7 43.75 62.75 41.1Q 71.6 25.5 60.3 19.05 Z'/></g><g id='K_0_Layer1_0_FILL'><path fill='%23005B17' stroke='none' d='M 58.35 17.95L 42.95 20.4 38.45 1.75 17.65 5.05 20 24.15 3.05 27.6Q -4.95 39.6 8.6 46.75L 23.9 45.7 27.25 60.2Q 40.95 67.6 48.8 56.75L 47 42.1 61.85 38.05Q 72 24.65 58.35 17.95 Z'/></g><g id='K_0_Layer0_0_FILL'><path fill='%23BEDF15' stroke='none' d='M 5.1 26.65Q 1.65 28.85 2.9 34.55 2.45 31.85 10.05 33 17.65 34.1 20.9 22.65L 5.1 26.65M 22.2 7Q 31.05 13.55 38.25 0.25 27.4 -0.9 18.7 3.55L 20 15Q 19.45 8.1 22.2 7M 58.35 17.95L 42.4 18.85Q 46.2 27.3 49.95 26.3 59.9 22.45 58.35 17.95 Z'/><path fill='%2339B54A' stroke='none' d='M 59.9 35Q 66.75 25.55 58.35 17.95 59.9 22.45 49.95 26.3 46.2 27.3 42.4 18.85L 38.25 0.25Q 31.05 13.55 22.2 7 19.45 8.1 20 15L 20.9 22.65Q 17.65 34.1 10.05 33 2.45 31.85 2.9 34.55L 2.9 34.6Q 3.85 40.55 7.65 43.7L 25.75 41.15 28.95 55.3Q 38.2 63.35 45.95 52.3L 43.8 38.6 59.9 35 Z'/></g></defs><g transform='matrix( 0.24884033203125, 0, 0, 0.25, 0.05,0.05) '><g transform='matrix( 0.66326904296875, 0, 0, 0.677337646484375, -0.15,-0.3) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23K_0_Layer2_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23K_0_Layer1_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23K_0_Layer0_0_FILL'/></g></g></g></svg>") no-repeat center;
 }
+
+/* Описание */
+article.serial-card p.about {
+
+}
+
+/* Секция с возрастным рейтингом, ссылкой на оригинал и лицензией */
+article.serial-card aside.info span.age-rating {}
+article.serial-card aside.info a.original-url {}
+article.serial-card aside.info span.license {}

@@ -23,8 +23,10 @@ class SerialCard extends AbstractComponent
         echo '<article class="serial-card">';
 
         $this->renderBanner();
-
         $this->renderTitle();
+        $this->renderAbout();
+        $this->renderInfo();
+        $this->renderActivity();
 
         echo '</article>'; // serial-card
     }
@@ -88,5 +90,57 @@ class SerialCard extends AbstractComponent
 
         echo '<a class="icon-top-vote" href="/top/voter?id=' . $this->serial->code . '">';
         echo '</a>';
+    }
+
+    private function renderAbout(): void
+    {
+        echo '<p class="about">' . $this->serial->aboutShort . '</p>';
+    }
+
+    private function renderInfo(): void
+    {
+        echo '<aside class="info">';
+
+        $this->renderAgeRating();
+        $this->renderOriginalUrl();
+        $this->renderLicense();
+
+        echo '</aside>'; // extra-info
+    }
+
+    private function renderAgeRating(): void
+    {
+        echo '<span class="age-rating">';
+        echo 'Рейтинг: <a href="/rating" class="rating' . $this->serial->ageRating->id . '">' . $this->serial->ageRating->nameShort . '</a>';
+        echo '</span>'; // rating
+    }
+
+    private function renderOriginalUrl(): void
+    {
+        if (!$this->serial->isTranslate || !$this->serial->siteUrl)
+        {
+            return;
+        }
+
+        echo '<a href="' . $this->serial->siteUrl . '" class="original-url">Оригинал</a>';
+    }
+
+    private function renderLicense(): void
+    {
+        if (!$this->serial->license)
+        {
+            return;
+        }
+
+        echo '<span class="license">';
+        echo 'Лицензия: <a href="' . $this->serial->license->descriptionUrl . '">' . $this->serial->license->nameShort . '</a>';
+        echo '</span>'; // license
+    }
+
+    private function renderActivity(): void
+    {
+        echo '<section class="activity">';
+
+        echo '</section>';
     }
 }
