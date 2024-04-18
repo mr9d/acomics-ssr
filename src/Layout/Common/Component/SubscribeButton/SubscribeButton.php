@@ -5,23 +5,28 @@ use Acomics\Ssr\Layout\AbstractComponent;
 
 class SubscribeButton extends AbstractComponent
 {
+    public const TYPE_READER = 'reader';
+    public const TYPE_CATALOG = 'catalog';
+    
 	private int $serialId;
 	private bool $isSubscribed;
+    private string $type;
 
-	public function __construct(int $serialId, bool $isSubscribed)
+	public function __construct(int $serialId, bool $isSubscribed, string $type = self::TYPE_READER)
 	{
 		$this->serialId = $serialId;
 		$this->isSubscribed = $isSubscribed;
+		$this->type = $type;
 	}
 
 	public function render(): void
 	{
-?>
-		<button class="subscribe-button" data-is-subscribed="<?=$this->isSubscribed ? 'true' : 'false'?>" data-serial-id="<?=$this->serialId?>" title="<?=$this->isSubscribed ? 'Отписаться' : 'Подписаться'?>">
-			<span class="caption caption-subscribe">Подписаться</span>
-			<span class="caption caption-subscribed">В подписке</span>
-			<span class="caption caption-unsubscribe">Отписаться</span>
-		</button>
-<?php
+        $title = $this->isSubscribed ? 'Отписаться' : 'Подписаться';
+
+		echo '<button class="subscribe-button ' . $this->type . '" data-is-subscribed="' . ($this->isSubscribed ? 1 : 0) . '" data-serial-id="' . $this->serialId . '" title="' . $title . '">';
+		echo '<span class="caption caption-subscribe">Подписаться</span>';
+		echo '<span class="caption caption-subscribed">В подписке</span>';
+		echo '<span class="caption caption-unsubscribe">Отписаться</span>';
+		echo '</button>'; // subscribe-button
 	}
 }

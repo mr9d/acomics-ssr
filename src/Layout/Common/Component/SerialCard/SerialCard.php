@@ -4,8 +4,11 @@ namespace Acomics\Ssr\Layout\Common\Component\SerialCard;
 
 use Acomics\Ssr\Dto\CatalogSerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
+use Acomics\Ssr\Layout\Common\Component\DateTimeFormatted\DateTimeFormatted;
 use Acomics\Ssr\Layout\Common\Component\LazyImage\LazyImage;
+use Acomics\Ssr\Layout\Common\Component\SubscribeButton\SubscribeButton;
 use Acomics\Ssr\Util\CatalogStatus;
+use Acomics\Ssr\Util\StringUtil;
 use Acomics\Ssr\Util\UrlUtil;
 
 
@@ -27,6 +30,7 @@ class SerialCard extends AbstractComponent
         $this->renderAbout();
         $this->renderInfo();
         $this->renderActivity();
+        $this->renderSubscribe();
 
         echo '</article>'; // serial-card
     }
@@ -141,6 +145,65 @@ class SerialCard extends AbstractComponent
     {
         echo '<section class="activity">';
 
-        echo '</section>';
+        $this->renderLastUpdate();
+        $this->renderIssueCount();
+        $this->renderWeeklyUpdateRate();
+
+        echo '</section>'; // activity
+    }
+
+    private function renderLastUpdate(): void
+    {
+        echo '<p class="last-update">';
+        echo 'Последний выпуск:';
+
+        echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->serial->issueCount) . '">';
+        (new DateTimeFormatted($this->serial->lastUpdate))->render();
+        echo '</a>';
+
+        echo '</p>'; // last-update
+    }
+
+    private function renderIssueCount(): void
+    {
+        echo '<p class="issue-count">';
+        echo StringUtil::formatIntCaption($this->serial->issueCount, 'выпуск', 'выпуска', 'выпусков');
+        echo '</p>'; // issue-count
+    }
+
+    private function renderWeeklyUpdateRate(): void
+    {
+        if (!$this->serial->isUpdatable)
+        {
+            echo '<p class="weekly-update-rate closed">&#9632; Закончен</p>';
+        }
+        else
+        {
+            $cssClass = $this->serial->weeklyUpdateRate >= 1 ? 'good' : 'bad';
+            $rate = $this->serial->weeklyUpdateRate;
+            $rateFormatted = $rate == (int)$rate ? $rate : number_format($rate, 3);
+
+            echo '<p class="weekly-update-rate ' . $cssClass . '">&#9658; <b>' . $rateFormatted . '</b> в неделю</p>'; // weekly-update-rate
+        }
+    }
+
+    private function renderSubscribe(): void
+    {
+        echo '<section class="subscribe">';
+
+        $this->renderSubscribersCount();
+        $this->renderSubscribeButton();
+
+        echo '</section>'; // subscribe
+    }
+
+    private function renderSubscribersCount(): void
+    {
+        echo '<span class="subscribers-count">' . $this->serial->subscrCount . '</span>';
+    }
+
+    private function renderSubscribeButton(): void
+    {
+        (new SubscribeButton($this->serial->id, $this->serial->isSubscribed, SubscribeButton::TYPE_CATALOG))->render();
     }
 }

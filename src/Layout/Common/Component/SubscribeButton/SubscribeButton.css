@@ -1,32 +1,70 @@
+/*
+ * Основные стили
+ */
 button.subscribe-button {
-	display: flex; width: 40px; height: 40px; border: 0; padding: 0; margin: 0; align-items: center; color: #fff; cursor: pointer;
-	background: var(--brand-blue) var(--icon-plus-url) no-repeat center/16px 16px;
+	display: flex; border: 0; padding: 0; margin: 0; align-items: center; color: #fff; cursor: pointer;
+	background-color: var(--brand-blue);
+    background-image: var(--icon-plus-url);
+    background-repeat: no-repeat;
 }
-button.subscribe-button span.caption { display: none; font-family: 'yanone_kaffeesatzregular', sans-serif; text-transform: uppercase; font-size: 18px; }
-button.subscribe-button[data-is-subscribed="true"],
-button.subscribe-button.just-subscribed[data-is-subscribed="true"]:hover {
+button.subscribe-button span.caption {
+    display: none;
+    font-family: 'yanone_kaffeesatzregular', sans-serif; text-transform: uppercase; font-size: 18px;
+}
+button.subscribe-button[data-is-subscribed="1"],
+button.subscribe-button.just-subscribed[data-is-subscribed="1"]:hover {
 	background-color: var(--brand-orange);
 	background-image: var(--icon-checkmark-url);
 }
-button.subscribe-button[data-is-subscribed="true"]:hover {
+button.subscribe-button[data-is-subscribed="1"]:hover {
 	background-color: var(--brand-red);
 	background-image: var(--icon-cross-url);
 }
 
+/*
+ * Стили для читалки
+ */
+button.subscribe-button.reader {
+    width: 40px; height: 40px;
+    background-position: center;
+    background-size: 16px 16px;
+}
+
 /* Делаем кнопку подписки полноразмерной */
 @media screen and (min-width: 560px) {
-	button.subscribe-button { width: 142px; background-position: right 18px center; content: "Подписаться"; }
-	button.subscribe-button span.caption { margin-left: var(--desktop-gap); }
-	button.subscribe-button span.caption-subscribe { display: block; }
+	button.subscribe-button.reader { width: 142px; background-position: right 18px center; }
+	button.subscribe-button.reader span.caption { margin-left: var(--desktop-gap); }
+	button.subscribe-button.reader span.caption-subscribe { display: block; }
 
-	button.subscribe-button[data-is-subscribed="true"] span.caption-subscribe { display: none; }
-	button.subscribe-button[data-is-subscribed="true"] span.caption-subscribed { display: block; }
+	button.subscribe-button.reader[data-is-subscribed="1"] span.caption-subscribe { display: none; }
+	button.subscribe-button.reader[data-is-subscribed="1"] span.caption-subscribed { display: block; }
 
-	button.subscribe-button[data-is-subscribed="true"]:hover span.caption-subscribe { display: none; }
-	button.subscribe-button[data-is-subscribed="true"]:hover span.caption-subscribed { display: none; }
-	button.subscribe-button[data-is-subscribed="true"]:hover span.caption-unsubscribe { display: block; }
+	button.subscribe-button.reader[data-is-subscribed="1"]:hover span.caption-subscribe { display: none; }
+	button.subscribe-button.reader[data-is-subscribed="1"]:hover span.caption-subscribed { display: none; }
+	button.subscribe-button.reader[data-is-subscribed="1"]:hover span.caption-unsubscribe { display: block; }
 
-	button.subscribe-button.just-subscribed[data-is-subscribed="true"]:hover span.caption-subscribe { display: none; }
-	button.subscribe-button.just-subscribed[data-is-subscribed="true"]:hover span.caption-subscribed { display: block; }
-	button.subscribe-button.just-subscribed[data-is-subscribed="true"]:hover span.caption-unsubscribe { display: none; }
+	button.subscribe-button.reader.just-subscribed[data-is-subscribed="1"]:hover span.caption-subscribe { display: none; }
+	button.subscribe-button.reader.just-subscribed[data-is-subscribed="1"]:hover span.caption-subscribed { display: block; }
+	button.subscribe-button.reader.just-subscribed[data-is-subscribed="1"]:hover span.caption-unsubscribe { display: none; }
 }
+
+/*
+ * Стили для каталога
+ */
+ button.subscribe-button.catalog {
+    width: 100px; height: 30px;
+    background-position: center;
+    background-size: 16px 16px;
+}
+button.subscribe-button.catalog span.caption-subscribe { display: block; }
+button.subscribe-button.catalog[data-is-subscribed="1"] span.caption-subscribe { display: none; }
+button.subscribe-button.catalog[data-is-subscribed="1"] span.caption-subscribed { display: block; }
+
+button.subscribe-button.catalog[data-is-subscribed="1"]:hover span.caption-subscribe { display: none; }
+button.subscribe-button.catalog[data-is-subscribed="1"]:hover span.caption-subscribed { display: none; }
+button.subscribe-button.catalog[data-is-subscribed="1"]:hover span.caption-unsubscribe { display: block; }
+
+button.subscribe-button.catalog.just-subscribed[data-is-subscribed="1"]:hover span.caption-subscribe { display: none; }
+button.subscribe-button.catalog.just-subscribed[data-is-subscribed="1"]:hover span.caption-subscribed { display: block; }
+button.subscribe-button.catalog.just-subscribed[data-is-subscribed="1"]:hover span.caption-unsubscribe { display: none; }
+ /* wip */

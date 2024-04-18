@@ -2,7 +2,7 @@ const subscribeButtonClickListener = async (evt) => {
 	evt.preventDefault();
 	const button = evt.target.closest('button.subscribe-button');
 	const serialId = button.dataset.serialId;
-	const isSibscribed = button.dataset.isSubscribed === 'true';
+	const isSibscribed = button.dataset.isSubscribed === '1';
 
 	if (!serialId) {
 		alert('Не задан идентификатор комикса.');
@@ -15,12 +15,18 @@ const subscribeButtonClickListener = async (evt) => {
 
 	if (result === '1') {
 		const buttonsForSerial = document.querySelectorAll('button.subscribe-button[data-serial-id="' + serialId + '"]');
-		buttonsForSerial.forEach((button) => button.dataset.isSubscribed = 'true');
+		buttonsForSerial.forEach((button) => {
+            button.dataset.isSubscribed = '1';
+            button.setAttribute('title', 'Отписаться');
+        });
 		button.classList.add('just-subscribed');
 		setTimeout(() => button.classList.remove('just-subscribed'), 2000);
 	} else if (result === '2') {
 		const buttonsForSerial = document.querySelectorAll('button.subscribe-button[data-serial-id="' + serialId + '"]');
-		buttonsForSerial.forEach((button) => button.dataset.isSubscribed = 'false');
+		buttonsForSerial.forEach((button) => {
+            button.dataset.isSubscribed = '0';
+            button.setAttribute('title', 'Подписаться');
+        });
 		return false;
 	} else {
 		alert(result);
