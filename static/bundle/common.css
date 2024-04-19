@@ -428,6 +428,9 @@ div.header-modal {
 	width: 100%; max-width: var(--max-width); min-width: var(--min-width); margin: 0 auto; align-items: flex-start; height: auto;
 }
 
+/* src/Layout/Common/Component/LazyImage/LazyImage.css */
+img.lazy-image { object-fit: cover; }
+
 /* src/Layout/Common/Component/MainMenuModal/MainMenuModal.css */
 /* Главное меню */
 div.main-menu { z-index: 70; flex-direction: row; }
@@ -574,14 +577,26 @@ nav.common-paginator ul li.current span {
 
 
 /* src/Layout/Common/Component/SerialCard/SerialCard.css */
-article.serial-card {}
+article.serial-card {
+    padding: var(--desktop-gap) 0; border-bottom: 1px solid var(--brand-grey);
+    display: grid;
+    grid-template-areas:
+        "cover title"
+        "about about"
+        "info info"
+        "activity activity"
+        "subscribe subscribe";
+    grid-template-columns: 128px 1fr;
+}
 
-article.serial-card a.cover {}
+article.serial-card a.cover { display: block; grid-area: cover; }
+article.serial-card a.cover img { display: block; width: 128px; height: 72px; }
 
 /* Заголовок */
 article.serial-card h2.title {
-    font-size: 21px; line-height: 22px;
-    font-family: 'yanone_kaffeesatzregular', sans-serif;
+    font-size: 21px; line-height: 22px; margin: 0 0 0 var(--mobile-gap);
+    font-family: 'yanone_kaffeesatzregular', sans-serif; word-break: break-word;
+    grid-area: title;
 }
 article.serial-card h2.title a {
     text-decoration: none;
@@ -601,13 +616,21 @@ article.serial-card h2.title a.icon-top-vote {
 
 /* Описание */
 article.serial-card p.about {
-
+    grid-area: about; word-break: break-word;
+    margin: var(--mobile-gap) 0 0;
 }
 
 /* Секция с возрастным рейтингом, ссылкой на оригинал и лицензией */
+article.serial-card aside.info { grid-area: info; margin: var(--mobile-gap) 0 0; }
 article.serial-card aside.info span.age-rating {}
 article.serial-card aside.info a.original-url {}
 article.serial-card aside.info span.license {}
+
+/* Информация об обновлениях */
+article.serial-card section.activity { grid-area: activity; margin: var(--mobile-gap) 0 0; }
+
+/* Подписки */
+article.serial-card section.subscribe { grid-area: subscribe; margin: var(--mobile-gap) 0 0; }
 
 /* src/Layout/Common/Component/SubscribeButton/SubscribeButton.css */
 /*

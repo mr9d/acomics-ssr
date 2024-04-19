@@ -14,6 +14,7 @@ use Acomics\Ssr\Util\UrlUtil;
 
 class SerialCard extends AbstractComponent
 {
+    public const CATALOG_STUB_URL = '/static/img/catalog-stub.svg';
     private CatalogSerialDto $serial;
 
     public function __construct(CatalogSerialDto $serial)
@@ -40,8 +41,8 @@ class SerialCard extends AbstractComponent
         echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code) . '" class="cover" title="Читать комикс ' . $this->serial->name . ' онлайн">';
 
         (new LazyImage(
-            src: $this->serial->bannerUrl ? $this->serial->bannerUrl : '/static/img/catalog-stub.svg',
-            stubSrc: '/static/img/tail-spin.svg',
+            src: $this->serial->bannerUrl ? $this->serial->bannerUrl : self::CATALOG_STUB_URL,
+            stubSrc: $this->serial->bannerUrl ? '/static/img/tail-spin.svg' : self::CATALOG_STUB_URL,
             width: 160,
             height: 90,
             alt: 'Обложка комикса ' . $this->serial->name
@@ -98,6 +99,11 @@ class SerialCard extends AbstractComponent
 
     private function renderAbout(): void
     {
+        if ($this->serial->aboutShort === null)
+        {
+            return;
+        }
+
         echo '<p class="about">' . $this->serial->aboutShort . '</p>';
     }
 
@@ -155,7 +161,7 @@ class SerialCard extends AbstractComponent
     private function renderLastUpdate(): void
     {
         echo '<p class="last-update">';
-        echo 'Последний выпуск:';
+        echo 'Последний выпуск: ';
 
         echo '<a href="' . UrlUtil::makeSerialUrl($this->serial->code, $this->serial->issueCount) . '">';
         (new DateTimeFormatted($this->serial->lastUpdate))->render();

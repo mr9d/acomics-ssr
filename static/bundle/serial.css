@@ -48,7 +48,6 @@ div.view-comments-disallowed { text-align: center; color: #a3a3a3; }
 /* Страница чтения комикса лентой */
 aside.list-aside { margin: var(--desktop-gap) var(--mobile-gap) 0; }
 main.list-container { container-type: inline-size; box-sizing: border-box; margin-bottom: var(--desktop-gap); }
-main.list-container img.issue { object-fit: cover; } /* for lazy loader */
 main.list-container article.reader-issue-description { margin: 0; }
 main.list-container nav.reader-navigator { padding-bottom: 0; }
 main.list-container p.list-comments-link { display: flex; margin: 5px var(--mobile-gap); align-items:center; justify-content: flex-end; }
@@ -74,7 +73,6 @@ p.serial-about-authors { word-break: break-word; }
 p.serial-about-site-url { word-break: break-word; }
 section.serial-about-issues { display: grid; gap: var(--mobile-gap); grid-template-columns: 1fr 1fr; overflow-y: hidden; }
 section.serial-about-issues a.issue-preview img { width: 100%; height: 100%; }
-section.serial-about-issues a.issue-preview img { object-fit: cover; } /* for lazy loader */
 
 @media screen and (min-width: 520px) {
 	section.serial-about-issues { grid-template-columns: 1fr 1fr 1fr; }
@@ -102,7 +100,6 @@ section.serial-content-issues {
     margin: var(--desktop-gap) 0;
 }
 section.serial-content-issues a.issue-preview img { width: 100%; height: auto; }
-section.serial-content-issues a.issue-preview img { object-fit: cover; } /* for lazy loader */
 
 @media screen and (min-width: 520px) {
 	section.serial-content-issues { grid-template-columns: 1fr 1fr 1fr; }
@@ -258,7 +255,7 @@ section.serial-content-tree h3.collapsable.collapsed + section { display: none; 
 
 /* src/Layout/Serial/Component/IssuePreview/IssuePreview.css */
 a.issue-preview, a.issue-preview:visited { display: block; position: relative; color: #fff; }
-a.issue-preview img { display: block; object-fit:cover; }
+a.issue-preview img { display: block; }
 a.issue-preview p.issue-preview-hover {
 	position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: 0; padding: var(--mobile-gap) 0 0 var(--mobile-gap);
 	background-color: rgba(0,0,0,.7); flex-direction: column; overflow: hidden; display: none;
