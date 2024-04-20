@@ -4,6 +4,7 @@ namespace Acomics\Ssr\Layout\Common\Component\SerialCard;
 
 use Acomics\Ssr\Dto\CatalogSerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
+use Acomics\Ssr\Layout\Common\Component\AgeRatingLabel\AgeRatingLabel;
 use Acomics\Ssr\Layout\Common\Component\DateTimeFormatted\DateTimeFormatted;
 use Acomics\Ssr\Layout\Common\Component\LazyImage\LazyImage;
 use Acomics\Ssr\Layout\Common\Component\SubscribeButton\SubscribeButton;
@@ -121,7 +122,8 @@ class SerialCard extends AbstractComponent
     private function renderAgeRating(): void
     {
         echo '<span class="age-rating">';
-        echo 'Рейтинг: <a href="/rating" class="rating' . $this->serial->ageRating->id . '">' . $this->serial->ageRating->nameShort . '</a>';
+        echo 'Рейтинг: ';
+        (new AgeRatingLabel($this->serial->ageRating))->render();
         echo '</span>'; // rating
     }
 

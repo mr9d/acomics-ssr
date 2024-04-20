@@ -42,13 +42,29 @@ article.serial-card p.about {
 }
 
 /* Секция с возрастным рейтингом, ссылкой на оригинал и лицензией */
-article.serial-card aside.info { grid-area: info; margin: var(--mobile-gap) 0 0; }
-article.serial-card aside.info span.age-rating {}
-article.serial-card aside.info a.original-url {}
-article.serial-card aside.info span.license {}
+article.serial-card aside.info {
+    grid-area: info; margin: var(--mobile-gap) 0 0;
+    display: flex; flex-wrap: wrap; gap: var(--mobile-gap);
+}
+article.serial-card aside.info span.age-rating { white-space: nowrap; }
+
+article.serial-card aside.info a.original-url {
+    padding-left: 15px; background: var(--icon-external-url) 3px center no-repeat; white-space: nowrap;
+}
+article.serial-card aside.info span.license { white-space: nowrap; }
 
 /* Информация об обновлениях */
-article.serial-card section.activity { grid-area: activity; margin: var(--mobile-gap) 0 0; }
+article.serial-card section.activity {
+    grid-area: activity; margin: var(--mobile-gap) 0 0;
+    display: flex; flex-wrap: wrap; gap: var(--mobile-gap);
+}
+article.serial-card section.activity p.last-update { margin: 0; white-space: nowrap; }
+article.serial-card section.activity p.issue-count { margin: 0; white-space: nowrap; color: #aaa; }
+article.serial-card section.activity p.weekly-update-rate { margin: 0; white-space: nowrap; }
+article.serial-card section.activity p.weekly-update-rate.closed { color:#d00026; }
+article.serial-card section.activity p.weekly-update-rate.good { color:#39b54a; }
+article.serial-card section.activity p.weekly-update-rate.bad { color:#efa821; }
+
 
 /* Подписки */
 article.serial-card section.subscribe { grid-area: subscribe; margin: var(--mobile-gap) 0 0; }

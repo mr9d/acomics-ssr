@@ -15,6 +15,7 @@
     --icon-plus-url: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='22px' height='22px' viewBox='0 0 22 22'><defs><g id='G1_0_Layer1_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 48 32L 48 0 32 0 32 32 0 32 0 48 32 48 32 80 48 80 48 48 80 48 80 32 48 32 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.25, 1,1) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23G1_0_Layer1_0_FILL'/></g></g></svg>");
     --icon-cross-url: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='22px' height='22px' viewBox='0 0 22 22'><defs><g id='G1_2_Layer1_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 14 0L 0 14 58 72 72 58 14 0 Z'/></g><g id='G1_2_Layer0_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 72 14L 58 0 0 58 14 72 72 14 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.25, 2,2) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23G1_2_Layer1_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23G1_2_Layer0_0_FILL'/></g></g></svg>");
     --icon-checkmark-url: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='22px' height='22px' viewBox='0 0 22 22'><defs><g id='G1_4_Layer1_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 88 7L 83 0Q 49.7 31.4 32 60L 10 40 0 50 36 88Q 58.35 39.45 88 7 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.25, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23G1_4_Layer1_0_FILL'/></g></g></svg>");
+    --icon-external-url: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='9px' height='9px' viewBox='0 0 9 9'><defs><g id='FL_4_0_Layer0_0_FILL'><path fill='%234A6CBC' stroke='none' d='M 4 4Q 0.22265625 4.1236328125 0 8L 0 32Q 0.1 35.8 4 36L 28 36Q 31.6787109375 35.9728515625 32 32L 32 26Q 32 23.75 30 23.75 28.05 23.75 28 26L 28 29Q 28.0201171875 32.019921875 25 32L 7 32Q 4.1353515625 31.8646484375 4 29L 4 11Q 4.33984375 8.2431640625 7 8L 10 8Q 12.25 8 12.25 6 12.25 4 10 4L 4 4M 31.25 9.7Q 32.2 9.65 32 12L 32 14Q 32 16.25 34 16.25 36 16.25 36 14L 36 0 22 0Q 19.75 0 19.75 2 19.8 4 22 4L 24 4Q 26.4 3.9 26.25 5 26.15 5.95 24 8L 16 16Q 14.075 18.0962890625 16 20 18.0021484375 22.0556640625 20 20L 28 12Q 30.25 9.7 31.25 9.7 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.25, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23FL_4_0_Layer0_0_FILL'/></g></g></svg>");
 
     --icon-category-animal-url: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 16 16'><defs><g id='Layer0_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 3.5 5.65Q 2.85 5.25 2.35 5.5 1.9 5.8 1.75 6.6 1.55 7.4 1.9 8.25 2.25 9.1 2.8 9.5 3.35 9.85 4.15 9.45 4.95 9 5 8.35 5.1 7.7 4.65 6.9 4.2 6.1 3.5 5.65M 7.25 2.1Q 6.75 1.35 5.9 1.4 5 1.5 4.7 2.35 4.3 3.2 4.55 3.95 4.75 4.7 5.25 5.55 5.75 6.3 6.5 6.45 7.2 6.55 7.4 5.7 7.7 4.8 7.7 3.85 7.7 2.85 7.25 2.1M 11.65 11.3Q 10.7 9.65 10.15 8.95 9.8 8.6 9.25 8.35 8.7 8.1 8.2 8.1 7.65 8.1 7.15 8.35 6.6 8.6 6.2 9.1 5.4 9.8 4.95 10.35 4.1 11.3 3.9 12.25 3.7 13.4 4.6 13.95 5.5 14.5 6.5 14.05 7.5 13.55 8.15 13.55 8.65 13.55 9.45 13.9 10.25 14.25 10.85 14.15 11.3 14.1 11.75 13.7 12.55 12.85 11.65 11.3M 14.15 6.15Q 13.65 5.65 13 5.95 12.35 6.2 11.75 6.85 11.2 7.45 11.3 8.1 11.45 8.7 11.85 9.45 12.25 10.25 12.95 10 13.6 9.8 14.1 8.95 14.55 8.15 14.6 7.4 14.55 6.65 14.15 6.15M 11.9 2.65Q 11.6 1.8 10.95 1.55 10.25 1.3 9.7 1.85 9.2 2.5 9 3.35 8.8 4.2 8.9 5.35 8.95 6.5 9.65 6.55 10.35 6.5 11 5.65 11.7 4.85 11.95 4.15 12.25 3.4 11.9 2.65 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>");
     --icon-category-drama-url: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 16 16'><defs><g id='Layer0_0_FILL'><path fill='%23FFFFFF' stroke='none' d='M 13.8 8.55L 13.8 0.6Q 8.05 4.6 2.25 0.6L 2.25 8.55Q 2.3 10.7 4.1 12.75 5.75 14.6 8 15.45 10.4 14.45 12 12.55 13.75 10.6 13.8 8.55M 11.75 7.85L 10.7 8.2Q 10.05 8.45 9.75 8.15 9.4 7.9 9.5 7.25 9.55 6.6 9.95 6.25 10.3 5.9 10.85 5.9 11.35 5.9 11.75 6.25 12.1 6.6 12.1 7.15 12.1 7.7 11.75 7.85M 4.25 7.85Q 3.9 7.7 3.9 7.15 3.9 6.6 4.25 6.25 4.65 5.9 5.15 5.9 5.7 5.9 6.05 6.25 6.4 6.6 6.5 7.25 6.55 7.85 6.25 8.15 5.95 8.45 5.3 8.2 4.65 7.95 4.25 7.85M 6.45 12.2Q 5.6 12.45 5.5 12.05 5.4 11.65 6.4 11 7.4 10.35 7.85 10.3 8.3 10.25 9.2 10.9 10.1 11.5 10.35 11.95 10.55 12.45 9.45 12.2 8.4 11.95 7.85 11.95 7.3 11.95 6.45 12.2 Z'/></g></defs><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23Layer0_0_FILL'/></g></svg>");
@@ -152,6 +153,20 @@ main.common-container p { line-height: 1.4; }
 main.common-container li { line-height: 1.4; }
 main.common-container h2 { font-weight: normal; font-size: 19px; }
 main.common-container h3 { font-weight: normal; font-size: 16px; }
+
+/* src/Layout/Common/Component/AgeRatingLabel/AgeRatingLabel.css */
+a.age-rating-label.rating1, a.age-rating-label.rating1:hover, a.age-rating-label.rating1:visited
+{ text-decoration:none; font-weight:bold; color:#aaa; }
+a.age-rating-label.rating2, a.age-rating-label.rating2:hover, a.age-rating-label.rating2:visited
+{ text-decoration:none; font-weight:bold; color:#4a6cbc; }
+a.age-rating-label.rating3, a.age-rating-label.rating3:hover, a.age-rating-label.rating3:visited
+{ text-decoration:none; font-weight:bold; color:#39b54a; }
+a.age-rating-label.rating4, a.age-rating-label.rating4:hover, a.age-rating-label.rating4:visited
+{ text-decoration:none; font-weight:bold; color:#efa821; }
+a.age-rating-label.rating5, a.age-rating-label.rating5:hover, a.age-rating-label.rating5:visited
+{ text-decoration:none; font-weight:bold; color:#d00026; }
+a.age-rating-label.rating6, a.age-rating-label.rating6:hover, a.age-rating-label.rating6:visited
+{ text-decoration:none; font-weight:bold; color:#111; }
 
 /* src/Layout/Common/Component/DateTimeFormatted/DateTimeFormatted.css */
 span.date-time-formatted { white-space: nowrap; }
@@ -306,7 +321,7 @@ a.common-menu-item, a.common-menu-item:visited {
 }
 a.common-menu-item span { position:absolute; height:1px; border-bottom:1px solid #4a6cbc; left:10px; right:10px; bottom:9px; }
 a.common-menu-item:hover span { border-color:#fff; }
-a.common-menu-item.ext { padding-left: 17px; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='9px' height='9px' viewBox='0 0 9 9'><defs><g id='FL_4_0_Layer0_0_FILL'><path fill='%234A6CBC' stroke='none' d='M 4 4Q 0.22265625 4.1236328125 0 8L 0 32Q 0.1 35.8 4 36L 28 36Q 31.6787109375 35.9728515625 32 32L 32 26Q 32 23.75 30 23.75 28.05 23.75 28 26L 28 29Q 28.0201171875 32.019921875 25 32L 7 32Q 4.1353515625 31.8646484375 4 29L 4 11Q 4.33984375 8.2431640625 7 8L 10 8Q 12.25 8 12.25 6 12.25 4 10 4L 4 4M 31.25 9.7Q 32.2 9.65 32 12L 32 14Q 32 16.25 34 16.25 36 16.25 36 14L 36 0 22 0Q 19.75 0 19.75 2 19.8 4 22 4L 24 4Q 26.4 3.9 26.25 5 26.15 5.95 24 8L 16 16Q 14.075 18.0962890625 16 20 18.0021484375 22.0556640625 20 20L 28 12Q 30.25 9.7 31.25 9.7 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.25, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23FL_4_0_Layer0_0_FILL'/></g></g></svg>") 3px center no-repeat; }
+a.common-menu-item.ext { padding-left: 17px; background: var(--icon-external-url) 3px center no-repeat; }
 a.common-menu-item.ext span { left: 17px; }
 a.common-menu-item.selected, a.common-menu-item.selected:hover { color:#111; }
 a.common-menu-item.selected span, a.common-menu-item.selected:hover span { border-color:#111; }
@@ -621,13 +636,29 @@ article.serial-card p.about {
 }
 
 /* Секция с возрастным рейтингом, ссылкой на оригинал и лицензией */
-article.serial-card aside.info { grid-area: info; margin: var(--mobile-gap) 0 0; }
-article.serial-card aside.info span.age-rating {}
-article.serial-card aside.info a.original-url {}
-article.serial-card aside.info span.license {}
+article.serial-card aside.info {
+    grid-area: info; margin: var(--mobile-gap) 0 0;
+    display: flex; flex-wrap: wrap; gap: var(--mobile-gap);
+}
+article.serial-card aside.info span.age-rating { white-space: nowrap; }
+
+article.serial-card aside.info a.original-url {
+    padding-left: 15px; background: var(--icon-external-url) 3px center no-repeat; white-space: nowrap;
+}
+article.serial-card aside.info span.license { white-space: nowrap; }
 
 /* Информация об обновлениях */
-article.serial-card section.activity { grid-area: activity; margin: var(--mobile-gap) 0 0; }
+article.serial-card section.activity {
+    grid-area: activity; margin: var(--mobile-gap) 0 0;
+    display: flex; flex-wrap: wrap; gap: var(--mobile-gap);
+}
+article.serial-card section.activity p.last-update { margin: 0; white-space: nowrap; }
+article.serial-card section.activity p.issue-count { margin: 0; white-space: nowrap; color: #aaa; }
+article.serial-card section.activity p.weekly-update-rate { margin: 0; white-space: nowrap; }
+article.serial-card section.activity p.weekly-update-rate.closed { color:#d00026; }
+article.serial-card section.activity p.weekly-update-rate.good { color:#39b54a; }
+article.serial-card section.activity p.weekly-update-rate.bad { color:#efa821; }
+
 
 /* Подписки */
 article.serial-card section.subscribe { grid-area: subscribe; margin: var(--mobile-gap) 0 0; }

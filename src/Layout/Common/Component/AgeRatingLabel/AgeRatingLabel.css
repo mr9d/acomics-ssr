@@ -1,0 +1,12 @@
+a.age-rating-label.rating1, a.age-rating-label.rating1:hover, a.age-rating-label.rating1:visited
+{ text-decoration:none; font-weight:bold; color:#aaa; }
+a.age-rating-label.rating2, a.age-rating-label.rating2:hover, a.age-rating-label.rating2:visited
+{ text-decoration:none; font-weight:bold; color:#4a6cbc; }
+a.age-rating-label.rating3, a.age-rating-label.rating3:hover, a.age-rating-label.rating3:visited
+{ text-decoration:none; font-weight:bold; color:#39b54a; }
+a.age-rating-label.rating4, a.age-rating-label.rating4:hover, a.age-rating-label.rating4:visited
+{ text-decoration:none; font-weight:bold; color:#efa821; }
+a.age-rating-label.rating5, a.age-rating-label.rating5:hover, a.age-rating-label.rating5:visited
+{ text-decoration:none; font-weight:bold; color:#d00026; }
+a.age-rating-label.rating6, a.age-rating-label.rating6:hover, a.age-rating-label.rating6:visited
+{ text-decoration:none; font-weight:bold; color:#111; }
