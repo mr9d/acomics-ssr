@@ -51,7 +51,7 @@ button.subscribe-button.reader {
 /*
  * Стили для каталога
  */
- button.subscribe-button.catalog {
+button.subscribe-button.catalog {
     width: 200px; height: 30px;
     background-position: left var(--desktop-gap) center;
     background-size: 16px 16px;
@@ -74,7 +74,26 @@ button.subscribe-button.catalog.just-subscribed[data-is-subscribed="1"]:hover sp
 
 button.subscribe-button.catalog span.subscr-count {
     background: white; color: black;
-    border-style: solid; border-width: 1px 1px 1px 0; border-color: var(--brand-grey);
+    border-style: solid; border-width: 1px 1px 1px 0; border-color: #aaa;
     height: 30px; width: 50px;
     display: flex; align-items: center; justify-content: center;
+    border-radius: 0 3px 3px 0;
+    box-sizing: border-box;
+}
+
+/* Ставим кнопку подписки справа */
+@media screen and (min-width: 520px) {
+    button.subscribe-button.catalog {
+        width: 60px; height: 90px;
+        background-position: bottom var(--mobile-gap) center;
+        background-size: 24px 24px;
+        flex-direction: column;
+    }
+    button.subscribe-button.catalog span.caption {
+        display: none !important; /* Скрываем текст */
+    }
+    button.subscribe-button.catalog span.subscr-count {
+        border-radius: 3px 3px 0 0; height: 45px; width: 100%; box-sizing: border-box;
+        border-width: 1px 1px 0 1px;
+    }
 }

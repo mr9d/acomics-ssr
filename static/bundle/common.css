@@ -666,6 +666,52 @@ article.serial-card section.subscribe {
     display: flex; flex-direction: row-reverse; justify-content: flex-end;
 }
 
+/* Ставим кнопку подписки справа */
+@media screen and (min-width: 520px) {
+    article.serial-card {
+        grid-template-areas:
+            "cover title subscribe"
+            "cover about subscribe"
+            "info info info"
+            "activity activity activity";
+        grid-template-columns: 160px 1fr 60px;
+        grid-template-rows: min-content 1fr min-content min-content;
+    }
+    article.serial-card a.cover img { display: block; width: 160px; height: 90px; }
+    article.serial-card h2.title { margin: 0 var(--mobile-gap); }
+    article.serial-card p.about { margin: var(--mobile-gap) var(--mobile-gap) 0; }
+    article.serial-card section.subscribe { margin: 0; }
+}
+
+/* Ставим информацию об обновлениях справа */
+@media screen and (min-width: 700px) {
+    article.serial-card {
+        grid-template-areas:
+            "cover title activity subscribe"
+            "cover about activity subscribe"
+            "cover info activity subscribe";
+        grid-template-columns: 160px 1fr 150px 60px;
+        grid-template-rows: min-content min-content 1fr;
+    }
+    article.serial-card section.activity { flex-direction: column; margin: 0; gap: 0; height: 90px; }
+    article.serial-card section.activity p.last-update { flex-grow: 1; }
+    article.serial-card section.activity p.last-update a { display: block; }
+    article.serial-card aside.info { margin: var(--mobile-gap) var(--mobile-gap) 0; }
+}
+
+/* Делаем полноразмерные отступы */
+@media screen and (min-width: 920px) {
+    article.serial-card {
+        grid-template-columns: 160px 1fr 160px 60px;
+    }
+    article.serial-card h2.title { margin: 0 var(--desktop-gap); }
+    article.serial-card p.about { margin: var(--mobile-gap) var(--desktop-gap) 0; }
+    article.serial-card aside.info {
+        margin: var(--mobile-gap) var(--desktop-gap) 0;
+        gap: var(--mobile-gap) var(--desktop-gap);
+    }
+}
+
 /* src/Layout/Common/Component/SubscribeButton/SubscribeButton.css */
 /*
  * Основные стили
@@ -720,7 +766,7 @@ button.subscribe-button.reader {
 /*
  * Стили для каталога
  */
- button.subscribe-button.catalog {
+button.subscribe-button.catalog {
     width: 200px; height: 30px;
     background-position: left var(--desktop-gap) center;
     background-size: 16px 16px;
@@ -743,9 +789,28 @@ button.subscribe-button.catalog.just-subscribed[data-is-subscribed="1"]:hover sp
 
 button.subscribe-button.catalog span.subscr-count {
     background: white; color: black;
-    border-style: solid; border-width: 1px 1px 1px 0; border-color: var(--brand-grey);
+    border-style: solid; border-width: 1px 1px 1px 0; border-color: #aaa;
     height: 30px; width: 50px;
     display: flex; align-items: center; justify-content: center;
+    border-radius: 0 3px 3px 0;
+    box-sizing: border-box;
+}
+
+/* Ставим кнопку подписки справа */
+@media screen and (min-width: 520px) {
+    button.subscribe-button.catalog {
+        width: 60px; height: 90px;
+        background-position: bottom var(--mobile-gap) center;
+        background-size: 24px 24px;
+        flex-direction: column;
+    }
+    button.subscribe-button.catalog span.caption {
+        display: none !important; /* Скрываем текст */
+    }
+    button.subscribe-button.catalog span.subscr-count {
+        border-radius: 3px 3px 0 0; height: 45px; width: 100%; box-sizing: border-box;
+        border-width: 1px 1px 0 1px;
+    }
 }
 
 /* src/Layout/Common/Component/UserMenuModal/UserMenuModal.css */

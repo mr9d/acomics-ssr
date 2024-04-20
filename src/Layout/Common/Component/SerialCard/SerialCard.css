@@ -71,3 +71,49 @@ article.serial-card section.subscribe {
     grid-area: subscribe; margin: var(--mobile-gap) 0 0;
     display: flex; flex-direction: row-reverse; justify-content: flex-end;
 }
+
+/* Ставим кнопку подписки справа */
+@media screen and (min-width: 520px) {
+    article.serial-card {
+        grid-template-areas:
+            "cover title subscribe"
+            "cover about subscribe"
+            "info info info"
+            "activity activity activity";
+        grid-template-columns: 160px 1fr 60px;
+        grid-template-rows: min-content 1fr min-content min-content;
+    }
+    article.serial-card a.cover img { display: block; width: 160px; height: 90px; }
+    article.serial-card h2.title { margin: 0 var(--mobile-gap); }
+    article.serial-card p.about { margin: var(--mobile-gap) var(--mobile-gap) 0; }
+    article.serial-card section.subscribe { margin: 0; }
+}
+
+/* Ставим информацию об обновлениях справа */
+@media screen and (min-width: 700px) {
+    article.serial-card {
+        grid-template-areas:
+            "cover title activity subscribe"
+            "cover about activity subscribe"
+            "cover info activity subscribe";
+        grid-template-columns: 160px 1fr 150px 60px;
+        grid-template-rows: min-content min-content 1fr;
+    }
+    article.serial-card section.activity { flex-direction: column; margin: 0; gap: 0; height: 90px; }
+    article.serial-card section.activity p.last-update { flex-grow: 1; }
+    article.serial-card section.activity p.last-update a { display: block; }
+    article.serial-card aside.info { margin: var(--mobile-gap) var(--mobile-gap) 0; }
+}
+
+/* Делаем полноразмерные отступы */
+@media screen and (min-width: 920px) {
+    article.serial-card {
+        grid-template-columns: 160px 1fr 160px 60px;
+    }
+    article.serial-card h2.title { margin: 0 var(--desktop-gap); }
+    article.serial-card p.about { margin: var(--mobile-gap) var(--desktop-gap) 0; }
+    article.serial-card aside.info {
+        margin: var(--mobile-gap) var(--desktop-gap) 0;
+        gap: var(--mobile-gap) var(--desktop-gap);
+    }
+}
