@@ -139,4 +139,37 @@ form.catalog-search-form button {
 }
 
 /* src/Layout/Main/Component/CatalogSerialsHeader/CatalogSerialsHeader.css */
+p.catalog-serials-header {
+    border-bottom: 1px solid var(--brand-grey);
+    margin: var(--mobile-gap) 0 0;
+    height: 40px; box-sizing: border-box;
+    display: flex; align-items: center;
+    color: #aaa;
+    display: none;
+}
+p.catalog-serials-header span.sorting {
+    display: block;
+}
+p.catalog-serials-header span.sorting::after {
+    content: ' ▼';
+}
+
+@media screen and (min-width: 520px) {
+    p.catalog-serials-header { display: flex; justify-content: space-between; }
+    p.catalog-serials-header span.description { margin-left: 5px; flex-grow: 1; }
+    p.catalog-serials-header span.activity { display: none; }
+}
+
+@media screen and (min-width: 700px) {
+    p.catalog-serials-header span.activity { display: block; width: 142px; }
+    p.catalog-serials-header:has(> span.subscribe.sorting) span.activity { width: 124px; }
+    p.catalog-serials-header span.subscribe { min-width: 80px; text-align: center; }
+}
+
+@media screen and (min-width: 920px) {
+    p.catalog-serials-header span.description { margin-left: 10px; }
+    p.catalog-serials-header span.activity { display: block; width: 140px; }
+    p.catalog-serials-header:has(> span.subscribe.sorting) span.activity { width: 140px; }
+    p.catalog-serials-header span.subscribe { min-width: 100px; }
+}
 

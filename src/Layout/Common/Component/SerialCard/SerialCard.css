@@ -1,5 +1,6 @@
 article.serial-card {
-    padding: var(--desktop-gap) 0; border-bottom: 1px solid var(--brand-grey);
+    padding: 0 0 var(--desktop-gap); margin-top: var(--desktop-gap);
+    border-bottom: 1px solid var(--brand-grey);
     display: grid;
     grid-template-areas:
         "cover title"
@@ -96,7 +97,7 @@ article.serial-card section.subscribe {
             "cover title activity subscribe"
             "cover about activity subscribe"
             "cover info activity subscribe";
-        grid-template-columns: 160px 1fr 150px 60px;
+        grid-template-columns: 160px 1fr 150px 70px;
         grid-template-rows: min-content min-content 1fr;
     }
     article.serial-card section.activity { flex-direction: column; margin: 0; gap: 0; height: 90px; }
@@ -108,7 +109,7 @@ article.serial-card section.subscribe {
 /* Делаем полноразмерные отступы */
 @media screen and (min-width: 920px) {
     article.serial-card {
-        grid-template-columns: 160px 1fr 160px 60px;
+        grid-template-columns: 160px 1fr 160px 80px;
     }
     article.serial-card h2.title { margin: 0 var(--desktop-gap); }
     article.serial-card p.about { margin: var(--mobile-gap) var(--desktop-gap) 0; }
