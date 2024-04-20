@@ -22,7 +22,12 @@ class ReaderMenu extends AbstractComponent
 
 		$this->renderMenu();
 
-		(new SubscribeButton($this->serialLayoutData->id, $this->serialLayoutData->isSubscribed, SubscribeButton::TYPE_READER))->render();
+		(new SubscribeButton(
+            serialId: $this->serialLayoutData->id,
+            isSubscribed: $this->serialLayoutData->isSubscribed,
+            subscrCount: 0, // Не используется для TYPE_READER
+            type: SubscribeButton::TYPE_READER)
+        )->render();
 
 		echo '</section>';
 	}

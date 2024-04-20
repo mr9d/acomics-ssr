@@ -199,19 +199,13 @@ class SerialCard extends AbstractComponent
     {
         echo '<section class="subscribe">';
 
-        $this->renderSubscribersCount();
-        $this->renderSubscribeButton();
+        (new SubscribeButton(
+            serialId: $this->serial->id,
+            isSubscribed: $this->serial->isSubscribed,
+            subscrCount: $this->serial->subscrCount,
+            type: SubscribeButton::TYPE_CATALOG)
+        )->render();
 
         echo '</section>'; // subscribe
-    }
-
-    private function renderSubscribersCount(): void
-    {
-        echo '<span class="subscribers-count">' . $this->serial->subscrCount . '</span>';
-    }
-
-    private function renderSubscribeButton(): void
-    {
-        (new SubscribeButton($this->serial->id, $this->serial->isSubscribed, SubscribeButton::TYPE_CATALOG))->render();
     }
 }

@@ -661,7 +661,10 @@ article.serial-card section.activity p.weekly-update-rate.bad { color:#efa821; }
 
 
 /* Подписки */
-article.serial-card section.subscribe { grid-area: subscribe; margin: var(--mobile-gap) 0 0; }
+article.serial-card section.subscribe {
+    grid-area: subscribe; margin: var(--mobile-gap) 0 0;
+    display: flex; flex-direction: row-reverse; justify-content: flex-end;
+}
 
 /* src/Layout/Common/Component/SubscribeButton/SubscribeButton.css */
 /*
@@ -718,10 +721,14 @@ button.subscribe-button.reader {
  * Стили для каталога
  */
  button.subscribe-button.catalog {
-    width: 100px; height: 30px;
-    background-position: center;
+    width: 200px; height: 30px;
+    background-position: left var(--desktop-gap) center;
     background-size: 16px 16px;
+    border-radius: 3px;
+    justify-content: space-between;
 }
+button.subscribe-button.catalog span.caption { justify-content: space-between; padding-left: 46px; }
+
 button.subscribe-button.catalog span.caption-subscribe { display: block; }
 button.subscribe-button.catalog[data-is-subscribed="1"] span.caption-subscribe { display: none; }
 button.subscribe-button.catalog[data-is-subscribed="1"] span.caption-subscribed { display: block; }
@@ -733,7 +740,13 @@ button.subscribe-button.catalog[data-is-subscribed="1"]:hover span.caption-unsub
 button.subscribe-button.catalog.just-subscribed[data-is-subscribed="1"]:hover span.caption-subscribe { display: none; }
 button.subscribe-button.catalog.just-subscribed[data-is-subscribed="1"]:hover span.caption-subscribed { display: block; }
 button.subscribe-button.catalog.just-subscribed[data-is-subscribed="1"]:hover span.caption-unsubscribe { display: none; }
- /* wip */
+
+button.subscribe-button.catalog span.subscr-count {
+    background: white; color: black;
+    border-style: solid; border-width: 1px 1px 1px 0; border-color: var(--brand-grey);
+    height: 30px; width: 50px;
+    display: flex; align-items: center; justify-content: center;
+}
 
 /* src/Layout/Common/Component/UserMenuModal/UserMenuModal.css */
 /* Меню пользователя */

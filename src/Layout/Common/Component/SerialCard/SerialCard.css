@@ -67,4 +67,7 @@ article.serial-card section.activity p.weekly-update-rate.bad { color:#efa821; }
 
 
 /* Подписки */
-article.serial-card section.subscribe { grid-area: subscribe; margin: var(--mobile-gap) 0 0; }
+article.serial-card section.subscribe {
+    grid-area: subscribe; margin: var(--mobile-gap) 0 0;
+    display: flex; flex-direction: row-reverse; justify-content: flex-end;
+}

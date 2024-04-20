@@ -213,6 +213,13 @@ const makePaginator = () => {
 };
 
 /* src/Layout/Common/Component/SubscribeButton/SubscribeButton.js */
+const changeSubscrCount = (button, delta) => {
+    const subscrCountElement = button.querySelector('span.subscr-count');
+    if (subscrCountElement) {
+        subscrCountElement.innerText = +subscrCountElement.innerText + delta;
+    }
+};
+
 const subscribeButtonClickListener = async (evt) => {
 	evt.preventDefault();
 	const button = evt.target.closest('button.subscribe-button');
@@ -233,6 +240,7 @@ const subscribeButtonClickListener = async (evt) => {
 		buttonsForSerial.forEach((button) => {
             button.dataset.isSubscribed = '1';
             button.setAttribute('title', 'Отписаться');
+            changeSubscrCount(button, 1);
         });
 		button.classList.add('just-subscribed');
 		setTimeout(() => button.classList.remove('just-subscribed'), 2000);
@@ -241,6 +249,7 @@ const subscribeButtonClickListener = async (evt) => {
 		buttonsForSerial.forEach((button) => {
             button.dataset.isSubscribed = '0';
             button.setAttribute('title', 'Подписаться');
+            changeSubscrCount(button, -1);
         });
 		return false;
 	} else {

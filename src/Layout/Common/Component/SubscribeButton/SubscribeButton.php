@@ -7,15 +7,17 @@ class SubscribeButton extends AbstractComponent
 {
     public const TYPE_READER = 'reader';
     public const TYPE_CATALOG = 'catalog';
-    
+
 	private int $serialId;
 	private bool $isSubscribed;
+    private int $subscrCount;
     private string $type;
 
-	public function __construct(int $serialId, bool $isSubscribed, string $type = self::TYPE_READER)
+	public function __construct(int $serialId, bool $isSubscribed, int $subscrCount, string $type = self::TYPE_READER)
 	{
 		$this->serialId = $serialId;
 		$this->isSubscribed = $isSubscribed;
+		$this->subscrCount = $subscrCount;
 		$this->type = $type;
 	}
 
@@ -27,6 +29,12 @@ class SubscribeButton extends AbstractComponent
 		echo '<span class="caption caption-subscribe">Подписаться</span>';
 		echo '<span class="caption caption-subscribed">В подписке</span>';
 		echo '<span class="caption caption-unsubscribe">Отписаться</span>';
+
+        if ($this->type === self::TYPE_CATALOG)
+        {
+            echo '<span class="subscr-count">' . $this->subscrCount . '</span>';
+        }
+
 		echo '</button>'; // subscribe-button
 	}
 }
