@@ -74,7 +74,7 @@ const initReaderPage = () => {
 	makeReaderUpButton();
 	removeTitleHashFromUrl();
 	makeHeaderDisapearOnScroll();
-	makeReaderListLoadMore();
+	makeReaderListLoadMore(); // replace with makeInfiniteScroll
     preventFormDoubleSubmission();
 };
 

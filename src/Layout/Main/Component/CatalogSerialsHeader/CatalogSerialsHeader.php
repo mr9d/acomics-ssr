@@ -18,10 +18,12 @@ class CatalogSerialsHeader extends AbstractComponent
 
     public function render(): void
     {
+        $searchSort = $this->filters !== null ? $this->filters->searchSort : null;
+
         echo '<p class="catalog-serials-header">';
-        $this->renderTitle('Описание комикса', 'description', $this->filters->searchSort === 'serial_name');
-        $this->renderTitle('Активность', 'activity', $this->filters->searchSort === 'last_update' || $this->filters->searchSort === 'issue_count');
-        $this->renderTitle('Подписчики', 'subscribe', $this->filters->searchSort === 'subscr_count');
+        $this->renderTitle('Описание комикса', 'description', $searchSort === 'serial_name');
+        $this->renderTitle('Активность', 'activity', $searchSort === 'last_update' || $searchSort === 'issue_count');
+        $this->renderTitle('Подписчики', 'subscribe', $searchSort === 'subscr_count');
         echo '</p>'; // catalog-serials-header
     }
 

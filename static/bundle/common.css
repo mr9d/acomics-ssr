@@ -443,6 +443,12 @@ div.header-modal {
 	width: 100%; max-width: var(--max-width); min-width: var(--min-width); margin: 0 auto; align-items: flex-start; height: auto;
 }
 
+/* src/Layout/Common/Component/InfiniteScroll/InfiniteScroll.css */
+a.infinite-scroll {
+	display: flex; justify-content: center; align-items: center;
+	background: var(--brand-grey); height: 150px;
+}
+
 /* src/Layout/Common/Component/LazyImage/LazyImage.css */
 img.lazy-image { object-fit: cover; }
 
@@ -592,7 +598,7 @@ nav.common-paginator ul li.current span {
 
 
 /* src/Layout/Common/Component/SerialCard/SerialCard.css */
-article.serial-card {
+section.serial-card {
     padding: 0 0 var(--desktop-gap); margin-top: var(--desktop-gap);
     border-bottom: 1px solid var(--brand-grey);
     display: grid;
@@ -605,71 +611,71 @@ article.serial-card {
     grid-template-columns: 128px 1fr;
 }
 
-article.serial-card a.cover { display: block; grid-area: cover; }
-article.serial-card a.cover img { display: block; width: 128px; height: 72px; }
+section.serial-card a.cover { display: block; grid-area: cover; }
+section.serial-card a.cover img { display: block; width: 128px; height: 72px; }
 
 /* Заголовок */
-article.serial-card h2.title {
+section.serial-card h2.title {
     font-size: 21px; line-height: 22px; margin: 0 0 0 var(--mobile-gap);
     font-family: 'yanone_kaffeesatzregular', sans-serif; word-break: break-word;
     grid-area: title;
 }
-article.serial-card h2.title a {
+section.serial-card h2.title a {
     text-decoration: none;
 }
-article.serial-card h2.title span.icon-featured {
+section.serial-card h2.title span.icon-featured {
     display: inline-block; width: 12px; height: 16px; vertical-align: middle; margin-left: 4px;
     background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='12px' height='12px' viewBox='0 0 12 12'><defs><g id='E1_1_Layer1_0_FILL'><path fill='%23EFA821' stroke='none' d='M 16.15 14L 0.5 16.8 12 28.65 9.5 44.3 24.2 37 38.45 44.3 36.65 28.65 47.45 16.8 31.55 14.5 24 -0.15 16.15 14 Z'/></g></defs><g transform='matrix( 0.25640869140625, 0, 0, 0.270172119140625, -0.1,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23E1_1_Layer1_0_FILL'/></g></g></svg>") no-repeat center;
 }
-article.serial-card h2.title span.icon-translation {
+section.serial-card h2.title span.icon-translation {
     display: inline-block; width: 32px; height: 16px; vertical-align: middle; margin-left: 4px;
     background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='32px' height='13px' viewBox='0 0 32 13'><defs><g id='B1_0_Layer1_0_FILL'><path fill='%23AAAAAA' stroke='none' d='M 128 42L 128 10Q 126.4296875 1.084375 118 0L 31.2 0.05Q 18.2525390625 0.0333984375 9.15 7.6 0.0056640625 15.247265625 0 26 0.0046875 36.8025390625 9.15 44.35 18.252734375 51.9166015625 31 52L 118 52Q 127 51.09375 128 42M 124 12L 124 40.3Q 123.444140625 47.791015625 116 48L 31 48Q 19.7296875 47.9921875 11.9 41.6 3.998828125 35.201171875 4 26.05 4.001171875 16.948828125 11.9 10.4 19.7642578125 3.9294921875 31 4L 116 4Q 122.94375 5.05625 124 12 Z'/><path fill='%23FFFFFF' stroke='none' d='M 124 40.3L 124 12Q 122.94375 5.05625 116 4L 31 4Q 19.7642578125 3.9294921875 11.9 10.4 4.001171875 16.948828125 4 26.05 3.998828125 35.201171875 11.9 41.6 19.7296875 47.9921875 31 48L 116 48Q 123.444140625 47.791015625 124 40.3M 22.05 17.7Q 23.05 17.7 26.65 21.35 30.3 25 30.3 26 30.3 27 26.65 30.6 23.05 34.25 22.05 34.25 21.05 34.25 17.4 30.6 13.75 27 13.75 26 13.75 25 17.4 21.35 21.05 17.7 22.05 17.7 Z'/></g><g id='B1_0_Layer0_0_FILL'><path fill='%23AAAAAA' stroke='none' d='M 28.05 19.95Q 25.55 17.45 22 17.45 18.45 17.45 15.9 19.95 13.45 22.5 13.45 26.05 13.45 29.6 15.9 32.1 18.45 34.6 22 34.6 25.55 34.6 28.05 32.1 30.6 29.6 30.6 26.05 30.6 22.5 28.05 19.95M 22.05 21.2Q 24 21.2 25.4 22.6 26.8 24 26.8 26 26.8 27.95 25.4 29.35 24 30.75 22.05 30.75 20.05 30.75 18.65 29.35 17.25 27.95 17.25 26 17.25 24 18.65 22.6 20.05 21.2 22.05 21.2M 60 40L 60 36 46 36 60 16 60 12 40 12 40 16 54 16 40 36 40 40 60 40M 68 16L 68 36 80 26 68 16M 88.55 16.3Q 87.5 17.85 87.5 19.95 87.5 23.35 89.3 25.3 91.05 27.3 94.3 28.25L 84.05 39.9 89.15 39.9 99 29 104 29 104 40 108 40 108 12 99.3 12.05Q 96.8 12.05 94.8 12.45 92.75 12.8 91.25 13.7 89.55 14.75 88.55 16.3M 93.8 23.85Q 92.85 23.2 92.5 22.35 92 21.5 92 20.2 92 19.1 92.65 18.2 93.2 17.25 94.25 16.75 95.2 16.3 96.4 16.15 97.5 15.95 99.4 15.95L 104 15.95 104 25.1 99.65 25.1Q 97.75 25.1 96.2 24.85 94.75 24.55 93.8 23.85 Z'/></g></defs><g transform='matrix( 0.25, 0, 0, 0.2499847412109375, 0,0) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23B1_0_Layer1_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23B1_0_Layer0_0_FILL'/></g></g></svg>") no-repeat center;
 }
-article.serial-card h2.title a.icon-top-vote {
+section.serial-card h2.title a.icon-top-vote {
     display: inline-block; width: 12px; height: 16px; vertical-align: middle; margin-left: 4px;
     background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' preserveAspectRatio='none' x='0px' y='0px' width='11px' height='11px' viewBox='0 0 11 11'><defs><g id='K_0_Layer2_0_FILL'><path fill='%2300AA7B' stroke='none' d='M 60.3 19.05L 43.65 21.9 39.25 3.25 17.3 6.5 19.5 25.65 3.05 27.6Q -5.1 42 8.5 49.75L 21.55 48.05 25.25 60.15Q 40.7 71.45 50.35 56.8L 48.7 43.75 62.75 41.1Q 71.6 25.5 60.3 19.05 Z'/></g><g id='K_0_Layer1_0_FILL'><path fill='%23005B17' stroke='none' d='M 58.35 17.95L 42.95 20.4 38.45 1.75 17.65 5.05 20 24.15 3.05 27.6Q -4.95 39.6 8.6 46.75L 23.9 45.7 27.25 60.2Q 40.95 67.6 48.8 56.75L 47 42.1 61.85 38.05Q 72 24.65 58.35 17.95 Z'/></g><g id='K_0_Layer0_0_FILL'><path fill='%23BEDF15' stroke='none' d='M 5.1 26.65Q 1.65 28.85 2.9 34.55 2.45 31.85 10.05 33 17.65 34.1 20.9 22.65L 5.1 26.65M 22.2 7Q 31.05 13.55 38.25 0.25 27.4 -0.9 18.7 3.55L 20 15Q 19.45 8.1 22.2 7M 58.35 17.95L 42.4 18.85Q 46.2 27.3 49.95 26.3 59.9 22.45 58.35 17.95 Z'/><path fill='%2339B54A' stroke='none' d='M 59.9 35Q 66.75 25.55 58.35 17.95 59.9 22.45 49.95 26.3 46.2 27.3 42.4 18.85L 38.25 0.25Q 31.05 13.55 22.2 7 19.45 8.1 20 15L 20.9 22.65Q 17.65 34.1 10.05 33 2.45 31.85 2.9 34.55L 2.9 34.6Q 3.85 40.55 7.65 43.7L 25.75 41.15 28.95 55.3Q 38.2 63.35 45.95 52.3L 43.8 38.6 59.9 35 Z'/></g></defs><g transform='matrix( 0.24884033203125, 0, 0, 0.25, 0.05,0.05) '><g transform='matrix( 0.66326904296875, 0, 0, 0.677337646484375, -0.15,-0.3) '><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23K_0_Layer2_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23K_0_Layer1_0_FILL'/></g><g transform='matrix( 1, 0, 0, 1, 0,0) '><use xlink:href='%23K_0_Layer0_0_FILL'/></g></g></g></svg>") no-repeat center;
 }
 
 /* Описание */
-article.serial-card p.about {
+section.serial-card p.about {
     grid-area: about; word-break: break-word;
     margin: var(--mobile-gap) 0 0;
 }
 
 /* Секция с возрастным рейтингом, ссылкой на оригинал и лицензией */
-article.serial-card aside.info {
+section.serial-card aside.info {
     grid-area: info; margin: var(--mobile-gap) 0 0;
     display: flex; flex-wrap: wrap; gap: var(--mobile-gap);
 }
-article.serial-card aside.info span.age-rating { white-space: nowrap; }
+section.serial-card aside.info span.age-rating { white-space: nowrap; }
 
-article.serial-card aside.info a.original-url {
+section.serial-card aside.info a.original-url {
     padding-left: 15px; background: var(--icon-external-url) 3px center no-repeat; white-space: nowrap;
 }
-article.serial-card aside.info span.license { white-space: nowrap; }
+section.serial-card aside.info span.license { white-space: nowrap; }
 
 /* Информация об обновлениях */
-article.serial-card section.activity {
+section.serial-card section.activity {
     grid-area: activity; margin: var(--mobile-gap) 0 0;
     display: flex; flex-wrap: wrap; gap: var(--mobile-gap);
 }
-article.serial-card section.activity p.last-update { margin: 0; white-space: nowrap; }
-article.serial-card section.activity p.issue-count { margin: 0; white-space: nowrap; color: #aaa; }
-article.serial-card section.activity p.weekly-update-rate { margin: 0; white-space: nowrap; }
-article.serial-card section.activity p.weekly-update-rate.closed { color:#d00026; }
-article.serial-card section.activity p.weekly-update-rate.good { color:#39b54a; }
-article.serial-card section.activity p.weekly-update-rate.bad { color:#efa821; }
+section.serial-card section.activity p.last-update { margin: 0; white-space: nowrap; }
+section.serial-card section.activity p.issue-count { margin: 0; white-space: nowrap; color: #aaa; }
+section.serial-card section.activity p.weekly-update-rate { margin: 0; white-space: nowrap; }
+section.serial-card section.activity p.weekly-update-rate.closed { color:#d00026; }
+section.serial-card section.activity p.weekly-update-rate.good { color:#39b54a; }
+section.serial-card section.activity p.weekly-update-rate.bad { color:#efa821; }
 
 
 /* Подписки */
-article.serial-card section.subscribe {
+section.serial-card section.subscribe {
     grid-area: subscribe; margin: var(--mobile-gap) 0 0;
     display: flex; flex-direction: row-reverse; justify-content: flex-end;
 }
 
 /* Ставим кнопку подписки справа */
 @media screen and (min-width: 520px) {
-    article.serial-card {
+    section.serial-card {
         grid-template-areas:
             "cover title subscribe"
             "cover about subscribe"
@@ -678,15 +684,15 @@ article.serial-card section.subscribe {
         grid-template-columns: 160px 1fr 60px;
         grid-template-rows: min-content 1fr min-content min-content;
     }
-    article.serial-card a.cover img { display: block; width: 160px; height: 90px; }
-    article.serial-card h2.title { margin: 0 var(--mobile-gap); }
-    article.serial-card p.about { margin: var(--mobile-gap) var(--mobile-gap) 0; }
-    article.serial-card section.subscribe { margin: 0; }
+    section.serial-card a.cover img { display: block; width: 160px; height: 90px; }
+    section.serial-card h2.title { margin: 0 var(--mobile-gap); }
+    section.serial-card p.about { margin: var(--mobile-gap) var(--mobile-gap) 0; }
+    section.serial-card section.subscribe { margin: 0; }
 }
 
 /* Ставим информацию об обновлениях справа */
 @media screen and (min-width: 700px) {
-    article.serial-card {
+    section.serial-card {
         grid-template-areas:
             "cover title activity subscribe"
             "cover about activity subscribe"
@@ -694,20 +700,20 @@ article.serial-card section.subscribe {
         grid-template-columns: 160px 1fr 150px 70px;
         grid-template-rows: min-content min-content 1fr;
     }
-    article.serial-card section.activity { flex-direction: column; margin: 0; gap: 0; height: 90px; }
-    article.serial-card section.activity p.last-update { flex-grow: 1; }
-    article.serial-card section.activity p.last-update a { display: block; }
-    article.serial-card aside.info { margin: var(--mobile-gap) var(--mobile-gap) 0; }
+    section.serial-card section.activity { flex-direction: column; margin: 0; gap: 0; height: 90px; }
+    section.serial-card section.activity p.last-update { flex-grow: 1; }
+    section.serial-card section.activity p.last-update a { display: block; }
+    section.serial-card aside.info { margin: var(--mobile-gap) var(--mobile-gap) 0; }
 }
 
 /* Делаем полноразмерные отступы */
 @media screen and (min-width: 920px) {
-    article.serial-card {
+    section.serial-card {
         grid-template-columns: 160px 1fr 160px 80px;
     }
-    article.serial-card h2.title { margin: 0 var(--desktop-gap); }
-    article.serial-card p.about { margin: var(--mobile-gap) var(--desktop-gap) 0; }
-    article.serial-card aside.info {
+    section.serial-card h2.title { margin: 0 var(--desktop-gap); }
+    section.serial-card p.about { margin: var(--mobile-gap) var(--desktop-gap) 0; }
+    section.serial-card aside.info {
         margin: var(--mobile-gap) var(--desktop-gap) 0;
         gap: var(--mobile-gap) var(--desktop-gap);
     }

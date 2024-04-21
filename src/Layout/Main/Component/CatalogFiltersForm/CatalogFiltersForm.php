@@ -214,5 +214,4 @@ class CatalogFiltersForm extends AbstractComponent
 
         echo '</div>'; // label-with-input
     }
-
 }

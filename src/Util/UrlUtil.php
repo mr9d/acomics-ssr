@@ -34,6 +34,15 @@ class UrlUtil
 		}
 	}
 
+    public static function updatePageUrlParameter(string $parameterName, string $parameterValue): string
+    {
+        $pageUrl = $_SERVER['REQUEST_URI'];
+        $url = parse_url($pageUrl);
+        parse_str($url['query'], $query);
+        $query[$parameterName] = $parameterValue;
+        return $url['path'] . '?' . http_build_query($query);
+    }
+
 	public static function makeStaticUrlWithHash(string $staticPath): string
 	{
 		global $hashes;

@@ -25,7 +25,7 @@ class SerialCard extends AbstractComponent
 
     public function render(): void
     {
-        echo '<article class="serial-card">';
+        echo '<section class="serial-card">';
 
         $this->renderBanner();
         $this->renderTitle();
@@ -34,7 +34,7 @@ class SerialCard extends AbstractComponent
         $this->renderActivity();
         $this->renderSubscribe();
 
-        echo '</article>'; // serial-card
+        echo '</section>'; // serial-card
     }
 
     private function renderBanner(): void

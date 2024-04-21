@@ -1,0 +1,4 @@
+a.infinite-scroll {
+	display: flex; justify-content: center; align-items: center;
+	background: var(--brand-grey); height: 150px;
+}

@@ -2,12 +2,14 @@
 
 namespace Acomics\Ssr\Page\Catalog;
 
+use Acomics\Ssr\Layout\Common\Component\InfiniteScroll\InfiniteScroll;
 use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
 use Acomics\Ssr\Layout\Common\Component\SerialCard\SerialCard;
 use Acomics\Ssr\Layout\Main\Component\CatalogSearchForm\CatalogSearchForm;
 use Acomics\Ssr\Layout\Main\Component\CatalogSerialsHeader\CatalogSerialsHeader;
 use Acomics\Ssr\Layout\Main\MainLayout;
 use Acomics\Ssr\Page\PageInt;
+use Acomics\Ssr\Util\UrlUtil;
 
 class SearchResultPage extends MainLayout implements PageInt
 {
@@ -48,12 +50,24 @@ class SearchResultPage extends MainLayout implements PageInt
                 filters: null
             ))->render();
 
+            echo '<div class="' . InfiniteScroll::CONTENT_CLASS . '">';
+
             foreach($this->pageData->serials as $serial)
             {
                 (new SerialCard(
                     serial: $serial
                 ))->render();
             }
+
+            if ($this->pageData->hasMoreSerials)
+            {
+                (new InfiniteScroll(
+                    url: UrlUtil::updatePageUrlParameter('skip', $this->pageData->skip + count($this->pageData->serials)),
+                    maxLoads: 50,
+                ))->render();
+            }
+
+            echo '</div>'; // InfiniteScroll::CONTENT_CLASS
         }
     }
 }
