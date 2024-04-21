@@ -65,11 +65,16 @@ class SandboxPage extends MainLayout implements PageInt
 
             echo '<div class="' . InfiniteScroll::CONTENT_CLASS . '">';
 
-            foreach($this->pageData->serials as $serial)
+            foreach($this->pageData->serials as $index => $serial)
             {
                 (new SerialCard(
                     serial: $serial
                 ))->render();
+
+                if ($index === 1)
+                {
+                    $this->integrationsProvider->advertisementInfiniteScroll($this->pageData->skip);
+                }
             }
 
             if ($this->pageData->hasMoreSerials)

@@ -2,10 +2,10 @@
 
 namespace Acomics\Ssr\Page\Serial\Reader;
 
+use Acomics\Ssr\Layout\Common\Component\InfiniteScroll\InfiniteScroll;
 use Acomics\Ssr\Layout\Serial\Component\ReaderIssue\ReaderIssue;
 use Acomics\Ssr\Layout\Serial\Component\ReaderIssueDescription\ReaderIssueDescription;
 use Acomics\Ssr\Layout\Serial\Component\ReaderIssueTitle\ReaderIssueTitle;
-use Acomics\Ssr\Layout\Serial\Component\ReaderListLoadMore\ReaderListLoadMore;
 use Acomics\Ssr\Layout\Serial\Component\ReaderNavigator\ReaderNavigator;
 use Acomics\Ssr\Layout\SerialReader\SerialReaderLayout;
 use Acomics\Ssr\Page\PageInt;
@@ -36,8 +36,6 @@ class SerialListPage extends SerialReaderLayout implements PageInt
 	{
 		echo '<main class="list-container">';
 
-		$this->banner();
-
 		if (count($this->pageData->issues) > 0)
 		{
 			(new ReaderNavigator(
@@ -46,6 +44,8 @@ class SerialListPage extends SerialReaderLayout implements PageInt
 				listType: true
 			))->render();
 		}
+
+        echo '<div class="' . InfiniteScroll::CONTENT_CLASS . '">';
 
 		foreach($this->pageData->issues as $index => $issue)
 		{
@@ -77,18 +77,26 @@ class SerialListPage extends SerialReaderLayout implements PageInt
 				echo '</a>';
 				echo '</p>'; // list-comments-link
 			}
+
+            if ($index === 1)
+            {
+                $this->banner();
+            }
 		}
 
 		if ($this->pageData->hasMoreIssues)
 		{
-			(new ReaderListLoadMore(
-				skip: $this->pageData->issues[count($this->pageData->issues) - 1]->number)
-			)->render();
+            (new InfiniteScroll(
+                url: UrlUtil::updatePageUrlParameter('skip', $this->pageData->issues[count($this->pageData->issues) - 1]->number),
+                maxLoads: 5,
+            ))->render();
 		}
 		else
 		{
 			//echo '<p>Конец!</p>';
 		}
+
+        echo '</div>'; // InfiniteScroll::CONTENT_CLASS
 
 		echo '</main>'; // list-container
 	}

@@ -38,7 +38,16 @@ class UrlUtil
     {
         $pageUrl = $_SERVER['REQUEST_URI'];
         $url = parse_url($pageUrl);
-        parse_str($url['query'], $query);
+
+        if(isset($url['query']))
+        {
+            parse_str($url['query'], $query);
+        }
+        else
+        {
+            $query = array();
+        }
+        
         $query[$parameterName] = $parameterValue;
         return $url['path'] . '?' . http_build_query($query);
     }

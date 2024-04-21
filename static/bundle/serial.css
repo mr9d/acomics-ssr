@@ -584,12 +584,6 @@ article.reader-issue-description span.issue-original-link { display: block; flex
 	.reader-issue-title span.number-with-name span.number { padding-left: 10px; }
 }
 
-/* src/Layout/Serial/Component/ReaderListLoadMore/ReaderListLoadMore.css */
-a.reader-list-load-more {
-	display: block; text-align: center;
-	border: 1px solid var(--brand-grey); margin: var(--desktop-gap) var(--mobile-gap) 0; padding: var(--desktop-gap) var(--mobile-gap);
-}
-
 /* src/Layout/Serial/Component/ReaderMenu/ReaderMenu.css */
 section.serial-reader-menu {
 	height: 40px; background: var(--brand-grey); overflow: hidden;
