@@ -139,10 +139,11 @@ class SerialCard extends AbstractComponent
 
     private function renderLicense(): void
     {
-        if (!$this->serial->license)
-        {
-            return;
-        }
+		// Не выводим "Нет лицензии или не CC" без descriptionUrl
+		if(!$this->serial->license || !$this->serial->license->descriptionUrl)
+		{
+			return;
+		}
 
         echo '<span class="license">';
         echo 'Лицензия: <a href="' . $this->serial->license->descriptionUrl . '">' . $this->serial->license->nameShort . '</a>';
