@@ -18,7 +18,7 @@ class CatalogSearchForm extends AbstractComponent
     public function render(): void
     {
         echo '<form class="catalog-search-form" method="GET" action="/search">';
-		echo '<input type="text" name="keyword" required placeholder="Поиск по каталогу" value="' . ($this->query ? $this->query : '') . '" pattern=".{' . self::SEARCH_MIN_LENGTH . ',}" title="Минимальное количество символов для поиска: ' . self::SEARCH_MIN_LENGTH . '" />';
+		echo '<input type="text" name="keyword" required placeholder="Поиск по каталогу" value="' . ($this->query ? $this->query : '') . '" pattern=".{' . self::SEARCH_MIN_LENGTH . ',}" title="Минимальное количество символов для поиска: ' . self::SEARCH_MIN_LENGTH . '" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" disabled />';
 		echo '<button type="submit" class="submit">Найти</button>';
 	    echo '</form>'; // catalog-search-form
     }
