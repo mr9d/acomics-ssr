@@ -1,4 +1,9 @@
 /* src/Layout/Main/MainLayout.css */
+/* Страница о проекте */
+p.mascotrefs img {
+    display: block; width: 100%;
+}
+
 /* Страница с правилами */
 section.rules-section {
 	padding: 2px var(--mobile-gap) 10px;

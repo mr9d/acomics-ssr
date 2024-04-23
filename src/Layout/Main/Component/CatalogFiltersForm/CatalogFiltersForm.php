@@ -144,14 +144,14 @@ class CatalogFiltersForm extends AbstractComponent
     private function renderUpdatable(): void
     {
         $updatableOptions = [
-            ['value' => 'yes', 'label' => 'Завершенный'],
-            ['value' => 'no', 'label' => 'Продолжающийся'],
+            ['value' => 'no', 'label' => 'Завершенный'],
+            ['value' => 'yes', 'label' => 'Продолжающийся'],
             ['value' => '0', 'label' => 'Все'],
         ];
         echo '<div class="label-with-input">';
         echo '<label>Публикация:</label>';
 
-        echo '<fieldset class="Updatable">';
+        echo '<fieldset class="updatable">';
         foreach($updatableOptions as $updatableOption)
         {
             $checked = $updatableOption['value'] === $this->filters->searchUpdatable;

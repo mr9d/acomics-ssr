@@ -51,6 +51,11 @@ class AboutPage extends MainLayout implements PageInt
 		<p>Если вы представитель СМИ или блоггер и хотите рассказать о нас, либо предложить сотрудничество,
 			то <a href="/contact">напишите нам</a>.</p>
 
+        <p class="mascotrefs">
+            <img src="/design/images/mascotrefs/refsheet01.png" alt="Акс - маскот Авторского Комикса: картинка 1">
+            <img src="/design/images/mascotrefs/refsheet02.png" alt="Акс - маскот Авторского Комикса: картинка 2">
+        </p>
+
 <?php
 	}
 }

@@ -25,6 +25,12 @@ class SearchResultPage extends MainLayout implements PageInt
 		return $this->pageData !== null && parent::isReady();
 	}
 
+    protected function head(): void
+    {
+        parent::head();
+        echo '<script type="module">window.acomicsMain.initCatalogPage();</script>';
+    }
+
     public function content(): void
     {
         (new PageHeaderWithMenu('Комиксы'))

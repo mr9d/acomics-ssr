@@ -29,7 +29,7 @@ class FeaturedPage extends MainLayout implements PageInt
     protected function head(): void
     {
         parent::head();
-        echo '<script type="module">window.acomicsMain.makeCatalogFilters();</script>';
+        echo '<script type="module">window.acomicsMain.initCatalogPage();</script>';
     }
 
     public function content(): void

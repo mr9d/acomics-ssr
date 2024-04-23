@@ -30,12 +30,24 @@ const makeCatalogFilters = () => {
     toggleFormButton.addEventListener('click', toggleForm);
 };
 
+/* src/Layout/Main/Component/CatalogSearchForm/CatalogSearchForm.js */
+const makeCatalogSearchForm = () => {
+    // Сброс автофокуса в Safari на iPhone
+    window.focus();
+};
+
 /* src/Layout/Main/MainLayout.js */
+// Инициализация страниц каталога
+const initCatalogPage = () => {
+    makeCatalogFilters();
+    makeCatalogSearchForm();
+};
+
 
 // Инициализация общих элементов страницы
 const init = () => {
 	window.acomicsMain = {
-		makeCatalogFilters,
+		initCatalogPage,
 	}
 
 };
