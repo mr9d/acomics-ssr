@@ -1,17 +1,17 @@
 <?php
 
-namespace Acomics\Ssr\Layout\Main\Component\MainFeatured;
+namespace Acomics\Ssr\Layout\Main\Component\IndexFeatured;
 
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Layout\Main\Component\FeaturedSerialCard\FeaturedSerialCard;
 
-class MainFeatured extends AbstractComponent
+class IndexFeatured extends AbstractComponent
 {
     public function render(): void
     {
-        echo '<article class="main-featured">';
+        echo '<div class="index-featured">';
         (new FeaturedSerialCard())->render();
         (new FeaturedSerialCard())->render();
-        echo '</article>'; // main-featured
+        echo '</div>'; // index-featured
     }
 }

@@ -1,5 +1,17 @@
 /* src/Layout/Main/MainLayout.css */
-/* Страница о проекте */
+/* Главная страница */
+div.index-vk-group { grid-area: group; }
+div.index-page {
+    flex-grow: 1; display: grid;
+    grid-template-areas:
+        "cover"
+        "spotlight"
+        "featured"
+        "howto"
+        "group";
+}
+
+/* Страница "О проекте" */
 p.mascotrefs img {
     display: block; width: 100%;
 }
@@ -177,4 +189,33 @@ p.catalog-serials-header span.sorting::after {
     p.catalog-serials-header:has(> span.subscribe.sorting) span.activity { width: 140px; }
     p.catalog-serials-header span.subscribe { min-width: 100px; }
 }
+
+/* src/Layout/Main/Component/FeaturedSerialCard/FeaturedSerialCard.css */
+article.featured-serial-card {
+    background: grey;
+}
+
+/* src/Layout/Main/Component/IndexCover/IndexCover.css */
+div.index-cover {
+    grid-area: cover;
+}
+
+/* src/Layout/Main/Component/IndexFeatured/IndexFeatured.css */
+div.index-featured {
+    grid-area: featured;
+    display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-between;
+    margin: var(--desktop-gap);
+}
+
+/* src/Layout/Main/Component/IndexPublishHowto/IndexPublishHowto.css */
+article.index-publish-howto {
+    grid-area: howto;
+}
+
+/* src/Layout/Main/Component/IndexSpotlight/IndexSpotlight.css */
+div.index-spotlight {
+    grid-area: spotlight;
+}
+
+/* src/Layout/Main/Component/SpotlightSerialCard/SpotlightSerialCard.css */
 

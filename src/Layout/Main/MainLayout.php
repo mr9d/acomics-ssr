@@ -1,4 +1,5 @@
 <?php
+
 namespace Acomics\Ssr\Layout\Main;
 
 use Acomics\Ssr\Layout\Common\CommonLayout;
@@ -6,11 +7,18 @@ use Acomics\Ssr\Util\UrlUtil;
 
 abstract class MainLayout extends CommonLayout
 {
-	protected $isAdvertisementEnabled = false;
+	protected bool $isAdvertisementEnabled = false;
+    protected bool $isCleanMargins = false;
 
 	public function main(bool $isAdvertisementEnabled): void
 	{
 		$this->isAdvertisementEnabled = $isAdvertisementEnabled;
+	}
+
+	public function isReady(): bool
+	{
+        // Поля isAdvertisementEnabled и isCleanMargins не могут быть одновременно true
+		return !($this->isAdvertisementEnabled && $this->isCleanMargins) && parent::isReady();
 	}
 
     protected function head(): void
@@ -30,12 +38,17 @@ abstract class MainLayout extends CommonLayout
 			$this->mobileTopAdvertisement();
 		}
 
-		echo '<article class="common-article">';
+        if(!$this->isCleanMargins) {
+            echo '<article class="common-article">';
+        }
     }
 
     public function bottom(): void
     {
-		echo '</article>'; // common-article
+
+        if(!$this->isCleanMargins) {
+            echo '</article>'; // common-article
+        }
 
 		if ($this->isAdvertisementEnabled) {
 			$this->fullSidebarAdvertisement();

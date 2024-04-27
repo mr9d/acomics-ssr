@@ -41,18 +41,26 @@ const makeCatalogSearchForm = () => {
     setInterval(() => input.removeAttribute('disabled'), 400);
 };
 
+/* src/Layout/Main/Component/IndexFeatured/IndexFeatured.js */
+
+/* src/Layout/Main/Component/IndexSpotlight/IndexSpotlight.js */
+
 /* src/Layout/Main/MainLayout.js */
+// Инициализация главной страницы
+const initIndexPage = () => {
+};
+
 // Инициализация страниц каталога
 const initCatalogPage = () => {
     makeCatalogFilters();
     makeCatalogSearchForm();
 };
 
-
 // Инициализация общих элементов страницы
 const init = () => {
 	window.acomicsMain = {
 		initCatalogPage,
+		initIndexPage,
 	}
 
 };

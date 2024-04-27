@@ -1,4 +1,16 @@
-/* Страница о проекте */
+/* Главная страница */
+div.index-vk-group { grid-area: group; }
+div.index-page {
+    flex-grow: 1; display: grid;
+    grid-template-areas:
+        "cover"
+        "spotlight"
+        "featured"
+        "howto"
+        "group";
+}
+
+/* Страница "О проекте" */
 p.mascotrefs img {
     display: block; width: 100%;
 }

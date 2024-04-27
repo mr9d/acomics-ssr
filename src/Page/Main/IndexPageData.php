@@ -2,10 +2,10 @@
 
 namespace Acomics\Ssr\Page\Main;
 
-class MainPageData
+class IndexPageData
 {
     public function __construct()
     {
-        
+
     }
 }
