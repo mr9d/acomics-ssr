@@ -1,3 +1,21 @@
-div.index-cover {
-    grid-area: cover;
+div.index-cover { grid-area: cover; position:relative; overflow: hidden; width: 100%; aspect-ratio: 998 / 330; }
+div.index-cover a.cover { display: block; width: 100%; aspect-ratio: 998 / 330; background-position: center; background-repeat: no-repeat; background-size: cover; box-shadow:inset 0 1px 5px 1px rgba(0,0,0,0.2); }
+div.index-cover a.howto { display: none; z-index: 2; position: absolute; bottom: var(--mobile-gap); right: var(--mobile-gap); background: rgba(255,255,255,0.9); padding: 8px 12px; }
+div.index-cover div.cover-pagination { position: absolute; z-index: 2; left: var(--mobile-gap); right: var(--mobile-gap); bottom: 0; display: flex; align-items: center; justify-content: center; }
+div.index-cover span.cover-pagination-bullet { display: block; font-size: 20px; -webkit-text-stroke: 2px white; transition: font-size 0.3s; cursor: pointer; line-height: 1em; }
+div.index-cover span.cover-pagination-bullet-active { font-size: 28px; }
+div.index-cover span.cover-pagination-bullet:nth-child(5n + 1) { color: #496dbb; }
+div.index-cover span.cover-pagination-bullet:nth-child(5n + 2) { color: #f3ab21; }
+div.index-cover span.cover-pagination-bullet:nth-child(5n + 3) { color: #5a002b; }
+div.index-cover span.cover-pagination-bullet:nth-child(5n + 4) { color: #d4002b; }
+div.index-cover span.cover-pagination-bullet:nth-child(5n) { color: #ffd3bc; }
+
+@media screen and (min-width: 520px) {
+    div.index-cover a.howto { display: block; }
+    div.index-cover div.cover-pagination { bottom: var(--mobile-gap); right: auto; }
+}
+
+@media screen and (min-width: 920px) {
+    div.index-cover a.howto { bottom: var(--desktop-gap); right: var(--desktop-gap); }
+    div.index-cover div.cover-pagination { bottom: var(--desktop-gap); left: var(--desktop-gap); }
 }

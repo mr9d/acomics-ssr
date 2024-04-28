@@ -26,7 +26,9 @@ class IndexPage extends MainLayout implements PageInt
     protected function head(): void
     {
         parent::head();
+        IndexCover::headDeps();
         echo '<script type="module">window.acomicsMain.initIndexPage();</script>';
+        echo $this->pageData->magicHeadElements;
     }
 
 	public function __construct()
@@ -45,7 +47,7 @@ class IndexPage extends MainLayout implements PageInt
         echo '<div class="index-page">';
 
         (new IndexFeatured())->render();
-        (new IndexCover())->render();
+        (new IndexCover($this->pageData->covers))->render();
         (new IndexPublishHowto())->render();
         (new IndexSpotlight())->render();
         $this->vkGroup();
