@@ -21,24 +21,11 @@ const throttle = (mainFunction, delay = 300) => {
 	};
 };
 
-// Проверка, находится ли элемент в зоне видимости для ленивой дозагрузки
-const checkElementViewportPositionAndLoad = (element, loadFunction) => {
-	const elementViewportOffset = element.getBoundingClientRect().top;
-	if (elementViewportOffset < window.innerHeight + LAZY_PRERENDER_HEIGHT) {
-		loadFunction(element);
-		return true;
-	} else {
-		return false;
-	}
-};
-
-
 // Инициализация общих элементов страницы
 const init = () => {
 	window.acomicsCommon = {
 		debounce,
 		throttle,
-		checkElementViewportPositionAndLoad,
 		makeDateTimeFormatted,
 		makeLazyImages,
 	}

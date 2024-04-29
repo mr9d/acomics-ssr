@@ -2,23 +2,12 @@ const makeInfiniteScroll = () => {
     const LINK_SELECTOR = 'a.infinite-scroll';
     const CONTENT_SELECTOR = 'div.infinite-scroll-content';
 
-    let loadMoreLink = document.querySelector(LINK_SELECTOR);
-
-    if (loadMoreLink === null) {
-        return;
-    }
-
-    const pageContainer = loadMoreLink.closest(CONTENT_SELECTOR);
-    const parser = new DOMParser();
-    let isLoading = false;
-    let loadCount = +loadMoreLink.dataset.maxLoads;
+    let loadCount = null;
 
     const moveElements = (fromContainer, targetContainer) => {
-
         for (let element of [...fromContainer.children]) {
             targetContainer.appendChild(element);
-
-            // Инициализация рекламы
+            // Инициализация инлайновых скриптов
             const script = element.querySelector('script');
             if (script !== null) {
                 const newScript = document.createElement('script');
@@ -29,13 +18,13 @@ const makeInfiniteScroll = () => {
         }
     };
 
-    const loadMore = async () => {
-        isLoading = true;
+    const loadInfiniteScroll = async (loadMoreLink, pageContainer) => {
         loadMoreLink.classList.add('in-progress');
 
         try {
             loadMoreLink.style.pointerEvents = 'none';
 
+            const parser = new DOMParser();
             const url = loadMoreLink.href;
             const html = await fetch(url).then(res => res.text());
             const htmlDoc = parser.parseFromString(html, 'text/html');
@@ -43,29 +32,50 @@ const makeInfiniteScroll = () => {
 
             moveElements(fromContainer, pageContainer);
 
-            window.acomicsCommon.makeDateTimeFormatted(loadMoreLink.parentNode);
-            window.acomicsCommon.makeLazyImages();
+            window.acomicsCommon.makeDateTimeFormatted(pageContainer);
+            window.acomicsCommon.makeLazyImages(pageContainer);
 
             loadMoreLink.remove();
-            loadMoreLink = document.querySelector(LINK_SELECTOR);
-            loadCount--;
+            init();
         } catch (err) {
             loadMoreLink.style.pointerEvents = '';
+            loadMoreLink.classList.remove('in-progress');
+            console.error(err);
         }
-
-        isLoading = false;
-        loadMoreLink.classList.remove('in-progress');
     };
 
-    const windowScrollLstener = window.acomicsCommon.throttle(() => {
-        if (loadMoreLink === null || loadCount === 0) {
-            window.removeEventListener('scroll', windowScrollLstener);
+    const infiniteScrollObserver = ("IntersectionObserver" in window) ? new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const loadMoreLink = entry.target;
+                const container = loadMoreLink.closest(CONTENT_SELECTOR);
+                loadInfiniteScroll(loadMoreLink, container);
+                observer.unobserve(loadMoreLink);
+            }
+        });
+    }) : null;
+
+    const init = () => {
+        const loadMoreLink = document.querySelector(LINK_SELECTOR);
+
+        if (loadMoreLink === null) {
             return;
         }
-        if (!isLoading) {
-            window.acomicsCommon.checkElementViewportPositionAndLoad(loadMoreLink, loadMore);
-        }
-    });
 
-    window.addEventListener('scroll', windowScrollLstener);
+        if (loadCount === null) {
+            loadCount = +loadMoreLink.dataset.maxLoads - 1;
+        } else {
+            loadCount--;
+        }
+
+        if (loadCount === 0) {
+            return;
+        }
+
+        if (infiniteScrollObserver !== null) {
+            infiniteScrollObserver.observe(loadMoreLink);
+        }
+    };
+
+    init();
 };

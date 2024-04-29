@@ -446,7 +446,10 @@ div.header-modal {
 /* src/Layout/Common/Component/InfiniteScroll/InfiniteScroll.css */
 a.infinite-scroll {
 	display: flex; justify-content: center; align-items: center;
-	background: var(--brand-grey); height: 150px;
+	background: var(--brand-grey); height: 150px; margin-top: var(--desktop-gap);
+}
+a.infinite-scroll.in-progress {
+    background: url('/static/img/tail-spin.svg') no-repeat; background-size: cover; color: var(--brand-grey);
 }
 
 /* src/Layout/Common/Component/LazyImage/LazyImage.css */

@@ -122,23 +122,12 @@ const makeInfiniteScroll = () => {
     const LINK_SELECTOR = 'a.infinite-scroll';
     const CONTENT_SELECTOR = 'div.infinite-scroll-content';
 
-    let loadMoreLink = document.querySelector(LINK_SELECTOR);
-
-    if (loadMoreLink === null) {
-        return;
-    }
-
-    const pageContainer = loadMoreLink.closest(CONTENT_SELECTOR);
-    const parser = new DOMParser();
-    let isLoading = false;
-    let loadCount = +loadMoreLink.dataset.maxLoads;
+    let loadCount = null;
 
     const moveElements = (fromContainer, targetContainer) => {
-
         for (let element of [...fromContainer.children]) {
             targetContainer.appendChild(element);
-
-            // Инициализация рекламы
+            // Инициализация инлайновых скриптов
             const script = element.querySelector('script');
             if (script !== null) {
                 const newScript = document.createElement('script');
@@ -149,13 +138,13 @@ const makeInfiniteScroll = () => {
         }
     };
 
-    const loadMore = async () => {
-        isLoading = true;
+    const loadInfiniteScroll = async (loadMoreLink, pageContainer) => {
         loadMoreLink.classList.add('in-progress');
 
         try {
             loadMoreLink.style.pointerEvents = 'none';
 
+            const parser = new DOMParser();
             const url = loadMoreLink.href;
             const html = await fetch(url).then(res => res.text());
             const htmlDoc = parser.parseFromString(html, 'text/html');
@@ -163,67 +152,87 @@ const makeInfiniteScroll = () => {
 
             moveElements(fromContainer, pageContainer);
 
-            window.acomicsCommon.makeDateTimeFormatted(loadMoreLink.parentNode);
-            window.acomicsCommon.makeLazyImages();
+            window.acomicsCommon.makeDateTimeFormatted(pageContainer);
+            window.acomicsCommon.makeLazyImages(pageContainer);
 
             loadMoreLink.remove();
-            loadMoreLink = document.querySelector(LINK_SELECTOR);
-            loadCount--;
+            init();
         } catch (err) {
             loadMoreLink.style.pointerEvents = '';
+            loadMoreLink.classList.remove('in-progress');
+            console.error(err);
         }
-
-        isLoading = false;
-        loadMoreLink.classList.remove('in-progress');
     };
 
-    const windowScrollLstener = window.acomicsCommon.throttle(() => {
-        if (loadMoreLink === null || loadCount === 0) {
-            window.removeEventListener('scroll', windowScrollLstener);
+    const infiniteScrollObserver = ("IntersectionObserver" in window) ? new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const loadMoreLink = entry.target;
+                const container = loadMoreLink.closest(CONTENT_SELECTOR);
+                loadInfiniteScroll(loadMoreLink, container);
+                observer.unobserve(loadMoreLink);
+            }
+        });
+    }) : null;
+
+    const init = () => {
+        const loadMoreLink = document.querySelector(LINK_SELECTOR);
+
+        if (loadMoreLink === null) {
             return;
         }
-        if (!isLoading) {
-            window.acomicsCommon.checkElementViewportPositionAndLoad(loadMoreLink, loadMore);
-        }
-    });
 
-    window.addEventListener('scroll', windowScrollLstener);
+        if (loadCount === null) {
+            loadCount = +loadMoreLink.dataset.maxLoads - 1;
+        } else {
+            loadCount--;
+        }
+
+        if (loadCount === 0) {
+            return;
+        }
+
+        if (infiniteScrollObserver !== null) {
+            infiniteScrollObserver.observe(loadMoreLink);
+        }
+    };
+
+    init();
 };
 
 /* src/Layout/Common/Component/LazyImage/LazyImage.js */
 const LAZY_IMAGE_CLASS = 'lazy-image';
 
-const makeLazyImages = (parentElement = document) => {
-	let firstLazyImage = parentElement.querySelector('img.' + LAZY_IMAGE_CLASS);
+const loadLazyImage = (img) => {
+    img.setAttribute('src', img.dataset.realSrc);
+    img.dataset.realSrc = undefined;
+    img.classList.remove(LAZY_IMAGE_CLASS);
+};
 
-	if (firstLazyImage === null) {
+const lazyImagesObserver = ("IntersectionObserver" in window) ? new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            const image = entry.target;
+            loadLazyImage(image);
+            observer.unobserve(image);
+        }
+    });
+}) : null;
+
+const makeLazyImages = (parentElement = document) => {
+	let lazyImages = parentElement.querySelectorAll('img.' + LAZY_IMAGE_CLASS);
+
+	if (lazyImages.length === 0) {
 		return;
 	}
 
-	const loadImage = (img) => {
-		img.setAttribute('src', img.dataset.realSrc);
-		img.classList.remove(LAZY_IMAGE_CLASS);
-	};
-
-	const windowScrollLstener = window.acomicsCommon.throttle(() => {
-		const visible = window.acomicsCommon.checkElementViewportPositionAndLoad(firstLazyImage, loadImage);
-		if (visible) {
-			const otherLazyImages = parentElement.querySelectorAll('img.' + LAZY_IMAGE_CLASS);
-			for (const image of otherLazyImages) {
-				const visible = window.acomicsCommon.checkElementViewportPositionAndLoad(image, loadImage);
-				if (!visible) {
-					firstLazyImage = image;
-					return;
-				}
-			}
-			window.removeEventListener('scroll', windowScrollLstener);
-		}
-	});
-
-	window.addEventListener('scroll', windowScrollLstener);
-
-	// Нужно также выполнить после скролла по якорной ссылке
-	window.addEventListener('load', windowScrollLstener);
+	lazyImages.forEach((image) => {
+        if (lazyImagesObserver !== null) {
+            lazyImagesObserver.observe(image);
+        } else {
+            loadLazyImage(image);
+        }
+    });
 };
 
 
@@ -359,24 +368,11 @@ const throttle = (mainFunction, delay = 300) => {
 	};
 };
 
-// Проверка, находится ли элемент в зоне видимости для ленивой дозагрузки
-const checkElementViewportPositionAndLoad = (element, loadFunction) => {
-	const elementViewportOffset = element.getBoundingClientRect().top;
-	if (elementViewportOffset < window.innerHeight + LAZY_PRERENDER_HEIGHT) {
-		loadFunction(element);
-		return true;
-	} else {
-		return false;
-	}
-};
-
-
 // Инициализация общих элементов страницы
 const init = () => {
 	window.acomicsCommon = {
 		debounce,
 		throttle,
-		checkElementViewportPositionAndLoad,
 		makeDateTimeFormatted,
 		makeLazyImages,
 	}

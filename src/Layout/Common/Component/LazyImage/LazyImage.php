@@ -4,11 +4,6 @@ namespace Acomics\Ssr\Layout\Common\Component\LazyImage;
 
 use Acomics\Ssr\Layout\AbstractComponent;
 
-/**
- * Важно: Скрипт для этого компонента написан так, что "ленивые" картинки должны появляться
- * на экране в таком же порядке, что и в коде.
- * Как следствие, "ленивые" картинки будут некорректно работать в сайдбарах, модальных окнах и т.п.
- */
 class LazyImage extends AbstractComponent
 {
 	private string $src;
