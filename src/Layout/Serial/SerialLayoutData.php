@@ -22,6 +22,7 @@ class SerialLayoutData
 	// Меню
 	//
 	public bool $isSubscribed;
+	public bool $isSuggestMenuItemVisible;
 	public bool $isCharacterMenuItemVisible;
 	public bool $isFaqMenuItemVisible;
 	public ?string $activeMenuItem;

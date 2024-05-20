@@ -35,7 +35,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 			categories: $this->pageData->categories
 		))->render();
 
-		$this->renderAboutText();
+		$this->aboutText();
 
 		if($this->pageData->serial->siteUrl)
 		{
@@ -47,35 +47,35 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 			echo '<p><b>Автор оригинала:</b> ' . $this->pageData->serial->originalAuthorName . '</p>';
 		}
 
-		$this->renderAuthors();
+		$this->authors();
 
 		echo '<p><b>Количество выпусков:</b> ' . $this->pageData->serial->issueCount . '</p>';
 		echo '<p><b>Количество подписчиков:</b> <a href="' . UrlUtil::makeSerialUrl($this->pageData->serial->code, 'subscribe') . '">' . $this->pageData->serial->subscribersCount . '</a></p>';
 
-		$this->renderOfficialSite();
+		$this->officialSite();
 
 		echo '<p><b>Возрастной рейтинг:</b> ' . $this->pageData->serial->ageRating->name . '</p>';
 
-		$this->renderLicense();
+		$this->license();
 
-		$this->renderIssues();
+		$this->issues();
 
-		$this->renderReadMenu();
+		$this->readMenu();
 	}
 
-	private function renderAboutText(): void
+	private function aboutText(): void
 	{
 		echo '<section class="serial-about-text">';
 		echo $this->pageData->aboutText;
 		echo '</section>';
 	}
 
-	private function renderAuthors(): void
+	private function authors(): void
 	{
 		echo '<p class="serial-about-authors">' . AuthorUtil::makeAuthorsString($this->pageData->coauthors, $this->pageData->serial->isTranslation) . '</p>';
 	}
 
-	private function renderOfficialSite(): void
+	private function officialSite(): void
 	{
 		// Не выводим адрес официального сайта, если для перевода он не заполнен
 		if ($this->pageData->serial->isTranslation && !$this->pageData->serial->siteUrl)
@@ -93,7 +93,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 		echo '</p>';
 	}
 
-	private function renderLicense(): void
+	private function license(): void
 	{
 		// Не выводим "Нет лицензии или не CC" без descriptionUrl
 		if(!$this->pageData->serial->license || !$this->pageData->serial->license->descriptionUrl)
@@ -108,7 +108,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 		echo '</p>';
 	}
 
-	private function renderIssues(): void
+	private function issues(): void
 	{
 		echo '<section class="serial-about-issues">';
 
@@ -120,7 +120,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 		echo '</section>'; // serial-about-issues
 	}
 
-	private function renderReadMenu(): void
+	private function readMenu(): void
 	{
 		echo '<nav class="serial-about-read-menu">';
 

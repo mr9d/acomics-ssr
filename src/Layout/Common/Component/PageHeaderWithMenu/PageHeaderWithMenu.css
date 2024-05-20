@@ -9,6 +9,7 @@ div.page-header-with-menu h1 {
     font-size: 28px; line-height: 1;
     color: var(--brand-red); font-weight: normal;
     border-bottom: 1px solid #ebe5dd; vertical-align: bottom;
+    word-break: break-word; 
 }
 div.page-header-with-menu h1::before {
     content: ''; z-index: -1; height: 1px;

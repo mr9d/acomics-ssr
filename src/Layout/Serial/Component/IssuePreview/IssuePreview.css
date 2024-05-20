@@ -1,5 +1,5 @@
 a.issue-preview, a.issue-preview:visited { display: block; position: relative; color: #fff; }
-a.issue-preview img { display: block; }
+a.issue-preview img { display: block; width: 100%; height: auto; max-width: 100% !important; }
 a.issue-preview p.issue-preview-hover {
 	position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: 0; padding: var(--mobile-gap) 0 0 var(--mobile-gap);
 	background-color: rgba(0,0,0,.7); flex-direction: column; overflow: hidden; display: none;

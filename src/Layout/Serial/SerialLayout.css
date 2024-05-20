@@ -71,15 +71,12 @@ section.serial-about-text img { max-width: 100%; }
 p.serial-about-authors { word-break: break-word; }
 p.serial-about-site-url { word-break: break-word; }
 section.serial-about-issues { display: grid; gap: var(--mobile-gap); grid-template-columns: 1fr 1fr; overflow-y: hidden; }
-section.serial-about-issues a.issue-preview img { width: 100%; height: 100%; }
 
 @media screen and (min-width: 520px) {
 	section.serial-about-issues { grid-template-columns: 1fr 1fr 1fr; }
-	section.serial-about-issues a.issue-preview:nth-child(-n+2) { display: none; }
 }
 @media screen and (min-width: 840px) {
 	section.serial-about-issues { grid-template-columns: 1fr 1fr 1fr 1fr; }
-	section.serial-about-issues a.issue-preview:nth-child(-n+2) { display: block; }
 }
 @media screen and (min-width: 920px) {
 	section.serial-about-issues { gap: var(--desktop-gap); }
@@ -98,7 +95,6 @@ section.serial-content-issues {
     display: grid; gap: var(--mobile-gap); grid-template-columns: 1fr 1fr; overflow-y: hidden;
     margin: var(--desktop-gap) 0;
 }
-section.serial-content-issues a.issue-preview img { width: 100%; height: auto; }
 
 @media screen and (min-width: 520px) {
 	section.serial-content-issues { grid-template-columns: 1fr 1fr 1fr; }
@@ -141,3 +137,44 @@ form.serial-subscriptions-form button {
 	text-transform: uppercase; font-size: 13px; font-weight: bold; border-radius: 4px;
 }
 
+/* Предложка */
+p.serial-suggest-intro { word-break: break-word; }
+
+form.serial-suggestion-delete-form { position: relative; color: #fff; }
+form.serial-suggestion-delete-form img { display: block; width: 100%; height: auto; max-width: 100% !important; }
+form.serial-suggestion-delete-form p.hover {
+	position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: 0; padding: var(--mobile-gap) 0 0 var(--mobile-gap);
+	background-color: rgba(0,0,0,.7); flex-direction: column; align-items: flex-start; overflow: hidden; display: none;
+}
+form.serial-suggestion-delete-form:hover p.hover  { display: flex; }
+form.serial-suggestion-delete-form span.name {
+    display: block; font-size: 22px; font-family: 'yanone_kaffeesatzregular', sans-serif; color: var(--brand-orange);
+    overflow-x: hidden; text-overflow: ellipsis; width: 100%; white-space: nowrap;
+}
+form.serial-suggestion-delete-form span.date { display: block; white-space: nowrap; opacity: 0.8; }
+form.serial-suggestion-delete-form span.date span.date-time-formatted { display: inline-block; overflow-x: hidden; text-overflow: ellipsis; width: 100%; }
+form.serial-suggestion-delete-form button {
+    border: 0; background: 0; color: white; text-decoration: underline;
+    cursor: pointer; display: block; text-align: left; padding: 0;
+}
+@media screen and (min-width: 920px) {
+	form.serial-suggestion-delete-form p.hover { padding: var(--desktop-gap) 0 0 var(--desktop-gap); }
+}
+
+form.serial-suggest-form {
+    background: #f3eee7; padding: 20px; border-radius: 20px;
+    display: grid; grid-template-columns: min-content 1fr;
+    margin-top: 20px;
+}
+form.serial-suggest-form div.help { grid-column: span 2; color: #777; padding: 5px 0 20px; }
+form.serial-suggest-form div.help p { margin: 0; }
+form.serial-suggest-form label { display: block; white-space: nowrap; margin: 4px 20px 4px 0; align-self: center; }
+form.serial-suggest-form label[for="input-description"] { grid-column: span 2; }
+form.serial-suggest-form input[name="name"] { max-width: 300px; min-width: 50px; }
+form.serial-suggest-form div.description { grid-column: span 2; }
+form.serial-suggest-form div.buttons { grid-column: span 2; }
+form.serial-suggest-form button {
+    padding: 11px 19px; background: var(--brand-orange); color: #fff;
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,.1); border: none;
+	text-transform: uppercase; font-size: 13px; font-weight: bold; border-radius: 4px;
+}

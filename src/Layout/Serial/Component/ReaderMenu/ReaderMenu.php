@@ -55,6 +55,12 @@ class ReaderMenu extends AbstractComponent
 				<li <?=($this->serialLayoutData->activeMenuItem === 'content' ? 'class="active"' : '')?>>
 					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'content')?>" title="Содержание комикса <?=$this->serialLayoutData->name?> на сайте Авторский Комикс">Содержание</a>
 				</li>
+<?php
+				if ($this->serialLayoutData->isSuggestMenuItemVisible)
+				{
+					$this->renderSuggestMenuItem();
+				}
+?>
 				<li <?=($this->serialLayoutData->activeMenuItem === 'comment' ? 'class="active"' : '')?>>
 					<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'comment')?>" title="Комментарии к комиксу <?=$this->serialLayoutData->name?>">Комментарии</a>
 				</li>
@@ -76,6 +82,16 @@ class ReaderMenu extends AbstractComponent
 		</nav>
 <?php
 	}
+
+	private function renderSuggestMenuItem(): void
+	{
+?>
+		<li <?=($this->serialLayoutData->activeMenuItem === 'suggest' ? 'class="active"' : '')?>>
+			<a href="<?=UrlUtil::makeSerialUrl($this->serialLayoutData->code, 'suggest')?>" title="Предложить выпуск для комикса <?=$this->serialLayoutData->name?>">Предложка</a>
+		</li>
+<?php
+	}
+
 	private function renderCharacterMenuItem(): void
 	{
 ?>
