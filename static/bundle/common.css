@@ -601,6 +601,29 @@ nav.common-paginator ul li.current span {
 }
 
 
+/* src/Layout/Common/Component/SectionHeader/SectionHeader.css */
+h2.section-header {
+    display: flex; justify-content: center;
+    gap: 8px; margin: 0;
+}
+h2.section-header span.section-header-line {
+    background: url("data:image/svg+xml;utf8,<svg height='10' width='10' xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink'><line x1='-1' y1='5' x2='11' y2='5' style='stroke:%23ebe5dd;stroke-width:1' /></svg>") repeat-x center;
+    flex-grow: 1; min-width: 20px;
+}
+h2.section-header span.section-header-inner {
+    flex-grow: 0;
+    display: block; text-align: center;
+    background: #fff; color: #5a002d; word-break: break-word;
+    font-size: 21px; line-height: 1.4; text-transform: uppercase;
+    font-family: 'yanone_kaffeesatzregular', sans-serif;
+}
+
+@media screen and (min-width: 520px) {
+    h2.section-header {
+        gap: 16px;
+    }
+}
+
 /* src/Layout/Common/Component/SerialCard/SerialCard.css */
 section.serial-card {
     padding: 0 0 var(--desktop-gap); margin-top: var(--desktop-gap);

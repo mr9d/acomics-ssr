@@ -2,6 +2,7 @@
 namespace Acomics\Ssr\Page\Main;
 
 use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
+use Acomics\Ssr\Layout\Common\Component\SectionHeader\SectionHeader;
 use Acomics\Ssr\Layout\Main\MainLayout;
 use Acomics\Ssr\Page\PageInt;
 
@@ -19,6 +20,14 @@ class AboutPage extends MainLayout implements PageInt
 			->item('/rules', 'Правила портала')
 			->item('/contact', 'Связаться с нами')
 			->render();
+
+        $this->overview();
+        $this->team();
+        $this->mascot();
+	}
+
+    private function overview(): void
+    {
 ?>
 		<p>Авторский Комикс — сервис для публикации и чтения веб-комиксов.</p>
 
@@ -50,12 +59,23 @@ class AboutPage extends MainLayout implements PageInt
 
 		<p>Если вы представитель СМИ или блоггер и хотите рассказать о нас, либо предложить сотрудничество,
 			то <a href="/contact">напишите нам</a>.</p>
-
-        <p class="mascotrefs">
-            <img src="/design/images/mascotrefs/refsheet01.png" alt="Акс - маскот Авторского Комикса: картинка 1">
-            <img src="/design/images/mascotrefs/refsheet02.png" alt="Акс - маскот Авторского Комикса: картинка 2">
-        </p>
-
 <?php
-	}
+    }
+
+    private function team(): void
+    {
+        //(new SectionHeader('Наша команда'))->render();
+    }
+
+    private function mascot(): void
+    {
+        (new SectionHeader('Наш маскот'))->render();
+
+        echo '<p class="about-mascotrefs">';
+
+        echo '<img src="/design/images/mascotrefs/refsheet01.png" alt="Акс - маскот Авторского Комикса: картинка 1">';
+        echo '<img src="/design/images/mascotrefs/refsheet02.png" alt="Акс - маскот Авторского Комикса: картинка 2">';
+
+        echo '</p>'; // about-mascotrefs
+    }
 }

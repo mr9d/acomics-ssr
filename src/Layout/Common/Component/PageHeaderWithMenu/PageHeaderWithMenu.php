@@ -1,5 +1,7 @@
 <?php
+
 namespace Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu;
+
 use Acomics\Ssr\Dto\LinkDto;
 use Acomics\Ssr\Layout\AbstractComponent;
 
@@ -7,7 +9,7 @@ class PageHeaderWithMenu extends AbstractComponent
 {
 	private string $header;
 	private array $menuItems;
-	
+
 	public function __construct(string $header)
 	{
 		$this->header = $header;

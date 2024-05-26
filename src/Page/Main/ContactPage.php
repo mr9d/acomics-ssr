@@ -30,10 +30,10 @@ class ContactPage extends MainLayout implements PageInt
 			<li>Предложить новость или информационное партнерство. Прежде чем написать вашу новость в предложку,
 				ознакомьтесь <a href="https://vk.com/page-19453433_51763975">с этой статьей</a>.</li>
 			<li>Задать вопрос по публикации комиксов
-				<a href="https://vk.me/join/sHW6HzgwpsPxzmvUjjYxlSkhEciHIQIIKvI=">в общем чате-беседке</a> или
+				<a href="https://vk.com/acomics?w=chats-19453433">в общем чате-беседке</a> или
 				<a href="https://vk.com/topic-19453433_48965514">в специальном обсуждении</a>.</li>
 			<li>Обсудить любой другой вопрос связанный с комиксами
-				<a href="https://vk.me/join/sHW6HzgwpsPxzmvUjjYxlSkhEciHIQIIKvI=">в чате-беседка</a>.</li>
+				<a href="https://vk.com/acomics?w=chats-19453433">в чате-беседке</a>.</li>
 			<li>Подать заявку на изменение возрастного рейтинга комикса
 				<a href="https://vk.com/topic-19453433_48953605">в специальном обсуждении</a>.</li>
 			<li>Предложить свою помощь в развитии нашего портала. Подробнее о способах помощи порталу
