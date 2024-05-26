@@ -7,8 +7,8 @@ article.reader-comment {
 	grid-template-columns: calc(40px + var(--mobile-gap)) 1fr;
 }
 
-/* Строка со сылками */
-article.reader-comment nav.reader-comment-links { line-height: 1.4; word-break: break-word; margin-bottom: var(--mobile-gap); }
+/* Строка со сылками перед комментарием */
+nav.reader-comment-links:has(+ article.reader-comment) { line-height: 1.4; word-break: break-word; margin-bottom: var(--mobile-gap); }
 
 /* Аватарка */
 article.reader-comment section.comment-avatar { grid-area: avatar; position: relative; }

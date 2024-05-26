@@ -324,7 +324,7 @@ article.reader-comment {
 }
 
 /* Строка со сылками */
-article.reader-comment nav.reader-comment-links { line-height: 1.4; word-break: break-word; margin-bottom: var(--mobile-gap); }
+nav.reader-comment-links:has(+ article.reader-comment) { line-height: 1.4; word-break: break-word; margin-bottom: var(--mobile-gap); }
 
 /* Аватарка */
 article.reader-comment section.comment-avatar { grid-area: avatar; position: relative; }

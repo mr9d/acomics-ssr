@@ -649,7 +649,7 @@ section.serial-card p.about {
 /* Секция с возрастным рейтингом, ссылкой на оригинал и лицензией */
 section.serial-card aside.info {
     grid-area: info; margin: var(--mobile-gap) 0 0;
-    display: flex; flex-wrap: wrap; gap: var(--mobile-gap);
+    display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--mobile-gap);
 }
 section.serial-card aside.info span.age-rating { white-space: nowrap; }
 
