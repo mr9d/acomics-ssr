@@ -10,6 +10,8 @@ use Acomics\Ssr\Util\UrlUtil;
 
 class SerialSubscriptionsPage extends SerialReaderAsideLayout implements PageInt
 {
+    private const SUBSCRIBE_ACTION_PATH = '/action/settingsSubscribes';
+
 	protected ?SerialSubscriptionsPageData $pageData = null;
 
 	public function pageData(SerialSubscriptionsPageData $pageData): void
@@ -54,7 +56,7 @@ class SerialSubscriptionsPage extends SerialReaderAsideLayout implements PageInt
     private function subscribeForm(): void
     {
         $isSubscribed = $this->serialLayoutData->isSubscribed;
-        echo '<form method="POST" action="/action/settingsSubscribes" enctype="multipart/form-data" class="serial-subscriptions-form">';
+        echo '<form method="POST" action="' . self::SUBSCRIBE_ACTION_PATH . '" enctype="multipart/form-data" class="serial-subscriptions-form">';
         echo '<input type="hidden" name="addType" value="code">';
         echo '<input type="hidden" name="addValue" value="' . $this->serialLayoutData->code . '">';
         echo '<button type="submit" name="submit" class="submit" value="' . ($isSubscribed ? 'delete' : 'add') . '">' . ($isSubscribed ? 'отписаться' : 'подписаться') . '</button>';

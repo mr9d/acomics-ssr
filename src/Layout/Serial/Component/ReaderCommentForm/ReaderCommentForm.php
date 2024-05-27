@@ -9,6 +9,8 @@ use Acomics\Ssr\Util\UrlUtil;
 
 class ReaderCommentForm extends AbstractComponent
 {
+    private const ADD_COMMENT_ACTION_PATH = '/action/serialAddComment';
+
 	private int $issueId;
 	private AuthData $auth;
 	private CaptchaProviderInt $captchaProvider;
@@ -22,7 +24,7 @@ class ReaderCommentForm extends AbstractComponent
 
 	public function render(): void
 	{
-		echo '<form class="reader-comment-form" method="POST" action="/action/serialAddComment" enctype="multipart/form-data">';
+		echo '<form class="reader-comment-form" method="POST" action="' . self::ADD_COMMENT_ACTION_PATH . '" enctype="multipart/form-data">';
 
 		echo '<input name="issueId" type="hidden" value="' . $this->issueId . '">';
 

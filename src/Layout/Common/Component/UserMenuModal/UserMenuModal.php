@@ -9,6 +9,8 @@ use Acomics\Ssr\Util\UrlUtil;
 
 class UserMenuModal extends HeaderModal
 {
+    private const LOGIN_ACTION_PATH = '/action/guest/login';
+
 	private AuthData $auth;
 
 	public function __construct(AuthData $auth)
@@ -33,10 +35,10 @@ class UserMenuModal extends HeaderModal
 
 	private function renderGuestContent(): void
 	{
-?>
-		<p>Войдите или <a href="/auth/reg">зарегистрируйтесь</a>.</p>
+		echo '<p>Войдите или <a href="/auth/reg">зарегистрируйтесь</a>.</p>';
 
-		<form method="POST" action="/action/authLogin">
+        echo '<form method="POST" action="' . self::LOGIN_ACTION_PATH . '">';
+?>
 			<label for="username">Имя пользователя:</label>
 			<input name="username" id="username" type="text" class="text" autocomplete="username" />
 			<label for="password">Пароль:</label>
@@ -45,8 +47,8 @@ class UserMenuModal extends HeaderModal
 			<input name="referer" type="hidden" value="" />
 			<span class="forget"><a href="/auth/passwordRecovery">Забыли пароль?</a></span>
 			<button name="submit" type="submit" class="submit" value="login">Войти</button>
-		</form>
 <?php
+        echo '</form>';
 	}
 
 	private function renderLoggedInContent(): void

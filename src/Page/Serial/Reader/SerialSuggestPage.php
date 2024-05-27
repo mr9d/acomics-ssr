@@ -11,6 +11,9 @@ use Acomics\Ssr\Page\PageInt;
 
 class SerialSuggestPage extends SerialReaderAsideLayout implements PageInt
 {
+    private const ADD_SUGGESTION_ACTION_PATH = '/action/suggestIssue';
+    private const DELETE_SUGGESTION_ACTION_PATH = '/action/deleteSuggestion';
+
 	protected ?SerialSuggestPageData $pageData = null;
 
 	public function pageData(SerialSuggestPageData $pageData): void
@@ -85,7 +88,7 @@ class SerialSuggestPage extends SerialReaderAsideLayout implements PageInt
 
     private function issuePreview(IssuePreviewDto $issue): void
     {
-        echo '<form class="serial-suggestion-delete-form" method="POST" action="/action/deleteSuggestion" enctype="multipart/form-data">';
+        echo '<form class="serial-suggestion-delete-form" method="POST" action="' . self::DELETE_SUGGESTION_ACTION_PATH . '" enctype="multipart/form-data">';
 
         echo '<input name="issueId" type="hidden" value="' . $issue->id . '">';
 
@@ -117,7 +120,7 @@ class SerialSuggestPage extends SerialReaderAsideLayout implements PageInt
 
     private function form(): void
     {
-        echo '<form class="serial-suggest-form" method="POST" action="/action/suggestIssue" enctype="multipart/form-data">';
+        echo '<form class="serial-suggest-form" method="POST" action="' . self::ADD_SUGGESTION_ACTION_PATH . '" enctype="multipart/form-data">';
 
         echo '<input name="serialId" type="hidden" value="' . $this->serialLayoutData->id . '">';
 
