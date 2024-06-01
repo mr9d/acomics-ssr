@@ -4,14 +4,15 @@ namespace Acomics\Ssr\Layout\Common\Component\AgeRatingLabel;
 
 use Acomics\Ssr\Dto\SerialAgeRatingDto;
 use Acomics\Ssr\Layout\AbstractComponent;
+use Acomics\Ssr\Service\Dictionary\SerialAgeRatingDictionary;
 
 class AgeRatingLabel extends AbstractComponent
 {
 	private SerialAgeRatingDto $ageRating;
 
-	public function __construct(SerialAgeRatingDto $ageRating)
+	public function __construct(int $ageRatingId)
 	{
-		$this->ageRating = $ageRating;
+		$this->ageRating = SerialAgeRatingDictionary::instance()->getById($ageRatingId);
 	}
 
     function render(): void

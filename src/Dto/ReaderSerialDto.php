@@ -26,9 +26,9 @@ class ReaderSerialDto
 
 	public bool $isTopEnabled;
 
-	public SerialAgeRatingDto $ageRating;
+	public int $ageRatingId;
 
-	public ?SerialLicenseDto $license;
+	public int $licenseId;
 
 	public function __construct(
 		string $name,
@@ -42,8 +42,8 @@ class ReaderSerialDto
 		?string $siteUrl,
 		?string $originalAuthorName,
 		bool $isTopEnabled,
-		SerialAgeRatingDto $ageRating,
-		SerialLicenseDto $license)
+		int $ageRatingId,
+		int $licenseId)
 	{
 		$this->name = $name;
 		$this->code = $code;
@@ -56,7 +56,7 @@ class ReaderSerialDto
 		$this->siteUrl = $siteUrl;
 		$this->originalAuthorName = $originalAuthorName;
 		$this->isTopEnabled = $isTopEnabled;;
-		$this->ageRating = $ageRating;
-		$this->license = $license;
+		$this->ageRatingId = $ageRatingId;
+		$this->licenseId = $licenseId;
 	}
 }

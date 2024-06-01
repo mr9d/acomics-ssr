@@ -8,6 +8,8 @@ use Acomics\Ssr\Layout\Common\Component\LazyImage\LazyImage;
 use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
 use Acomics\Ssr\Layout\SerialReaderAside\SerialReaderAsideLayout;
 use Acomics\Ssr\Page\PageInt;
+use Acomics\Ssr\Service\Dictionary\SerialAgeRatingDictionary;
+use Acomics\Ssr\Util\Ref\SerialAgeRatingProviderInt;
 
 class SerialSuggestPage extends SerialReaderAsideLayout implements PageInt
 {
@@ -16,9 +18,12 @@ class SerialSuggestPage extends SerialReaderAsideLayout implements PageInt
 
 	protected ?SerialSuggestPageData $pageData = null;
 
+    private SerialAgeRatingProviderInt $serialAgeRatingProvider;
+
 	public function pageData(SerialSuggestPageData $pageData): void
 	{
 		$this->pageData = $pageData;
+        $this->serialAgeRatingProvider = SerialAgeRatingDictionary::instance();
 	}
 
 	public function isReady(): bool
@@ -59,11 +64,15 @@ class SerialSuggestPage extends SerialReaderAsideLayout implements PageInt
 
     private function intro(): void
     {
+        $ageRating = $this->serialAgeRatingProvider->getById($this->pageData->ageRatingId);
+
         echo '<p class="serial-suggest-intro">';
+
         echo 'Вы можете отправить гостевой выпуск или фанарт для комикса ' . $this->serialLayoutData->name . '.
             Автор его увидит и сможет опубликовать на странице комикса.
             Ваша работа должна соответствовать <a href="/rules">правилам</a> портала Авторский Комикс
-            и возрастному рейтингу <a href="/rating">' . $this->pageData->ageRating->nameShort . '</a>.';
+            и возрастному рейтингу <a href="/rating">' . $ageRating->nameShort . '</a>.';
+        
         echo '</p>'; // serial-suggest-intro
     }
 

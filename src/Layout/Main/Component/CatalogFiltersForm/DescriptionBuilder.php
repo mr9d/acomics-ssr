@@ -3,6 +3,8 @@
 namespace Acomics\Ssr\Layout\Main\Component\CatalogFiltersForm;
 
 use Acomics\Ssr\Dto\CatalogFiltersDto;
+use Acomics\Ssr\Service\Dictionary\SerialAgeRatingDictionary;
+use Acomics\Ssr\Service\Dictionary\SerialCategoryDictionary;
 use Acomics\Ssr\Util\Ref\SerialAgeRatingProviderInt;
 use Acomics\Ssr\Util\Ref\SerialCategoryProviderInt;
 use Acomics\Ssr\Util\StringUtil;
@@ -15,13 +17,10 @@ class DescriptionBuilder
 
     private CatalogFiltersDto $filters;
 
-    public function __construct(
-        SerialCategoryProviderInt $serialCategoryProvider,
-        SerialAgeRatingProviderInt $serialAgeRatingProvider,
-        CatalogFiltersDto $filters)
+    public function __construct(CatalogFiltersDto $filters)
     {
-        $this->serialAgeRatingProvider = $serialAgeRatingProvider;
-        $this->serialCategoryProvider = $serialCategoryProvider;
+        $this->serialAgeRatingProvider = SerialAgeRatingDictionary::instance();
+        $this->serialCategoryProvider = SerialCategoryDictionary::instance();
         $this->filters = $filters;
     }
 

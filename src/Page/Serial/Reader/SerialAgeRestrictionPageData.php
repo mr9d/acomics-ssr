@@ -2,14 +2,12 @@
 
 namespace Acomics\Ssr\Page\Serial\Reader;
 
-use Acomics\Ssr\Dto\SerialAgeRatingDto;
-
 class SerialAgeRestrictionPageData
 {
-    public SerialAgeRatingDto $ageRating;
+    public int $ageRatingId;
 
-    public function __construct(SerialAgeRatingDto $ageRating)
+    public function __construct(int $ageRatingId)
     {
-        $this->ageRating = $ageRating;
+        $this->ageRatingId = $ageRatingId;
     }
 }

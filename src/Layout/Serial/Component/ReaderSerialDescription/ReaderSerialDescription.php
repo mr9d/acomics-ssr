@@ -5,7 +5,13 @@ namespace Acomics\Ssr\Layout\Serial\Component\ReaderSerialDescription;
 use Acomics\Ssr\Dto\SerialCoauthorDto;
 use Acomics\Ssr\Dto\ReaderSerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
+use Acomics\Ssr\Layout\Common\Component\AgeRatingIcon\AgeRatingIcon;
+use Acomics\Ssr\Layout\Common\Component\LicenseIcon\LicenseIcon;
+use Acomics\Ssr\Service\Dictionary\SerialAgeRatingDictionary;
+use Acomics\Ssr\Service\Dictionary\SerialLicenseDictionary;
 use Acomics\Ssr\Util\AuthorUtil;
+use Acomics\Ssr\Util\Ref\SerialAgeRatingProviderInt;
+use Acomics\Ssr\Util\Ref\SerialLicenseProviderInt;
 use Acomics\Ssr\Util\UrlUtil;
 
 class ReaderSerialDescription extends AbstractComponent
@@ -15,6 +21,8 @@ class ReaderSerialDescription extends AbstractComponent
 	/** @var SerialCoauthorDto[] $coauthors */
 	private array $coauthors;
 
+    private SerialLicenseProviderInt $serialLicenseProvider;
+
 	/**
 	 * @param SerialCoauthorDto[] $coauthors
 	 */
@@ -22,6 +30,7 @@ class ReaderSerialDescription extends AbstractComponent
 	{
 		$this->serial = $serial;
 		$this->coauthors = $coauthors;
+        $this->serialLicenseProvider = SerialLicenseDictionary::instance();
 	}
 
 	public function render(): void
@@ -61,14 +70,20 @@ class ReaderSerialDescription extends AbstractComponent
 
 	private function renderIcons(): void
 	{
+        $license = $this->serialLicenseProvider->getById($this->serial->licenseId);
+
 		echo '<div class="description-icons">';
 
-		if ($this->serial->license->descriptionUrl !== null)
+		if ($license && $license->descriptionUrl !== null)
 		{
-			echo '<p><a href="' . $this->serial->license->descriptionUrl . '"><img src="' . $this->serial->license->iconUrl . '" alt="' . $this->serial->license->name . '" /></a></p>';
+			echo '<p>';
+            (new LicenseIcon($this->serial->licenseId))->render();
+            echo '</p>';
 		}
 
-		echo '<p><a class="description-icon-rating" href="/rating">' . $this->serial->ageRating->nameShort . '</a></p>';
+		echo '<p>';
+        (new AgeRatingIcon($this->serial->ageRatingId))->render();
+        echo '</p>';
 
 		echo '</div>';
 	}

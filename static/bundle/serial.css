@@ -116,8 +116,6 @@ section.serial-comments-list{ container-type: inline-size; box-sizing: border-bo
 section.serial-age-restriction { max-width: 600px; margin: 0 auto var(--desktop-gap); line-height: 1.4; }
 section.serial-age-restriction img.illustration { display: block; width: 100%; height: auto; }
 section.serial-age-restriction p { text-align: center; margin: 0 var(--desktop-gap) var(--desktop-gap); }
-section.serial-age-restriction p img { display: block; margin: var(--mobile-gap) auto; }
-section.serial-age-restriction p b { display: block; }
 section.serial-age-restriction form { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--mobile-gap); padding-bottom: var(--desktop-gap); }
 section.serial-age-restriction form button {
     padding: 11px 19px; background: var(--brand-blue); color: #fff;
@@ -747,21 +745,18 @@ nav.reader-navigator ul li.button-goto a span { padding: 0 var(--mobile-gap); ba
 
 /* src/Layout/Serial/Component/ReaderSerialDescription/ReaderSerialDescription.css */
 section.reader-serial-description { border: 1px solid var(--brand-grey); word-break: break-word; }
+
 section.reader-serial-description div.description-common { padding: var(--desktop-gap) var(--mobile-gap); }
 section.reader-serial-description div.description-common h2 { margin: 0; font-size: 1em; }
 section.reader-serial-description div.description-common p { line-height: 1.4; }
 section.reader-serial-description div.description-common p:last-of-type { margin-bottom: 0; }
+
 section.reader-serial-description div.description-icons {
 	padding: var(--desktop-gap) var(--mobile-gap); background-color: var(--brand-grey);
 	display: flex; justify-content: space-evenly; align-items: center;
 }
 section.reader-serial-description div.description-icons p { margin: 0; }
-section.reader-serial-description div.description-icons a,
-section.reader-serial-description div.description-icons img { display: block; }
-section.reader-serial-description a.description-icon-rating {
-	color: #111; border: 2px solid #111; font-family: 'Times New Roman', Times, serif; font-size: 2.2em; white-space: nowrap;
-	display: block; min-width: 70px; box-sizing: border-box; text-decoration: none; text-align: center; font-weight: bold; line-height: 1;
-}
+
 section.reader-serial-description a.description-up-button {
 	display: block; padding: var(--mobile-gap); text-align: center; color: #757575; text-decoration: none;
 }
@@ -769,7 +764,6 @@ section.reader-serial-description a.description-up-button:hover { color: #111; }
 
 @media screen and (min-width: 920px) {
 	section.reader-serial-description div.description-common { padding: var(--desktop-gap); }
-	section.reader-serial-description div.description-icons { padding: var(--desktop-gap); }
 }
 
 /* src/Layout/Serial/Component/SerialHeader/SerialHeader.css */

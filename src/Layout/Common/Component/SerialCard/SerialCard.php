@@ -8,7 +8,9 @@ use Acomics\Ssr\Layout\Common\Component\AgeRatingLabel\AgeRatingLabel;
 use Acomics\Ssr\Layout\Common\Component\DateTimeFormatted\DateTimeFormatted;
 use Acomics\Ssr\Layout\Common\Component\LazyImage\LazyImage;
 use Acomics\Ssr\Layout\Common\Component\SubscribeButton\SubscribeButton;
+use Acomics\Ssr\Service\Dictionary\SerialLicenseDictionary;
 use Acomics\Ssr\Util\CatalogStatus;
+use Acomics\Ssr\Util\Ref\SerialLicenseProviderInt;
 use Acomics\Ssr\Util\StringUtil;
 use Acomics\Ssr\Util\UrlUtil;
 
@@ -16,11 +18,15 @@ use Acomics\Ssr\Util\UrlUtil;
 class SerialCard extends AbstractComponent
 {
     public const CATALOG_STUB_URL = '/static/img/catalog-stub.svg';
+
     private CatalogSerialDto $serial;
+
+    private SerialLicenseProviderInt $serialLicenseProviderInt;
 
     public function __construct(CatalogSerialDto $serial)
     {
         $this->serial = $serial;
+        $this->serialLicenseProviderInt = SerialLicenseDictionary::instance();
     }
 
     public function render(): void
@@ -123,7 +129,7 @@ class SerialCard extends AbstractComponent
     {
         echo '<span class="age-rating">';
         echo 'Рейтинг: ';
-        (new AgeRatingLabel($this->serial->ageRating))->render();
+        (new AgeRatingLabel($this->serial->ageRatingId))->render();
         echo '</span>'; // rating
     }
 
@@ -139,14 +145,16 @@ class SerialCard extends AbstractComponent
 
     private function renderLicense(): void
     {
+        $license = $this->serialLicenseProviderInt->getById($this->serial->licenseId);
+
 		// Не выводим "Нет лицензии или не CC" без descriptionUrl
-		if(!$this->serial->license || !$this->serial->license->descriptionUrl)
+		if(!$license || !$license->descriptionUrl)
 		{
 			return;
 		}
 
         echo '<span class="license">';
-        echo 'Лицензия: <a href="' . $this->serial->license->descriptionUrl . '">' . $this->serial->license->nameShort . '</a>';
+        echo 'Лицензия: <a href="' . $license->descriptionUrl . '">' . $license->nameShort . '</a>';
         echo '</span>'; // license
     }
 

@@ -3,21 +3,20 @@
 namespace Acomics\Ssr\Page\Serial\Reader;
 
 use Acomics\Ssr\Dto\IssuePreviewDto;
-use Acomics\Ssr\Dto\SerialAgeRatingDto;
 
 class SerialSuggestPageData
 {
 	/** @var IssuePreviewDto[] $issues */
 	public array $issues;
 
-	public SerialAgeRatingDto $ageRating;
+	public int $ageRatingId;
 
 	/**
 	 * @param IssuePreviewDto[] $issues
 	 */
-	public function __construct(array $issues, SerialAgeRatingDto $ageRating)
+	public function __construct(array $issues, int $ageRatingId)
 	{
 		$this->issues = $issues;
-		$this->ageRating = $ageRating;
+		$this->ageRatingId = $ageRatingId;
 	}
 }

@@ -12,9 +12,11 @@ div.index-page {
 }
 
 /* Страница "О проекте" */
-p.about-mascotrefs img {
-    display: block; width: 100%;
-}
+p.about-mascotrefs img { display: block; width: 100%; }
+div.about-team { display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); width: 100%; margin: var(--desktop-gap) 0; }
+div.about-team p.about-team-member { display: flex; margin: 0 0 var(--desktop-gap); align-items: center; flex-direction: column; }
+div.about-team a.about-team-member-name { display: block; margin-top: 6px; font-size: 120%; text-decoration: none; color: #111; font-weight: bold; }
+div.about-team a.about-team-member-name:hover { text-decoration: underline; }
 
 /* Страница с правилами */
 section.rules-section {

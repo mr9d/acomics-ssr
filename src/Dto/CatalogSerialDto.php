@@ -2,9 +2,6 @@
 
 namespace Acomics\Ssr\Dto;
 
-use Acomics\Ssr\Dto\SerialAgeRatingDto;
-use Acomics\Ssr\Dto\SerialLicenseDto;
-
 class CatalogSerialDto
 {
     //
@@ -49,9 +46,9 @@ class CatalogSerialDto
 
 	public ?string $bannerUrl;
 
-	public SerialAgeRatingDto $ageRating;
+	public int $ageRatingId;
 
-	public ?SerialLicenseDto $license;
+	public int $licenseId;
 
     public function __construct(
         int $id,
@@ -69,8 +66,8 @@ class CatalogSerialDto
         ?string $siteUrl,
         bool $isTopEnabled,
         ?string $bannerUrl,
-        SerialAgeRatingDto $ageRating,
-        ?SerialLicenseDto $license)
+        int $ageRatingId,
+        int $licenseId)
     {
         $this->id = $id;
         $this->name = $name;
@@ -87,8 +84,8 @@ class CatalogSerialDto
         $this->siteUrl = $siteUrl;
         $this->isTopEnabled = $isTopEnabled;
         $this->bannerUrl = $bannerUrl;
-        $this->ageRating = $ageRating;
-        $this->license = $license;
+        $this->ageRatingId = $ageRatingId;
+        $this->licenseId = $licenseId;
     }
 
 }

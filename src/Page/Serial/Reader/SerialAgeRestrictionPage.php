@@ -2,9 +2,11 @@
 
 namespace Acomics\Ssr\Page\Serial\Reader;
 
+use Acomics\Ssr\Layout\Common\Component\AgeRatingIcon\AgeRatingIcon;
 use Acomics\Ssr\Layout\Common\Component\LazyImage\LazyImage;
 use Acomics\Ssr\Layout\SerialReader\SerialReaderLayout;
 use Acomics\Ssr\Page\PageInt;
+use Acomics\Ssr\Service\Dictionary\SerialAgeRatingDictionary;
 
 class SerialAgeRestrictionPage extends SerialReaderLayout implements PageInt
 {
@@ -22,6 +24,7 @@ class SerialAgeRestrictionPage extends SerialReaderLayout implements PageInt
 
     public function content(): void
     {
+
         echo '<section class="serial-age-restriction">';
 
         (new LazyImage(
@@ -33,7 +36,11 @@ class SerialAgeRestrictionPage extends SerialReaderLayout implements PageInt
             class: 'illustration'
         ))->render();
 
-        echo '<p>Данный комикс содержит материалы, не подходящие для детей. <b><img src="' . $this->pageData->ageRating->iconUrl . '" alt="Иконка возрастного рейтинга ' . $this->pageData->ageRating->nameShort . '">' . $this->pageData->ageRating->name . '</b></p>';
+        echo '<p>Данный комикс содержит материалы, не подходящие для детей.</p>';
+
+        echo '<p>';
+        (new AgeRatingIcon($this->pageData->ageRatingId))->render();
+        echo '</p>';
 
         $this->form();
 
@@ -42,8 +49,10 @@ class SerialAgeRestrictionPage extends SerialReaderLayout implements PageInt
 
     private function form(): void
     {
+        $ageRating = SerialAgeRatingDictionary::instance()->getById($this->pageData->ageRatingId);
+
         echo '<form method="post">';
-        echo '<button name="ageRestrict" value="' . $this->pageData->ageRating->ageRestrict . '">Мне уже есть 18 лет</button>';
+        echo '<button name="ageRestrict" value="' . $ageRating->ageRestrict . '">Мне уже есть 18 лет</button>';
         echo '<button name="ageRestrict" value="no">Мне еще нет 18 лет</button>';
         echo '</form>';
     }

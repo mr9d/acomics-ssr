@@ -115,8 +115,6 @@ section.serial-comments-list{ container-type: inline-size; box-sizing: border-bo
 section.serial-age-restriction { max-width: 600px; margin: 0 auto var(--desktop-gap); line-height: 1.4; }
 section.serial-age-restriction img.illustration { display: block; width: 100%; height: auto; }
 section.serial-age-restriction p { text-align: center; margin: 0 var(--desktop-gap) var(--desktop-gap); }
-section.serial-age-restriction p img { display: block; margin: var(--mobile-gap) auto; }
-section.serial-age-restriction p b { display: block; }
 section.serial-age-restriction form { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--mobile-gap); padding-bottom: var(--desktop-gap); }
 section.serial-age-restriction form button {
     padding: 11px 19px; background: var(--brand-blue); color: #fff;

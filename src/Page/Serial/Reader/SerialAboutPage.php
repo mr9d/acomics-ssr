@@ -7,16 +7,25 @@ use Acomics\Ssr\Layout\Serial\Component\AboutBadges\AboutBadges;
 use Acomics\Ssr\Layout\Serial\Component\IssuePreview\IssuePreview;
 use Acomics\Ssr\Layout\SerialReaderAside\SerialReaderAsideLayout;
 use Acomics\Ssr\Page\PageInt;
+use Acomics\Ssr\Service\Dictionary\SerialAgeRatingDictionary;
+use Acomics\Ssr\Service\Dictionary\SerialLicenseDictionary;
 use Acomics\Ssr\Util\AuthorUtil;
+use Acomics\Ssr\Util\Ref\SerialAgeRatingProviderInt;
+use Acomics\Ssr\Util\Ref\SerialLicenseProviderInt;
 use Acomics\Ssr\Util\UrlUtil;
 
 class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 {
 	protected ?SerialAboutPageData $pageData = null;
 
+    private SerialLicenseProviderInt $serialLicenseProvider;
+    private SerialAgeRatingProviderInt $serialAgeRatingProvider;
+
 	public function pageData(SerialAboutPageData $pageData): void
 	{
 		$this->pageData = $pageData;
+        $this->serialLicenseProvider = SerialLicenseDictionary::instance();
+        $this->serialAgeRatingProvider = SerialAgeRatingDictionary::instance();
 	}
 
 	public function isReady(): bool
@@ -54,7 +63,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 
 		$this->officialSite();
 
-		echo '<p><b>Возрастной рейтинг:</b> ' . $this->pageData->serial->ageRating->name . '</p>';
+		$this->ageRating();
 
 		$this->license();
 
@@ -93,17 +102,26 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 		echo '</p>';
 	}
 
+	private function ageRating(): void
+    {
+        $ageRating = $this->serialAgeRatingProvider->getById($this->pageData->serial->ageRatingId);
+        
+		echo '<p><b>Возрастной рейтинг:</b> <a href="/rating">' . $ageRating->name . '</a></p>';
+    }
+
 	private function license(): void
 	{
+        $license = $this->serialLicenseProvider->getById($this->pageData->serial->licenseId);
+
 		// Не выводим "Нет лицензии или не CC" без descriptionUrl
-		if(!$this->pageData->serial->license || !$this->pageData->serial->license->descriptionUrl)
+		if(!$license || !$license->descriptionUrl)
 		{
 			return;
 		}
 
 		echo '<p><b>Лицензия:</b> ';
 
-		echo '<a href="' . $this->pageData->serial->license->descriptionUrl . '">' . $this->pageData->serial->license->name . '</a>';
+		echo '<a href="' . $license->descriptionUrl . '">' . $license->name . '</a>';
 
 		echo '</p>';
 	}
