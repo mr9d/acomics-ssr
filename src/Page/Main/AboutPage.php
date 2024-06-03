@@ -1,10 +1,12 @@
 <?php
 namespace Acomics\Ssr\Page\Main;
 
+use Acomics\Ssr\Layout\Common\Component\LazyImage\LazyImage;
 use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
 use Acomics\Ssr\Layout\Common\Component\SectionHeader\SectionHeader;
 use Acomics\Ssr\Layout\Main\MainLayout;
 use Acomics\Ssr\Page\PageInt;
+use Acomics\Ssr\Util\UrlUtil;
 
 class AboutPage extends MainLayout implements PageInt
 {
@@ -64,7 +66,43 @@ class AboutPage extends MainLayout implements PageInt
 
     private function team(): void
     {
-        //(new SectionHeader('Наша команда'))->render();
+        (new SectionHeader('Наша команда'))->render();
+
+        echo '<div class="about-team">';
+
+        $this->teamMember('/design/images/team/kaa.png', 'Александр Козлов', 'kaa', 'Разработчик и администратор');
+        $this->teamMember('/design/images/team/Foust.png', 'Яна Колестро', 'Foust', 'Помощник администратора');
+        $this->teamMember('/design/images/team/Enjoyable.png', 'Анна Хилл', 'Enjoyable', 'Редактор каталога');
+        $this->teamMember('/design/images/team/terentyi.png', 'Анна Терентьева', 'terentyi', 'Редактор статей');
+        $this->teamMember('/design/images/team/Werewolf710.png', 'Любовь Арбузова', 'Werewolf710', 'Модератор группы VK');
+        $this->teamMember('/design/images/team/kotalmaty.png', 'Кот Из Алма-Аты', 'kotalmaty', 'Редактор обложек');
+
+        echo '</div>'; // about-team
+    }
+
+    private function teamMember(
+        string $portraitSrc,
+        string $name,
+        string $username,
+        string $title
+    ): void
+    {
+        echo '<p class="about-team-member">';
+
+        (new LazyImage(
+            src: $portraitSrc,
+            stubSrc: '/static/img/tail-spin.svg',
+            width: 235,
+            height: 300,
+            alt: $name,
+            class: 'about-team-member-portrait'
+        ))->render();
+
+        echo '<a href="' . UrlUtil::makeProfileUrl($username) . '" class="about-team-member-name">' . $name . '</a>';
+
+        echo '<span class="about-team-member-title">' . $title . '</span>';
+
+        echo '</p>'; // about-team-member
     }
 
     private function mascot(): void
