@@ -33,7 +33,7 @@ class SerialAgeRatingDictionary implements SerialAgeRatingProviderInt
         5 => [
             'name' => 'Restricted (Не рекомендуется лицам до 17 лет)',
             'nameShort' => 'R',
-            'ageRestrict' => 16,
+            'ageRestrict' => 17,
         ],
         6 => [
             'name' => 'No children under 17 (Запрещено лицам до 17 лет)',
