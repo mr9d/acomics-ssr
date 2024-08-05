@@ -11,6 +11,28 @@ div.index-page {
         "group";
 }
 
+@media screen and (min-width: 700px) {
+	div.index-page {
+        grid-template-areas:
+            "featured"
+            "cover"
+            "howto"
+            "spotlight"
+            "group";
+    }
+}
+
+@media screen and (min-width: 840px) {
+	div.index-page {
+        grid-template-columns: 350px 1fr;
+        grid-template-areas:
+            "featured featured"
+            "cover cover"
+            "howto howto"
+            "group spotlight";
+    }
+}
+
 /* Страница "О проекте" */
 p.about-mascotrefs img { display: block; width: 100%; }
 div.about-team { display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); width: 100%; margin: var(--desktop-gap) 0; }

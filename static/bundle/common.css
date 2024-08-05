@@ -466,6 +466,9 @@ a.infinite-scroll.in-progress {
     background: url('/static/img/tail-spin.svg') no-repeat; background-size: cover; color: var(--brand-grey);
 }
 
+/* src/Layout/Common/Component/LazyContent/LazyContent.css */
+div.lazy-content {  }
+
 /* src/Layout/Common/Component/LazyImage/LazyImage.css */
 img.lazy-image { object-fit: cover; }
 

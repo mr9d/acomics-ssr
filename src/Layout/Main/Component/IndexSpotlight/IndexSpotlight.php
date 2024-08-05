@@ -9,7 +9,18 @@ class IndexSpotlight extends AbstractComponent
     public function render(): void
     {
         echo '<div class="index-spotlight">';
-        echo 'IndexSpotlight';
+        $this->renderTabs();
+        $this->renderSections();
         echo '</div>'; // index-spotlight
+    }
+
+    public function renderTabs(): void
+    {
+
+    }
+
+    public function renderSections(): void
+    {
+        
     }
 }

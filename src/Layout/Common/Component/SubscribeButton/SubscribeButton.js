@@ -42,7 +42,7 @@ const subscribeButtonClickListener = async (evt) => {
 	}
 };
 
-const makeSubscribeButtons = () => {
-	const buttons = document.querySelectorAll('button.subscribe-button');
+const makeSubscribeButtons = (parentElement = document) => {
+	const buttons = parentElement.querySelectorAll('button.subscribe-button');
 	buttons.forEach((button) => button.addEventListener('click', subscribeButtonClickListener));
 }

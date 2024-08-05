@@ -28,6 +28,7 @@ const init = () => {
 		throttle,
 		makeDateTimeFormatted,
 		makeLazyImages,
+        makeSubscribeButtons,
 	}
 
 	makeHeaderMenu('div.user-menu', 'button.toggle-user-menu', 'user-menu-visible');

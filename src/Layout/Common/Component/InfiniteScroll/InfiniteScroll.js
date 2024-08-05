@@ -34,6 +34,7 @@ const makeInfiniteScroll = () => {
 
             window.acomicsCommon.makeDateTimeFormatted(pageContainer);
             window.acomicsCommon.makeLazyImages(pageContainer);
+            window.acomicsCommon.makeSubscribeButtons(pageContainer);
 
             loadMoreLink.remove();
             init();

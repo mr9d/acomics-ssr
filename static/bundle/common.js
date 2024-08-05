@@ -154,6 +154,7 @@ const makeInfiniteScroll = () => {
 
             window.acomicsCommon.makeDateTimeFormatted(pageContainer);
             window.acomicsCommon.makeLazyImages(pageContainer);
+            window.acomicsCommon.makeSubscribeButtons(pageContainer);
 
             loadMoreLink.remove();
             init();
@@ -199,6 +200,8 @@ const makeInfiniteScroll = () => {
 
     init();
 };
+
+/* src/Layout/Common/Component/LazyContent/LazyContent.js */
 
 /* src/Layout/Common/Component/LazyImage/LazyImage.js */
 const LAZY_IMAGE_CLASS = 'lazy-image';
@@ -339,8 +342,8 @@ const subscribeButtonClickListener = async (evt) => {
 	}
 };
 
-const makeSubscribeButtons = () => {
-	const buttons = document.querySelectorAll('button.subscribe-button');
+const makeSubscribeButtons = (parentElement = document) => {
+	const buttons = parentElement.querySelectorAll('button.subscribe-button');
 	buttons.forEach((button) => button.addEventListener('click', subscribeButtonClickListener));
 }
 
@@ -375,6 +378,7 @@ const init = () => {
 		throttle,
 		makeDateTimeFormatted,
 		makeLazyImages,
+        makeSubscribeButtons,
 	}
 
 	makeHeaderMenu('div.user-menu', 'button.toggle-user-menu', 'user-menu-visible');
