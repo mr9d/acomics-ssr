@@ -2,6 +2,8 @@
 
 namespace Acomics\Ssr\Script;
 
+use Acomics\Ssr\Helpers\FS;
+
 class Build
 {
 	private const LAYOUTS_DIR = 'src/Layout';
@@ -11,9 +13,7 @@ class Build
 
 	private static function createBundleDirectory(): void
 	{
-		if (!file_exists(self::BUNDLE_DIR)) {
-			mkdir(self::BUNDLE_DIR, 0777, true);
-		}
+        FS::mkdir(self::BUNDLE_DIR);
 	}
 
 	private static function getLayouts(): array
