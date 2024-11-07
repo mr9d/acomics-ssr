@@ -201,7 +201,7 @@ class RulesPage extends MainLayout implements PageInt
                 <li>высокий уровень графического исполнения,</li>
                 <li>потенциальный интерес для широкого круга читателей,</li>
                 <li>обновления 1-2 раза в неделю или чаще,</li>
-                <li>возрастной рейтинг G, PG или PG-13.</li>
+                <li>возрастной рейтинг G, PG, PG-13 или R.</li>
             </ul>
 
             <p><a href="https://vk.com/topic-19453433_48953606" target="_blank">Подробнее о том, как попасть в рекомендации</a></p>
@@ -279,7 +279,7 @@ class RulesPage extends MainLayout implements PageInt
 
         </section>
 
-		<p>версия 2.02 от 26 мая 2024 года</p>
+		<p>версия 2.03 от 7 ноября 2024 года</p>
 
 <?php
 	}
