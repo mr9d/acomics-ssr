@@ -1,6 +1,6 @@
 // Форматирование переносов строк в title изображений и ссылок читалки
 const formatReaderTitles = () => {
-    document.querySelectorAll('.reader-issue img.issue, .reader-issue a.reader-issue-next').forEach(element => {
+    document.querySelectorAll('.reader-issue img.issue, .reader-issue a.reader-issue-next, .reader-issue a.reader-issue-previous').forEach(element => {
         const title = element.getAttribute('title');
         if (title) {
             const newTitle = title.replace(/\\r/g, '&#13;')
