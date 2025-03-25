@@ -75,6 +75,7 @@ const initReaderPage = () => {
 	removeTitleHashFromUrl();
 	makeHeaderDisapearOnScroll();
     preventFormDoubleSubmission();
+	formatReaderTitles();
 };
 
 // Инициализация страницы содержания
