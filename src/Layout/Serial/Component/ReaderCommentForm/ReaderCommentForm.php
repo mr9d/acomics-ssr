@@ -35,7 +35,7 @@ class ReaderCommentForm extends AbstractComponent
 
 		if (!$this->auth->isLoggedIn)
 		{
-			$this->renderCaptcha();
+			$this->captchaProvider->captcha('SERIAL_COMMENT');
 		}
 
 		echo '<section class="comment-submit"><button type="submit" name="submit" class="submit" value="add">Отправить</button></section>';
@@ -69,14 +69,5 @@ class ReaderCommentForm extends AbstractComponent
 		}
 
 		echo '</section>'; // comment-info
-	}
-
-	private function renderCaptcha(): void
-	{
-		echo '<section class="comment-captcha">';
-
-		$this->captchaProvider->captcha();
-
-		echo '</section>'; // comment-captcha
 	}
 }

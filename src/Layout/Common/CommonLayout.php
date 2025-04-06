@@ -47,6 +47,7 @@ abstract class CommonLayout extends AbstractLayout
 
 		$this->integrationsProvider->advertisementHead();
 		$this->integrationsProvider->metricsHead();
+		$this->integrationsProvider->captchaHead();
 
 		echo '<link rel="shortcut icon" href="/favicon.ico?18-11-2023" />';
 		echo '<link rel="stylesheet" href="/static/css/normalize.css?18-11-2023" type="text/css" />';

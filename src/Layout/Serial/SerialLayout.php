@@ -76,7 +76,7 @@ abstract class SerialLayout extends CommonLayout
 				echo 'background-attachment: fixed; background-position:center; background-repeat:repeat-y;';
 				break;
 			case 6:
-				echo 'background-size: cover; background-attachment: fixed; background-position:center; background-repeat:no-repeat;';
+				echo 'background-attachment: fixed; background-position:center; background-repeat:no-repeat; background-size: cover;';
 				break;
 			default:
 				echo 'background-attachment: scroll; background-position:top; background-repeat:repeat; ';
