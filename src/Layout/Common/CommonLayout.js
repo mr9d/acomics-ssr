@@ -1,5 +1,3 @@
-const LAZY_PRERENDER_HEIGHT = 150;
-
 function debounce(mainFunction, timeout = 300) {
 	let timer;
 	return (...args) => {
@@ -39,6 +37,7 @@ const init = () => {
 	makeLazyImages();
     makeInfiniteScroll();
     makePaginator();
+    makeAsyncFormsProcessing();
 };
 
 init();

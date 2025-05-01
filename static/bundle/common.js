@@ -1,6 +1,37 @@
 'use strict';
 (() => {
 
+/* src/Layout/Common/Component/AsyncForm/AsyncForm.js */
+// Маркер поля, которое нужно обработать асинхронно перед отправкой формы
+const ASYNC_FIELD_MARKER = 'data-async-processing';
+
+// Обработка отправки формы с асинхронными полями
+const processAsyncFormFields = async (evt) => {
+    const form = evt.target;
+    const asyncFields = form.querySelectorAll(`[${ASYNC_FIELD_MARKER}]`);
+    if (asyncFields.length !== 0) {
+        evt.preventDefault();
+        form.setAttribute('disabled', 'disabled');
+        const promises = [...asyncFields].map((asyncField) => {
+            const fieldPromise = asyncField['processAsync'] ? asyncField['processAsync'](asyncField) : Promise.resolve();
+            return fieldPromise.finally(() => asyncField.removeAttribute(ASYNC_FIELD_MARKER));
+        });
+        await Promise.allSettled(promises);
+        form.removeAttribute('disabled');
+        HTMLFormElement.prototype.requestSubmit.call(form, evt.submitter);
+    }
+};
+
+// Инициализация асинхронных форм
+const makeAsyncFormsProcessing = () => {
+    const forms = document.querySelectorAll('form');
+    forms.forEach((form) => {
+        if (form.querySelector(`[${ASYNC_FIELD_MARKER}]`) !== null) {
+            form.addEventListener('submit', processAsyncFormFields);
+        }
+    });
+};
+
 /* src/Layout/Common/Component/DateTimeFormatted/DateTimeFormatted.js */
 // Форматирование числа с подписью в строку: "1 стол, 2 стола, 5 столов"
 const formatIntCaption = (integer, str1, str2, str3) => {
@@ -348,8 +379,6 @@ const makeSubscribeButtons = (parentElement = document) => {
 }
 
 /* src/Layout/Common/CommonLayout.js */
-const LAZY_PRERENDER_HEIGHT = 150;
-
 function debounce(mainFunction, timeout = 300) {
 	let timer;
 	return (...args) => {
@@ -389,6 +418,7 @@ const init = () => {
 	makeLazyImages();
     makeInfiniteScroll();
     makePaginator();
+    makeAsyncFormsProcessing();
 };
 
 init();
