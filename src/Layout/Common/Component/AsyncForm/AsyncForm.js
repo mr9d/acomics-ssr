@@ -10,9 +10,10 @@ const processAsyncFormFields = async (evt) => {
         form.setAttribute('disabled', 'disabled');
         const promises = [...asyncFields].map((asyncField) => {
             const fieldPromise = asyncField['processAsync'] ? asyncField['processAsync'](asyncField) : Promise.resolve();
-            return fieldPromise.finally(() => asyncField.removeAttribute(ASYNC_FIELD_MARKER));
+            return fieldPromise;
         });
         await Promise.allSettled(promises);
+        form.removeEventListener('submit', processAsyncFormFields);
         form.removeAttribute('disabled');
         HTMLFormElement.prototype.requestSubmit.call(form, evt.submitter);
     }
