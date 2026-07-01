@@ -8,6 +8,8 @@ interface SerialCategoryProviderInt
 {
 	public function getById(int $id): ?SerialCategoryDto;
 
+	public function getByCode(string $code): ?SerialCategoryDto;
+
 	/** @return SerialCategoryDto[] */
 	public function getAll(): array;
 }

@@ -89,6 +89,19 @@ class SerialCategoryDictionary implements SerialCategoryProviderInt
 		return null;
     }
 
+	public function getByCode(string $code): ?SerialCategoryDto
+	{
+		foreach(self::CATEGORY_DICTIONARY as $id => $dictionaryParams)
+		{
+			if($dictionaryParams['code'] === $code)
+			{
+				return $this->makeSerialCategoryDto($id, $dictionaryParams);
+			}
+		}
+
+		return null;
+	}
+
 	/** @return SerialCategoryDto[] */
 	public function getAll(): array
     {
