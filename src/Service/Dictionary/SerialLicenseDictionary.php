@@ -85,7 +85,6 @@ class SerialLicenseDictionary implements SerialLicenseProviderInt
             id: $id,
             name: $dictionaryParams['name'],
             nameShort: $dictionaryParams['nameShort'],
-            iconUrl: null,
             descriptionUrl: $dictionaryParams['descriptionUrl'],
         );
     }
