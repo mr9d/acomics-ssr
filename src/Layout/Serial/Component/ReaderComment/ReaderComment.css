@@ -22,7 +22,7 @@ article.reader-comment div.comment-tail {
 
 /* Информация */
 article.reader-comment section.comment-info { grid-area: info; align-self: center; line-height: 1.4; word-break: break-word; z-index: 1; }
-article.reader-comment span.comment-username { display: inline-block; margin-right: 10px; font-size: 15px; }
+article.reader-comment span.comment-username { display: inline-block; margin-right: 10px; font-size: 15px; color: #757575; }
 article.reader-comment span.comment-role { display: inline-block; margin-right: 10px; color: var(--brand-orange); }
 article.reader-comment span.comment-ipaddress { display: inline-block; margin-right: 10px; color: #757575; }
 article.reader-comment span.date-time-formatted { display: inline-block; margin-right: 10px; color: #757575; }

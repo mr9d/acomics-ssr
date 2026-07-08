@@ -18,7 +18,7 @@ article.reader-issue-description h2.issue-description-title {
 	font-size: 1em; font-weight: normal; word-break: break-word;
 	margin: 0; grid-area: title; margin: var(--desktop-gap) 0 0; line-height: 1.4;
 }
-article.reader-issue-description h2.issue-description-title a.username { display: inline-block; margin-right: 10px; font-size: 15px; }
+article.reader-issue-description h2.issue-description-title span.username { display: inline-block; margin-right: 10px; font-size: 15px; color: #999; }
 article.reader-issue-description h2.issue-description-title span.title { display: inline-block; margin-right: 10px; font-weight: bold; }
 article.reader-issue-description h2.issue-description-title span.date-time-formatted { color: #999; margin-right: 10px; }
 

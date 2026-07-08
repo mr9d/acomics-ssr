@@ -57,7 +57,19 @@ class ReaderIssueDescription extends AbstractComponent
 	{
 		echo '<h2 class="issue-description-title">';
 
-		echo '<a class="username" href="' . UrlUtil::makeProfileUrl($this->issue->user->name) .'" aria-label="Профиль пользователя ' . $this->issue->user->name . '">' . $this->issue->user->name . '</a>';
+        // Имя пользователя
+		echo '<span class="username">';
+		if (!$this->issue->user->isAnonymous)
+		{
+			echo '<a href="' . UrlUtil::makeProfileUrl($this->issue->user->name) . '">';
+		}
+		echo $this->issue->user->name;
+		if (!$this->issue->user->isAnonymous)
+		{
+			echo '</a>';
+		}
+		echo '</span>'; // username
+
 		echo '<span class="title">' . ($this->issue->name ? $this->issue->name : 'Выпуск №' . $this->issue->number) . '</span>';
 
 		(new DateTimeFormatted($this->issue->postDate))->render();
