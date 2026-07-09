@@ -39,7 +39,14 @@ class AuthorUtil
 
 		$coauthorToString = fn(SerialCoauthorDto $coauthor) => '<a href="' . UrlUtil::makeProfileUrl($coauthor->username) . '">' . $coauthor->username . '</a>' . ($coauthor->role ? ' (' . $coauthor->role . ')' : '');
 
-		$result .= implode(', ', array_map($coauthorToString, $coauthors));
+        if(count($coauthors) > 0)
+        {
+		    $result .= implode(', ', array_map($coauthorToString, $coauthors));
+        }
+        else
+        {
+            $result .= 'Anonymous';
+        }
 
 		return $result;
 	}
