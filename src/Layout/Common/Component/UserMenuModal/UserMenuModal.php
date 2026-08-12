@@ -39,8 +39,8 @@ class UserMenuModal extends HeaderModal
 
         echo '<form method="POST" action="' . self::LOGIN_ACTION_PATH . '">';
 ?>
-			<label for="username">Имя пользователя:</label>
-			<input name="username" id="username" type="text" class="text" autocomplete="username" />
+			<label for="usernameOrEmail">Имя пользователя или e-mail:</label>
+			<input name="usernameOrEmail" id="usernameOrEmail" type="text" class="text" autocomplete="username" />
 			<label for="password">Пароль:</label>
 			<input name="password" id="password" type="password" class="text" autocomplete="current-password" />
 			<input name="check" type="hidden" value="0" />
