@@ -48,7 +48,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 
 		if($this->pageData->serial->siteUrl)
 		{
-			echo '<p><a href="' . UrlUtil::makeSerialUrl($this->pageData->serial->code) . '">https://acomics.ru' . UrlUtil::makeSerialUrl($this->pageData->serial->code) . '</a></p>';
+			echo '<p><a rel="ugc nofollow" href="' . UrlUtil::makeSerialUrl($this->pageData->serial->code) . '">https://acomics.ru' . UrlUtil::makeSerialUrl($this->pageData->serial->code) . '</a></p>';
 		}
 
 		if($this->pageData->serial->originalAuthorName)
@@ -97,7 +97,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 		echo '<p class="serial-about-site-url">';
 
 		echo '<b>' . ($this->pageData->serial->isTranslation ? 'Официальный сайт' : 'Сайт') . ':</b> ';
-		echo '<a href="' . $url . '">' . $url . '</a>';
+		echo '<a rel="ugc nofollow" href="' . $url . '">' . $url . '</a>';
 
 		echo '</p>';
 	}
@@ -105,7 +105,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 	private function ageRating(): void
     {
         $ageRating = $this->serialAgeRatingProvider->getById($this->pageData->serial->ageRatingId);
-        
+
 		echo '<p><b>Возрастной рейтинг:</b> <a href="/rating">' . $ageRating->name . '</a></p>';
     }
 

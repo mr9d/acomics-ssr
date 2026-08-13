@@ -114,7 +114,7 @@ class ReaderIssueDescription extends AbstractComponent
 
 		if ($this->serial->isTranslation && $this->issue->originalUrl !== null)
 		{
-			echo '<span class="issue-original-link">[<a href="' . $this->issue->originalUrl . '">Оригинал</a>]</span>';
+			echo '<span class="issue-original-link">[<a rel="ugc nofollow" href="' . $this->issue->originalUrl . '">Оригинал</a>]</span>';
 		}
 
 		echo '</section>'; // issue-description-buttons

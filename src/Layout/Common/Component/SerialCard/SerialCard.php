@@ -140,7 +140,7 @@ class SerialCard extends AbstractComponent
             return;
         }
 
-        echo '<a href="' . $this->serial->siteUrl . '" class="original-url">Оригинал</a>';
+        echo '<a rel="ugc nofollow" href="' . $this->serial->siteUrl . '" class="original-url">Оригинал</a>';
     }
 
     private function renderLicense(): void

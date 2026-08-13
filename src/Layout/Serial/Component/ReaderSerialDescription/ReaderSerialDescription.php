@@ -61,7 +61,7 @@ class ReaderSerialDescription extends AbstractComponent
 		}
 
 		$url = $this->serial->siteUrl ? $this->serial->siteUrl : 'https://acomics.ru' . UrlUtil::makeSerialUrl($this->serial->code);
-		echo '<p><b>' . ($this->serial->isTranslation ? 'Официальный сайт' : 'Сайт') . ':</b> <a href="' . $url . '">' . $url . '</a></p>';
+		echo '<p><b>' . ($this->serial->isTranslation ? 'Официальный сайт' : 'Сайт') . ':</b> <a rel="ugc nofollow" href="' . $url . '">' . $url . '</a></p>';
 
 		echo '<p>' . AuthorUtil::makeAuthorsString($this->coauthors, $this->serial->isTranslation) . '</p>';
 
