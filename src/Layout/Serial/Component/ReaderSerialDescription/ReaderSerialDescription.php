@@ -7,12 +7,10 @@ use Acomics\Ssr\Dto\ReaderSerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Layout\Common\Component\AgeRatingIcon\AgeRatingIcon;
 use Acomics\Ssr\Layout\Common\Component\LicenseIcon\LicenseIcon;
-use Acomics\Ssr\Service\Dictionary\SerialAgeRatingDictionary;
 use Acomics\Ssr\Service\Dictionary\SerialLicenseDictionary;
 use Acomics\Ssr\Util\AuthorUtil;
-use Acomics\Ssr\Util\Ref\SerialAgeRatingProviderInt;
 use Acomics\Ssr\Util\Ref\SerialLicenseProviderInt;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class ReaderSerialDescription extends AbstractComponent
 {
@@ -60,7 +58,7 @@ class ReaderSerialDescription extends AbstractComponent
 			echo '<p><b>Автор оригинала:</b> ' . $this->serial->originalAuthorName . '</p>';
 		}
 
-		$url = $this->serial->siteUrl ? $this->serial->siteUrl : 'https://acomics.ru' . UrlUtil::makeSerialUrl($this->serial->code);
+		$url = $this->serial->siteUrl ? $this->serial->siteUrl : UrlUtil::makeSerialUrl($this->serial->code)->absolute();
 		echo '<p><b>' . ($this->serial->isTranslation ? 'Официальный сайт' : 'Сайт') . ':</b> <a rel="ugc nofollow" href="' . $url . '">' . $url . '</a></p>';
 
 		echo '<p>' . AuthorUtil::makeAuthorsString($this->coauthors, $this->serial->isTranslation) . '</p>';

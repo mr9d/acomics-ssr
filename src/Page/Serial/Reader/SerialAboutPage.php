@@ -12,7 +12,7 @@ use Acomics\Ssr\Service\Dictionary\SerialLicenseDictionary;
 use Acomics\Ssr\Util\AuthorUtil;
 use Acomics\Ssr\Util\Ref\SerialAgeRatingProviderInt;
 use Acomics\Ssr\Util\Ref\SerialLicenseProviderInt;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 {
@@ -48,7 +48,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 
 		if($this->pageData->serial->siteUrl)
 		{
-			echo '<p><a rel="ugc nofollow" href="' . UrlUtil::makeSerialUrl($this->pageData->serial->code) . '">https://acomics.ru' . UrlUtil::makeSerialUrl($this->pageData->serial->code) . '</a></p>';
+			echo '<p><a rel="ugc nofollow" href="' . UrlUtil::makeSerialUrl($this->pageData->serial->code) . '">' . UrlUtil::makeSerialUrl($this->pageData->serial->code)->absolute() . '</a></p>';
 		}
 
 		if($this->pageData->serial->originalAuthorName)
@@ -92,7 +92,7 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 			return;
 		}
 
-		$url = $this->pageData->serial->siteUrl ? $this->pageData->serial->siteUrl : 'https://acomics.ru' . UrlUtil::makeSerialUrl($this->pageData->serial->code);
+		$url = $this->pageData->serial->siteUrl ? $this->pageData->serial->siteUrl : UrlUtil::makeSerialUrl($this->pageData->serial->code)->absolute();
 
 		echo '<p class="serial-about-site-url">';
 
@@ -148,4 +148,3 @@ class SerialAboutPage extends SerialReaderAsideLayout implements PageInt
 		echo '</nav>'; // serial-about-read-menu
 	}
 }
-

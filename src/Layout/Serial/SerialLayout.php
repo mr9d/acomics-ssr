@@ -4,7 +4,7 @@ namespace Acomics\Ssr\Layout\Serial;
 use Acomics\Ssr\Layout\Serial\SerialLayoutData;
 use Acomics\Ssr\Layout\Common\CommonLayout;
 use Acomics\Ssr\Layout\Serial\Component\SerialHeader\SerialHeader;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 abstract class SerialLayout extends CommonLayout
 {

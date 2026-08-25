@@ -8,6 +8,15 @@ class InfiniteScroll extends AbstractComponent
 {
     public const CONTENT_CLASS = 'infinite-scroll-content';
 
+    public static function getCurrentUrlWithSkip(int $skip): string
+    {
+        $url = parse_url($_SERVER['REQUEST_URI']);
+        parse_str($url['query'] ?? '', $query);
+        $query['skip'] = $skip;
+
+        return $url['path'] . '?' . http_build_query($query);
+    }
+
     public string $url;
 
     public int $maxLoads;

@@ -5,7 +5,7 @@ namespace Acomics\Ssr\Layout\Serial\Component\ReaderIssueTitle;
 use Acomics\Ssr\Dto\ReaderIssueDto;
 use Acomics\Ssr\Dto\ReaderSerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class ReaderIssueTitle extends AbstractComponent
 {

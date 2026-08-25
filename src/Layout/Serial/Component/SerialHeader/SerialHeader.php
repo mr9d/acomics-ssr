@@ -4,7 +4,7 @@ namespace Acomics\Ssr\Layout\Serial\Component\SerialHeader;
 
 use Acomics\Ssr\Layout\Serial\SerialLayoutData;
 use Acomics\Ssr\Layout\AbstractComponent;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class SerialHeader extends AbstractComponent
 {

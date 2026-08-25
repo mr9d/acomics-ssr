@@ -7,7 +7,7 @@ use Acomics\Ssr\Dto\ReaderSerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Layout\Common\Component\DateTimeFormatted\DateTimeFormatted;
 use Acomics\Ssr\Util\Integration\VkWidgetProviderInt;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class ReaderIssueDescription extends AbstractComponent
 {

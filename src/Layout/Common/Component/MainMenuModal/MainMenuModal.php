@@ -4,7 +4,7 @@ namespace Acomics\Ssr\Layout\Common\Component\MainMenuModal;
 
 use Acomics\Ssr\Layout\Common\AuthData;
 use Acomics\Ssr\Layout\Common\Component\HeaderModal\HeaderModal;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class MainMenuModal extends HeaderModal
 {

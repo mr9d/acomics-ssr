@@ -2,6 +2,8 @@
 
 namespace Acomics\Ssr\Util;
 
+use Acomics\Ssr\Util\Url\UrlUtil;
+
 use Acomics\Ssr\Dto\SerialCoauthorDto;
 
 class AuthorUtil

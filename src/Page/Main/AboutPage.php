@@ -6,7 +6,7 @@ use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
 use Acomics\Ssr\Layout\Common\Component\SectionHeader\SectionHeader;
 use Acomics\Ssr\Layout\Main\MainLayout;
 use Acomics\Ssr\Page\PageInt;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class AboutPage extends MainLayout implements PageInt
 {

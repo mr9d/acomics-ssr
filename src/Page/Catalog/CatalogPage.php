@@ -10,7 +10,6 @@ use Acomics\Ssr\Layout\Main\Component\CatalogSearchForm\CatalogSearchForm;
 use Acomics\Ssr\Layout\Main\Component\CatalogSerialsHeader\CatalogSerialsHeader;
 use Acomics\Ssr\Layout\Main\MainLayout;
 use Acomics\Ssr\Page\PageInt;
-use Acomics\Ssr\Util\UrlUtil;
 
 class CatalogPage extends MainLayout implements PageInt
 {
@@ -78,7 +77,7 @@ class CatalogPage extends MainLayout implements PageInt
             if ($this->pageData->hasMoreSerials)
             {
                 (new InfiniteScroll(
-                    url: UrlUtil::updatePageUrlParameter('skip', $this->pageData->skip + count($this->pageData->serials)),
+                    url: InfiniteScroll::getCurrentUrlWithSkip($this->pageData->skip + count($this->pageData->serials)),
                     maxLoads: 50,
                 ))->render();
             }

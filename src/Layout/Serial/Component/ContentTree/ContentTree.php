@@ -5,7 +5,7 @@ namespace Acomics\Ssr\Layout\Serial\Component\ContentTree;
 use Acomics\Ssr\Dto\SerialChapterDto;
 use Acomics\Ssr\Dto\SerialChapterStructDto;
 use Acomics\Ssr\Layout\AbstractComponent;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class ContentTree extends AbstractComponent
 {

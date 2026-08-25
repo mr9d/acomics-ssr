@@ -6,7 +6,7 @@ use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
 use Acomics\Ssr\Layout\Common\Component\Paginator\Paginator;
 use Acomics\Ssr\Layout\SerialReaderAside\SerialReaderAsideLayout;
 use Acomics\Ssr\Page\PageInt;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class SerialSubscriptionsPage extends SerialReaderAsideLayout implements PageInt
 {

@@ -12,7 +12,7 @@ use Acomics\Ssr\Service\Dictionary\SerialLicenseDictionary;
 use Acomics\Ssr\Util\CatalogStatus;
 use Acomics\Ssr\Util\Ref\SerialLicenseProviderInt;
 use Acomics\Ssr\Util\StringUtil;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 
 class SerialCard extends AbstractComponent

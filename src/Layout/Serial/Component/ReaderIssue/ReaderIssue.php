@@ -6,7 +6,7 @@ use Acomics\Ssr\Dto\ReaderIssueDto;
 use Acomics\Ssr\Dto\ReaderSerialDto;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Layout\Common\Component\LazyImage\LazyImage;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class ReaderIssue extends AbstractComponent
 {

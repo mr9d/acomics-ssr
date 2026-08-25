@@ -7,7 +7,7 @@ use Acomics\Ssr\Layout\Common\Component\Footer\Footer;
 use Acomics\Ssr\Layout\Common\Component\Header\Header;
 use Acomics\Ssr\Layout\Common\Component\PageHint\PageHint;
 use Acomics\Ssr\Util\Integration\IntegrationsProviderInt;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 abstract class CommonLayout extends AbstractLayout
 {

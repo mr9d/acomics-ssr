@@ -10,7 +10,7 @@ use Acomics\Ssr\Layout\Serial\Component\ReaderNavigator\ReaderNavigator;
 use Acomics\Ssr\Layout\SerialReader\SerialReaderLayout;
 use Acomics\Ssr\Page\PageInt;
 use Acomics\Ssr\Util\StringUtil;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class SerialListPage extends SerialReaderLayout implements PageInt
 {
@@ -87,7 +87,7 @@ class SerialListPage extends SerialReaderLayout implements PageInt
 		if ($this->pageData->hasMoreIssues)
 		{
             (new InfiniteScroll(
-                url: UrlUtil::updatePageUrlParameter('skip', $this->pageData->issues[count($this->pageData->issues) - 1]->number),
+                url: InfiniteScroll::getCurrentUrlWithSkip($this->pageData->issues[count($this->pageData->issues) - 1]->number),
                 maxLoads: 5,
             ))->render();
 		}

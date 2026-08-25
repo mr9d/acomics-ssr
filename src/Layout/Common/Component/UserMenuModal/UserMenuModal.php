@@ -5,7 +5,7 @@ namespace Acomics\Ssr\Layout\Common\Component\UserMenuModal;
 use Acomics\Ssr\Layout\Common\AuthData;
 use Acomics\Ssr\Dto\LinkDto;
 use Acomics\Ssr\Layout\Common\Component\HeaderModal\HeaderModal;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class UserMenuModal extends HeaderModal
 {

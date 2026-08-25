@@ -6,7 +6,7 @@ use Acomics\Ssr\Dto\IssuePreviewDto;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Layout\Common\Component\DateTimeFormatted\DateTimeFormatted;
 use Acomics\Ssr\Layout\Common\Component\LazyImage\LazyImage;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class IssuePreview extends AbstractComponent
 {

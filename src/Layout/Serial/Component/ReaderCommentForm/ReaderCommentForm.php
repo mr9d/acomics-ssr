@@ -5,7 +5,7 @@ namespace Acomics\Ssr\Layout\Serial\Component\ReaderCommentForm;
 use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Layout\Common\AuthData;
 use Acomics\Ssr\Util\Integration\CaptchaProviderInt;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class ReaderCommentForm extends AbstractComponent
 {

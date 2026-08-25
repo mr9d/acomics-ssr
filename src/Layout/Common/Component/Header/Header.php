@@ -6,7 +6,7 @@ use Acomics\Ssr\Layout\AbstractComponent;
 use Acomics\Ssr\Layout\Common\AuthData;
 use Acomics\Ssr\Layout\Common\Component\MainMenuModal\MainMenuModal;
 use Acomics\Ssr\Layout\Common\Component\UserMenuModal\UserMenuModal;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 class Header extends AbstractComponent
 {

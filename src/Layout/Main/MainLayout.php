@@ -3,7 +3,7 @@
 namespace Acomics\Ssr\Layout\Main;
 
 use Acomics\Ssr\Layout\Common\CommonLayout;
-use Acomics\Ssr\Util\UrlUtil;
+use Acomics\Ssr\Util\Url\UrlUtil;
 
 abstract class MainLayout extends CommonLayout
 {
