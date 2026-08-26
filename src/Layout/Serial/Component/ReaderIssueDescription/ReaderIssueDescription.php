@@ -104,7 +104,7 @@ class ReaderIssueDescription extends AbstractComponent
 
 		if ($this->serial->isTopEnabled)
 		{
-			echo '<a class="serial-top-vote" href="/top/voter?id=' . $this->serial->code . '">Проголосовать</a>';
+			echo '<a class="serial-top-vote" href="' . UrlUtil::makeTopVoterUrl($this->serial->code) . '">Проголосовать</a>';
 		}
 
 		if ($this->vkWidgetProvider !== null)

@@ -100,7 +100,7 @@ class SerialCard extends AbstractComponent
             return;
         }
 
-        echo '<a class="icon-top-vote" href="/top/voter?id=' . $this->serial->code . '">';
+		echo '<a class="icon-top-vote" href="' . UrlUtil::makeTopVoterUrl($this->serial->code) . '">';
         echo '</a>';
     }
 

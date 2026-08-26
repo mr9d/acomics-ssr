@@ -2,8 +2,6 @@
 
 namespace Acomics\Ssr\Util\Url;
 
-use Acomics\Ssr\Layout\Common\AuthData;
-
 require_once __DIR__ . '/../../hashes.generated.php';
 
 class UrlUtil
@@ -31,15 +29,20 @@ class UrlUtil
 		return new AcomicsUrl('/' . self::SERIAL_URL_PREFIX . $serialCode . ($subPage ? '/' . $subPage : ''), static::getOrigin());
 	}
 
-	public static function makeSubscriptionsUrl(AuthData $auth): AcomicsUrl
+	public static function makeTopVoterUrl(string $serialCode): AcomicsUrl
 	{
-		if (!$auth->isLoggedIn)
+		return new AcomicsUrl('/top/voter?id=' . $serialCode, static::getOrigin());
+	}
+
+	public static function makeSubscriptionsUrl(?string $username, bool $isLoggedIn): AcomicsUrl
+	{
+		if (!$isLoggedIn)
 		{
 			return new AcomicsUrl(self::DEFAULT_SUBSCRIPTIONS_URL, static::getOrigin());
 		}
 		else
 		{
-			return self::makeProfileUrl($auth->username, 'list2');
+			return self::makeProfileUrl($username, 'list2');
 		}
 	}
 

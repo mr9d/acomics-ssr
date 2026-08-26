@@ -30,7 +30,7 @@ class MainMenuModal extends HeaderModal
 					<a href="/comics" class="common-menu-item<?=($this->activePage==='comics')?' selected':''?>">Каталог комиксов<span></span></a>
 				</li>
 				<li>
-					<a href="<?=UrlUtil::makeSubscriptionsUrl($this->auth)?>" class="common-menu-item<?=($this->activePage==='list2')?' selected':''?>">Подписки<span></span></a>
+					<a href="<?=UrlUtil::makeSubscriptionsUrl($this->auth->username, $this->auth->isLoggedIn)?>" class="common-menu-item<?=($this->activePage==='list2')?' selected':''?>">Подписки<span></span></a>
 				</li>
 				<li>
 					<a href="/top" class="common-menu-item<?=($this->activePage==='top')?' selected':''?>">Голосовалка<span></span></a>
