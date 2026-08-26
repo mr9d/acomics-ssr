@@ -4,11 +4,11 @@ namespace Acomics\Ssr\Util\Url;
 
 final class AcomicsUrl implements \Stringable
 {
-	private const ORIGIN = 'https://acomics.ru';
-
-	public function __construct(private readonly string $path)
-	{
-	}
+	public function __construct(
+		private readonly string $path,
+		private readonly string $origin,
+	)
+	{}
 
 	public function __toString(): string
 	{
@@ -17,6 +17,6 @@ final class AcomicsUrl implements \Stringable
 
 	public function absolute(): string
 	{
-		return self::ORIGIN . $this->path;
+		return $this->origin . $this->path;
 	}
 }

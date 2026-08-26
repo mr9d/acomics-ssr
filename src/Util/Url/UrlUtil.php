@@ -8,27 +8,34 @@ require_once __DIR__ . '/../../hashes.generated.php';
 
 class UrlUtil
 {
+	private const DEFAULT_ORIGIN = 'https://acomics.ru';
+
 	public const PROFILE_URL_PREFIX = '-';
 
 	public const SERIAL_URL_PREFIX = '~';
 
 	private const DEFAULT_SUBSCRIPTIONS_URL = '/profile/featured';
 
+	public static function getOrigin(): string
+	{
+		return self::DEFAULT_ORIGIN;
+	}
+
 	public static function makeProfileUrl(string $username, ?string $subPage = null): AcomicsUrl
 	{
-		return new AcomicsUrl('/' . self::PROFILE_URL_PREFIX . $username . ($subPage ? '/' . $subPage : ''));
+		return new AcomicsUrl('/' . self::PROFILE_URL_PREFIX . $username . ($subPage ? '/' . $subPage : ''), static::getOrigin());
 	}
 
 	public static function makeSerialUrl(string $serialCode, ?string $subPage = null): AcomicsUrl
 	{
-		return new AcomicsUrl('/' . self::SERIAL_URL_PREFIX . $serialCode . ($subPage ? '/' . $subPage : ''));
+		return new AcomicsUrl('/' . self::SERIAL_URL_PREFIX . $serialCode . ($subPage ? '/' . $subPage : ''), static::getOrigin());
 	}
 
 	public static function makeSubscriptionsUrl(AuthData $auth): AcomicsUrl
 	{
 		if (!$auth->isLoggedIn)
 		{
-			return new AcomicsUrl(self::DEFAULT_SUBSCRIPTIONS_URL);
+			return new AcomicsUrl(self::DEFAULT_SUBSCRIPTIONS_URL, static::getOrigin());
 		}
 		else
 		{
@@ -39,6 +46,6 @@ class UrlUtil
 	public static function makeStaticUrlWithHash(string $staticPath): AcomicsUrl
 	{
 		global $hashes;
-		return new AcomicsUrl('/' . $staticPath . '?' . $hashes[$staticPath]);
+		return new AcomicsUrl('/' . $staticPath . '?' . $hashes[$staticPath], static::getOrigin());
 	}
 }
