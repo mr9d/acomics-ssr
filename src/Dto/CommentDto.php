@@ -11,6 +11,8 @@ class CommentDto
 	public int $postDate;
 	public string $text;
 	public bool $isEditable;
+    public ?int $modifyDate;
+    public ?string $modifyUsername;
 
     public string $serialCode;
     public string $serialName;
@@ -25,6 +27,8 @@ class CommentDto
 		int $postDate,
 		string $text,
 		bool $isEditable,
+        ?int $modifyDate,
+        ?string $modifyUsername,
         string $serialCode,
         string $serialName,
         string $issueNumber,
@@ -37,6 +41,8 @@ class CommentDto
 		$this->postDate = $postDate;
 		$this->text = $text;
 		$this->isEditable = $isEditable;
+        $this->modifyDate = $modifyDate;
+        $this->modifyUsername = $modifyUsername;
         $this->serialCode = $serialCode;
         $this->serialName = $serialName;
         $this->issueNumber = $issueNumber;

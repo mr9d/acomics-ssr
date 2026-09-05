@@ -132,6 +132,15 @@ class ReaderComment extends AbstractComponent
 	{
 		echo '<section class="comment-text">';
 		echo $this->comment->text;
+
+        if($this->comment->modifyDate)
+        {
+            echo '<div class="edited">';
+            echo 'Отредактировано  «' . ($this->comment->modifyUsername ?? 'Anonymous') . '» ';
+            (new DateTimeFormatted($this->comment->modifyDate))->render();
+            echo '</div>';
+        }
+
 		echo '<button class="comment-expand">Читать дальше</button>';
 		echo '<button class="comment-collapse">Свернуть</button>';
 		echo '</section>'; // comment-text
