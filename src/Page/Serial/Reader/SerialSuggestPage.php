@@ -5,6 +5,7 @@ namespace Acomics\Ssr\Page\Serial\Reader;
 use Acomics\Ssr\Dto\IssuePreviewDto;
 use Acomics\Ssr\Layout\Common\Component\DateTimeFormatted\DateTimeFormatted;
 use Acomics\Ssr\Layout\Common\Component\LazyImage\LazyImage;
+use Acomics\Ssr\Layout\Common\Component\MarkdownEditor\MarkdownEditor;
 use Acomics\Ssr\Layout\Common\Component\PageHeaderWithMenu\PageHeaderWithMenu;
 use Acomics\Ssr\Layout\SerialReaderAside\SerialReaderAsideLayout;
 use Acomics\Ssr\Page\PageInt;
@@ -35,10 +36,7 @@ class SerialSuggestPage extends SerialReaderAsideLayout implements PageInt
     {
         parent::head();
 
-        // HTML-редактор
-        echo '<link rel="stylesheet" href="/design/common/sceditor/default.min.css" type="text/css" media="all" />';
-        echo '<script defer src="/design/common/js/jqueryplus.js"></script>';
-        echo '<script defer src="/design/common/sceditor/jquery.sceditor.xhtml.min.js"></script>';
+        MarkdownEditor::head();
     }
 
 	public function content(): void
@@ -143,7 +141,7 @@ class SerialSuggestPage extends SerialReaderAsideLayout implements PageInt
 
     private function inputImage(): void
     {
-        echo '<label for="input-image">Изображение:</label>';
+        echo '<label class="suggest-label" for="input-image">Изображение:</label>';
 		echo '<input name="image" id="input-image" type="file" class="file" value="" required data-limit="2097152">';
 
 		echo '<div class="help">';
@@ -157,17 +155,17 @@ class SerialSuggestPage extends SerialReaderAsideLayout implements PageInt
 
     private function inputName(): void
     {
-        echo '<label for="input-name">Название:</label>';
+        echo '<label class="suggest-label" for="input-name">Название:</label>';
         echo '<input name="name" id="input-name" type="text" class="text" value="">';
         echo '<div class="help">Название будет отображаться сверху над вашей работой.</div>';
     }
 
     private function inputDescription(): void
     {
-        echo '<label for="input-description">Описание:</label>';
+        echo '<label class="suggest-label" for="input-description">Описание:</label>';
 
         echo '<div class="description">';
-        echo '<textarea name="description" id="input-description" type="text" class="text editor" style="width: 100%"></textarea>';
+        (new MarkdownEditor(name: 'descriptionMd'))->render();
         echo '</div>'; // description
 
         echo '<div class="help">';

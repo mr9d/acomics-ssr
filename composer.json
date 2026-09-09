@@ -10,6 +10,12 @@
             "src/Script/Build.php"
         ]
     },
+    "authors": [
+        {
+            "name": "Aleksandr Kozlov",
+            "email": "themrgd@gmail.com"
+        }
+    ],
     "scripts": {
         "build": [
             "@clean",

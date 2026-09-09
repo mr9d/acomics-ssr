@@ -20,9 +20,10 @@ class MarkdownEditor extends AbstractComponent
     public static function head(): void
     {
         // See https://github.com/mr9d/acomics-markdown-editor/tree/main/versions
-        echo '<script defer src="https://cdn.jsdelivr.net/gh/mr9d/acomics-markdown-editor@master/versions/2.4.2/bundle.js" integrity="sha384-pvdMEzEKr0qhyXe1n1JrhoRUH80wxpZJTlcN6FudirtGVvRWVL5/0qpXeOhQIghn" crossorigin="anonymous"></script>';
-        echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mr9d/acomics-markdown-editor@master/versions/2.4.2/bundle.css" integrity="sha384-IGnyjM9ka5zkADAPxZcW53zcaydMAJ8M1N260pSAGDjOIKeY/rp0/aJ4zWKJtlhv" crossorigin="anonymous">';
-
+        echo <<<HTML
+            <script defer src="https://cdn.jsdelivr.net/gh/mr9d/acomics-markdown-editor@master/versions/2.5.0/bundle.js" integrity="sha384-4bmg2npnQ+ya9D5rT0N1w1kPkDq6QyTLjauE8+/CftTYy68QGbsDQv/gYOlUJ02F" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mr9d/acomics-markdown-editor@master/versions/2.5.0/bundle.css" integrity="sha384-UREhWNpcYfb3G3AwMfYO0QgEhH/hU8rzokBuw0p6tgh23C3YJ751qfK2U8nNoQY9" crossorigin="anonymous">
+        HTML;
         self::$isDepsInitialized = true;
     }
 
