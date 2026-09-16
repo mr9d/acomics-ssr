@@ -9,7 +9,7 @@ section.serial-character {
 section.serial-character h2 { grid-area: title; margin-top: 0; }
 section.serial-character div.image { grid-area: image; box-sizing: border-box; }
 section.serial-character div.image a { display: block; border: 1px solid var(--brand-grey); }
-section.serial-character div.image img { display: block; margin: 0 auto; }
+section.serial-character div.image img { display: block; margin: 0 auto; width: 100px; height: 100px; object-fit: cover; object-position: center; }
 section.serial-character div.about { grid-area: about; padding: 1em 0; }
 section.serial-character div.about > :first-child { margin-top: 0; }
 section.serial-character div.about > :last-child { margin-bottom: 0; }
