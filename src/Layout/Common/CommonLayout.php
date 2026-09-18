@@ -52,6 +52,7 @@ abstract class CommonLayout extends AbstractLayout
 		echo '<link rel="icon" href="/static/favicon/favicon.ico" sizes="16x16 32x32 48x48">';
 		echo '<link rel="icon" href="/static/favicon/favicon.svg" type="image/svg+xml" sizes="any">';
 		echo '<link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon.png">';
+		echo '<link rel="manifest" href="/site.webmanifest">';
 		echo '<link rel="stylesheet" href="/static/css/normalize.css?18-11-2023" type="text/css" />';
 		echo '<link rel="stylesheet" href="' . UrlUtil::makeStaticUrlWithHash('static/bundle/common.css') . '" type="text/css" />';
 		echo '<script defer src="' . UrlUtil::makeStaticUrlWithHash('static/bundle/common.js') . '"></script>';
